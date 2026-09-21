@@ -14,7 +14,6 @@
 	import Underline from '@lucide/svelte/icons/underline';
 	import Zoom from '@lucide/svelte/icons/zoom-in';
 	import FontSize from '@lucide/svelte/icons/a-large-small';
-	import Insert from '@lucide/svelte/icons/plus';
 	import Save from '@lucide/svelte/icons/save';
 	import Submit from '@lucide/svelte/icons/send';
 	import { barHidden } from '$lib/state.svelte';
@@ -32,8 +31,6 @@
 
 	let textStyle = $state('p');
 	let changeTextStyleOpen = $state(false);
-
-	let insertOpen = $state(false);
 
 	let addAccentOpen = $state(false);
 
@@ -224,25 +221,9 @@
 			/>
 		</Popover>
 		<div class="h-2"></div>
-		<Popover bind:open={insertOpen}>
-			<div class="my-2 flex gap-3">
-				<Button.Root
-					onclick={() => {
-						addAccentOpen = true;
-						insertOpen = false;
-					}}
-					class="icon-button"
-					title={m.accents()}
-				>
-					É
-				</Button.Root>
-			</div>
-			{#snippet trigger()}
-				<Button.Root class="icon-button">
-					<Insert size={20} />
-				</Button.Root>
-			{/snippet}
-		</Popover>
+		<Button.Root onclick={() => (addAccentOpen = true)} class="icon-button" title={m.accents()}>
+			É
+		</Button.Root>
 		<div class="my-3 w-10 border-b border-(--o)"></div>
 		{@render children()}
 		<Button.Root
