@@ -28,7 +28,7 @@
 				{(options.find((a) => a.value === params.class) ?? { label: m.select_a_class() })
 					.label}
 			</p>
-			<Dropdown>
+			<Dropdown class="more-padding">
 				{#snippet trigger()}
 					<DropdownMenu.Trigger>
 						<Expand size={18} />

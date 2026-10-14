@@ -1,33 +1,24 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Editor } from '@tiptap/core';
-	import Slider from '$lib/components/Slider.svelte';
 	import Toggle from '$lib/components/Toggle.svelte';
-	import Loader from '$lib/components/Loader.svelte';
 	import Popover from '$lib/components/Popover.svelte';
 	import Select from '$lib/components/Select.svelte';
 	import AlertDialog from '$lib/components/AlertDialog.svelte';
 	import { m } from '$lib/paraglide/messages';
-	import { Button, ToggleGroup } from 'bits-ui';
 	import Bold from '@lucide/svelte/icons/bold';
 	import Italic from '@lucide/svelte/icons/italic';
 	import Underline from '@lucide/svelte/icons/underline';
-	import Zoom from '@lucide/svelte/icons/zoom-in';
 	import FontSize from '@lucide/svelte/icons/a-large-small';
-	import Insert from '@lucide/svelte/icons/plus';
-	import { barHidden } from '$lib/state.svelte';
 	import { extensions, editorExtensions } from '$lib/tiptap';
 	import Accents from '$lib/components/Accents.svelte';
+	import { Button } from 'bits-ui';
 
 	let element: any = $state();
 	let editorState: { editor: Editor | null } = $state({ editor: null });
 
-	let zoom = $state(95);
-
 	let textStyle = $state('p');
 	let changeTextStyleOpen = $state(false);
-
-	let insertOpen = $state(false);
 
 	let addAccentOpen = $state(false);
 
@@ -95,127 +86,9 @@
 	function oncontextmenu(event: Event) {
 		event.preventDefault();
 	}
-
-	function getWordCount(text: string | undefined): number {
-		if (!text) {
-			return 0;
-		}
-		return text
-			.trim()
-			.split(/\s/)
-			.filter((word) => word !== '').length;
-	}
-
-	const wordCount = $derived(getWordCount(editorState.editor?.getText()));
-
-	const selectionWordCount = $derived(
-		getWordCount(
-			!editorState.editor?.state.selection.empty
-				? editorState.editor
-						?.getText()
-						.substring(
-							editorState.editor?.state.selection.from - 1,
-							editorState.editor?.state.selection.to
-						)
-				: undefined
-		)
-	);
 </script>
 
 <svelte:window {onbeforeunload} {oncontextmenu} />
-
-<!-- <button
-	class="fixed top-0 right-0 flex h-screen w-24 flex-col items-center justify-center gap-2 border-r border-(--o) bg-(--bg)"
-	onclick={() => editorState.editor?.chain().focus().run()}
->
-	{#if editorState.editor}
-		{#if !barHidden.value}
-			<div class="relative top-0 left-0 h-20 bg-red-500"></div>
-		{/if}
-		<Popover>
-			{#snippet trigger()}
-				<Button.Root class="icon-button"><Zoom size={20} /></Button.Root>
-			{/snippet}
-			<div class="flex gap-4">
-				<p>{m.zoom()}:</p>
-				<Slider bind:value={zoom} min={10} max={200} />
-			</div>
-		</Popover>
-		<div class="my-3 w-10 border-b border-(--o)"></div>
-		<Toggle
-			active={editorState.editor?.isActive('bold')}
-			class="toggle-icon"
-			onclick={() => editorState.editor?.chain().focus().toggleBold().run()}
-			title={m.bold()}
-		>
-			<Bold size={20} />
-		</Toggle>
-		<Toggle
-			active={editorState.editor?.isActive('italic')}
-			class="toggle-icon"
-			onclick={() => editorState.editor?.chain().focus().toggleItalic().run()}
-			title={m.italic()}
-		>
-			<Italic size={20} />
-		</Toggle>
-		<Toggle
-			active={editorState.editor?.isActive('underline')}
-			class="toggle-icon"
-			onclick={() => editorState.editor?.chain().focus().toggleUnderline().run()}
-			title={m.underline()}
-		>
-			<Underline size={20} />
-		</Toggle>
-		<div class="h-2"></div>
-		<Popover border={false} bind:open={changeTextStyleOpen}>
-			{#snippet trigger()}
-				<Button.Root class="icon-button"><FontSize size={20} /></Button.Root>
-			{/snippet}
-			<Select
-				options={[
-					{ value: 'p', label: m.body() },
-					{ value: 'h2', label: m.subheading() },
-					{ value: 'h1', label: m.heading() }
-				]}
-				bind:value={textStyle}
-				onChange={changeTextStyle}
-				class="popover-select"
-			/>
-		</Popover>
-		<div class="h-2"></div>
-		<Popover bind:open={insertOpen}>
-			<div class="my-2 flex gap-3">
-				<Button.Root
-					onclick={() => {
-						addAccentOpen = true;
-						insertOpen = false;
-					}}
-					class="icon-button"
-					title={m.accents()}
-				>
-					É
-				</Button.Root>
-			</div>
-			{#snippet trigger()}
-				<Button.Root class="icon-button">
-					<Insert size={20} />
-				</Button.Root>
-			{/snippet}
-		</Popover>
-		<div class="my-3 w-10 border-b border-(--o)"></div>
-		<div>
-			{const combinedWordCount: number = $derived(
-				selectionWordCount !== 0 ? selectionWordCount : wordCount
-			)}
-			<p class="text-xl leading-3 font-bold">
-				{combinedWordCount}
-			</p>
-			<p>{m.word()}{combinedWordCount !== 1 ? 's' : ''}</p>
-		</div>
-	{:else}
-		<Loader />
-	{/if}
-</button> -->
 
 <div class="border-o m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2">
 	<Toggle
@@ -255,14 +128,13 @@
 			]}
 			bind:value={textStyle}
 			onChange={changeTextStyle}
-			class="popover-select"
+			class="popover-select py-1.5!"
 		/>
 	</Popover>
 	<div class="mx-1 border-l border-(--o)"></div>
 	<Button.Root
 		onclick={() => {
 			addAccentOpen = true;
-			insertOpen = false;
 		}}
 		class="icon-button"
 		title={m.accents()}

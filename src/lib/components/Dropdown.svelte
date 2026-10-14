@@ -2,13 +2,13 @@
 	import { DropdownMenu } from 'bits-ui';
 	import { fade } from 'svelte/transition';
 
-	let { trigger, children } = $props();
+	let { trigger, children, class: c } = $props();
 </script>
 
 <DropdownMenu.Root>
 	{@render trigger()}
 	<DropdownMenu.Portal>
-		<DropdownMenu.Content sideOffset={10} forceMount data-select-content>
+		<DropdownMenu.Content sideOffset={10} forceMount data-select-content class={c}>
 			{#snippet child({ wrapperProps, props, open })}
 				{#if open}
 					<div {...wrapperProps}>
