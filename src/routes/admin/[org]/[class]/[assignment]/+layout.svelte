@@ -193,7 +193,7 @@
 					<input
 						placeholder={data.assignment.name}
 						bind:value={nameValue}
-						name="name"
+						{...changeName.fields.name.as('text')}
 						id="name"
 						class="w-70"
 						required
@@ -212,8 +212,12 @@
 					{changeName.result?.nameMessage}
 				</p>
 
-				<input type="hidden" name="assignment" value={params.assignment} />
-				<input type="hidden" name="class" value={params.class} />
+				<input
+					type="hidden"
+					{...changeName.fields.name.as('text')}
+					value={params.assignment}
+				/>
+				<input type="hidden" {...changeName.fields.class.as('text')} value={params.class} />
 			</form>
 		{/if}
 	</div>
@@ -233,7 +237,8 @@
 				<div class="m-auto mb-5 w-full">
 					<Label.Root for="description">Description:</Label.Root><br />
 					<textarea
-						name="description"
+
+						{...changeDescription.fields.description.as('text')}
 						id="description"
 						placeholder={data.assignment.description}
 						bind:value={descriptionValue}
