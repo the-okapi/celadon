@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 	import { Button } from 'bits-ui';
-	import { formatDate } from '$lib/util';
-	import Tabs from '$lib/components/Tabs.svelte';
+	import { formatDate } from '#lib/util.js';
+	import Tabs from '#lib/components/Tabs.svelte';
 
 	let { data, params } = $props();
 

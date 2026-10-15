@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Select from '$lib/components/Select.svelte';
+	import Select from '#lib/components/Select.svelte';
 	import { mode, setMode, setTheme, theme } from 'mode-watcher';
 	import { Label, Popover } from 'bits-ui';
 	import { fade } from 'svelte/transition';
-	import { m } from '$lib/paraglide/messages';
-	import { getLocale } from '$lib/paraglide/runtime';
-	import { setLocale } from '$lib/paraglide/runtime';
+	import { m } from '#lib/paraglide/messages.js';
+	import { getLocale } from '#lib/paraglide/runtime.js';
+	import { setLocale } from '#lib/paraglide/runtime.js';
 
 	// Light/Dark
 	let modes = $derived([

@@ -1,7 +1,6 @@
-import { sequence } from '@sveltejs/kit/hooks';
-import { getTextDirection } from '$lib/paraglide/runtime';
-import { paraglideMiddleware } from '$lib/paraglide/server';
-import type { Handle } from '@sveltejs/kit';
+import { sequence, type Handle } from '@sveltejs/kit/hooks';
+import { getTextDirection } from '#lib/paraglide/runtime.js';
+import { paraglideMiddleware } from '#lib/paraglide/server.js';
 import { createServerClient } from '@supabase/ssr';
 import { PRIVATE_SUPABASE_PUBLISHABLE_KEY, PRIVATE_SUPABASE_URL } from '$app/env/private';
 

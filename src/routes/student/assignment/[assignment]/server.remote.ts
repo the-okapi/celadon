@@ -1,6 +1,6 @@
 import { command, getRequestEvent } from '$app/server';
 import { object, string } from 'valibot';
-import { unwrap, unwrapNoData } from '$lib/error';
+import { unwrap, unwrapNoData } from '#lib/error.js';
 
 const SaveSchema = object({
 	assignment: string(),

@@ -1,8 +1,8 @@
 import { form, getRequestEvent, query } from '$app/server';
 import { redirect } from '@sveltejs/kit';
 import { optional, object, string } from 'valibot';
-import { error500, unwrap, unwrapNoData } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { error500, unwrap, unwrapNoData } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 const CreateAssignmentSchema = object({
 	name: string(),

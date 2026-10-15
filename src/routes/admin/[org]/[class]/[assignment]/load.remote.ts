@@ -1,6 +1,6 @@
 import { getRequestEvent, query } from '$app/server';
 import { redirect } from '@sveltejs/kit';
-import { error500, unwrap } from '$lib/error';
+import { error500, unwrap } from '#lib/error.js';
 import { string } from 'valibot';
 
 export const loadStudents = query(string(), async (className) => {

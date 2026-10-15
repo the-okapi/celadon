@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Editor } from '@tiptap/core';
 	import { onMount } from 'svelte';
-	import { extensions, viewerExtensions } from '$lib/tiptap';
-	import { m } from '$lib/paraglide/messages';
-	import { formatDate } from '$lib/util';
+	import { extensions, viewerExtensions } from '#lib/tiptap.js';
+	import { m } from '#lib/paraglide/messages.js';
+	import { formatDate } from '#lib/util.js';
 
 	let element: any = $state();
 	let editorState: { editor: Editor | null } = $state({ editor: null });

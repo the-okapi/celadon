@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Loader from '$lib/components/Loader.svelte';
+	import Loader from '#lib/components/Loader.svelte';
 	import { enhance } from '$app/forms';
 	import { Label, Button } from 'bits-ui';
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 
 	let { form } = $props();
 

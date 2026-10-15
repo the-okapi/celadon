@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import { error500, unwrap, unwrapNoData } from '$lib/error';
+import { error500, unwrap, unwrapNoData } from '#lib/error.js';
 
 export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 	try {

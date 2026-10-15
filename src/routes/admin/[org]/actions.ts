@@ -1,10 +1,10 @@
 import { redirect, fail } from '@sveltejs/kit';
-import resend from '$lib/resend';
+import resend from '#lib/resend.js';
 import { object, string, safeParse } from 'valibot';
 import type { RouteParams } from './$types';
-import { UserIdSchema } from '$lib/util';
-import { unwrap, unwrapNoData, HttpError, error500, handleHttpError } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { UserIdSchema } from '#lib/util.js';
+import { unwrap, unwrapNoData, HttpError, error500, handleHttpError } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 import { PUBLIC_REPAPER_URL } from '$app/env/public';
 
 type ActionData = {

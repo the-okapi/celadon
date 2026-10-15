@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Button, Label } from 'bits-ui';
 	import type { PageProps } from './$types';
-	import Loader from '$lib/components/Loader.svelte';
+	import Loader from '#lib/components/Loader.svelte';
 	import { enhance } from '$app/forms';
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 
 	let { form }: PageProps = $props();
 

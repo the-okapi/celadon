@@ -1,10 +1,10 @@
 import type { Actions, PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import { unwrap, unwrapNoData, HttpError, handleHttpError } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { unwrap, unwrapNoData, HttpError, handleHttpError } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 import { object, string, safeParse } from 'valibot';
 import { fail } from '@sveltejs/kit';
-import { UserIdSchema } from '$lib/util';
+import { UserIdSchema } from '#lib/util.js';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	const {

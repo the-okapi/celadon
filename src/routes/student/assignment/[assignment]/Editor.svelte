@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Editor } from '@tiptap/core';
-	import Slider from '$lib/components/Slider.svelte';
-	import Toggle from '$lib/components/Toggle.svelte';
-	import Loader from '$lib/components/Loader.svelte';
-	import Popover from '$lib/components/Popover.svelte';
-	import Select from '$lib/components/Select.svelte';
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
-	import { m } from '$lib/paraglide/messages';
+	import Slider from '#lib/components/Slider.svelte';
+	import Toggle from '#lib/components/Toggle.svelte';
+	import Loader from '#lib/components/Loader.svelte';
+	import Popover from '#lib/components/Popover.svelte';
+	import Select from '#lib/components/Select.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
+	import { m } from '#lib/paraglide/messages.js';
 	import { Button } from 'bits-ui';
 	import Bold from '@lucide/svelte/icons/bold';
 	import Italic from '@lucide/svelte/icons/italic';
@@ -16,11 +16,11 @@
 	import FontSize from '@lucide/svelte/icons/a-large-small';
 	import Save from '@lucide/svelte/icons/save';
 	import Submit from '@lucide/svelte/icons/send';
-	import { barHidden } from '$lib/state.svelte';
-	import { extensions, editorExtensions } from '$lib/tiptap';
+	import { barHidden } from '#lib/state.svelte.js';
+	import { extensions, editorExtensions } from '#lib/tiptap.js';
 	import { saveDocument, submitDocument } from './server.remote.ts';
-	import Accents from '$lib/components/Accents.svelte';
-	import { invalidateAll } from '$app/navigation';
+	import Accents from '#lib/components/Accents.svelte';
+	import { refreshAll } from '$app/navigation';
 
 	let element: any = $state();
 	let editorState: { editor: Editor | null } = $state({ editor: null });
@@ -82,7 +82,7 @@
 	async function submitAssignment() {
 		await saveButton();
 		await submitDocument(assignment);
-		invalidateAll();
+		refreshAll();
 	}
 
 	onMount(() => {

@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import { m } from '$lib/paraglide/messages';
+import { m } from '#lib/paraglide/messages.js';
 
 export const load: PageLoad = () => {
 	return {

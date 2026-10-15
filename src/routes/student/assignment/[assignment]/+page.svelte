@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages';
-	import { formatDate } from '$lib/util';
+	import { m } from '#lib/paraglide/messages.js';
+	import { formatDate } from '#lib/util.js';
 	import { Button } from 'bits-ui';
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import Info from '@lucide/svelte/icons/info';
 	import Undo from '@lucide/svelte/icons/undo-2';
 	import Editor from './Editor.svelte';

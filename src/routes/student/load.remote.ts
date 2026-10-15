@@ -1,6 +1,6 @@
 import { query, getRequestEvent } from '$app/server';
-import type { Assignment } from '$lib/util';
-import { error500, unwrap } from '$lib/error';
+import type { Assignment } from '#lib/util.js';
+import { error500, unwrap } from '#lib/error.js';
 
 export const loadAssignments = query(async () => {
 	const { locals } = getRequestEvent();

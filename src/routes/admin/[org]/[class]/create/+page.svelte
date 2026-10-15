@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Loader from '$lib/components/Loader.svelte';
-	import Switch from '$lib/components/Switch.svelte';
-	import Combobox from '$lib/components/Combobox.svelte';
-	import DatePicker from '$lib/components/DatePicker.svelte';
-	import Tabs from '$lib/components/Tabs.svelte';
+	import Loader from '#lib/components/Loader.svelte';
+	import Switch from '#lib/components/Switch.svelte';
+	import Combobox from '#lib/components/Combobox.svelte';
+	import DatePicker from '#lib/components/DatePicker.svelte';
+	import Tabs from '#lib/components/Tabs.svelte';
 	import { createAssignment, getStudents } from './server.remote';
 	import { Label, Button } from 'bits-ui';
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 	import { page } from '$app/state';
 	import Document from './Document.svelte';
 	import Form from './Form.svelte';

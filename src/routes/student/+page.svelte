@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Tabs from '$lib/components/Tabs.svelte';
-	import { m } from '$lib/paraglide/messages';
+	import Tabs from '#lib/components/Tabs.svelte';
+	import { m } from '#lib/paraglide/messages.js';
 	import { onMount } from 'svelte';
-	import { formatDate, type Assignment } from '$lib/util';
+	import { formatDate, type Assignment } from '#lib/util.js';
 	import { loadAssignments } from './load.remote.ts';
 
 	let { data } = $props();

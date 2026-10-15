@@ -1,4 +1,4 @@
-import { unwrap, HttpError, handleHttpError } from '$lib/error';
+import { unwrap, HttpError, handleHttpError } from '#lib/error.js';
 import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 

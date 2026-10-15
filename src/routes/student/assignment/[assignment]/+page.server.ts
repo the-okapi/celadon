@@ -1,6 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { handleHttpError, HttpError, unwrap, unwrapNoData } from '$lib/error';
+import { handleHttpError, HttpError, unwrap, unwrapNoData } from '#lib/error.js';
 import type { Actions } from './$types';
 
 export const load: PageServerLoad = async ({ locals, params }) => {

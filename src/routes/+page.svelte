@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { PUBLIC_HELP_URL } from '$app/env/public';
-	import { m } from '$lib/paraglide/messages';
-	import { getLocale } from '$lib/paraglide/runtime';
+	import { m } from '#lib/paraglide/messages.js';
+	import { getLocale } from '#lib/paraglide/runtime.js';
 	import { Button } from 'bits-ui';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 
 	onMount(() => {
-		goto('/');
+		goto(resolve('/'));
 	});
 </script>
 

@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { object, string } from 'valibot';
-import { m } from '$lib/paraglide/messages';
-import { handleHttpError, HttpError, unwrap, unwrapNoData } from '$lib/error';
+import { m } from '#lib/paraglide/messages.js';
+import { handleHttpError, HttpError, unwrap, unwrapNoData } from '#lib/error.js';
 import { form, getRequestEvent } from '$app/server';
 
 const NameSchema = object({

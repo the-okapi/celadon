@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
-import { error500, unwrap } from '$lib/error';
-import { type Assignment } from '$lib/util';
+import { error500, unwrap } from '#lib/error.js';
+import { type Assignment } from '#lib/util.js';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	const {

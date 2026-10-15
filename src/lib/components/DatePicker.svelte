@@ -2,9 +2,9 @@
 	import Calendar from '@lucide/svelte/icons/calendar-days';
 	import { Button, Popover } from 'bits-ui';
 	import { fly } from 'svelte/transition';
-	import { getLocale } from '$lib/paraglide/runtime';
-	import { m } from '$lib/paraglide/messages';
-	import { formatDate } from '$lib/util';
+	import { getLocale } from '#lib/paraglide/runtime.js';
+	import { m } from '#lib/paraglide/messages.js';
+	import { formatDate } from '#lib/util.js';
 	import { onMount } from 'svelte';
 
 	let { value = $bindable(''), day = $bindable(null), defaultValue = null, ...props } = $props();

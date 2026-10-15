@@ -1,15 +1,15 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import Combobox from '$lib/components/Combobox.svelte';
-	import Loader from '$lib/components/Loader.svelte';
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
+	import Combobox from '#lib/components/Combobox.svelte';
+	import Loader from '#lib/components/Loader.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Label, Button } from 'bits-ui';
 	import { load } from './load.remote';
-	import type { OrganizationMember } from '$lib/util';
-	import { m } from '$lib/paraglide/messages';
+	import type { OrganizationMember } from '#lib/util.js';
+	import { m } from '#lib/paraglide/messages.js';
 	import { page } from '$app/state';
 	import { enhance } from '$app/forms';
-	import { handleFormError } from '$lib/error';
+	import { handleFormError } from '#lib/error.js';
 
 	let { data, params, form }: PageProps = $props();
 

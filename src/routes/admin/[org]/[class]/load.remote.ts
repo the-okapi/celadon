@@ -1,7 +1,7 @@
 import { getRequestEvent, query } from '$app/server';
 import { string } from 'valibot';
 import { redirect } from '@sveltejs/kit';
-import { handleHttpError, HttpError, unwrap } from '$lib/error';
+import { handleHttpError, HttpError, unwrap } from '#lib/error.js';
 
 export const load = query(string(), async (organization: string) => {
 	const { locals } = getRequestEvent();

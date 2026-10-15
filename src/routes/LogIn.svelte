@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { Button, Label } from 'bits-ui';
 	import { fade } from 'svelte/transition';
-	import Loader from '$lib/components/Loader.svelte';
+	import Loader from '#lib/components/Loader.svelte';
 	import { logIn } from './actions.remote';
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 	import { Popover } from 'bits-ui';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 
 	let { open } = $props();
 
@@ -27,7 +28,7 @@
 		});
 
 		if (response.status === 200) {
-			goto('/student', { invalidateAll: true });
+			goto(resolve('/student'), { refreshAll: true });
 		} else {
 			error = response.message ?? '';
 			loading = false;

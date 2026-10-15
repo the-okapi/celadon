@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 </script>
 
 <p class="absolute right-0 mt-8 w-[calc(100vw-27.5rem)] text-center text-xl">

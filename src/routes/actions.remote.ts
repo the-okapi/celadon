@@ -1,7 +1,7 @@
 import { command, getRequestEvent } from '$app/server';
 import { object, string } from 'valibot';
-import { unwrap, unwrapNoData } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { unwrap, unwrapNoData } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 const LogInSchema = object({
 	email: string(),

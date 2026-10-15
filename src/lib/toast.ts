@@ -1,5 +1,5 @@
 import { toast } from 'svelte-sonner';
-import Toast from '$lib/components/Toast.svelte';
+import Toast from '#lib/components/Toast.svelte';
 
 export function showToast(message: string, state = 'default') {
 	toast.custom(Toast, {

@@ -1,7 +1,7 @@
 import type { Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
-import { unwrap, unwrapNoData } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { unwrap, unwrapNoData } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 export const actions = {
 	default: async ({ request, locals, params }) => {

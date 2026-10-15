@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Slider from '$lib/components/Slider.svelte';
-	import { m } from '$lib/paraglide/messages';
-	import { formatDate } from '$lib/util';
-	import { barHidden } from '$lib/state.svelte';
+	import Slider from '#lib/components/Slider.svelte';
+	import { m } from '#lib/paraglide/messages.js';
+	import { formatDate } from '#lib/util.js';
+	import { barHidden } from '#lib/state.svelte.js';
 	import { onMount } from 'svelte';
 	import { Editor } from '@tiptap/core';
-	import { extensions, viewerExtensions } from '$lib/tiptap';
+	import { extensions, viewerExtensions } from '#lib/tiptap.js';
 
 	let { content, children, submitted } = $props();
 

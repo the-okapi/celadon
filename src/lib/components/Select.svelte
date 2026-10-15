@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SelectItemType } from '$lib/util';
+	import type { SelectItemType } from '#lib/util.js';
 	import { Select } from 'bits-ui';
 	import Expand from '@lucide/svelte/icons/chevrons-up-down';
 	import Check from '@lucide/svelte/icons/check';

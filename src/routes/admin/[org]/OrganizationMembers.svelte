@@ -1,10 +1,10 @@
 <script lang="ts">
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Button, Label } from 'bits-ui';
-	import type { OrganizationMember } from '$lib/util';
+	import type { OrganizationMember } from '#lib/util.js';
 	import { enhance } from '$app/forms';
-	import { m } from '$lib/paraglide/messages';
-	import { invalidateAll } from '$app/navigation';
+	import { m } from '#lib/paraglide/messages.js';
+	import { refreshAll } from '$app/navigation';
 
 	let { members, user } = $props();
 
@@ -189,7 +189,7 @@
 						<input type="hidden" name="userId" value={member.user.id} />
 					</form>
 				{:else}
-					<Button.Root onclick={() => invalidateAll()}>OK</Button.Root>
+					<Button.Root onclick={() => refreshAll()}>OK</Button.Root>
 				{/if}
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { DropdownMenu } from 'bits-ui';
-	import { getNavBarContext } from '$lib/context';
-	import { m } from '$lib/paraglide/messages';
+	import { getNavBarContext } from '#lib/context.js';
+	import { m } from '#lib/paraglide/messages.js';
 	import Expand from '@lucide/svelte/icons/chevrons-up-down';
-	import Dropdown from '$lib/components/Dropdown.svelte';
+	import Dropdown from '#lib/components/Dropdown.svelte';
 
 	let { children, data, params } = $props();
 

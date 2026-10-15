@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Editor } from '@tiptap/core';
-	import Toggle from '$lib/components/Toggle.svelte';
-	import Popover from '$lib/components/Popover.svelte';
-	import Select from '$lib/components/Select.svelte';
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
-	import { m } from '$lib/paraglide/messages';
+	import Toggle from '#lib/components/Toggle.svelte';
+	import Popover from '#lib/components/Popover.svelte';
+	import Select from '#lib/components/Select.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
+	import { m } from '#lib/paraglide/messages.js';
 	import Bold from '@lucide/svelte/icons/bold';
 	import Italic from '@lucide/svelte/icons/italic';
 	import Underline from '@lucide/svelte/icons/underline';
 	import FontSize from '@lucide/svelte/icons/a-large-small';
-	import { extensions, editorExtensions } from '$lib/tiptap';
-	import Accents from '$lib/components/Accents.svelte';
+	import { extensions, editorExtensions } from '#lib/tiptap.js';
+	import Accents from '#lib/components/Accents.svelte';
 	import { Button } from 'bits-ui';
 
 	let element: any = $state();

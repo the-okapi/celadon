@@ -1,12 +1,13 @@
 <script lang="ts">
+	import type { RemoteFormEnhanceCallback } from '$app/server';
 	import { page } from '$app/state';
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 	import { Label, Button } from 'bits-ui';
-	import DatePicker from '$lib/components/DatePicker.svelte';
-	import AlertDialog from '$lib/components/AlertDialog.svelte';
-	import Loader from '$lib/components/Loader.svelte';
-	import Combobox from '$lib/components/Combobox.svelte';
-	import { getLocale } from '$lib/paraglide/runtime';
+	import DatePicker from '#lib/components/DatePicker.svelte';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
+	import Loader from '#lib/components/Loader.svelte';
+	import Combobox from '#lib/components/Combobox.svelte';
+	import { getLocale } from '#lib/paraglide/runtime.js';
 	import {
 		changeName,
 		changeDescription,
@@ -15,10 +16,10 @@
 		assign
 	} from './actions.remote';
 	import { goto } from '$app/navigation';
-	import type { RemoteFormEnhanceCallback } from '@sveltejs/kit';
 	import { loadStudents } from './load.remote';
-	import { formatDate } from '$lib/util';
+	import { formatDate } from '#lib/util.js';
 	import Edit from '@lucide/svelte/icons/pencil';
+	import { resolve } from '$app/paths';
 
 	let { data, children, params } = $props();
 
@@ -92,7 +93,12 @@
 	<div class="box relative h-full! overflow-scroll">
 		<div class="h-full w-full p-3">
 			{#each data.submissions as submission (submission.id)}
-				{const url = `/admin/${params.org}/${params.class}/${params.assignment}/${submission.id}`}
+				{const url = resolve(`/admin/[org]/[class]/[assignment]/[submission]`, {
+					org: params.org,
+					class: params.class,
+					assignment: params.assignment,
+					submission: submission.id
+				})}
 				<div class="flex items-center justify-end gap-3">
 					<div class="flex w-full items-center gap-2">
 						<p class="text-lg font-bold whitespace-nowrap">
@@ -151,11 +157,12 @@
 				{data.assignment.name}
 				{@render editButton(() => (changeNameOpen = true), 7, 5)}
 			</h3>
+
 			<p class="mb-8 flex items-center justify-center gap-1 px-8">
 				{data.assignment.description}
-
 				{@render editButton(() => (changeDescriptionOpen = true))}
 			</p>
+
 			<Button.Root class="red-button m-auto block" onclick={() => (confirmDeleteOpen = true)}
 				>{m.delete()} {m.assignment()}</Button.Root
 			>
@@ -197,6 +204,7 @@
 					<Button.Root class="gray-button" onclick={() => (changeNameOpen = false)}
 						>{m.cancel()}</Button.Root
 					>
+
 					<Button.Root type="submit">{m.submit()}</Button.Root>
 				</div>
 
@@ -237,6 +245,7 @@
 					<Button.Root class="gray-button" onclick={() => (changeDescriptionOpen = false)}
 						>{m.cancel()}</Button.Root
 					>
+
 					<Button.Root type="submit">{m.submit()}</Button.Root>
 				</div>
 
@@ -278,6 +287,7 @@
 					<Button.Root onclick={() => (changeDueDateOpen = false)} class="gray-button"
 						>{m.cancel()}</Button.Root
 					>
+
 					{#if dueDateValue === ''}
 						<Button.Root
 							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}

@@ -1,6 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import { handleHttpError, HttpError, unwrap } from '$lib/error';
+import { handleHttpError, HttpError, unwrap } from '#lib/error.js';
 
 export const load: LayoutServerLoad = async ({ parent, route, locals }) => {
 	const parentData = await parent();

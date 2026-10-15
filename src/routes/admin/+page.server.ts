@@ -1,7 +1,7 @@
 import type { PageServerLoad, Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
-import { error500, unwrap, unwrapNoData } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { error500, unwrap, unwrapNoData } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const {

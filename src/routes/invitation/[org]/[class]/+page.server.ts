@@ -1,8 +1,8 @@
 import type { Actions, PageServerLoad } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
 import { object, string, safeParse } from 'valibot';
-import { unwrap, unwrapNoData, HttpError, handleHttpError } from '$lib/error';
-import { m } from '$lib/paraglide/messages';
+import { unwrap, unwrapNoData, HttpError, handleHttpError } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	try {

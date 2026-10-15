@@ -10,7 +10,7 @@ import {
 	promote,
 	demote
 } from './actions';
-import { error500, unwrap } from '$lib/error';
+import { error500, unwrap } from '#lib/error.js';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	const {

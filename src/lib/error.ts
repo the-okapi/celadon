@@ -1,8 +1,8 @@
-import { redirect, error, type ActionResult } from '@sveltejs/kit';
-import { m } from '$lib/paraglide/messages';
+import { redirect, error } from '@sveltejs/kit';
+import { m } from '#lib/paraglide/messages.js';
 import { showToast } from './toast';
-import { applyAction } from '$app/forms';
-import { invalidateAll } from '$app/navigation';
+import { applyAction, type ActionResult } from '$app/forms';
+import { refreshAll } from '$app/navigation';
 
 export class HttpError extends Error {
 	status: number;
@@ -60,7 +60,7 @@ export function handleFormError(message: string | undefined = undefined, reload:
 		}
 		update();
 		if (reload) {
-			invalidateAll();
+			refreshAll();
 		}
 	};
 }

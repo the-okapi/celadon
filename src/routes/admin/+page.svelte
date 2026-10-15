@@ -1,10 +1,23 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages';
+	import { m } from '#lib/paraglide/messages.js';
 	import { Label, Button } from 'bits-ui';
 	import { fade } from 'svelte/transition';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 
 	let { data, form } = $props();
+
+	function goToClass(org: string, classId: string) {
+		goto(
+			resolve('/admin/[org]/[class]', {
+				org,
+				class: classId
+			}),
+			{
+				refreshAll: true
+			}
+		);
+	}
 </script>
 
 <div class="grid grid-cols-3 gap-7 px-20 pt-4 pb-10">
@@ -13,7 +26,10 @@
 			<div class="box">
 				<button
 					class="box absolute cursor-pointer transition-colors hover:bg-(--fg)/5!"
-					onclick={() => goto('/admin/' + data.organization.id, { invalidateAll: true })}
+					onclick={() =>
+						goto(resolve('/admin/[org]', { org: data.organization.id }), {
+							refreshAll: true
+						})}
 				>
 					<div>
 						<h2 class="text-center text-4xl font-bold">
@@ -43,10 +59,7 @@
 			<div class="box">
 				<button
 					class="box absolute cursor-pointer transition-colors hover:bg-(--fg)/5!"
-					onclick={() =>
-						goto('/admin/' + data.organization.id + '/' + classData.id, {
-							invalidateAll: true
-						})}
+					onclick={() => goToClass(data.organization.id, classData.id)}
 				>
 					<div>
 						<h2 class="text-center text-4xl font-bold">{classData.name}</h2>
