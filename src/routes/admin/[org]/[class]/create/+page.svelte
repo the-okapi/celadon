@@ -4,7 +4,7 @@
 	import Combobox from '#lib/components/Combobox.svelte';
 	import DatePicker from '#lib/components/DatePicker.svelte';
 	import Tabs from '#lib/components/Tabs.svelte';
-	import { createAssignment, getStudents } from './server.remote';
+	import { createAssignment, getStudents } from './remote';
 	import { Label, Button } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
 	import { page } from '$app/state';

@@ -3,7 +3,7 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import { onMount } from 'svelte';
 	import { formatDate, type Assignment } from '#lib/util.js';
-	import { loadAssignments } from './load.remote.ts';
+	import { loadAssignments } from './remote';
 	import { resolve } from '$app/paths';
 
 	let { data } = $props();

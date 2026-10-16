@@ -2,7 +2,7 @@
 	import { Button, Label } from 'bits-ui';
 	import { fade } from 'svelte/transition';
 	import Loader from '#lib/components/Loader.svelte';
-	import { logIn } from './actions.remote';
+	import { logIn } from './remote';
 	import { m } from '#lib/paraglide/messages.js';
 	import { Popover } from 'bits-ui';
 	import { goto } from '$app/navigation';

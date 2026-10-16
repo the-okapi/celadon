@@ -18,7 +18,7 @@
 	import Submit from '@lucide/svelte/icons/send';
 	import { barHidden } from '#lib/state.svelte.js';
 	import { extensions, editorExtensions } from '#lib/tiptap.js';
-	import { saveDocument, submitDocument } from './server.remote.ts';
+	import { saveDocument, submitDocument } from './remote';
 	import Accents from '#lib/components/Accents.svelte';
 	import { refreshAll } from '$app/navigation';
 

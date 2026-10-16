@@ -4,7 +4,7 @@
 	import Loader from '#lib/components/Loader.svelte';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Label, Button } from 'bits-ui';
-	import { load } from './load.remote';
+	import { load } from './remote';
 	import type { OrganizationMember } from '#lib/util.js';
 	import { m } from '#lib/paraglide/messages.js';
 	import { enhance } from '$app/forms';
