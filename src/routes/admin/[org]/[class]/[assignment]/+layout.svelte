@@ -25,7 +25,6 @@
 
 	let nameValue = $state('');
 	let descriptionValue = $state('');
-	let dueDateValue = $state('');
 
 	let changeNameOpen = $state(false);
 	let changeDescriptionOpen = $state(false);
@@ -69,7 +68,7 @@
 		await form.submit();
 		if (form.result?.status === 200) {
 			changeDueDateOpen = false;
-			dueDateValue = '';
+			changeDueDate.fields.dueDate.set('');
 			form.element.reset();
 		}
 		dueDateLoading = false;
@@ -171,7 +170,7 @@
 </div>
 
 <a
-	href="/admin/{params.org}/{params.class}/assignments"
+	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
 	class="fixed top-22 left-10 hover:underline">← {m.back()}</a
 >
 
@@ -237,7 +236,6 @@
 				<div class="m-auto mb-5 w-full">
 					<Label.Root for="description">Description:</Label.Root><br />
 					<textarea
-
 						{...changeDescription.fields.description.as('text')}
 						id="description"
 						placeholder={data.assignment.description}
@@ -281,9 +279,8 @@
 					<Label.Root
 						>{m.due_date()}:
 						<DatePicker
-							name="dueDate"
 							defaultValue={changeDueDate.fields.dueDate.value()}
-							bind:value={dueDateValue}
+							{...changeDueDate.fields.dueDate.as('text')}
 						/></Label.Root
 					>
 				</div>
@@ -293,7 +290,7 @@
 						>{m.cancel()}</Button.Root
 					>
 
-					{#if dueDateValue === ''}
+					{#if changeDueDate.fields.dueDate.value() === ''}
 						<Button.Root
 							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}
 							>{m.submit()}</Button.Root
@@ -329,8 +326,16 @@
 		<form {...deleteAssignment}>
 			<Button.Root type="submit" class="red-button">{m.go()}</Button.Root>
 
-			<input type="hidden" name="assignment" value={params.assignment} />
-			<input type="hidden" name="class" value={params.class} />
+			<input
+				type="hidden"
+				{...deleteAssignment.fields.assignment.as('text')}
+				value={params.assignment}
+			/>
+			<input
+				type="hidden"
+				{...deleteAssignment.fields.class.as('text')}
+				value={params.class}
+			/>
 		</form>
 	{/snippet}
 </AlertDialog>
@@ -366,9 +371,17 @@
 				})}
 			>
 				<Button.Root type="submit">{m.submit()}</Button.Root>
-				<input type="hidden" name="students" value={JSON.stringify(selectedStudents)} />
-				<input type="hidden" name="class" value={params.class} />
-				<input type="hidden" name="assignment" value={params.assignment} />
+				<input
+					type="hidden"
+					{...assign.fields.students.as('text')}
+					value={JSON.stringify(selectedStudents)}
+				/>
+				<input type="hidden" {...assign.fields.class.as('text')} value={params.class} />
+				<input
+					type="hidden"
+					{...assign.fields.assignment.as('text')}
+					value={params.assignment}
+				/>
 			</form>
 		{/snippet}
 	</AlertDialog>

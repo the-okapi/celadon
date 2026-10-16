@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { formatDate, type Assignment } from '#lib/util.js';
 	import { loadAssignments } from './load.remote.ts';
+	import { resolve } from '$app/paths';
 
 	let { data } = $props();
 
@@ -23,8 +24,10 @@
 				<div class="box relative p-0!">
 					<a
 						class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
-						href="/student/class/{classMembership.class.organization}]/{classMembership
-							.class.id}"
+						href={resolve('/student/class/[org]/[class]', {
+							org: classMembership.class.organization,
+							class: classMembership.class.id
+						})}
 					>
 						<div class="w-fit text-center">
 							<h3 class="text-3xl font-bold">{classMembership.class.name}</h3>
@@ -69,7 +72,9 @@
 					<div class="box relative p-0!">
 						<a
 							class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
-							href="/student/assignment/{assignment.subId}"
+							href={resolve('/student/assignment/[assignment]', {
+								assignment: assignment.subId
+							})}
 						>
 							<div class="relative w-fit text-center">
 								{#if a.submitted}

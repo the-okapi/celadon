@@ -79,16 +79,21 @@
 			>
 				<div class="mb-3 w-fit">
 					<Label.Root for="name">{m.name()}:</Label.Root><br />
-					<input bind:value={name} class="w-60" id="name" name="name" required />
+					<input
+						bind:value={name}
+						class="w-60"
+						id="name"
+						{...createAssignment.fields.name.as('text')}
+						required
+					/>
 				</div>
 				<div class="mb-5">
 					<Label.Root for="description">Description:</Label.Root>
 					<textarea
-						value={createAssignment.result?.description ?? ''}
 						class="h-20 w-60"
 						maxlength={500}
 						id="description"
-						name="description"></textarea>
+						{...createAssignment.fields.description.as('text')}></textarea>
 				</div>
 				<div class="mb-5">
 					<Label.Root
@@ -106,7 +111,7 @@
 					<Label.Root for="everyone" class="my-auto whitespace-nowrap"
 						>{m.assign_to_everyone()}</Label.Root
 					>
-					<input type="hidden" value={everyone} name="everyone" />
+					<input {...createAssignment.fields.everyone.as('hidden', String(everyone))} />
 				</div>
 				<div class="mt-8 flex h-15 w-full items-center justify-center">
 					{#if !everyone}
@@ -125,9 +130,10 @@
 									bind:value={selectedStudents}
 								/>
 								<input
-									type="hidden"
-									value={JSON.stringify(selectedStudents)}
-									name="students"
+									{...createAssignment.fields.students.as(
+										'hidden',
+										JSON.stringify(selectedStudents)
+									)}
 								/>
 							</div>
 						{:else}

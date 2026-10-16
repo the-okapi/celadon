@@ -3,6 +3,7 @@
 	import { Button } from 'bits-ui';
 	import { formatDate } from '#lib/util.js';
 	import Tabs from '#lib/components/Tabs.svelte';
+	import { resolve } from '$app/paths';
 
 	let { data, params } = $props();
 
@@ -23,7 +24,7 @@
 	</div>
 {:else}
 	<div class="h-2"></div>
-	<a href="/admin/{params.org}/{params.class}" class="relative ml-10 hover:underline"
+	<a href={resolve('/admin/[org]/[class]', { ...params })} class="relative ml-10 hover:underline"
 		>← {m.back()}</a
 	>
 	{#snippet list(assignments: Assignment[])}
@@ -32,7 +33,11 @@
 				<div class="box relative p-0!">
 					<a
 						class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
-						href="/admin/{params.org}/{params.class}/{assignment.id}"
+						href={resolve('/admin/[org]/[class]/[assignment]', {
+							org: params.org,
+							class: params.class,
+							assignment: assignment.id
+						})}
 					>
 						<div class="relative w-fit text-center">
 							<div class="absolute -top-8 w-full">

@@ -32,14 +32,16 @@ const originalHandle: Handle = async ({ event, resolve }) => {
 
 const handleParaglide: Handle = ({ event, resolve }) =>
 	paraglideMiddleware(event.request, ({ request, locale }) => {
-		event.request = request;
-
-		return resolve(event, {
-			transformPageChunk: ({ html }) =>
-				html
-					.replace('%paraglide.lang%', locale)
-					.replace('%paraglide.dir%', getTextDirection(locale))
-		});
+		return resolve(
+			{ ...event, request },
+			{
+				transformPageChunk: ({ html }) => {
+					return html
+						.replace('%lang%', locale)
+						.replace('%dir%', getTextDirection(locale));
+				}
+			}
+		);
 	});
 
 export const handle = sequence(originalHandle, handleParaglide);

@@ -6,6 +6,7 @@
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getDaysUntil } from '#lib/util.js';
+	import { resolve } from '$app/paths';
 
 	let { data, form }: PageProps = $props();
 
@@ -27,7 +28,7 @@
 </script>
 
 <div class="h-2"></div>
-<a href="/admin" class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
 <div class="flex gap-4 px-10 pt-2">
 	<OrganizationMembers {...data} />
 	<div class="flex h-[80vh] w-full gap-4">

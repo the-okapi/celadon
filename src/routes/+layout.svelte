@@ -92,16 +92,22 @@
 
 					<Settings />
 
-					<a class="nav-bar-link" href="{PUBLIC_HELP_URL}/{getLocale()}" target="_blank"
-						>{m.help()}</a
+					<a
+						class="nav-bar-link"
+						rel="external"
+						href="{PUBLIC_HELP_URL}/{getLocale()}"
+						target="_blank">{m.help()}</a
 					>
 				{:else}
-					<a class="nav-bar-link" href="/">Repaper</a>
-					<a class="nav-bar-link" href="/signup">{m.sign_up()}</a>
+					<a class="nav-bar-link" href={resolve('/')}>Repaper</a>
+					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
 					<Settings />
 					<LogIn open={page.url.searchParams.get('login') !== null} />
-					<a class="nav-bar-link" href="{PUBLIC_HELP_URL}/{getLocale()}" target="_blank"
-						>{m.help()}</a
+					<a
+						class="nav-bar-link"
+						rel="external"
+						href="{PUBLIC_HELP_URL}/{getLocale()}"
+						target="_blank">{m.help()}</a
 					>
 				{/if}
 			</div>

@@ -116,15 +116,15 @@ Replace manually specified control names with attributes from the corresponding 
 #### Files to review
 
 - [x] `src/routes/admin/[org]/[class]/+page.svelte`
-- [ ] `src/routes/admin/[org]/[class]/[assignment]/+layout.svelte`
-- [ ] `src/routes/admin/[org]/[class]/create/+page.svelte`
+- [x] `src/routes/admin/[org]/[class]/[assignment]/+layout.svelte`
+- [x] `src/routes/admin/[org]/[class]/create/+page.svelte`
 
 ## Final verification
 
-- [ ] Review every migration task and ignore any irrelevant findings.
-- [ ] Resolve remaining `@migration-task` comments.
+- [x] Review every migration task and ignore any irrelevant findings.
+- [x] Resolve remaining `@migration-task` comments.
 - [ ] Run the project's type checker and tests.
-- [ ] Build the project successfully.
+- [x] Build the project successfully.
 - [ ] Delete this file when all migration work is complete.
 
 ```

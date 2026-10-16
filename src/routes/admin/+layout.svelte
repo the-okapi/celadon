@@ -5,6 +5,7 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import Expand from '@lucide/svelte/icons/chevrons-up-down';
 	import Dropdown from '#lib/components/Dropdown.svelte';
+	import { resolve } from '$app/paths';
 
 	let { children, data, params } = $props();
 
@@ -40,18 +41,23 @@
 						class="border-x border-(--o) hover:bg-(--a)! {i === 0
 							? 'rounded-t-xl border-t'
 							: ''} {i === options.length - 1 ? 'rounded-b-xl border-b' : ''}"
-						><a href="/admin/{data.organization.id}/{option.value}"
-							>{@html option.label}</a
+						><a
+							href={resolve('/admin/[org]/[class]', {
+								org: data.organization.id,
+								class: option.value
+							})}>{@html option.label}</a
 						></DropdownMenu.Item
 					>
 				{/each}
 			</Dropdown>
 		</div>
 		<p class="mr-1.5">—</p>
-		<a href="/admin/{data.organization.id}" class="nav-bar-link">{data.organization.name}</a>
+		<a href={resolve('/admin/[org]', { org: data.organization.id })} class="nav-bar-link"
+			>{data.organization.name}</a
+		>
 		<p class="mx-1.5">—</p>
 	{/if}
-	<a href="/admin/account" class="nav-bar-link">{data.name}</a>
+	<a href={resolve('/admin/account')} class="nav-bar-link">{data.name}</a>
 {/snippet}
 
 <svelte:head>

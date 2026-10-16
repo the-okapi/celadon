@@ -7,9 +7,9 @@
 	import { load } from './load.remote';
 	import type { OrganizationMember } from '#lib/util.js';
 	import { m } from '#lib/paraglide/messages.js';
-	import { page } from '$app/state';
 	import { enhance } from '$app/forms';
 	import { handleFormError } from '#lib/error.js';
+	import { resolve } from '$app/paths';
 
 	let { data, params, form }: PageProps = $props();
 
@@ -31,7 +31,7 @@
 </script>
 
 <div class="h-2"></div>
-<a href="/admin" class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
 <div class="grid grid-cols-2 gap-7 px-10 pt-2">
 	<div class="flex h-[80vh] w-full gap-4">
 		<div class="flex h-full w-full flex-col gap-4">
@@ -108,7 +108,7 @@
 				{/await}
 			</div>
 			<div class="border-o h-80 w-full rounded-xl bg-(--bg)">
-				<a href={page.url.pathname + '/assignments'}>
+				<a href={resolve('/admin/[org]/[class]/assignments', { ...params })}>
 					<div
 						class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
 					>
@@ -123,7 +123,7 @@
 			</div>
 		</div>
 		<div class="border-o h-80 w-full rounded-xl bg-(--bg)">
-			<a href={page.url.pathname + '/create'}>
+			<a href={resolve('/admin/[org]/[class]/create', { ...params })}>
 				<div
 					class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
 				>

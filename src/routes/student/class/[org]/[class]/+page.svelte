@@ -2,12 +2,13 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import Tabs from '#lib/components/Tabs.svelte';
 	import { formatDate, type Assignment } from '#lib/util.js';
+	import { resolve } from '$app/paths';
 
 	let { data } = $props();
 </script>
 
 <div class="h-2"></div>
-<a href="/student" class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/student')} class="relative ml-10 hover:underline">← {m.back()}</a>
 
 <div class="relative">
 	<div>
@@ -27,7 +28,9 @@
 					<div class="box relative p-0!">
 						<a
 							class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
-							href="/student/assignment/{assignment.subId}"
+							href={resolve('/student/assignment/[assignment]', {
+								assignment: assignment.subId
+							})}
 						>
 							<div class="relative w-fit text-center">
 								{#if a.submitted}

@@ -15,8 +15,7 @@ export default defineConfig({
 			},
 			adapter: adapter(),
 			experimental: {
-				remoteFunctions: true,
-				explicitEnvironmentVariables: true
+				remoteFunctions: true
 			}
 		}),
 
