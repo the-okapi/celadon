@@ -1,5 +1,1 @@
-<script lang="ts">
-	import { m } from '#lib/paraglide/messages.js';
-</script>
-
-<h1>{m.account()}</h1>
+<h1 class="relative mt-3 text-center text-4xl font-bold">Hello</h1>

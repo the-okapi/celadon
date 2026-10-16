@@ -10,7 +10,7 @@
 	import type { LayoutProps } from './$types';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Button } from 'bits-ui';
-	import Settings from './Settings.svelte';
+	import Options from './Options.svelte';
 	import LogIn from './LogIn.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
@@ -90,7 +90,7 @@
 						>{m.log_out()}</button
 					>
 
-					<Settings />
+					<Options />
 
 					<a
 						class="nav-bar-link"
@@ -101,7 +101,7 @@
 				{:else}
 					<a class="nav-bar-link" href={resolve('/')}>Repaper</a>
 					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
-					<Settings />
+					<Options />
 					<LogIn open={page.url.searchParams.get('login') !== null} />
 					<a
 						class="nav-bar-link"

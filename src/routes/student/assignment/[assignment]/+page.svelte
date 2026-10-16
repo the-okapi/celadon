@@ -15,10 +15,6 @@
 	let confirmUnsubmitOpen = $state(false);
 </script>
 
-<svelte:head>
-	<title>{data.title} | Repaper</title>
-</svelte:head>
-
 {#snippet assignmentDetails()}
 	<Button.Root
 		class="flex size-10 items-center justify-center p-0!"

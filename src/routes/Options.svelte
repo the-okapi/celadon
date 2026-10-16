@@ -77,7 +77,7 @@
 </script>
 
 <Popover.Root>
-	<Popover.Trigger class="nav-bar-link">{m.settings()}</Popover.Trigger>
+	<Popover.Trigger class="nav-bar-link">{m.options()}</Popover.Trigger>
 	<Popover.Portal>
 		<Popover.Content sideOffset={10} forceMount>
 			{#snippet child({ wrapperProps, props, open })}
