@@ -103,21 +103,28 @@
 						<p class="text-lg font-bold whitespace-nowrap">
 							{submission.user.name}
 						</p>
-						{#if submission.submitted}
-							<p class="text-sm">
+						<p class="overflow-scroll text-sm whitespace-nowrap">
+							{#if submission.submitted}
 								{m.submitted()}
 								{new Date(submission.submitted).toLocaleDateString(getLocale(), {})}
-							</p>
-						{:else if submission.document === null}
-							<p class="text-sm">{m.assignment_not_started()}</p>
-						{/if}
+							{:else if submission.document === null}
+								{m.assignment_not_started()}
+							{/if}
+						</p>
 					</div>
-					<Button.Root
-						class="small-button"
-						onclick={() => goto(url, { replaceState: true })}
-						disabled={url === page.url.pathname || submission.document === null}
-						>{m.view()}</Button.Root
-					>
+					{#if submission.document === null}
+						<Button.Root class="small-button" disabled={true}>{m.view()}</Button.Root>
+					{:else if url === page.url.pathname}
+						<Button.Root class="small-button" disabled={true}>{m.viewing()}</Button.Root
+						>
+					{:else}
+						<Button.Root
+							class="small-button"
+							onclick={() => goto(url, { replaceState: true })}
+							disabled={url === page.url.pathname || submission.document === null}
+							>{m.view()}</Button.Root
+						>
+					{/if}
 				</div>
 				<div class="m-auto my-3 w-[85%] border-b border-(--o)"></div>
 			{/each}
@@ -127,13 +134,15 @@
 		</div>
 	</div>
 
-	{#snippet editButton(onclick = () => {}, size = 6, img = 4)}
+	{#snippet editButton(onclick = () => {})}
+		{const iconSize = 1.75}
+		{const imgSize = 1.25}
 		<Button.Root
-			class="ghost-button m-0! inline-flex h-{size}! w-{size}! items-center justify-center rounded-lg! p-1.5!"
-			style="max-height: {size / 4}rem !important; max-width: {size / 4}rem !important;"
+			class="ghost-button m-0! inline-flex items-center justify-center rounded-lg! p-1.5!"
+			style="max-height: {iconSize}rem !important; max-width: {iconSize}rem !important;"
 			{onclick}
 		>
-			<Edit style="max-width: {img / 4}rem !important; max-height: {img / 4}rem !important" />
+			<Edit style="max-width: {imgSize}rem !important; max-height: {imgSize}rem !important" />
 		</Button.Root>
 	{/snippet}
 
@@ -154,7 +163,7 @@
 			</p>
 			<h3 class="flex items-center justify-center gap-2 text-2xl font-semibold">
 				{data.assignment.name}
-				{@render editButton(() => (changeNameOpen = true), 7, 5)}
+				{@render editButton(() => (changeNameOpen = true))}
 			</h3>
 
 			<p class="mb-8 flex items-center justify-center gap-1 px-8">
@@ -211,12 +220,8 @@
 					{changeName.result?.nameMessage}
 				</p>
 
-				<input
-					type="hidden"
-					{...changeName.fields.name.as('text')}
-					value={params.assignment}
-				/>
-				<input type="hidden" {...changeName.fields.class.as('text')} value={params.class} />
+				<input {...changeName.fields.assignment.as('hidden', params.assignment)} />
+				<input {...changeName.fields.class.as('hidden', params.class)} />
 			</form>
 		{/if}
 	</div>
@@ -256,8 +261,8 @@
 					{changeDescription.result?.descriptionMessage}
 				</p>
 
-				<input type="hidden" name="assignment" value={params.assignment} />
-				<input type="hidden" name="class" value={params.class} />
+				<input {...changeDescription.fields.assignment.as('hidden', params.assignment)} />
+				<input {...changeDescription.fields.class.as('hidden', params.class)} />
 			</form>
 		{/if}
 	</div>
@@ -310,8 +315,8 @@
 					{/if}
 				</p>
 
-				<input type="hidden" name="assignment" value={params.assignment} />
-				<input type="hidden" name="class" value={params.class} />
+				<input {...changeDueDate.fields.assignment.as('hidden', params.assignment)} />
+				<input {...changeDueDate.fields.class.as('hidden', params.class)} />
 			</form>
 		{/if}
 	</div>
@@ -348,6 +353,7 @@
 	</AlertDialog>
 {:else}
 	<AlertDialog bind:open={assignToMoreStudentsOpen}>
+		<h1 class="mb-2 text-center text-2xl font-bold">{m.assign_to()} {m.more_students()}</h1>
 		<div class="m-auto mb-5 h-16 w-48">
 			<div class="grid grid-cols-2">
 				<p class="text-left">{m.assign_to()}:</p>
@@ -359,7 +365,6 @@
 			<div class="m-auto w-fit">
 				<Combobox options={students} multiple bind:value={selectedStudents} />
 			</div>
-			<input type="hidden" value={JSON.stringify(selectedStudents)} name="students" />
 		</div>
 		{#snippet go()}
 			<form
@@ -371,17 +376,10 @@
 				})}
 			>
 				<Button.Root type="submit">{m.submit()}</Button.Root>
-				<input
-					type="hidden"
-					{...assign.fields.students.as('text')}
-					value={JSON.stringify(selectedStudents)}
-				/>
-				<input type="hidden" {...assign.fields.class.as('text')} value={params.class} />
-				<input
-					type="hidden"
-					{...assign.fields.assignment.as('text')}
-					value={params.assignment}
-				/>
+
+				<input {...assign.fields.students.as('hidden', JSON.stringify(selectedStudents))} />
+				<input {...assign.fields.assignment.as('hidden', params.assignment)} />
+				<input {...assign.fields.class.as('hidden', params.class)} />
 			</form>
 		{/snippet}
 	</AlertDialog>
