@@ -8,7 +8,7 @@
 	import { setLocale } from '#lib/paraglide/runtime.js';
 
 	// Light/Dark
-	let modes = $derived([
+	const modes = $derived([
 		{
 			label: m.system(),
 			value: 'system'
@@ -28,7 +28,7 @@
 	}
 
 	// Language
-	let languages = [
+	const languages = [
 		{
 			label: 'English',
 			value: 'en'
@@ -43,8 +43,24 @@
 		setLocale(v);
 	}
 
+	// Backgrounds
+	const backgrounds = [
+		{
+			label: 'Stripes',
+			value: 'stripes'
+		},
+		{
+			label: 'Nothing :(',
+			value: 'nothing'
+		}
+	];
+
+	function onBackgroundChange(v: 'stripes' | 'dots' | 'nothing') {
+		setTheme(color + '-' + v);
+	}
+
 	// Colors
-	let colors = [
+	const colors = [
 		{
 			label: '<div class="swatch bg-(--red)"></div> ' + m.red(),
 			value: 'red'
@@ -72,8 +88,14 @@
 	];
 
 	function onColorChange(v: string) {
-		setTheme(v);
+		setTheme(v + '-' + background);
 	}
+
+	function getTheme(theme: string | undefined): string[] {
+		return (theme ?? 'turquoise-stripes').split('-');
+	}
+
+	let [color, background] = $derived(getTheme(theme.current));
 </script>
 
 <Popover.Root>
@@ -84,8 +106,8 @@
 				{#if open}
 					<div {...wrapperProps}>
 						<div {...props} transition:fade={{ duration: 100 }}>
-							<div class="p-3">
-								<div class="m-auto mb-8 w-fit">
+							<div class="flex flex-col gap-4 p-3">
+								<div class="m-auto w-fit">
 									<Label.Root
 										>{m.mode()}:
 										<Select
@@ -96,13 +118,24 @@
 									>
 								</div>
 
-								<div class="m-auto mb-8 w-fit">
+								<div class="m-auto w-fit">
 									<Label.Root
 										>{m.color()}:
 										<Select
 											options={colors}
-											value={theme.current}
+											value={color}
 											onChange={onColorChange}
+										/></Label.Root
+									>
+								</div>
+
+								<div class="m-auto w-fit">
+									<Label.Root
+										>{m.background()}:
+										<Select
+											options={backgrounds}
+											value={background}
+											onChange={onBackgroundChange}
 										/></Label.Root
 									>
 								</div>
