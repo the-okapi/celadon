@@ -377,7 +377,8 @@
 			>
 				<Button.Root type="submit">{m.submit()}</Button.Root>
 
-				<input {...assign.fields.students.as('hidden', JSON.stringify(selectedStudents))} />
+				{const selectedStudentsString = $derived(JSON.stringify(selectedStudents))}
+				<input {...assign.fields.students.as('hidden', selectedStudentsString)} />
 				<input {...assign.fields.assignment.as('hidden', params.assignment)} />
 				<input {...assign.fields.class.as('hidden', params.class)} />
 			</form>

@@ -129,10 +129,13 @@
 									multiple
 									bind:value={selectedStudents}
 								/>
+								{const selectedStudentsString = $derived(
+									JSON.stringify(selectedStudents)
+								)}
 								<input
 									{...createAssignment.fields.students.as(
 										'hidden',
-										JSON.stringify(selectedStudents)
+										selectedStudentsString
 									)}
 								/>
 							</div>

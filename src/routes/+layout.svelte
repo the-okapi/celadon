@@ -35,6 +35,15 @@
 			});
 		}
 	});
+
+	function getLanguage(locale: string) {
+		switch (locale) {
+			case 'fr':
+				return 'francais';
+			default:
+				return 'english';
+		}
+	}
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -95,7 +104,7 @@
 					<a
 						class="nav-bar-link"
 						rel="external"
-						href="{PUBLIC_HELP_URL}/{getLocale()}"
+						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
 						target="_blank">{m.help()}</a
 					>
 				{:else}
@@ -106,7 +115,7 @@
 					<a
 						class="nav-bar-link"
 						rel="external"
-						href="{PUBLIC_HELP_URL}/{getLocale()}"
+						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
 						target="_blank">{m.help()}</a
 					>
 				{/if}
