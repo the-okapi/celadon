@@ -496,8 +496,24 @@ textarea {
 	border: 1px solid var(--o);
 }
 
+@keyframes loading {
+	0% {
+		background-color: var(--s);
+	}
+
+	50% {
+		background-color: var(--a);
+	}
+
+	100% {
+		background-color: var(--s);
+	}
+}
+
 .skeleton {
 	animation: loading 2s infinite;
-	background: linear-gradient(var(--a), var(--s), var(--a));
-	background-color: var(--fg);
+	background-color: var(--s);
+	color: transparent;
+	border-radius: 0.75rem;
+	margin-block: 0.25rem;
 }

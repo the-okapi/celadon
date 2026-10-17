@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	}
 
 	try {
-		const classMemberships = unwrap(
+		const classes = unwrap(
 			await locals.supabase
 				.from('class_memberships')
 				.select('id, class ( id, name, organization ), admin')
@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 		);
 
 		return {
-			classes: classMemberships,
+			classes,
 			title: m.home()
 		};
 	} catch {

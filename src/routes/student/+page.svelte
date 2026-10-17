@@ -62,12 +62,8 @@
 				{#each assignmentsFiltered as a (a.id)}
 					{let assignment = {
 						subId: a.id,
-						id: a.assignment.id,
-						name: a.assignment.name,
-						description: a.assignment.description,
-						due_date: a.assignment.due_date,
-						class: a.assignment.class,
-						submitted: a.submitted
+						submitted: a.submitted,
+						...a.assignment
 					}}
 					<div class="box relative p-0!">
 						<a
@@ -77,20 +73,27 @@
 							})}
 						>
 							<div class="relative w-fit text-center">
+								<p class="font-bold">
+									{data.classes.find(
+										(a: {
+											id: string;
+											class: {
+												id: string;
+												name: string;
+												organization: string;
+											};
+											admin: boolean;
+										}) => a.class.id === assignment.class
+									).class.name}
+								</p>
 								{#if a.submitted}
-									<div class="absolute -top-8 w-full">
-										<p
-											class="badge mx-auto mb-4 w-fit! bg-(--p) px-5! text-(--p-fg)"
-										>
-											{m.submitted()}
-										</p>
-									</div>
+									<p class="badge mx-auto w-fit! bg-(--p) px-5! text-(--p-fg)">
+										{m.submitted()}
+									</p>
 								{:else if new Date() > new Date(assignment.due_date)}
-									<div class="absolute -top-8 w-full">
-										<p class="badge mx-auto mb-4 w-fit! bg-(--r) px-5!">
-											{m.late()}
-										</p>
-									</div>
+									<p class="badge mx-auto w-fit! bg-(--r) px-5!">
+										{m.late()}
+									</p>
 								{/if}
 								<p class="italic">{formatDate(assignment.due_date)}</p>
 								<h3 class="text-center text-2xl font-semibold">
@@ -119,7 +122,32 @@
 					<p class="mt-4 text-center text-lg">{m.no_assignments_here()}</p>
 				{/if}
 			{:else}
-				<p class="mt-4 text-center text-xl">{m.loading()}</p>
+				<div class="grid grid-cols-2 gap-6">
+					{#each { length: 2 }}
+						<div class="box relative p-0! text-center">
+							<div class="relative w-fit text-center">
+								<div class="absolute -top-8 w-full">
+									<p
+										class="badge skeleton mx-auto mb-4 w-20 overflow-hidden rounded-2xl!"
+									>
+										{m.loading()}
+									</p>
+								</div>
+								<p class="skeleton m-auto w-40 italic">{m.loading()}</p>
+								<h3 class="skeleton w-50 text-center text-2xl font-semibold">
+									{m.loading()}
+								</h3>
+								<p class="skeleton m-auto h-15 w-fit px-8">{m.loading()}</p>
+							</div>
+							<div class="absolute bottom-2 left-0 w-full text-center">
+								<p class="skeleton m-auto w-fit!">
+									{m.go_to_m()}
+									{m.assignment()}
+								</p>
+							</div>
+						</div>
+					{/each}
+				</div>
 			{/if}
 		{/snippet}
 		{#snippet submitted()}
