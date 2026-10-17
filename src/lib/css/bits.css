@@ -1,0 +1,227 @@
+[data-dropdown-menu-trigger] {
+	border-radius: 0.4rem;
+	padding: 0.15rem;
+	cursor: pointer;
+
+	&:hover,
+	&:active {
+		background-color: var(--s);
+	}
+}
+
+[data-select-trigger] {
+	border: 1px var(--o) solid;
+	color: var(--fg);
+	border-radius: 0.75rem;
+	padding: 0.35rem 0.5rem;
+	outline-color: var(--fg);
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	cursor: pointer;
+	width: 10rem;
+	margin: auto;
+	background-color: var(--bg);
+	transition: box-shadow 100ms;
+	margin: 0.2rem auto;
+
+	&:hover,
+	&:focus {
+		box-shadow:
+			0 0 0 1.5px var(--bg),
+			0 0 0 3.5px var(--p);
+	}
+}
+
+[data-select-content] {
+	width: 10rem;
+	border-radius: 0.75rem;
+	outline: none;
+	height: fit-content;
+	background-color: var(--bg);
+	z-index: 50;
+}
+
+[data-select-item] {
+	background-color: var(--bg);
+	cursor: pointer;
+	padding: 0.35rem 0.5rem;
+}
+
+.more-padding [data-select-item] {
+	padding: 0.5rem 0.75rem;
+}
+
+.popover-select {
+	box-shadow: none !important;
+
+	&:hover {
+		background-color: var(--a);
+	}
+}
+
+[data-combobox-input] {
+	padding: 0.35rem 0.5rem;
+	padding-right: 2.3rem;
+	width: 12rem;
+	height: 2.3rem;
+}
+
+[data-combobox-portal] * {
+	z-index: 60 !important;
+}
+
+[data-combobox-trigger] {
+	position: absolute;
+	top: 0.2rem;
+	right: 0;
+	display: flex;
+	height: 2.3rem;
+	width: 2rem;
+	align-items: center;
+	justify-content: center;
+	border-top-right-radius: 0.75rem;
+	border-bottom-right-radius: 0.75rem;
+	border: 1px solid var(--o);
+	background-color: var(--bg);
+	cursor: pointer;
+}
+
+[data-alert-dialog-overlay] {
+	background-color: color-mix(in oklab, #000000 0%, transparent);
+	width: 100vw;
+	height: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 60;
+}
+
+[data-alert-dialog-content] {
+	background-color: var(--bg);
+	z-index: 70;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	min-width: 25rem;
+	width: fit-content;
+	height: fit-content;
+	padding: 2rem;
+	border: 1px solid var(--o);
+	border-radius: 1.5rem;
+
+	@apply shadow-2xl;
+}
+
+[data-switch-root] {
+	border-radius: calc(infinity * 1px);
+	display: inline-flex;
+	height: 25px;
+	width: 50px;
+	flex-shrink: 0;
+	cursor: pointer;
+	align-items: center;
+	padding-left: 4px;
+	padding-right: 5px;
+	outline: 2px solid var(--p);
+	outline-offset: -5px;
+	transition:
+		background-color 150ms,
+		outline-color 150ms,
+		outline-offset 100ms;
+
+	&:hover {
+		outline-offset: 1px;
+	}
+
+	&[data-state='unchecked'] {
+		background-color: var(--s);
+		outline-color: var(--s);
+	}
+
+	&[data-state='checked'] {
+		background-color: var(--p);
+		outline-color: var(--p);
+	}
+}
+
+[data-switch-thumb] {
+	background-color: var(--bg);
+	pointer-events: none;
+	display: block;
+	width: 20px;
+	height: 17px;
+	flex-shrink: 0;
+	border-radius: calc(infinity * 1px);
+	transition: transform 150ms;
+
+	&[data-state='unchecked'] {
+		transform: translteX(0);
+	}
+
+	&[data-state='checked'] {
+		transform: translateX(22px);
+	}
+}
+
+[data-tabs-list] {
+	border-radius: 0.75rem;
+	padding: 0.25rem;
+	width: fit-content;
+	display: flex;
+	background-color: var(--s);
+	margin: auto;
+	margin-bottom: 0.5rem;
+	position: relative;
+	height: fit-content;
+}
+
+[data-tabs-trigger],
+[data-tabs-active] {
+	border-radius: 0.5rem;
+	padding: 0.25rem 0.75rem;
+	cursor: pointer;
+	font-size: 1.15rem;
+	width: 8rem;
+}
+
+[data-tabs-active] {
+	background-color: var(--bg);
+	color: var(--fg);
+	position: absolute;
+	transition: left 250ms;
+}
+
+[data-toggle-root] {
+	transition:
+		background-color 150ms,
+		color 150ms,
+		outline-color 150ms,
+		outline-offset 100ms;
+
+	&[data-state='inactive'] {
+		background-color: var(--s) !important;
+		color: var(--fg) !important;
+		outline-color: var(--s) !important;
+	}
+}
+
+.toggle-icon {
+	height: 2.5rem;
+	width: 2.5rem;
+	padding: 0 !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+[data-popover-content] {
+	z-index: 50 !important;
+	border-radius: 1rem;
+	border: 1px solid var(--o);
+	background-color: var(--bg);
+	padding: 0.5rem 1rem;
+	transition: opacity 1000ms;
+
+	@apply shadow-2xl;
+}

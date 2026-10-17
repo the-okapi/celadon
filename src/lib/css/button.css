@@ -1,0 +1,97 @@
+[data-button-root] {
+	background-color: var(--p);
+	color: var(--p-fg);
+	padding: 0.5rem 1rem;
+	border-radius: 0.75rem;
+	cursor: pointer;
+	outline: 2px solid var(--p);
+	outline-offset: -5px;
+	transition: outline-offset 100ms;
+	user-select: none;
+
+	&[href] {
+		padding: 0.75rem 1rem;
+	}
+
+	&:hover {
+		outline-offset: 1px;
+	}
+
+	&:disabled,
+	&[data-disabled] {
+		color: color-mix(in oklab, var(--fg) 50%, transparent);
+		background-color: var(--s);
+		opacity: 1;
+		cursor: not-allowed;
+		outline: none !important;
+	}
+}
+
+.big-button {
+	padding: 0.75rem 1.75rem;
+	border-radius: 0.9375rem;
+	outline-width: 2.5px;
+	font-size: 1.25rem;
+
+	&:hover {
+		outline-offset: 1.5px;
+	}
+}
+
+.red-button {
+	background-color: var(--r);
+	outline-color: var(--r);
+}
+
+.gray-button {
+	background-color: var(--s);
+	outline-color: var(--s);
+	color: var(--fg);
+}
+
+.ghost-button {
+	background-color: var(--bg);
+	color: var(--fg);
+	outline-color: transparent;
+	width: 3rem;
+	height: 2rem;
+	padding: 0;
+	border-radius: 0.5rem;
+	margin-inline: 0.5rem;
+	transition: background-color 50ms;
+
+	&:hover {
+		background-color: var(--s);
+	}
+
+	&:disabled {
+		background-color: var(--bg) !important;
+		opacity: 0.8;
+
+		&:hover {
+			background-color: var(--bg);
+		}
+	}
+}
+
+.icon-button {
+	display: flex;
+	height: 2.5rem;
+	width: 2.5rem;
+	align-items: center;
+	justify-content: center;
+	padding: 0 !important;
+}
+
+.small-button {
+	border-radius: 0.625rem;
+	padding-inline: 0.75rem;
+	padding-block: 0.375rem;
+	font-size: 0.875rem;
+}
+
+.cardButton {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
