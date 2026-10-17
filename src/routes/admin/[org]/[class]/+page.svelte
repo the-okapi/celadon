@@ -32,9 +32,9 @@
 
 <div class="h-2"></div>
 <a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
-<div class="grid grid-cols-2 gap-7 px-10 pt-2">
-	<div class="flex h-[80vh] w-full gap-4">
-		<div class="flex h-full w-full flex-col gap-4">
+<div class="flex gap-7 px-10 pt-2">
+	<div class="flex h-[80vh] w-fit gap-4">
+		<div class="flex h-full w-80 flex-col gap-4">
 			<div
 				class="border-o flex h-full w-full items-center justify-center rounded-xl bg-(--bg)"
 			>
@@ -121,20 +121,6 @@
 					</div>
 				</a>
 			</div>
-		</div>
-		<div class="border-o h-80 w-full rounded-xl bg-(--bg)">
-			<a href={resolve('/admin/[org]/[class]/create', { ...params })}>
-				<div
-					class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
-				>
-					<div class="w-fit text-center">
-						<h2 class="text-center text-2xl font-bold">{m.create_assignment()}</h2>
-					</div>
-					<div class="absolute bottom-2 left-0 w-full text-center">
-						<p>{m.go_to()} {m.create_assignment()}</p>
-					</div>
-				</div>
-			</a>
 		</div>
 	</div>
 	<div class="border-o relative z-10 h-[80vh] w-full rounded-xl bg-(--bg) p-5">

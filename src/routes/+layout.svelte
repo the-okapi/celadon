@@ -20,6 +20,7 @@
 	import { onDestroy, type Snippet } from 'svelte';
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -44,6 +45,16 @@
 				return 'english';
 		}
 	}
+
+	beforeNavigate(() => {
+		loadingBarClass = 'before-nav';
+	});
+
+	afterNavigate(() => {
+		loadingBarClass = 'after-nav';
+	});
+
+	let loadingBarClass = $state('');
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -98,27 +109,20 @@
 					<button class="nav-bar-link" onclick={() => (logOutOpen = true)}
 						>{m.log_out()}</button
 					>
-
-					<Options />
-
-					<a
-						class="nav-bar-link"
-						rel="external"
-						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
-						target="_blank">{m.help()}</a
-					>
 				{:else}
 					<a class="nav-bar-link" href={resolve('/')}>Repaper</a>
 					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
-					<Options />
+
 					<LogIn open={page.url.searchParams.get('login') !== null} />
-					<a
-						class="nav-bar-link"
-						rel="external"
-						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
-						target="_blank">{m.help()}</a
-					>
 				{/if}
+				<Options />
+
+				<a
+					class="nav-bar-link"
+					rel="external"
+					href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
+					target="_blank">{m.help()}</a
+				>
 			</div>
 			<h1 class="text-4xl font-bold whitespace-nowrap">
 				{page.data.title ?? 'Repaper'}
@@ -145,6 +149,10 @@
 		>
 	{/if}
 </div>
+<div
+	class="loading-bar absolute top-19.25 z-50 h-0.75 rounded-r bg-(--p) shadow-xl {loadingBarClass}"
+></div>
+
 <main class="bg-(--bg) transition-colors">{@render children()}</main>
 
 <div style="display:none">

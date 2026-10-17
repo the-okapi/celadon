@@ -517,3 +517,32 @@ textarea {
 	border-radius: 0.75rem;
 	margin-block: 0.25rem;
 }
+
+@keyframes before-nav {
+	from {
+		width: 0vw;
+	}
+
+	to {
+		width: 70vw;
+	}
+}
+
+.before-nav {
+	animation: before-nav 700ms;
+	width: 70vw;
+}
+
+@keyframes after-nav {
+	from {
+		width: 70vw;
+	}
+
+	to {
+		width: 100vw;
+	}
+}
+
+.after-nav {
+	animation: after-nav 300ms;
+}

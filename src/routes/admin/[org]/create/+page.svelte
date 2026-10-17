@@ -14,7 +14,7 @@
 			<input name="name" class="w-70" type="text" id="name" />
 		</div>
 
-		<Button.Root type="submit" class="m-auto mt-5 block">{m.submit()}</Button.Root>
+		<Button.Root type="submit" class="m-auto mt-5 block">{m.create()}</Button.Root>
 
 		{#if form?.failure}
 			<p class="absolute text-(--r)">{form?.message}</p>
