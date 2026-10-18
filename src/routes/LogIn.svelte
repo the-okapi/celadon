@@ -8,7 +8,7 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 
-	let { open } = $props();
+	let { open = $bindable() } = $props();
 
 	let email = $state('');
 	let password = $state('');

@@ -25,7 +25,7 @@
 
 <div class="m-auto mt-10 flex h-10 w-fit items-center justify-center gap-3">
 	<Button.Root class="big-button" href={PUBLIC_HELP_URL}>{m.help()}</Button.Root>
-	<Button.Root href="/?login" class="big-button">{m.log_in()}</Button.Root>
+	<Button.Root id="logIn" class="big-button px-4! py-3!">{m.log_in()}</Button.Root>
 	<Button.Root href="/signup" class="big-button">{m.sign_up()}</Button.Root>
 </div>
 

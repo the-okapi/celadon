@@ -17,7 +17,7 @@
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
-	import { onDestroy, type Snippet } from 'svelte';
+	import { onDestroy, onMount, type Snippet } from 'svelte';
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
@@ -55,6 +55,14 @@
 	});
 
 	let loadingBarClass = $state('');
+
+	let logInOpen = $state(false);
+
+	onMount(() => {
+		document.getElementById('logIn')?.addEventListener('click', () => {
+			logInOpen = true;
+		});
+	});
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -115,7 +123,7 @@
 					<a class="nav-bar-link" href={resolve('/')}>Repaper</a>
 					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
 
-					<LogIn open={page.url.searchParams.get('login') !== null} />
+					<LogIn bind:open={logInOpen} />
 				{/if}
 				<Options />
 
