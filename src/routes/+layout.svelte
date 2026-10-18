@@ -21,6 +21,7 @@
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import watermark from '#lib/assets/watermark.png';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -177,3 +178,5 @@
 		</form>
 	{/snippet}
 </AlertDialog>
+
+<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt="Repaper" />

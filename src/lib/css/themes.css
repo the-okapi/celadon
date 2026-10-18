@@ -2,7 +2,7 @@
 	color-scheme: light;
 	--bg: #ffffff;
 	--a: #eeeeee;
-	--fg: #000000;
+	--fg: #313131;
 	--p-fg: var(--bg);
 	--o: #bfbfbf;
 	--r: #ee4400;
@@ -16,6 +16,8 @@
 	--turquoise: #00af9f;
 	--blue: #0077dd;
 	--purple: #6f33af;
+	--neutral: #313131;
+	--gray: #999999;
 }
 
 .dark {
@@ -36,6 +38,8 @@
 	--turquoise: #00dfdf;
 	--blue: #00aaff;
 	--purple: #9f50cf;
+	--neutral: #fafafa;
+	--gray: #5f5f5f;
 }
 
 [data-theme*='red'] {
@@ -69,8 +73,7 @@
 }
 
 [data-theme*='neutral'] {
-	--p: var(--fg);
+	--p: var(--neutral);
 	--p-fg: var(--bg);
-	--other: color-mix(in oklch, var(--fg) 10%, transparent);
-	--gradient: linear-gradient(to right, var(--other), 25%, var(--p), 85%, var(--other));
+	--gradient: linear-gradient(to right, var(--gray), 25%, var(--p), 85%, var(--gray));
 }
