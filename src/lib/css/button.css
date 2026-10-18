@@ -90,8 +90,18 @@
 	font-size: 0.875rem;
 }
 
-.cardButton {
+.hover-button {
+	border: 1px solid var(--o);
+	cursor: pointer;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	border-radius: 0.75rem;
+	background-color: var(--bg);
+	padding: 0.5rem !important;
+	transition: background-color 150ms;
+
+	&:hover {
+		background-color: var(--a);
+	}
 }

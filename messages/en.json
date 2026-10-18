@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"repaper": "Repaper",
 	"home": "Home",
 	"sign_up": "Sign Up",
 	"password_confirm_dont_match": "Password and Confirm Password don't match.",

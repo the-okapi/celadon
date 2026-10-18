@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.create_account()} | Repaper</title>
+	<title>{m.create_account()} | {m.repaper()}</title>
 </svelte:head>
 
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">

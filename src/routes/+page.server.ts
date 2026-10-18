@@ -1,6 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import { error500 } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 export const load: PageServerLoad = async ({ parent }) => {
 	const data = await parent();
@@ -9,7 +10,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 	}
 
 	return {
-		title: 'Repaper'
+		title: m.repaper()
 	};
 };
 

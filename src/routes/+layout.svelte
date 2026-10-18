@@ -121,7 +121,7 @@
 						>{m.log_out()}</button
 					>
 				{:else}
-					<a class="nav-bar-link" href={resolve('/')}>Repaper</a>
+					<a class="nav-bar-link" href={resolve('/')}>{m.repaper()}</a>
 					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
 
 					<LogIn bind:open={logInOpen} />
@@ -136,17 +136,15 @@
 				>
 			</div>
 			<h1 class="text-4xl font-bold whitespace-nowrap">
-				{page.data.title ?? 'Repaper'}
+				{page.data.title ?? m.repaper()}
 			</h1>
 			<div class="flex w-full items-center justify-end gap-2 text-right">
 				{#if pageNavBarContent}
 					{@render pageNavBarContent()}
 				{/if}
 				{#if page.route.id === '/student/assignment/[assignment]'}
-					<button
-						class="border-o flex size-10 cursor-pointer items-center justify-center rounded-xl bg-(--bg) p-2! hover:bg-(--a)
-			"
-						onclick={() => (barHidden.value = true)}><Show size={20} /></button
+					<button class="hover-button size-10" onclick={() => (barHidden.value = true)}
+						><Show size={20} /></button
 					>
 				{/if}
 			</div>
@@ -155,7 +153,7 @@
 		<div class="h-20"></div>
 	{:else if barHidden.value}
 		<button
-			class="border-o fixed top-5 right-3.25 flex size-10 cursor-pointer items-center justify-center rounded-xl bg-(--bg) p-2! hover:bg-(--a)"
+			class="hover-button fixed top-5 right-7 size-10"
 			onclick={() => (barHidden.value = false)}><Hide size={20} /></button
 		>
 	{/if}
@@ -179,4 +177,4 @@
 	{/snippet}
 </AlertDialog>
 
-<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt="Repaper" />
+<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.repaper()} />
