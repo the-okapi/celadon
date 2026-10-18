@@ -221,3 +221,9 @@ textarea {
 .after-nav {
 	animation: after-nav 300ms;
 }
+
+.loading-bar {
+	background: var(--gradient);
+	background-size: 200vw;
+	background-position-x: -50vw;
+}
