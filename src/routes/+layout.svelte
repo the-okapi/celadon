@@ -105,6 +105,8 @@
 	lightClassNames={['light']}
 	defaultTheme="turquoise-stripes"
 	defaultMode="system"
+	themeStorageKey="repaper-theme"
+	modeStorageKey="repaper-mode"
 />
 
 <Toaster />

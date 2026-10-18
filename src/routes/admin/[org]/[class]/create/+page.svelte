@@ -10,6 +10,7 @@
 	import { page } from '$app/state';
 	import Document from './Document.svelte';
 	import Form from './Form.svelte';
+	import { resolve } from '$app/paths';
 
 	let loading = $state(false);
 	let everyone = $derived(createAssignment.result?.everyone ?? true);
@@ -40,10 +41,17 @@
 	let day = $state(null);
 
 	let name = $state(createAssignment.result?.name ?? '');
+
+	let { params } = $props();
 </script>
 
+<a
+	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
+	class="fixed top-22 ml-10 hover:underline">← {m.back()}</a
+>
+
 <div
-	class="border-o fixed top-25 left-5 flex h-[calc(100vh-7.5rem)] w-85 items-center justify-center rounded-2xl bg-(--bg) p-10"
+	class="border-o fixed top-29 left-5 flex h-[calc(100vh-8rem)] w-85 items-center justify-center rounded-2xl bg-(--bg) p-10"
 >
 	{#if loading}
 		<Loader />

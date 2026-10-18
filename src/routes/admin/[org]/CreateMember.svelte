@@ -44,7 +44,7 @@
 				};
 			}}
 		>
-			<h2 class="mt-5 text-center text-3xl font-bold whitespace-nowrap">
+			<h2 class="mt-5 text-center text-2xl font-bold whitespace-nowrap">
 				{m.create_member()}
 			</h2>
 			<div class="m-auto mt-3 w-fit">

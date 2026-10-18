@@ -6,11 +6,12 @@
 	import { formatDate } from '#lib/util.js';
 	import { downloadDocument } from '#lib/pdf.js';
 	import { Button } from 'bits-ui';
+	import { resolve } from '$app/paths';
 
 	let element: any = $state();
 	let editorState: { editor: Editor | null } = $state({ editor: null });
 
-	let { data } = $props();
+	let { data, params } = $props();
 
 	onMount(async () => {
 		editorState.editor = new Editor({
@@ -41,8 +42,13 @@
 				{m.submitted()} {formatDate(data.submission.submitted)}
 			{:else}{m.not()} {m.submitted()}
 			{/if}
-			<Button.Root class="small-button ml-3" onclick={download}
+			<Button.Root class="small-button mx-3" onclick={download}
 				>{m.download_pdf()}</Button.Root
+			>
+			<Button.Root
+				class="small-button px-4! py-2!"
+				href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}
+				>{m.close()}</Button.Root
 			>
 		</p>
 	</div>

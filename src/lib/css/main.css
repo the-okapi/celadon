@@ -5,12 +5,13 @@
 @import './bits.css';
 
 :root {
-	font-family:
+	/*font-family:
 		'Fira Sans',
 		-apple-system,
 		'Inter',
 		system-ui,
-		sans-serif;
+		sans-serif;*/
+	font-family: Georgia, 'Times New Roman', serif;
 	caret-color: var(--p);
 	overscroll-behavior: none;
 }

@@ -179,5 +179,6 @@
 	"create": "Create",
 	"background": "Background",
 	"neutral": "Neutral",
-	"download_pdf": "Download PDF"
+	"download_pdf": "Download PDF",
+	"close": "Close"
 }

@@ -99,11 +99,11 @@
 					submission: submission.id
 				})}
 				<div class="flex items-center justify-end gap-3">
-					<div class="flex w-full items-center gap-2">
+					<div class="flex w-full items-center gap-2 overflow-x-scroll">
 						<p class="text-lg font-bold whitespace-nowrap">
 							{submission.user.name}
 						</p>
-						<p class="overflow-scroll text-sm whitespace-nowrap">
+						<p class="text-sm whitespace-nowrap">
 							{#if submission.submitted}
 								{m.submitted()}
 								{new Date(submission.submitted).toLocaleDateString(getLocale(), {})}

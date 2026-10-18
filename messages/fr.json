@@ -170,5 +170,6 @@
 	"create": "Créer",
 	"background": "Arrière-plan",
 	"neutral": "Neutre",
-	"download_pdf": "Télécharger un PDF"
+	"download_pdf": "Télécharger un PDF",
+	"close": "Fermer"
 }
