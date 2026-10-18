@@ -159,7 +159,7 @@
 		>
 	{/if}
 </div>
-<div class="loading-bar absolute top-19.5 z-50 h-0.5 rounded-r shadow-xl {loadingBarClass}"></div>
+<div class="loading-bar absolute top-19.5 z-50 h-0.5 shadow-xl {loadingBarClass}"></div>
 
 <main class="bg-(--bg) transition-colors">{@render children()}</main>
 

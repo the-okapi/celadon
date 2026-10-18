@@ -67,3 +67,10 @@
 	--p: var(--purple);
 	--gradient: linear-gradient(to right, var(--blue), 25%, var(--purple), 85%, var(--red));
 }
+
+[data-theme*='neutral'] {
+	--p: var(--fg);
+	--p-fg: var(--bg);
+	--other: color-mix(in oklch, var(--fg) 10%, transparent);
+	--gradient: linear-gradient(to right, var(--other), 25%, var(--p), 85%, var(--other));
+}

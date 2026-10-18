@@ -84,6 +84,10 @@
 		{
 			label: '<div class="swatch bg-(--purple)"></div> ' + m.purple(),
 			value: 'purple'
+		},
+		{
+			label: '<div class="swatch bg-(--fg)"></div> ' + m.neutral(),
+			value: 'neutral'
 		}
 	];
 
