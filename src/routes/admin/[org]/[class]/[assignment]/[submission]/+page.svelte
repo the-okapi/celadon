@@ -4,6 +4,8 @@
 	import { extensions, viewerExtensions } from '#lib/tiptap.js';
 	import { m } from '#lib/paraglide/messages.js';
 	import { formatDate } from '#lib/util.js';
+	import { downloadDocument } from '#lib/pdf.js';
+	import { Button } from 'bits-ui';
 
 	let element: any = $state();
 	let editorState: { editor: Editor | null } = $state({ editor: null });
@@ -18,6 +20,14 @@
 			editable: false
 		});
 	});
+
+	async function download() {
+		await downloadDocument(
+			data.submission.user.name,
+			data.title,
+			editorState.editor?.getHTML() ?? ''
+		);
+	}
 </script>
 
 <div
@@ -31,6 +41,9 @@
 				{m.submitted()} {formatDate(data.submission.submitted)}
 			{:else}{m.not()} {m.submitted()}
 			{/if}
+			<Button.Root class="small-button ml-3" onclick={download}
+				>{m.download_pdf()}</Button.Root
+			>
 		</p>
 	</div>
 	<div class="tiptap-container">

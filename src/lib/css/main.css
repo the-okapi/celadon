@@ -35,13 +35,6 @@ main * {
 	@apply bg-(--p)/40;
 }
 
-.card {
-	position: absolute;
-	width: fit;
-	top: 4rem;
-	justify-self: center;
-}
-
 input,
 textarea {
 	border: 1px var(--o) solid;

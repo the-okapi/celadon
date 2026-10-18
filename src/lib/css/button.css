@@ -17,6 +17,10 @@
 		outline-offset: 1px;
 	}
 
+	&:focus {
+		outline: 2px solid var(--p);
+	}
+
 	&:disabled,
 	&[data-disabled] {
 		color: color-mix(in oklab, var(--fg) 50%, transparent);
@@ -30,7 +34,6 @@
 .big-button {
 	padding: 0.75rem 1.75rem;
 	border-radius: 0.9375rem;
-	outline-width: 2.5px;
 	font-size: 1.25rem;
 
 	&:hover {
@@ -91,7 +94,6 @@
 }
 
 .hover-button {
-	border: 1px solid var(--o);
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -102,6 +104,6 @@
 	transition: background-color 150ms;
 
 	&:hover {
-		background-color: var(--a);
+		background-color: var(--s);
 	}
 }

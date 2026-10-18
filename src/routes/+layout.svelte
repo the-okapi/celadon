@@ -21,7 +21,6 @@
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import watermark from '#lib/assets/watermark.png';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -47,6 +46,8 @@
 		}
 	}
 
+	let loadingBarClass = $state('');
+
 	beforeNavigate(() => {
 		loadingBarClass = 'before-nav';
 	});
@@ -54,8 +55,6 @@
 	afterNavigate(() => {
 		loadingBarClass = 'after-nav';
 	});
-
-	let loadingBarClass = $state('');
 
 	let logInOpen = $state(false);
 
@@ -153,7 +152,7 @@
 		<div class="h-20"></div>
 	{:else if barHidden.value}
 		<button
-			class="hover-button fixed top-5 right-7 size-10"
+			class="hover-button border-o fixed top-5 right-7 size-10"
 			onclick={() => (barHidden.value = false)}><Hide size={20} /></button
 		>
 	{/if}
@@ -176,5 +175,3 @@
 		</form>
 	{/snippet}
 </AlertDialog>
-
-<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.repaper()} />
