@@ -90,7 +90,9 @@
 
 <svelte:window {onbeforeunload} {oncontextmenu} />
 
-<div class="border-o m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2">
+<div
+	class="border-o sticky top-22 z-50! m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2 shadow-2xl"
+>
 	<Toggle
 		active={editorState.editor?.isActive('bold')}
 		class="toggle-icon"

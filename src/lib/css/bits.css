@@ -135,12 +135,12 @@
 
 	&[data-state='unchecked'] {
 		background-color: var(--s);
-		outline-color: var(--s);
+		outline: 2px solid var(--s) !important;
 	}
 
 	&[data-state='checked'] {
 		background-color: var(--p);
-		outline-color: var(--p);
+		outline: 2px solid var(--p) !important;
 	}
 }
 

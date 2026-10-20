@@ -38,7 +38,7 @@
 </script>
 
 <div
-	class="border-o flex h-[80vh] w-full items-center justify-center overflow-scroll overscroll-none rounded-xl bg-(--bg) p-5"
+	class="border-o flex h-[80vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 >
 	{#if focus === -1}
 		<div class="h-full w-full">

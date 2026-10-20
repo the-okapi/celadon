@@ -51,7 +51,7 @@
 >
 
 <div
-	class="border-o fixed top-29 left-5 flex h-[calc(100vh-8rem)] w-85 items-center justify-center rounded-2xl bg-(--bg) p-10"
+	class="border-o fixed top-29 left-5 flex h-[calc(100vh-8rem)] w-85 items-center justify-center overflow-y-scroll rounded-2xl bg-(--bg) px-10"
 >
 	{#if loading}
 		<Loader />
@@ -63,7 +63,7 @@
 			>
 		</div>
 	{:else}
-		<div class="flex h-full w-full flex-col items-center">
+		<div class="flex h-full w-full flex-col items-center pt-5">
 			<h1 class="mb-1 text-center text-2xl font-bold">{m.assignment_details()}</h1>
 			<form
 				{...createAssignment.enhance(async (form: any) => {
@@ -121,8 +121,8 @@
 					>
 					<input {...createAssignment.fields.everyone.as('hidden', String(everyone))} />
 				</div>
-				<div class="mt-8 flex h-15 w-full items-center justify-center">
-					{#if !everyone}
+				{#if !everyone}
+					<div class="flex h-18 w-full items-center justify-center">
 						{#if students.length > 0}
 							<div>
 								<div class="grid grid-cols-2">
@@ -150,8 +150,8 @@
 						{:else}
 							<Loader />
 						{/if}
-					{/if}
-				</div>
+					</div>
+				{/if}
 				<Button.Root type="submit" class="m-auto mt-3 block">{m.submit()}</Button.Root>
 				<div class="absolute bottom-1 left-0 w-full">
 					<p class="mb-2 px-2 text-center leading-4 text-(--r)">

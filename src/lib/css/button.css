@@ -43,19 +43,19 @@
 
 .red-button {
 	background-color: var(--r);
-	outline-color: var(--r);
+	outline-color: var(--r) !important;
 }
 
 .gray-button {
 	background-color: var(--s);
-	outline-color: var(--s);
+	outline-color: var(--s) !important;
 	color: var(--fg);
 }
 
 .ghost-button {
 	background-color: var(--bg);
 	color: var(--fg);
-	outline-color: transparent;
+	outline-color: transparent !important;
 	width: 3rem;
 	height: 2rem;
 	padding: 0;

@@ -34,7 +34,7 @@
 	<div class="flex h-[80vh] w-full gap-4">
 		<div class="flex h-full w-full flex-col gap-4">
 			<div
-				class="border-o h-full w-full overflow-scroll overscroll-none rounded-xl bg-(--bg) p-5"
+				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 			>
 				<h2 class="mb-5 text-center text-3xl font-bold">Invitations</h2>
 				{#if data.invitations.length === 0}
@@ -53,7 +53,7 @@
 				{/each}
 			</div>
 			<div
-				class="border-o h-full w-full overflow-scroll overscroll-none rounded-xl bg-(--bg) p-5"
+				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 			>
 				<h2 class="mb-5 text-center text-3xl font-bold">{m.deletions()}</h2>
 				{#if data.deletions.length === 0}
