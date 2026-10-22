@@ -45,8 +45,8 @@
 				{:then { data: members }}
 					<form class="relative h-fit w-full p-5" method="POST" action="?/add">
 						<h2
-							class="text-center text-2xl
-							font-bold"
+							class="title text-center
+							text-2xl"
 						>
 							{m.add_member()}
 						</h2>
@@ -113,7 +113,7 @@
 						class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
 					>
 						<div class="w-fit text-center">
-							<h2 class="text-center text-2xl font-bold">{m.assignment()}s</h2>
+							<h2 class="title text-center text-2xl">{m.assignment()}s</h2>
 						</div>
 						<div class="absolute bottom-2 left-0 w-full text-center">
 							<p>{m.go_to()} {m.assignment()}s</p>
@@ -124,7 +124,7 @@
 		</div>
 	</div>
 	<div class="border-o relative z-10 h-[80vh] w-full rounded-xl bg-(--bg) p-5">
-		<h2 class="text-center text-3xl font-bold">{m.class_list()}</h2>
+		<h2 class="title text-center text-3xl">{m.class_list()}</h2>
 		{#each data.members as member, i (member.user.id)}
 			<div class="flex h-16 px-5 py-3">
 				<div class="flex w-fit items-center">

@@ -42,7 +42,7 @@
 >
 	{#if focus === -1}
 		<div class="h-full w-full">
-			<h2 class="mb-5 text-center text-3xl font-bold">{m.list_members()}</h2>
+			<h2 class="title mb-5 text-center text-3xl">{m.list_members()}</h2>
 			{#each members as member, i (member.user.id)}
 				<div class="flex px-5 py-3">
 					<div class="flex w-fit items-center">
@@ -73,7 +73,7 @@
 			{:else}
 				<p class="badge m-auto mb-1 bg-(--p)">{m.member()}</p>
 			{/if}
-			<h2 class="text-center text-3xl font-bold">
+			<h2 class="title text-center text-3xl">
 				{member.user.name}
 				{#if member.user.id === user}<span class="text-2xl font-normal opacity-50"
 						>({m.you()})</span

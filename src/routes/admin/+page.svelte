@@ -32,7 +32,7 @@
 						})}
 				>
 					<div>
-						<h2 class="text-center text-4xl font-bold">
+						<h2 class="title text-center text-4xl">
 							{data.organization.name}
 						</h2>
 					</div>
@@ -43,7 +43,7 @@
 			</div>
 			<div class="box" in:fade>
 				<form method="POST" action="?/create">
-					<h2 class="mb-10 text-center text-3xl font-bold">{m.create_class()}</h2>
+					<h2 class="title mb-10 text-center text-3xl">{m.create_class()}</h2>
 					<Label.Root for="className">{m.class_name()}:</Label.Root><br />
 					<input type="text" name="className" id="className" class="mr-1 h-10" required />
 					<Button.Root type="submit">{m.submit()}</Button.Root>
@@ -62,7 +62,7 @@
 					onclick={() => goToClass(data.organization.id, classData.id)}
 				>
 					<div>
-						<h2 class="text-center text-4xl font-bold">{classData.name}</h2>
+						<h2 class="title text-center text-4xl">{classData.name}</h2>
 					</div>
 					<div class="absolute bottom-2 left-0 w-full">
 						<p>{m.manage_class()}</p>

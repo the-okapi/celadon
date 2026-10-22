@@ -136,7 +136,7 @@
 					target="_blank">{m.help()}</a
 				>
 			</div>
-			<h1 class="text-4xl font-bold whitespace-nowrap">
+			<h1 class="title text-4xl whitespace-nowrap">
 				{page.data.title ?? m.repaper()}
 			</h1>
 			<div class="flex w-full items-center justify-end gap-2 text-right">

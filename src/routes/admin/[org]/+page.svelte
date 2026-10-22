@@ -36,7 +36,7 @@
 			<div
 				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 			>
-				<h2 class="mb-5 text-center text-3xl font-bold">Invitations</h2>
+				<h2 class="title mb-5 text-center text-3xl">{m.invitations()}</h2>
 				{#if data.invitations.length === 0}
 					<p class="w-80">{m.no_invitations()}</p>
 				{/if}
@@ -55,7 +55,7 @@
 			<div
 				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 			>
-				<h2 class="mb-5 text-center text-3xl font-bold">{m.deletions()}</h2>
+				<h2 class="title mb-5 text-center text-3xl">{m.deletions()}</h2>
 				{#if data.deletions.length === 0}
 					<p class="w-80">{m.no_deletions()}</p>
 				{/if}
@@ -78,7 +78,7 @@
 		<div class="flex h-full flex-col gap-4">
 			<div class="border-o flex h-full w-full items-center rounded-xl bg-(--bg) p-5">
 				<form action="?/rename" method="POST" class="m-auto">
-					<h2 class="text-center text-2xl font-bold">{m.rename_organization()}</h2>
+					<h2 class="title text-center text-2xl">{m.rename_organization()}</h2>
 					<div class="mx-auto my-5 w-fit">
 						<Label.Root for="name">{m.rename_to()}:</Label.Root><br />
 						<input type="text" id="name" name="name" required />

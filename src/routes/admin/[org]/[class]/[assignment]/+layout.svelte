@@ -161,7 +161,7 @@
 				{formatDate(data.assignment.due_date)}
 				{@render editButton(() => (changeDueDateOpen = true))}
 			</p>
-			<h3 class="flex items-center justify-center gap-2 text-2xl font-semibold">
+			<h3 class="title flex items-center justify-center gap-2 text-2xl">
 				{data.assignment.name}
 				{@render editButton(() => (changeNameOpen = true))}
 			</h3>
@@ -191,7 +191,7 @@
 			<Loader />
 		{:else}
 			<form {...changeName.enhance(handleLoadingName)}>
-				<h1 class="mb-2 text-center text-3xl font-bold">
+				<h1 class="title mb-2 text-center text-3xl">
 					{m.change()}
 					{m.le()}{m.name()}
 				</h1>
@@ -233,7 +233,7 @@
 			<Loader />
 		{:else}
 			<form {...changeDescription.enhance(handleLoadingDescription)} class="w-full">
-				<h1 class="mb-2 text-center text-3xl font-bold">
+				<h1 class="title mb-2 text-center text-3xl">
 					{m.change()}
 					{m.la()}Description
 				</h1>
@@ -275,7 +275,7 @@
 			<Loader />
 		{:else}
 			<form {...changeDueDate.enhance(handleLoadingDueDate)}>
-				<h1 class="mb-2 text-center text-3xl font-bold">
+				<h1 class="title mb-2 text-center text-3xl">
 					{m.change()}
 					{m.la()}{m.due_date()}
 				</h1>

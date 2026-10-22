@@ -64,7 +64,7 @@
 		</div>
 	{:else}
 		<div class="flex h-full w-full flex-col items-center pt-5">
-			<h1 class="mb-1 text-center text-2xl font-bold">{m.assignment_details()}</h1>
+			<h1 class="title mb-1 text-center text-2xl">{m.assignment_details()}</h1>
 			<form
 				{...createAssignment.enhance(async (form: any) => {
 					if (!everyone && selectedStudents.length === 0) {

@@ -5,15 +5,20 @@
 @import './bits.css';
 
 :root {
-	/*font-family:
-		'Fira Sans',
-		-apple-system,
-		'Inter',
-		system-ui,
-		sans-serif;*/
 	font-family: Georgia, 'Times New Roman', serif;
 	caret-color: var(--p);
 	overscroll-behavior: none;
+}
+
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/Playfair-Display.woff2');
+	font-weight: 900;
+}
+
+.title {
+	font-family: 'Playfair Display';
+	font-weight: 900;
 }
 
 * {

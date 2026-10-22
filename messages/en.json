@@ -181,5 +181,6 @@
 	"neutral": "Neutral",
 	"download_pdf": "Download PDF",
 	"close": "Close",
-	"email_password_incorrect": "Email or password is incorrect"
+	"email_password_incorrect": "Email or password is incorrect",
+	"invitations": "Invitations"
 }

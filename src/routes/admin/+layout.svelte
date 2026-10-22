@@ -6,6 +6,7 @@
 	import Expand from '@lucide/svelte/icons/chevrons-up-down';
 	import Dropdown from '#lib/components/Dropdown.svelte';
 	import { resolve } from '$app/paths';
+	import { goto } from '$app/navigation';
 
 	let { children, data, params } = $props();
 
@@ -41,12 +42,13 @@
 						class="border-x border-(--o) hover:bg-(--a)! {i === 0
 							? 'rounded-t-xl border-t'
 							: ''} {i === options.length - 1 ? 'rounded-b-xl border-b' : ''}"
-						><a
-							href={resolve('/admin/[org]/[class]', {
-								org: data.organization.id,
-								class: option.value
-							})}>{@html option.label}</a
-						></DropdownMenu.Item
+						onSelect={() =>
+							goto(
+								resolve('/admin/[org]/[class]', {
+									org: data.organization.id,
+									class: option.value
+								})
+							)}>{@html option.label}</DropdownMenu.Item
 					>
 				{/each}
 			</Dropdown>
