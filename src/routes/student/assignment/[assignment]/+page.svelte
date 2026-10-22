@@ -5,8 +5,8 @@
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import Info from '@lucide/svelte/icons/info';
 	import Undo from '@lucide/svelte/icons/undo-2';
-	import Editor from './Editor.svelte';
-	import Viewer from './Viewer.svelte';
+	import Edit from './Edit.svelte';
+	import View from './View.svelte';
 
 	let { data, params } = $props();
 
@@ -26,11 +26,11 @@
 {/snippet}
 
 {#if !data.assignment.submitted}
-	<Editor content={data.document.content} assignment={params.assignment}>
+	<Edit content={data.document.content} assignment={params.assignment}>
 		{@render assignmentDetails()}
-	</Editor>
+	</Edit>
 {:else}
-	<Viewer content={data.document.content} submitted={data.assignment.submitted}>
+	<View content={data.document.content} submitted={data.assignment.submitted}>
 		{@render assignmentDetails()}
 		<Button.Root
 			class="flex size-10 items-center justify-center p-0!"
@@ -39,7 +39,7 @@
 		>
 			<Undo size={20} />
 		</Button.Root>
-	</Viewer>
+	</View>
 {/if}
 
 <AlertDialog bind:open={assignmentDetailsOpen} message={m.ok()} cancelOverride>

@@ -21,7 +21,7 @@ export const logIn = command(LogInSchema, async ({ email, password }) => {
 		});
 
 		if (error || !user) {
-			return { status: 404, message: m.user_not_found() };
+			return { status: 404, message: m.email_password_incorrect() };
 		}
 
 		const check = unwrap(
@@ -35,7 +35,7 @@ export const logIn = command(LogInSchema, async ({ email, password }) => {
 
 		unwrapNoData(await locals.supabase.auth.signOut(), 86);
 
-		return { status: 404, message: m.user_not_found() };
+		return { status: 404, message: m.email_password_incorrect() };
 	} catch {
 		return { status: 500, message: m.something_happened() };
 	}

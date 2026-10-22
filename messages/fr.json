@@ -171,5 +171,6 @@
 	"background": "Arrière-plan",
 	"neutral": "Neutre",
 	"download_pdf": "Télécharger un PDF",
-	"close": "Fermer"
+	"close": "Fermer",
+	"email_password_incorrect": "Courriel ou mot de passe est incorrect"
 }

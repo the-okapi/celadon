@@ -180,5 +180,6 @@
 	"background": "Background",
 	"neutral": "Neutral",
 	"download_pdf": "Download PDF",
-	"close": "Close"
+	"close": "Close",
+	"email_password_incorrect": "Email or password is incorrect"
 }

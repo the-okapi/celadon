@@ -52,10 +52,6 @@
 		editorState.editor = new Editor({
 			element,
 			extensions: [...extensions, ...editorExtensions],
-			editorProps: {
-				handlePaste: () => true,
-				handleDrop: () => true
-			},
 			content: '',
 			onTransaction: ({ editor }) => {
 				editorState = { editor };
