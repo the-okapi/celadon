@@ -77,3 +77,11 @@
 	--p-fg: var(--bg);
 	--gradient: linear-gradient(to right, var(--gray), 25%, var(--p), 85%, var(--gray));
 }
+
+[data-theme*='stripes'] {
+	--b: var(--a);
+}
+
+[data-theme*='nothing'] {
+	--b: transparent;
+}

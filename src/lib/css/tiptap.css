@@ -4,7 +4,6 @@
 	padding: 0.5rem;
 	background-color: var(--bg);
 	border: 1px solid var(--o);
-	overflow-x: hidden;
 }
 
 .tiptap {

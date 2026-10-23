@@ -26,7 +26,7 @@
 					class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
 				>
 					<div class="w-fit text-center">
-						<h2 class="title text-center text-2xl italic">
+						<h2 class="text-center text-2xl font-bold italic">
 							{m.create_assignment()}
 						</h2>
 					</div>
@@ -59,7 +59,7 @@
 							{/if}
 						</div>
 						<p class="italic">{formatDate(assignment.due_date)}</p>
-						<h3 class="title text-center text-2xl">
+						<h3 class="text-center text-2xl font-bold">
 							{assignment.name}
 						</h3>
 						<p class="px-8">{assignment.description}</p>

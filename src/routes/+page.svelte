@@ -18,7 +18,7 @@
 
 <div class="h-25"></div>
 
-<h1 class="title gradient relative text-center text-[5.5rem] leading-32 font-black">
+<h1 class="gradient relative text-center text-[5.5rem] leading-32 font-black">
 	{m.slogan()}
 </h1>
 <h2 class="relative text-center text-4xl">{m.have_trust()}</h2>
@@ -33,7 +33,7 @@
 
 <div class="flex justify-center gap-7">
 	<div class="border-o h-80 w-110 rounded-xl bg-(--bg) p-7 pt-10">
-		<h2 class="title text-center text-4xl font-bold">{m.word_processing()}</h2>
+		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul>
 			<li>{m.no_copy_paste_ai()}</li>
@@ -45,7 +45,7 @@
 	</div>
 
 	<div class="border-o h-80 w-110 rounded-xl bg-(--bg) p-7 pt-10">
-		<h2 class="title text-center text-4xl font-bold">{m.no_more()}</h2>
+		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul>
 			<li>{m.losing_homework()}</li>
@@ -57,7 +57,7 @@
 	</div>
 
 	<div class="border-o relative h-80 w-110 rounded-xl bg-(--bg) p-7 pt-8">
-		<h2 class="title text-center text-4xl font-bold">{m.assignments()}</h2>
+		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class={getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}>
 			<li>{m.classes_organize_students()}</li>
