@@ -172,5 +172,9 @@
 	"neutral": "Neutre",
 	"download_pdf": "Télécharger un PDF",
 	"close": "Fermer",
-	"email_password_incorrect": "Courriel ou mot de passe est incorrect"
+	"email_password_incorrect": "Courriel ou mot de passe est incorrect",
+	"settings_for": "Paramètres de {for}",
+	"delete_class": "Supprimer la Classe",
+	"delete_class_description": "Supprimer la classe et tout les données associées définitivement.",
+	"delete_the_class": "supprimer la classe '{class}'?"
 }

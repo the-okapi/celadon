@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 	}
 
 	return {
-		title: m.repaper()
+		title: m.graphopage()
 	};
 };
 

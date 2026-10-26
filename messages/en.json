@@ -1,6 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"repaper": "Repaper",
+	"graphopage": "Graphopage",
 	"home": "Home",
 	"sign_up": "Sign Up",
 	"password_confirm_dont_match": "Password and Confirm Password don't match.",
@@ -182,5 +182,9 @@
 	"download_pdf": "Download PDF",
 	"close": "Close",
 	"email_password_incorrect": "Email or password is incorrect",
-	"invitations": "Invitations"
+	"invitations": "Invitations",
+	"settings_for": "{for} Settings",
+	"delete_class": "Delete Class",
+	"delete_class_description": "Permanently delete this class and all associated data.",
+	"delete_the_class": "delete the class '{class}'?"
 }

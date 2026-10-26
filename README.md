@@ -1,4 +1,4 @@
-# Repaper
+# Graphopage
 
 Have trust in your students' work again.
 

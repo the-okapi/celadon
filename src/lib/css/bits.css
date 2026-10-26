@@ -21,13 +21,10 @@
 	width: 10rem;
 	margin: auto;
 	background-color: var(--bg);
-	transition: box-shadow 100ms;
 	margin: 0.2rem auto;
 
-	&:hover {
-		box-shadow:
-			0 0 0 1.5px var(--bg),
-			0 0 0 3.5px var(--p);
+	&:focus {
+		outline: 2px solid var(--p);
 	}
 }
 
@@ -122,25 +119,24 @@
 	align-items: center;
 	padding-left: 4px;
 	padding-right: 5px;
-	outline: 2px solid var(--p);
-	outline-offset: -5px;
 	transition:
 		background-color 150ms,
-		outline-color 150ms,
-		outline-offset 100ms;
-
-	&:hover {
-		outline-offset: 1px;
-	}
+		outline-color 150ms;
 
 	&[data-state='unchecked'] {
 		background-color: var(--s);
-		outline: 2px solid var(--s) !important;
+
+		&:focus {
+			outline: 2px solid var(--s);
+		}
 	}
 
 	&[data-state='checked'] {
 		background-color: var(--p);
-		outline: 2px solid var(--p) !important;
+
+		&:focus {
+			outline: 2px solid var(--p);
+		}
 	}
 }
 

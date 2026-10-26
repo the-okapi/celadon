@@ -25,7 +25,7 @@
 		{#if data.organization.admin}
 			<div class="box">
 				<button
-					class="box absolute cursor-pointer transition-colors hover:bg-(--fg)/5!"
+					class="box hover-box"
 					onclick={() =>
 						goto(resolve('/admin/[org]', { org: data.organization.id }), {
 							refreshAll: true
@@ -58,7 +58,7 @@
 		{#each data.classes as classData (classData.id)}
 			<div class="box">
 				<button
-					class="box absolute cursor-pointer transition-colors hover:bg-(--fg)/5!"
+					class="box hover-box"
 					onclick={() => goToClass(data.organization.id, classData.id)}
 				>
 					<div>

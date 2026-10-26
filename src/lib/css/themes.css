@@ -78,8 +78,16 @@
 	--gradient: linear-gradient(to right, var(--gray), 25%, var(--p), 85%, var(--gray));
 }
 
-[data-theme*='stripes'] {
-	--b: var(--a);
+main {
+	background-size: cover;
+}
+
+[data-theme*='stripes'] main {
+	background-image: url('/backgrounds/stripes.svg');
+}
+
+[data-theme*='dots'] main {
+	background-image: url('/backgrounds/dots.svg');
 }
 
 [data-theme*='nothing'] {

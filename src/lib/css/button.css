@@ -4,30 +4,23 @@
 	padding: 0.5rem 1rem;
 	border-radius: 0.75rem;
 	cursor: pointer;
-	outline: 2px solid var(--p);
-	outline-offset: -5px;
-	transition: outline-offset 100ms;
+	transition: background-color 150ms;
 	user-select: none;
+	--darkness: 85%;
 
 	&[href] {
 		padding: 0.75rem 1rem;
 	}
 
 	&:hover {
-		outline-offset: 1px;
-	}
-
-	&:focus {
-		outline: 2px solid var(--p);
+		background-color: color-mix(in oklch, var(--p) var(--darkness), black);
 	}
 
 	&:disabled,
 	&[data-disabled] {
 		color: color-mix(in oklab, var(--fg) 50%, transparent);
 		background-color: var(--s);
-		opacity: 1;
 		cursor: not-allowed;
-		outline: none !important;
 	}
 }
 
@@ -35,27 +28,22 @@
 	padding: 0.75rem 1.75rem;
 	border-radius: 0.9375rem;
 	font-size: 1.25rem;
-
-	&:hover {
-		outline-offset: 1.5px;
-	}
 }
 
 .red-button {
-	background-color: var(--r);
-	outline-color: var(--r) !important;
+	--p: var(--r) !important;
+	--darkness: 90%;
 }
 
 .gray-button {
-	background-color: var(--s);
-	outline-color: var(--s) !important;
-	color: var(--fg);
+	--p: var(--s);
+	--p-fg: var(--fg);
+	--darkness: 95%;
 }
 
 .ghost-button {
 	background-color: var(--bg);
 	color: var(--fg);
-	outline-color: transparent !important;
 	width: 3rem;
 	height: 2rem;
 	padding: 0;

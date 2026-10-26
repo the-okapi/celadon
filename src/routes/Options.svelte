@@ -50,6 +50,10 @@
 			value: 'stripes'
 		},
 		{
+			label: 'Polka Dots',
+			value: 'dots'
+		},
+		{
 			label: 'Nothing :(',
 			value: 'nothing'
 		}

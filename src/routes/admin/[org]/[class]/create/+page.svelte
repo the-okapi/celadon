@@ -10,7 +10,6 @@
 	import { page } from '$app/state';
 	import Document from './Document.svelte';
 	import Form from './Form.svelte';
-	import { resolve } from '$app/paths';
 
 	let loading = $state(false);
 	let everyone = $derived(createAssignment.result?.everyone ?? true);
@@ -41,126 +40,123 @@
 	let day = $state(null);
 
 	let name = $state(createAssignment.result?.name ?? '');
-
-	let { params } = $props();
 </script>
 
-<a
-	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
-	class="fixed top-22 ml-10 hover:underline">← {m.back()}</a
->
-
-<div
-	class="border-o fixed top-29 left-5 flex h-[calc(100vh-8rem)] w-85 items-center justify-center overflow-y-scroll rounded-2xl bg-(--bg) px-10"
->
-	{#if loading}
-		<Loader />
-	{:else if createAssignment.result?.success && showSuccess}
-		<div>
-			<p class="text-center">{m.created_assignment()}</p>
-			<Button.Root class="m-auto mt-10 block" onclick={createAnother}
-				>{m.create_another()}</Button.Root
-			>
-		</div>
-	{:else}
-		<div class="flex h-full w-full flex-col items-center pt-5">
-			<h1 class="mb-1 text-center text-2xl font-bold">{m.assignment_details()}</h1>
-			<form
-				{...createAssignment.enhance(async (form: any) => {
-					if (!everyone && selectedStudents.length === 0) {
-						errorText = m.please_select_student();
-						return;
-					}
-					if (dateTime === '') {
-						errorText = m.date_not_selected();
-						return;
-					}
-					errorText = '';
-					loading = true;
-					await form.submit();
-					if (createAssignment.result?.success) {
-						showSuccess = true;
-					}
-					loading = false;
-				})}
-				class="w-60"
-			>
-				<div class="mb-3 w-fit">
-					<Label.Root for="name">{m.name()}:</Label.Root><br />
-					<input
-						bind:value={name}
-						class="w-60"
-						id="name"
-						{...createAssignment.fields.name.as('text')}
-						required
-					/>
-				</div>
-				<div class="mb-5">
-					<Label.Root for="description">Description:</Label.Root>
-					<textarea
-						class="h-20 w-60"
-						maxlength={500}
-						id="description"
-						{...createAssignment.fields.description.as('text')}></textarea>
-				</div>
-				<div class="mb-5">
-					<Label.Root
-						>{m.due_date()}:
-						<DatePicker name="dueDate" bind:day bind:value={dateTime} /></Label.Root
-					>
-				</div>
-				<div class="m-auto flex w-fit justify-center gap-4">
-					<Switch
-						class="my-auto"
-						id="everyone"
-						bind:checked={everyone}
-						onCheckedChange={loadStudents}
-					/>
-					<Label.Root for="everyone" class="my-auto whitespace-nowrap"
-						>{m.assign_to_everyone()}</Label.Root
-					>
-					<input {...createAssignment.fields.everyone.as('hidden', String(everyone))} />
-				</div>
-				{#if !everyone}
-					<div class="flex h-18 w-full items-center justify-center">
-						{#if students.length > 0}
-							<div>
-								<div class="grid grid-cols-2">
-									<p class="text-left">{m.assign_to()}:</p>
-									<p class="text-right">
-										{selectedStudents.length}
-										{m.student()}{selectedStudents.length !== 1 ? 's' : ''}
-									</p>
-								</div>
-								<Combobox
-									options={students}
-									multiple
-									bind:value={selectedStudents}
-								/>
-								{const selectedStudentsString = $derived(
-									JSON.stringify(selectedStudents)
-								)}
-								<input
-									{...createAssignment.fields.students.as(
-										'hidden',
-										selectedStudentsString
-									)}
-								/>
-							</div>
-						{:else}
-							<Loader />
-						{/if}
+<div class="fixed top-36 h-[calc(100vh-9rem)] w-90 p-3">
+	<div
+		class="border-o flex h-full items-center justify-center overflow-y-scroll rounded-2xl bg-(--bg) px-10"
+	>
+		{#if loading}
+			<Loader />
+		{:else if createAssignment.result?.success && showSuccess}
+			<div>
+				<p class="text-center">{m.created_assignment()}</p>
+				<Button.Root class="m-auto mt-10 block" onclick={createAnother}
+					>{m.create_another()}</Button.Root
+				>
+			</div>
+		{:else}
+			<div class="flex h-full w-full flex-col items-center pt-5">
+				<h1 class="mb-1 text-center text-2xl font-bold">{m.assignment_details()}</h1>
+				<form
+					{...createAssignment.enhance(async (form: any) => {
+						if (!everyone && selectedStudents.length === 0) {
+							errorText = m.please_select_student();
+							return;
+						}
+						if (dateTime === '') {
+							errorText = m.date_not_selected();
+							return;
+						}
+						errorText = '';
+						loading = true;
+						await form.submit();
+						if (createAssignment.result?.success) {
+							showSuccess = true;
+						}
+						loading = false;
+					})}
+					class="w-60"
+				>
+					<div class="mb-3 w-fit">
+						<Label.Root for="name">{m.name()}:</Label.Root><br />
+						<input
+							bind:value={name}
+							class="w-60"
+							id="name"
+							{...createAssignment.fields.name.as('text')}
+							required
+						/>
 					</div>
-				{/if}
-				<Button.Root type="submit" class="m-auto mt-3 block">{m.submit()}</Button.Root>
-				<div class="absolute bottom-1 left-0 w-full">
-					<p class="mb-2 px-2 text-center leading-4 text-(--r)">
-						{createAssignment.result?.message}{errorText}
-					</p>
-				</div>
-			</form>
-		</div>
-	{/if}
+					<div class="mb-5">
+						<Label.Root for="description">Description:</Label.Root>
+						<textarea
+							class="h-20 w-60"
+							maxlength={500}
+							id="description"
+							{...createAssignment.fields.description.as('text')}></textarea>
+					</div>
+					<div class="mb-5">
+						<Label.Root
+							>{m.due_date()}:
+							<DatePicker name="dueDate" bind:day bind:value={dateTime} /></Label.Root
+						>
+					</div>
+					<div class="m-auto flex w-fit justify-center gap-4">
+						<Switch
+							class="my-auto"
+							id="everyone"
+							bind:checked={everyone}
+							onCheckedChange={loadStudents}
+						/>
+						<Label.Root for="everyone" class="my-auto whitespace-nowrap"
+							>{m.assign_to_everyone()}</Label.Root
+						>
+						<input
+							{...createAssignment.fields.everyone.as('hidden', String(everyone))}
+						/>
+					</div>
+					{#if !everyone}
+						<div class="flex h-18 w-full items-center justify-center">
+							{#if students.length > 0}
+								<div>
+									<div class="grid grid-cols-2">
+										<p class="text-left">{m.assign_to()}:</p>
+										<p class="text-right">
+											{selectedStudents.length}
+											{m.student()}{selectedStudents.length !== 1 ? 's' : ''}
+										</p>
+									</div>
+									<Combobox
+										options={students}
+										multiple
+										bind:value={selectedStudents}
+									/>
+									{const selectedStudentsString = $derived(
+										JSON.stringify(selectedStudents)
+									)}
+									<input
+										{...createAssignment.fields.students.as(
+											'hidden',
+											selectedStudentsString
+										)}
+									/>
+								</div>
+							{:else}
+								<Loader />
+							{/if}
+						</div>
+					{/if}
+					<Button.Root type="submit" class="m-auto mt-3 block">{m.submit()}</Button.Root>
+					<div class="absolute bottom-1 left-0 w-full">
+						<p class="mb-2 px-2 text-center leading-4 text-(--r)">
+							{createAssignment.result?.message}{errorText}
+						</p>
+					</div>
+				</form>
+			</div>
+		{/if}
+	</div>
 </div>
 
 {#snippet document()}
@@ -174,5 +170,5 @@
 <Tabs
 	snippets={[document, form]}
 	labels={[m.document(), m.form()]}
-	class="absolute top-25 right-5 left-95 w-[calc(100vw-25rem)]"
+	class="relative right-5 left-95 w-[calc(100vw-25rem)] pt-5"
 />

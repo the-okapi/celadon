@@ -86,9 +86,7 @@
 
 <svelte:window {onbeforeunload} {oncontextmenu} />
 
-<div
-	class="border-o sticky top-22 z-50! m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2 shadow-2xl"
->
+<div class="border-o sticky top-38 z-50! m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2">
 	<Toggle
 		active={editorState.editor?.isActive('bold')}
 		class="toggle-icon"
@@ -141,13 +139,11 @@
 	</Button.Root>
 </div>
 
-<div class="pt-4 text-center">
+<div class="py-3 text-center">
 	<div class="tiptap-container">
 		<div spellcheck="false" bind:this={element} style="zoom: 0.75;"></div>
 	</div>
 </div>
-
-<div class="h-4"></div>
 
 <AlertDialog bind:open={addAccentOpen} cancelOverride>
 	<Accents {addAccent} />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 @import 'tailwindcss';
 @import './themes.css';
 @import './tiptap.css';
@@ -6,7 +6,7 @@
 @import './bits.css';
 
 :root {
-	font-family: 'Fira Sans', sans-serif;
+	font-family: Roboto, sans-serif;
 	caret-color: var(--p);
 	overscroll-behavior: none;
 }
@@ -41,19 +41,12 @@ textarea {
 	color: var(--fg);
 	border-radius: 0.75rem;
 	background-color: var(--bg);
-	transition: box-shadow 100ms;
 	margin-top: 0.2rem;
 	margin-bottom: 0.2rem;
 	resize: none;
 
-	&:hover {
-		box-shadow:
-			0 0 0 1.5px var(--bg),
-			0 0 0 3.5px var(--p);
-	}
-
 	&:focus {
-		outline: none;
+		outline: 2px solid var(--p);
 	}
 }
 
@@ -140,6 +133,20 @@ textarea {
 	align-items: center;
 	justify-content: center;
 	background-color: var(--bg);
+}
+
+.hover-box {
+	position: absolute;
+	cursor: pointer;
+	transition: background-color 150ms;
+
+	&:hover {
+		background-color: var(--a);
+	}
+
+	&:focus {
+		outline: 2px solid var(--p);
+	}
 }
 
 .badge {

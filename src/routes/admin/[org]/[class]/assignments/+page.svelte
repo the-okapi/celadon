@@ -14,28 +14,8 @@
 	};
 </script>
 
-<div class="h-2"></div>
-<a href={resolve('/admin/[org]/[class]', { ...params })} class="relative ml-10 hover:underline"
-	>← {m.back()}</a
->
 {#snippet list(assignments: Assignment[])}
 	<div class="mt-5 grid grid-cols-3 gap-4 px-30">
-		<div class="border-o h-80 w-full rounded-xl bg-(--bg)">
-			<a href={resolve('/admin/[org]/[class]/create', { ...params })}>
-				<div
-					class="relative flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-5 transition-colors hover:bg-(--a)"
-				>
-					<div class="w-fit text-center">
-						<h2 class="text-center text-2xl font-bold italic">
-							{m.create_assignment()}
-						</h2>
-					</div>
-					<div class="absolute bottom-2 left-0 w-full text-center">
-						<p>{m.go_to()} {m.create_assignment()}</p>
-					</div>
-				</div>
-			</a>
-		</div>
 		{#each assignments as assignment (assignment.id)}
 			<div class="box relative p-0!">
 				<a
@@ -90,4 +70,7 @@
 	)}
 	{@render list(assignments)}
 {/snippet}
-<Tabs labels={[m.upcoming(), m.past()]} snippets={[upcoming, past]} />
+
+<div class="w-screen pt-5">
+	<Tabs labels={[m.upcoming(), m.past()]} snippets={[upcoming, past]} />
+</div>

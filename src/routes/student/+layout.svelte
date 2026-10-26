@@ -18,9 +18,9 @@
 {/snippet}
 
 <svelte:head>
-	<title>{page.data.title} | {m.repaper()}</title>
+	<title>{page.data.title} | {m.graphopage()}</title>
 </svelte:head>
 
 {@render children()}
 
-<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.repaper()} />
+<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.graphopage()} />
