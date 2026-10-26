@@ -5,7 +5,7 @@ import { m } from '#lib/paraglide/messages.js';
 
 export const load: PageServerLoad = async ({ parent }) => {
 	const data = await parent();
-	if (!data.loggedIn) {
+	if (data.loggedIn) {
 		return redirect(307, '/student');
 	}
 

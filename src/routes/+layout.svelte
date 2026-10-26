@@ -126,9 +126,9 @@
 		>
 	{/if}
 </div>
-<div class="loading-bar absolute top-19.5 z-50 h-0.5 shadow-xl {loadingBarClass}"></div>
+<div class="loading-bar fixed top-19.5 z-50 h-0.5 shadow-xl {loadingBarClass}"></div>
 
-<main class="h-[calc(100vh-5rem)] overflow-y-hidden">
+<main class="min-h-[calc(100vh-5rem)]">
 	{@render children()}
 </main>
 

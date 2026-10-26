@@ -80,6 +80,7 @@
 
 main {
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 [data-theme*='stripes'] main {
