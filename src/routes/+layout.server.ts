@@ -8,7 +8,6 @@ export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			console.log('not logged in');
 			return {
 				cookies: cookies.getAll(),
 				loggedIn: false
