@@ -63,7 +63,7 @@
 {/snippet}
 
 <svelte:head>
-	<title>{page.data.title} | {m.graphopage()}</title>
+	<title>{page.data.title} | {m.celadon()}</title>
 </svelte:head>
 
 {@render children()}

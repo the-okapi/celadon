@@ -70,10 +70,10 @@
 <ModeWatcher
 	darkClassNames={['dark']}
 	lightClassNames={['light']}
-	defaultTheme="turquoise-stripes"
+	defaultTheme="stripes"
 	defaultMode="system"
-	themeStorageKey="graphopage-theme"
-	modeStorageKey="graphopage-mode"
+	themeStorageKey="celadon-theme"
+	modeStorageKey="celadon-mode"
 />
 
 <Toaster />
@@ -89,7 +89,7 @@
 						>{m.log_out()}</button
 					>
 				{:else}
-					<a class="nav-bar-link" href={resolve('/')}>{m.graphopage()}</a>
+					<a class="nav-bar-link" href={resolve('/')}>{m.celadon()}</a>
 					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
 
 					<LogIn bind:open={logInOpen} />
@@ -104,7 +104,7 @@
 				>
 			</div>
 			<h1 class="text-4xl font-bold whitespace-nowrap">
-				{page.data.title ?? m.graphopage()}
+				{page.data.title ?? m.celadon()}
 			</h1>
 			<div class="flex w-full items-center justify-end gap-2 text-right">
 				{#if pageNavBarContent}

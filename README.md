@@ -1,4 +1,4 @@
-# Graphopage
+# Celadon
 
 Have trust in your students' work again.
 

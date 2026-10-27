@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.something_happened()} | {m.graphopage()}</title>
+	<title>{m.something_happened()} | {m.celadon()}</title>
 </svelte:head>
 
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">

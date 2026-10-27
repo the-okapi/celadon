@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.graphopage()}</title>
+	<title>{m.celadon()}</title>
 </svelte:head>
 
 <div class="h-25"></div>
@@ -74,7 +74,7 @@
 <div class="h-10"></div>
 
 <p class="relative text-center text-2xl">
-	{m.contact()} <strong>graphopage@unlimitedstuffltd.com</strong>
+	{m.contact()} <strong>celadon@unlimitedstuffltd.com</strong>
 	{m.if_questions()}
 </p>
 

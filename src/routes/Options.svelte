@@ -60,50 +60,8 @@
 	];
 
 	function onBackgroundChange(v: 'stripes' | 'dots' | 'nothing') {
-		setTheme(color + '-' + v);
+		setTheme(v);
 	}
-
-	// Colors
-	const colors = [
-		{
-			label: '<div class="swatch bg-(--red)"></div> ' + m.red(),
-			value: 'red'
-		},
-		{
-			label: '<div class="swatch bg-(--yellow)"></div> ' + m.yellow(),
-			value: 'yellow'
-		},
-		{
-			label: '<div class="swatch bg-(--green)"></div> ' + m.green(),
-			value: 'green'
-		},
-		{
-			label: '<div class="swatch bg-(--turquoise)"></div> Turquoise',
-			value: 'turquoise'
-		},
-		{
-			label: '<div class="swatch bg-(--blue)"></div> ' + m.blue(),
-			value: 'blue'
-		},
-		{
-			label: '<div class="swatch bg-(--purple)"></div> ' + m.purple(),
-			value: 'purple'
-		},
-		{
-			label: '<div class="swatch bg-(--neutral)"></div> ' + m.neutral(),
-			value: 'neutral'
-		}
-	];
-
-	function onColorChange(v: string) {
-		setTheme(v + '-' + background);
-	}
-
-	function getTheme(theme: string | undefined): string[] {
-		return (theme ?? 'turquoise-stripes').split('-');
-	}
-
-	let [color, background] = $derived(getTheme(theme.current));
 </script>
 
 <Popover.Root>
@@ -128,21 +86,10 @@
 
 								<div class="m-auto w-fit">
 									<Label.Root
-										>{m.color()}:
-										<Select
-											options={colors}
-											value={color}
-											onChange={onColorChange}
-										/></Label.Root
-									>
-								</div>
-
-								<div class="m-auto w-fit">
-									<Label.Root
 										>{m.background()}:
 										<Select
 											options={backgrounds}
-											value={background}
+											value={theme.current}
 											onChange={onBackgroundChange}
 										/></Label.Root
 									>

@@ -141,7 +141,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 		try {
 			// Error Code 46
 			await resend.emails.send({
-				from: 'The Graphopage Team <graphopage@unlimitedstuffltd.com>',
+				from: 'The Celadon Team <celadon@unlimitedstuffltd.com>',
 				to: email,
 				template: {
 					id: 'invitation-email',

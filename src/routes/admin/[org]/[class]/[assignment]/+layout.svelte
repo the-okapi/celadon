@@ -88,7 +88,7 @@
 	}
 </script>
 
-<div class="absolute top-20 left-0 flex h-[calc(100vh-5rem)] flex-col gap-2 pt-10 pb-5 pl-10">
+<div class="absolute top-0 left-0 flex h-[calc(100vh-5rem)] flex-col gap-2 pt-5 pb-5 pl-10">
 	<div class="box relative h-full! overflow-scroll">
 		<div class="h-full w-full p-3">
 			{#each data.submissions as submission (submission.id)}
