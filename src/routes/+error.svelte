@@ -15,7 +15,7 @@
 		<AlertDialog open cancel={false}>
 			<p class="mb-5 w-80">
 				{m.something_happened()}
-				<strong>Error <span class="font-mono text-base">{page.status}</span></strong>
+				<strong>Error {page.status}</strong>
 			</p>
 			{#snippet go()}
 				<Button.Root

@@ -6,8 +6,9 @@
 </script>
 
 {#snippet button(accent: string)}
-	<Button.Root class="icon-button ghost-button rounded-xl!" onclick={() => addAccent(accent)}
-		>{accent}</Button.Root
+	<Button.Root
+		class="icon-button ghost-button rounded-xl! font-[Georgia]"
+		onclick={() => addAccent(accent)}>{accent}</Button.Root
 	>
 {/snippet}
 
