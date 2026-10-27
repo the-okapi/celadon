@@ -5,7 +5,7 @@ import type { RouteParams } from './$types';
 import { UserIdSchema } from '#lib/util.js';
 import { unwrap, unwrapNoData, HttpError, error500, handleHttpError } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
-import { PUBLIC_GRAPHOPAGE_URL } from '$app/env/public';
+import { PUBLIC_CELADON_URL } from '$app/env/public';
 
 type ActionData = {
 	request: Request;
@@ -149,7 +149,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 						NAME: name,
 						ORGANIZATION: check[0].organization.name,
 						LINK:
-							PUBLIC_GRAPHOPAGE_URL +
+							PUBLIC_CELADON_URL +
 							'/invitation/' +
 							params.org +
 							'/' +

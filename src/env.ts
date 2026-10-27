@@ -4,7 +4,7 @@ export const variables = defineEnvVars({
 	PRIVATE_SUPABASE_URL: {},
 	PRIVATE_SUPABASE_PUBLISHABLE_KEY: {},
 	PRIVATE_RESEND_API_KEY: {},
-	PUBLIC_GRAPHOPAGE_URL: {
+	PUBLIC_CELADON_URL: {
 		public: true
 	},
 	PUBLIC_HELP_URL: {
