@@ -74,7 +74,7 @@
 <div class="h-10"></div>
 
 <p class="relative text-center text-2xl">
-	{m.contact()} <strong>celadon@unlimitedstuffltd.com</strong>
+	{m.contact()} <strong>contact@celadon.work</strong>
 	{m.if_questions()}
 </p>
 
