@@ -125,18 +125,10 @@
 
 	&[data-state='unchecked'] {
 		background-color: var(--s);
-
-		&:focus {
-			outline: 2px solid var(--s);
-		}
 	}
 
 	&[data-state='checked'] {
 		background-color: var(--p);
-
-		&:focus {
-			outline: 2px solid var(--p);
-		}
 	}
 }
 

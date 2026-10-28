@@ -117,7 +117,7 @@
 						/>
 					</div>
 					{#if !everyone}
-						<div class="flex h-18 w-full items-center justify-center">
+						<div class="mt-3 flex h-18 w-full items-center justify-center">
 							{#if students.length > 0}
 								<div>
 									<div class="grid grid-cols-2">

@@ -114,7 +114,7 @@
 			<div class="flex h-16 px-5 py-3">
 				<div class="flex w-fit items-center">
 					{#if member.admin}
-						<p class="badge bg-amber-600">
+						<p class="badge bg-(--secondary)">
 							{m.admin()}
 						</p>
 					{:else}

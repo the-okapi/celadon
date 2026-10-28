@@ -5,11 +5,13 @@
 	--fg: #313131;
 	--p-fg: var(--bg);
 	--o: #bfbfbf;
-	--r: #ee4400;
+	--r: #e7786d;
 	--s: #d9d9d9;
-	--p: #add4aa;
-	--gradient: linear-gradient(to right, #b6cabc, 25%, #add4aa, 75%, #e7e9c5);
-	background-color: var(--bg);
+	--p: #8fba9a;
+	--secondary: #877bc9;
+	--darkness: 95%;
+	--gradient: linear-gradient(to right, #add4aa, 25%, var(--p) 75%, #e7e9c5);
+	background-color: var(--a);
 	color: var(--fg);
 }
 
@@ -18,13 +20,15 @@
 	--bg: #222222;
 	--a: #272727;
 	--fg: #fafafa;
-	--r: #de4e45;
+	--r: #c64a44;
 	--o: #444444;
 	--s: #313131;
 	--p-fg: var(--bg);
-	--p: #add4aa;
-	--gradient: linear-gradient(to right, #b6cabc, 25%, #add4aa, 75%, #e7e9c5);
-	background-color: var(--bg);
+	--p: #afdbc2;
+	--secondary: #ac9cff;
+	--darkness: 85%;
+	--gradient: linear-gradient(to right, #add4aa, 25%, var(--p) 75%, #e7e9c5);
+	background-color: var(--a);
 	color: var(--fg);
 }
 

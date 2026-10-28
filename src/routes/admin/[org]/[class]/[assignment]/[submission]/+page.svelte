@@ -31,29 +31,35 @@
 	}
 </script>
 
-<div
-	class="absolute top-0 left-110 flex h-screen w-[calc(100vw-27.5rem)] flex-col items-center justify-center gap-4 pt-28 pb-5"
->
-	<div class="flex items-center justify-center gap-6">
-		<p>
-			{data.submission.user.name}
-			–
-			{#if data.submission.submitted !== null}
-				{m.submitted()} {formatDate(data.submission.submitted)}
-			{:else}{m.not()} {m.submitted()}
-			{/if}
-			<Button.Root onclick={download} class="small-button mx-3"
-				>{m.download_pdf()}</Button.Root
-			>
-			<Button.Root
-				class="small-button px-4! py-2!"
-				href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}
-				>{m.close()}</Button.Root
-			>
-		</p>
-	</div>
+<div class="flex">
+	<div class="w-110"></div>
+	<div class="flex flex-col">
+		<div class="h-30"></div>
+		<div
+			class="relative flex h-screen w-[calc(100vw-27.5rem)] flex-col items-center justify-center gap-4 pt-33 pb-5"
+		>
+			<div class="flex items-center justify-center gap-6">
+				<p>
+					{data.submission.user.name}
+					–
+					{#if data.submission.submitted !== null}
+						{m.submitted()} {formatDate(data.submission.submitted)}
+					{:else}{m.not()} {m.submitted()}
+					{/if}
+					<Button.Root onclick={download} class="small-button mx-3"
+						>{m.download_pdf()}</Button.Root
+					>
+					<Button.Root
+						class="small-button px-4! py-2!"
+						href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}
+						>{m.close()}</Button.Root
+					>
+				</p>
+			</div>
 
-	<div class="tiptap-container">
-		<div spellcheck="false" bind:this={element} style="zoom: 0.68;"></div>
+			<div class="tiptap-container">
+				<div spellcheck="false" bind:this={element} style="zoom: 0.68;"></div>
+			</div>
+		</div>
 	</div>
 </div>
