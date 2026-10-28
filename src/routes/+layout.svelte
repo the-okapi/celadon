@@ -5,7 +5,7 @@
 	import { page } from '$app/state';
 	import { locales, localizeHref } from '#lib/paraglide/runtime.js';
 	import { ModeWatcher } from 'mode-watcher';
-	import favicon from '#lib/assets/favicon.ico';
+	import favicon from '#lib/assets/favicon.svg';
 	import { barHidden } from '#lib/state.svelte.js';
 	import type { LayoutProps } from './$types';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';

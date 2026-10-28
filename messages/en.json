@@ -186,5 +186,8 @@
 	"settings_for": "{for} Settings",
 	"delete_class": "Delete Class",
 	"delete_class_description": "Permanently delete this class and all associated data.",
-	"delete_the_class": "delete the class '{class}'?"
+	"delete_the_class": "delete the class '{class}'?",
+	"stripes": "Stripes",
+	"polka_dots": "Polka Dots",
+	"nothing": "Nothing"
 }

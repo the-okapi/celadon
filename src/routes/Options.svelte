@@ -46,15 +46,15 @@
 	// Backgrounds
 	const backgrounds = [
 		{
-			label: 'Stripes',
+			label: m.stripes(),
 			value: 'stripes'
 		},
 		{
-			label: 'Polka Dots',
+			label: m.polka_dots(),
 			value: 'dots'
 		},
 		{
-			label: 'Nothing :(',
+			label: m.nothing(),
 			value: 'nothing'
 		}
 	];

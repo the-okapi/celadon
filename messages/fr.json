@@ -176,5 +176,8 @@
 	"settings_for": "Paramètres de {for}",
 	"delete_class": "Supprimer la Classe",
 	"delete_class_description": "Supprimer la classe et tout les données associées définitivement.",
-	"delete_the_class": "supprimer la classe '{class}'?"
+	"delete_the_class": "supprimer la classe '{class}'?",
+	"stripes": "Rayures",
+	"polka_dots": "Pois",
+	"nothing": "Rien"
 }
