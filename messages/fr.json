@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"celadon": "Céladon",
 	"home": "Accueil",
 	"sign_up": "S'incrire",
 	"password_confirm_dont_match": "Mot de Passe et Confirmer Mot de Passe ne sont pas les mêmes.",

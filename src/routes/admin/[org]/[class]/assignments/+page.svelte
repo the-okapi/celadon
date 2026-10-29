@@ -20,57 +20,12 @@
 {#snippet list(assignments: Assignment[])}
 	<div class="mt-5 flex flex-col gap-4 px-30">
 		{#each assignments as assignment (assignment.id)}
-			<!-- <div class="box relative p-0!">
-				<HoverButton
-					class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl"
-					href={resolve('/admin/[org]/[class]/[assignment]', {
-						org: params.org,
-						class: params.class,
-						assignment: assignment.id
-					})}
-				>
-					{#snippet child(hover: boolean)}
-						<div class="relative w-fit text-center">
-							<div class="absolute -top-8 w-full">
-								{#if new Date() > new Date(assignment.due_date)}
-									<p class="badge mx-auto mb-4 w-fit! bg-(--r) px-5!">
-										{m.past()}
-									</p>
-								{:else}
-									<p
-										class="badge mx-auto mb-4 w-fit! bg-(--p) px-5! text-(--p-fg)"
-									>
-										{m.upcoming()}
-									</p>
-								{/if}
-							</div>
-							<p class="italic">{formatDate(assignment.due_date)}</p>
-							<h3 class="text-center text-2xl font-bold">
-								{assignment.name}
-							</h3>
-							<p class="px-8">{assignment.description}</p>
-						</div>
-						{#if hover}
-							<div class="absolute bottom-2 left-0 w-full text-center">
-								<p transition:slide>Hello</p>
-							</div>
-						{:else}
-							<div class="absolute bottom-2 left-0 w-full text-center">
-								<p transition:slide>
-									{m.manage()}
-									{m.assignment()}
-								</p>
-							</div>
-						{/if}
-					{/snippet}
-				</HoverButton>
-			</div> -->
 			<HoverButton
 				href={resolve('/admin/[org]/[class]/[assignment]', {
 					assignment: assignment.id,
 					...params
 				})}
-				class="border-o relative flex h-15 w-full items-center gap-3 rounded-3xl bg-(--bg) py-3 pr-6 pl-3"
+				class="border-o relative m-auto flex h-15 w-250 items-center gap-3 rounded-3xl bg-(--bg) py-3 pr-6 pl-3"
 			>
 				{#snippet child(hover: boolean)}
 					{#if new Date() > new Date(assignment.due_date)}

@@ -89,7 +89,6 @@
 		background: var(--gradient);
 		background-clip: text;
 		color: transparent;
-		animation: gradient 50s linear infinite;
 	}
 
 	li {
