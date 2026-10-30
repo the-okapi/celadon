@@ -59,10 +59,12 @@ export const actions = {
 		const formData = safeParse(AddSchema, Object.fromEntries(await request.formData()));
 
 		if (!formData.success) {
-			return fail(400, { add: m.something_happened(), user: '' });
+			return fail(400, { add: m.select_someone_add(), user: '' });
 		}
 
 		const { userId, email } = formData.output;
+
+		console.error(formData.output);
 
 		try {
 			const {
