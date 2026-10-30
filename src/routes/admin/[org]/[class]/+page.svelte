@@ -9,6 +9,7 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import { enhance } from '$app/forms';
 	import { handleFormError } from '#lib/error.js';
+	import DelayedButton from '#lib/components/DelayedButton.svelte';
 
 	let { data, params, form }: PageProps = $props();
 
@@ -159,7 +160,7 @@
 			method="POST"
 		>
 			<input type="hidden" value={data.members[remove].user.id} name="userId" />
-			<Button.Root type="submit" class="red-button">{m.go()}</Button.Root>
+			<DelayedButton type="submit">{m.go()}</DelayedButton>
 		</form>
 	{/snippet}
 </AlertDialog>

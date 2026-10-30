@@ -63,9 +63,8 @@
 					<div class="mb-2.5 flex w-80 gap-1">
 						<p class="my-auto w-70 overflow-x-scroll whitespace-nowrap">
 							{let daysUntil = getDaysUntil(deletion.can_delete)}
-							<span class="font-mono text-sm"
-								>{daysUntil} {m.day()}{daysUntil === 1 ? '' : 's'}</span
-							>
+							{daysUntil}
+							{m.day()}{daysUntil === 1 ? '' : 's'}
 							- {deletion.name}
 						</p>
 						<Button.Root onclick={() => restoreMember(i)} class="small-button"

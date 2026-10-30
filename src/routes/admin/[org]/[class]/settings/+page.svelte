@@ -5,6 +5,7 @@
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { enhance } from '$app/forms';
 	import { handleFormError } from '#lib/error.js';
+	import DelayedButton from '#lib/components/DelayedButton.svelte';
 
 	let { data, form } = $props();
 
@@ -39,7 +40,7 @@
 			}}
 			method="POST"
 		>
-			<Button.Root type="submit" class="red-button">{m.delete()}</Button.Root>
+			<DelayedButton type="submit">{m.delete()}</DelayedButton>
 		</form>
 	{/snippet}
 </AlertDialog>

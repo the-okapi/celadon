@@ -7,28 +7,26 @@
 	import Dropdown from '#lib/components/Dropdown.svelte';
 	import { resolve } from '$app/paths';
 	import { goto } from '$app/navigation';
+	import Plus from '@lucide/svelte/icons/plus';
 
 	let { children, data, params } = $props();
 
 	const { setContent } = getNavBarContext();
 
 	setContent(navBarContent);
-
-	const options = $derived([
-		{
-			value: 'create',
-			label: '<em>' + m.create_class() + '</em>'
-		},
-		...data.classes
-	]);
 </script>
 
 {#snippet navBarContent()}
 	{#if data.organization}
 		<div class="flex items-center gap-1">
 			<p>
-				{(options.find((a) => a.value === params.class) ?? { label: m.select_a_class() })
-					.label}
+				{(
+					data.classes.find(
+						(a: { value: string; label: string }) => a.value === params.class
+					) ?? {
+						label: m.select_a_class()
+					}
+				).label}
 			</p>
 			<Dropdown class="more-padding">
 				{#snippet trigger()}
@@ -36,12 +34,30 @@
 						<Expand size={18} />
 					</DropdownMenu.Trigger>
 				{/snippet}
-				{#each options as option, i (option.value)}
+				<DropdownMenu.Item
+					data-select-item
+					class="rounded-t-xl border-x border-t border-(--o) hover:bg-(--a)! {data.classes
+						.length === 0
+						? 'rounded-b-xl border-b'
+						: ''}"
+					onSelect={() =>
+						goto(resolve('/admin/[org]/create', { org: data.organization.id }))}
+				>
+					<div class="flex items-center leading-4">
+						<Plus size={17} />
+						<div class="w-1.5"></div>
+						<em>
+							{m.create_class()}
+						</em>
+					</div>
+				</DropdownMenu.Item>
+				{#each data.classes as option, i (option.value)}
 					<DropdownMenu.Item
 						data-select-item
-						class="border-x border-(--o) hover:bg-(--a)! {i === 0
-							? 'rounded-t-xl border-t'
-							: ''} {i === options.length - 1 ? 'rounded-b-xl border-b' : ''}"
+						class="border-x border-(--o) leading-4 hover:bg-(--a)!  {i ===
+						data.classes.length - 1
+							? 'rounded-b-xl border-b'
+							: ''}"
 						onSelect={() =>
 							goto(
 								resolve('/admin/[org]/[class]', {

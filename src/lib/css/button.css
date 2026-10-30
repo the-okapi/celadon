@@ -32,6 +32,11 @@
 .red-button {
 	--p: var(--r) !important;
 	--darkness: 90%;
+
+	&:disabled {
+		background-color: color-mix(in oklch, var(--r) 40%, var(--s));
+		color: white;
+	}
 }
 
 .gray-button {

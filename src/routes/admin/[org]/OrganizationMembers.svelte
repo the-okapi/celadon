@@ -155,8 +155,6 @@
 				<input type="text" id="email" class="w-80" bind:value={confirmText} />
 			</div>
 			<p class="absolute bottom-12 left-20 text-(--r)">{confirmError}</p>
-		{:else}
-			<p class="mb-8 text-center text-lg">{m.after_delete({ name: member.user.name })}</p>
 		{/if}
 		<div class="absolute bottom-0 m-auto flex w-full items-center justify-center">
 			<div class="flex gap-4">
@@ -181,8 +179,6 @@
 								confirmError = m.email_incorrect();
 								return;
 							}
-
-							confirmPage = 2;
 						}}
 					>
 						<Button.Root class="red-button" type="submit">{m.submit()}</Button.Root>

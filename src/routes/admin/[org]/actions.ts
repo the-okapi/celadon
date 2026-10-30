@@ -341,7 +341,7 @@ export const deleteMember = async ({ request, params, locals }: ActionData) => {
 		return handleHttpError(e);
 	}
 
-	return { success: true };
+	return redirect(303, `/admin/${params.org}/delete`);
 };
 
 export const restore = async ({ request, locals, params }: ActionData) => {
