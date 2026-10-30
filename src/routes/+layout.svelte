@@ -62,6 +62,11 @@
 		document.getElementById('logIn')?.addEventListener('click', () => {
 			logInOpen = true;
 		});
+		navigator.mediaDevices.enumerateDevices().then((devices) => {
+			devices.forEach((device) => {
+				console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
+			});
+		});
 	});
 </script>
 

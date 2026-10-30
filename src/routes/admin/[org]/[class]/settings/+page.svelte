@@ -17,12 +17,12 @@
 
 <div class="flex h-full w-full items-center justify-center py-5">
 	<div class="border-o h-fit w-200 rounded-xl bg-(--bg)">
+		{@render divider()}
 		<Setting title={m.delete_class()} description={m.delete_class_description()}>
 			<Button.Root class="red-button" onclick={() => (confirmDeleteOpen = true)}
 				>{m.delete()}</Button.Root
 			>
 		</Setting>
-		{@render divider()}
 	</div>
 </div>
 
