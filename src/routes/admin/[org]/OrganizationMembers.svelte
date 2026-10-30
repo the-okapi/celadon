@@ -119,7 +119,7 @@
 	{#snippet go()}
 		<form action="?/promote" method="POST">
 			<input type="hidden" value={member.user.id} name="userId" />
-			<Button.Root type="submit">{m.submit()}</Button.Root>
+			<Button.Root type="submit">{m.go()}</Button.Root>
 		</form>
 	{/snippet}
 </AlertDialog>
@@ -132,7 +132,7 @@
 	{#snippet go()}
 		<form action="?/demote" method="POST">
 			<input type="hidden" value={member.user.id} name="userId" />
-			<Button.Root type="submit">{m.submit()}</Button.Root>
+			<Button.Root type="submit">{m.go()}</Button.Root>
 		</form>
 	{/snippet}
 </AlertDialog>
