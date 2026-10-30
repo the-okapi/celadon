@@ -65,11 +65,6 @@
 						{#if options.length === 0}
 							<p class="px-5 text-center">{m.no_users()}</p>
 						{:else}
-							{#if form?.add}
-								<div class="absolute left-0 w-full">
-									<p class="text-center text-sm text-(--r)">{form.add}</p>
-								</div>
-							{/if}
 							{let memberToAdd = $state(
 								form?.user
 									? members.find(
@@ -102,6 +97,14 @@
 							<Button.Root type="submit" class="m-auto mt-8 block"
 								>{m.submit()}</Button.Root
 							>
+
+							{#if form?.add}
+								<div class="absolute -bottom-7 left-0 w-full px-7">
+									<p class="text-center text-sm leading-4 text-(--r)">
+										{form.add}
+									</p>
+								</div>
+							{/if}
 						{/if}
 					</form>
 				{/await}
@@ -124,7 +127,7 @@
 				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
 					<span class="font-bold">{member.user.name}</span>
 					{#if member.user.id === data.user}
-						<span class="text-base opacity-50">({m.you()})</span>
+						<span class="text-base text-(--fg)/40">({m.you()})</span>
 					{/if} -
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>
@@ -150,6 +153,7 @@
 		<form
 			action="?/remove"
 			use:enhance={() => {
+				showConfirm = false;
 				return handleFormError(form?.message);
 			}}
 			method="POST"

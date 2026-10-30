@@ -180,5 +180,6 @@
 	"delete_the_class": "supprimer la classe '{class}'?",
 	"stripes": "Rayures",
 	"polka_dots": "Pois",
-	"nothing": "Rien"
+	"nothing": "Rien",
+	"select_someone_add": "Selectionnez quelqu'un à ajouter"
 }

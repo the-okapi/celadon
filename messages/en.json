@@ -189,5 +189,6 @@
 	"delete_the_class": "delete the class '{class}'?",
 	"stripes": "Stripes",
 	"polka_dots": "Polka Dots",
-	"nothing": "Nothing"
+	"nothing": "Nothing",
+	"select_someone_add": "Please select someone to add"
 }

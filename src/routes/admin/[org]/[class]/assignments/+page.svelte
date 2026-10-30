@@ -37,18 +37,17 @@
 							{m.upcoming()}
 						</p>
 					{/if}
-					<p class="mr-4 text-xl font-bold whitespace-nowrap">
+					<p class="text-xl font-bold whitespace-nowrap">
 						{assignment.name}
 					</p>
 					<p class="whitespace-nowrap italic">{formatDate(assignment.due_date)}</p>
 					<p class="overflow-hidden text-ellipsis whitespace-nowrap">
 						{assignment.description}
-						{assignment.description}
-						{assignment.description}
 					</p>
+					<div style="transition: width 300ms" class={hover ? 'w-3' : 'w-0'}></div>
 					{#if hover}
-						<div class="absolute right-0 pr-1.5" transition:slide={{ axis: 'x' }}>
-							<ArrowRight size={15} />
+						<div class="absolute right-0 w-5 pr-8" transition:slide={{ axis: 'x' }}>
+							<ArrowRight size={17} />
 						</div>
 					{/if}
 				{/snippet}
