@@ -9,7 +9,7 @@
 	<form method="POST" class="border-o relative h-fit w-fit rounded-2xl bg-(--bg) p-10">
 		<div class="m-auto w-fit">
 			<Label.Root for="name">{m.name()}:</Label.Root><br />
-			<input name="name" class="w-70" type="text" id="name" />
+			<input name="name" required class="w-70" type="text" id="name" />
 		</div>
 
 		<Button.Root type="submit" class="m-auto mt-5 block">{m.create()}</Button.Root>

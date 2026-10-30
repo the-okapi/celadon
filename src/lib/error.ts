@@ -38,6 +38,14 @@ export function handleHttpError(e: HttpError) {
 	}
 }
 
+export function handleFormActionError(e: any, info: any) {
+	if (e.status === 303) {
+		return redirect(303, e.location);
+	} else {
+		return info;
+	}
+}
+
 export function error500() {
 	return error(500, m.something_happened());
 }

@@ -15,11 +15,11 @@
 	setContent(navBarContent);
 
 	const options = $derived([
-		...data.classes,
 		{
 			value: 'create',
 			label: '<em>' + m.create_class() + '</em>'
-		}
+		},
+		...data.classes
 	]);
 </script>
 

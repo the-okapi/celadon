@@ -1,10 +1,11 @@
 import type { Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
-import { unwrap, unwrapNoData } from '#lib/error.js';
+import { handleFormActionError, unwrap, unwrapNoData } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
 
 export const actions = {
 	default: async ({ request, locals, params }) => {
+		console.log('hello');
 		const { name } = Object.fromEntries(await request.formData());
 
 		try {
@@ -30,18 +31,24 @@ export const actions = {
 				return redirect(303, '/admin');
 			}
 
+			const id = crypto.randomUUID();
+
 			unwrapNoData(
 				await locals.supabase.from('classes').insert({
+					id,
 					name,
 					creator: user.id,
 					organization: params.org
 				}),
 				106
 			);
-		} catch {
-			return fail(500, { failure: true, message: m.something_happened() });
-		}
 
-		return { success: true };
+			return redirect(303, `/admin/${params.org}/${id}`);
+		} catch (error: any) {
+			return handleFormActionError(
+				error,
+				fail(500, { failure: true, message: m.something_happened() })
+			);
+		}
 	}
 } satisfies Actions;
