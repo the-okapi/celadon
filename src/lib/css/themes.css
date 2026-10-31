@@ -10,7 +10,6 @@
 	--p: #8fba9a;
 	--secondary: #877bc9;
 	--darkness: 95%;
-	--gradient: linear-gradient(to right, #add4aa, 25%, var(--p) 75%, #e7e9c5);
 	background-color: var(--a);
 	color: var(--fg);
 }
@@ -27,7 +26,6 @@
 	--p: #afdbc2;
 	--secondary: #ac9cff;
 	--darkness: 85%;
-	--gradient: linear-gradient(to right, #add4aa, 25%, var(--p) 75%, #e7e9c5);
 	background-color: var(--a);
 	color: var(--fg);
 }

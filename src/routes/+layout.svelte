@@ -12,6 +12,7 @@
 	import { Button } from 'bits-ui';
 	import Options from './Options.svelte';
 	import LogIn from './LogIn.svelte';
+	import SignUp from './SignUp.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
 	import { PUBLIC_HELP_URL } from '$app/env/public';
@@ -25,6 +26,8 @@
 	let { data, children }: LayoutProps = $props();
 
 	let logOutOpen = $state(false);
+	let signUpOpen = $state(false);
+	let logInOpen = $state(false);
 
 	let pageNavBarContent: Snippet | undefined = $state();
 
@@ -56,16 +59,12 @@
 		loadingBarClass = 'after-nav';
 	});
 
-	let logInOpen = $state(false);
-
 	onMount(() => {
 		document.getElementById('logIn')?.addEventListener('click', () => {
 			logInOpen = true;
 		});
-		navigator.mediaDevices.enumerateDevices().then((devices) => {
-			devices.forEach((device) => {
-				console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
-			});
+		document.getElementById('signUpButton')?.addEventListener('clock', () => {
+			signUpOpen = true;
 		});
 	});
 </script>
@@ -89,24 +88,21 @@
 			class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
 		>
 			<div class="flex w-full gap-4">
-				{#if data.loggedIn}
-					<button class="nav-bar-link" onclick={() => (logOutOpen = true)}
-						>{m.log_out()}</button
-					>
-				{:else}
-					<a class="nav-bar-link" href={resolve('/')}>{m.celadon()}</a>
-					<a class="nav-bar-link" href={resolve('/signup')}>{m.sign_up()}</a>
-
-					<LogIn bind:open={logInOpen} />
-				{/if}
 				<Options />
-
 				<a
 					class="nav-bar-link"
 					rel="external"
 					href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
 					target="_blank">{m.help()}</a
 				>
+				{#if data.loggedIn}
+					<button class="nav-bar-link" onclick={() => (logOutOpen = true)}
+						>{m.log_out()}</button
+					>
+				{:else}
+					<LogIn bind:open={logInOpen} />
+					<SignUp bind:open={signUpOpen} />
+				{/if}
 			</div>
 			<h1 class="text-4xl font-bold whitespace-nowrap">
 				{page.data.title ?? m.celadon()}
@@ -131,7 +127,7 @@
 		>
 	{/if}
 </div>
-<div class="loading-bar fixed top-19.5 z-50 h-0.5 shadow-xl {loadingBarClass}"></div>
+<div class="fixed top-19.5 z-50 h-0.5 bg-(--p) shadow-xl {loadingBarClass}"></div>
 
 <main class="min-h-[calc(100vh-5rem)]">
 	{@render children()}
