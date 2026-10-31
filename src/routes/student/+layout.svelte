@@ -5,7 +5,7 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import watermark from '#lib/assets/watermark.png';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	const { setContent } = getNavBarContext();
 
@@ -13,7 +13,7 @@
 </script>
 
 {#snippet navBarContent()}
-	<a href={resolve('/student')} class="nav-bar-link">{m.home()}</a>
+	<a href={resolve('/student')} class="nav-bar-link">{data.name}</a>
 	<div class="w-2"></div>
 {/snippet}
 

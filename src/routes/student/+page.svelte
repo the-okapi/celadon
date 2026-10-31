@@ -18,8 +18,10 @@
 
 <div class="grid grid-cols-[1fr_2fr] gap-28 px-20 pt-4 pb-10">
 	<div>
-		{#if data.classes.length > 0}
-			<h2 class="mb-4 text-center text-3xl font-bold">Classes</h2>
+		<h2 class="mb-4 text-center text-3xl font-bold">Classes</h2>
+		{#if data.classes.length === 0}
+			<p class="text-center">{m.no_classes()}</p>
+		{:else}
 			{#each data.classes as classMembership (classMembership.id)}
 				<div class="box relative p-0!">
 					<a

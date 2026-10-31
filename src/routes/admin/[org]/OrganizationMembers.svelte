@@ -37,35 +37,39 @@
 	}
 </script>
 
+{#snippet list()}
+	<div class="h-full w-full">
+		<h2 class="mb-5 text-center text-3xl font-bold">{m.list_members()}</h2>
+		{#each members as member, i (member.user.id)}
+			<div class="flex px-5 py-3">
+				<div class="flex w-fit items-center">
+					{#if member.admin}
+						<p class="badge bg-(--secondary)">{m.admin()}</p>
+					{:else}
+						<p class="badge bg-(--p)">{m.member()}</p>
+					{/if}
+				</div>
+				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
+					<span class="font-bold">{member.user.name}</span>
+					{#if member.user.id === user}
+						<span class="text-base text-(--fg)/40">({m.you()})</span>
+					{/if} -
+					<span class="overflow-hidden text-base">{member.user.email}</span>
+				</p>
+				<Button.Root onclick={() => (focus = i)}>{m.manage()}</Button.Root>
+			</div>
+			{#if i !== members.length - 1}
+				<hr class="m-auto w-[90%] border-(--o)" />
+			{/if}
+		{/each}
+	</div>
+{/snippet}
+
 <div
 	class="border-o flex h-[80vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 >
 	{#if focus === -1}
-		<div class="h-full w-full">
-			<h2 class="mb-5 text-center text-3xl font-bold">{m.list_members()}</h2>
-			{#each members as member, i (member.user.id)}
-				<div class="flex px-5 py-3">
-					<div class="flex w-fit items-center">
-						{#if member.admin}
-							<p class="badge bg-(--secondary)">{m.admin()}</p>
-						{:else}
-							<p class="badge bg-(--p)">{m.member()}</p>
-						{/if}
-					</div>
-					<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
-						<span class="font-bold">{member.user.name}</span>
-						{#if member.user.id === user}
-							<span class="text-base text-(--fg)/40">({m.you()})</span>
-						{/if} -
-						<span class="overflow-hidden text-base">{member.user.email}</span>
-					</p>
-					<Button.Root onclick={() => (focus = i)}>{m.manage()}</Button.Root>
-				</div>
-				{#if i !== members.length - 1}
-					<hr class="m-auto w-[90%] border-(--o)" />
-				{/if}
-			{/each}
-		</div>
+		{@render list()}
 	{:else}
 		<div class="relative h-full w-full">
 			{#if member.admin}

@@ -8,7 +8,7 @@
 <DropdownMenu.Root>
 	{@render trigger()}
 	<DropdownMenu.Portal>
-		<DropdownMenu.Content sideOffset={10} forceMount data-select-content class="{c} w-fit!">
+		<DropdownMenu.Content sideOffset={10} forceMount data-select-content class={c}>
 			{#snippet child({ wrapperProps, props, open })}
 				{#if open}
 					<div {...wrapperProps}>

@@ -28,7 +28,7 @@
 					}
 				).label}
 			</p>
-			<Dropdown class="more-padding">
+			<Dropdown class="more-padding w-fit! max-w-140">
 				{#snippet trigger()}
 					<DropdownMenu.Trigger>
 						<Expand size={18} />

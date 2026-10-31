@@ -190,5 +190,6 @@
 	"stripes": "Stripes",
 	"polka_dots": "Polka Dots",
 	"nothing": "Nothing",
-	"select_someone_add": "Please select someone to add"
+	"select_someone_add": "Please select someone to add",
+	"no_classes": "You are not a part of any classes."
 }
