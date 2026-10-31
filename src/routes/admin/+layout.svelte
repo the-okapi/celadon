@@ -43,7 +43,7 @@
 					onSelect={() =>
 						goto(resolve('/admin/[org]/create', { org: data.organization.id }))}
 				>
-					<div class="flex items-center leading-4">
+					<div class="flex items-center">
 						<Plus size={17} />
 						<div class="w-1.5"></div>
 						<em>
@@ -54,7 +54,7 @@
 				{#each data.classes as option, i (option.value)}
 					<DropdownMenu.Item
 						data-select-item
-						class="border-x border-(--o) leading-4 hover:bg-(--a)!  {i ===
+						class="more-padding border-x border-(--o) hover:bg-(--a)!  {i ===
 						data.classes.length - 1
 							? 'rounded-b-xl border-b'
 							: ''}"

@@ -7,6 +7,7 @@
 	import { m } from '#lib/paraglide/messages.js';
 	import { getDaysUntil } from '#lib/util.js';
 	import { resolve } from '$app/paths';
+	import Back from '#lib/components/Back.svelte';
 
 	let { data, form }: PageProps = $props();
 
@@ -28,7 +29,7 @@
 </script>
 
 <div class="h-2"></div>
-<a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/admin')} class="relative ml-10 hover:underline"><Back /></a>
 <div class="flex gap-4 px-10 pt-2">
 	<OrganizationMembers {...data} />
 	<div class="flex h-[80vh] w-full gap-4">
@@ -52,9 +53,7 @@
 					</div>
 				{/each}
 			</div>
-			<div
-				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
-			>
+			<div class="border-o h-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5">
 				<h2 class="mb-5 text-center text-3xl font-bold">{m.deletions()}</h2>
 				{#if data.deletions.length === 0}
 					<p class="w-80">{m.no_deletions()}</p>
@@ -80,7 +79,7 @@
 					<h2 class="text-center text-2xl font-bold">{m.rename_organization()}</h2>
 					<div class="mx-auto my-5 w-fit">
 						<Label.Root for="name">{m.rename_to()}:</Label.Root><br />
-						<input type="text" id="name" name="name" required />
+						<input type="text" class="w-60" id="name" name="name" required />
 					</div>
 					<Button.Root type="submit" class="m-auto block">{m.submit()}</Button.Root>
 					{#if form?.renameError}
@@ -96,7 +95,8 @@
 <AlertDialog bind:open={confirmRevoke}>
 	<p class="mb-8 w-100 text-center text-lg">
 		{m.are_you_sure()}
-		{m.confirm_revoke()} <span class="font-bold">{data.invitations[invitation].name}</span>,
+		{m.confirm_revoke()}
+		{data.invitations[invitation].name},
 		{data.invitations[invitation].email}?
 	</p>
 	{#snippet go()}

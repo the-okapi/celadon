@@ -1,6 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import { handleHttpError, unwrapNoData } from '#lib/error.js';
+import { handleFormActionError, unwrapNoData } from '#lib/error.js';
+import { m } from '#lib/paraglide/messages.js';
 
 export const actions = {
 	remove: async ({ params, locals }) => {
@@ -22,7 +23,7 @@ export const actions = {
 				108
 			);
 		} catch (e: any) {
-			return handleHttpError(e);
+			return handleFormActionError(e, { message: m.something_happened() });
 		}
 
 		return redirect(303, '/admin');

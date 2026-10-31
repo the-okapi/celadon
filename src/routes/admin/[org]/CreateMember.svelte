@@ -10,9 +10,7 @@
 	let success = $state(false);
 </script>
 
-<div
-	class="border-o relative flex h-210 w-80 items-center justify-center rounded-xl bg-(--bg) px-12"
->
+<div class="border-o relative flex h-210 w-80 items-center justify-center rounded-xl bg-(--bg)">
 	{#if success || loading}
 		{#if loading || !form?.createSuccess}
 			<Loader />
@@ -49,11 +47,18 @@
 			</h2>
 			<div class="m-auto mt-3 w-fit">
 				<Label.Root for="name">{m.name()}:</Label.Root><br />
-				<input name="name" id="name" type="text" value={form?.name} required />
+				<input name="name" id="name" class="w-60" type="text" value={form?.name} required />
 			</div>
 			<div class="m-auto mt-3 w-fit">
 				<Label.Root for="email">{m.email()}:</Label.Root><br />
-				<input name="email" id="email" type="email" value={form?.email} required />
+				<input
+					name="email"
+					id="email"
+					class="w-60"
+					type="email"
+					value={form?.email}
+					required
+				/>
 			</div>
 			<Button.Root type="submit" class="m-auto mt-3 mb-10 block w-fit"
 				>{m.submit()}</Button.Root

@@ -1,11 +1,10 @@
 import { redirect, fail } from '@sveltejs/kit';
-import resend from '#lib/resend.js';
+import { sendInvitationEmail } from '#lib/resend.js';
 import { object, string, safeParse } from 'valibot';
 import type { RouteParams } from './$types';
 import { UserIdSchema } from '#lib/util.js';
 import { unwrap, unwrapNoData, HttpError, error500, handleHttpError } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
-import { PUBLIC_CELADON_URL } from '$app/env/public';
 
 type ActionData = {
 	request: Request;
@@ -140,22 +139,14 @@ export const create = async ({ locals, request, params }: ActionData) => {
 
 		try {
 			// Error Code 46
-			await resend.emails.send({
-				from: 'Celadon <no-reply@celadon.work>',
-				to: email,
-				template: {
-					id: 'invitation-email',
-					variables: {
-						NAME: name,
-						ORGANIZATION: check[0].organization.name,
-						LINK:
-							PUBLIC_CELADON_URL +
-							'/invitation/' +
-							params.org +
-							'/' +
-							invitation[0].id
-					}
-				}
+			await sendInvitationEmail({
+				email,
+				name,
+				organization: {
+					id: params.org,
+					name: check[0].organization.name
+				},
+				invitation: invitation[0].id
 			});
 		} catch (error: any) {
 			console.error(error, 'Error Code 46');
