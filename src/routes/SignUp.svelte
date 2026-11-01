@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { Popover } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
 	import { fade } from 'svelte/transition';
@@ -6,7 +6,7 @@
 	import { Label, Button } from 'bits-ui';
 
 	let loading = $state(false);
-	
+
 
 	let { open = $bindable() } = $props();
 </script>
@@ -67,4 +67,4 @@
 			{/snippet}
 		</Popover.Content>
 	</Popover.Portal>
-</Popover.Root>
+</Popover.Root> -->

@@ -1,14 +1,15 @@
-import { command, getRequestEvent } from '$app/server';
+import { form, getRequestEvent } from '$app/server';
 import { object, string } from 'valibot';
 import { unwrap, unwrapNoData } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
+import { redirect } from '@sveltejs/kit';
 
 const LogInSchema = object({
 	email: string(),
 	password: string()
 });
 
-export const logIn = command(LogInSchema, async ({ email, password }) => {
+export const logIn = form(LogInSchema, async ({ email, password }) => {
 	const { locals } = getRequestEvent();
 
 	try {
@@ -30,13 +31,13 @@ export const logIn = command(LogInSchema, async ({ email, password }) => {
 		);
 
 		if (!check[0].can_delete) {
-			return { status: 200 };
+			return redirect(303, '/student');
 		}
 
 		unwrapNoData(await locals.supabase.auth.signOut(), 86);
 
-		return { status: 404, message: m.email_password_incorrect() };
+		return { stauts: 404, message: m.email_password_incorrect() };
 	} catch {
-		return { status: 500, message: m.something_happened() };
+		return { status: 500, message: m.email_password_incorrect() };
 	}
 });

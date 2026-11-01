@@ -5,35 +5,10 @@
 	import { logIn } from './remote';
 	import { m } from '#lib/paraglide/messages.js';
 	import { Popover } from 'bits-ui';
-	import { goto } from '$app/navigation';
-	import { resolve } from '$app/paths';
 
 	let { open = $bindable() } = $props();
 
-	let email = $state('');
-	let password = $state('');
-
-	let error = $state('');
-
 	let loading = $state(false);
-
-	async function onsubmit(event: Event) {
-		event.preventDefault();
-
-		loading = true;
-
-		const response = await logIn({
-			email,
-			password
-		});
-
-		if (response.status === 200) {
-			goto(resolve('/student'), { refreshAll: true });
-		} else {
-			error = response.message ?? '';
-			loading = false;
-		}
-	}
 </script>
 
 <Popover.Root bind:open>
@@ -48,7 +23,13 @@
 								{#if loading}
 									<Loader />
 								{:else}
-									<form {onsubmit}>
+									<form
+										{...logIn.enhance(async (form) => {
+											loading = true;
+											await form.submit();
+											loading = false;
+										})}
+									>
 										<div class="mb-5 w-60">
 											<Label.Root
 												for="email"
@@ -56,10 +37,9 @@
 												>{m.email()}:</Label.Root
 											>
 											<input
-												type="email"
 												id="email"
 												class="w-60"
-												bind:value={email}
+												{...logIn.fields.email.as('email')}
 												required
 											/>
 										</div>
@@ -71,14 +51,15 @@
 											>
 											<input
 												id="password"
-												type="password"
 												class="w-60"
-												bind:value={password}
+												{...logIn.fields.password.as('password')}
 												required
 											/>
 										</div>
 										<div class="absolute w-60 text-center">
-											<p class="text-xs text-(--r)">{error}</p>
+											<p class="text-xs text-(--r)">
+												{logIn.result?.message}
+											</p>
 										</div>
 										<Button.Root type="submit" class="m-auto mt-7 block w-fit"
 											>{m.submit()}</Button.Root
