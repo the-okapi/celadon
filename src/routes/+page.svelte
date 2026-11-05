@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
+	import favicon from '#lib/assets/favicon.png';
 
 	onMount(() => {
 		goto(resolve('/'));
@@ -18,10 +19,11 @@
 
 <div class="h-25"></div>
 
-<h1 class="relative text-center text-[5.5rem] leading-32 font-black text-(--p)">
-	{m.slogan()}
+<img src={favicon} class="m-auto w-60" alt={m.celadon()} />
+<h1 class="relative mt-3 text-center text-8xl leading-32 font-black text-(--p)">
+	{m.celadon()}
 </h1>
-<h2 class="relative text-center text-3xl">{m.have_trust()}</h2>
+<h2 class="relative text-center text-3xl">{m.slogan()}</h2>
 
 <div class="m-auto mt-10 flex h-10 w-fit items-center justify-center gap-3">
 	<Button.Root class="big-button" rel="external" href={PUBLIC_HELP_URL}>{m.help()}</Button.Root>
@@ -49,10 +51,10 @@
 		<br />
 		<ul class="list-inside list-disc">
 			<li>{m.losing_homework()}</li>
-			<li>{m.illegible_handwriting()}</li>
 			<li>{m.wrong_fonts()}</li>
-			<li>{m.attaching_wrong_document()}</li>
+			<li>{m.illegible_handwriting()}</li>
 			<li>{m.forgetting_due_date()}</li>
+			<li>{m.wrong_permissions()}</li>
 		</ul>
 	</div>
 

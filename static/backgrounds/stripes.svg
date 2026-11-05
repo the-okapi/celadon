@@ -13,13 +13,13 @@
 >
 	<style>
 		path {
-			fill: #ffffff;
+			fill: #eeeeee;
 		}
 
 
 		@media (prefers-color-scheme: dark) {
 			path {
-				fill: #222222;
+				fill: #272727;
 			}
 		}
 	</style>

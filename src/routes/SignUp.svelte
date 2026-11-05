@@ -1,3 +1,9 @@
+<script lang="ts">
+	let { open = $bindable() } = $props();
+</script>
+
+<p>{open}</p>
+
 <!-- <script lang="ts">
 	import { Popover } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';

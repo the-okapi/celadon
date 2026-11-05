@@ -25,7 +25,7 @@
 
 	let { data, children }: LayoutProps = $props();
 
-	let logOutOpen = $state(false);
+	let signOutOpen = $state(false);
 	let signUpOpen = $state(false);
 	let logInOpen = $state(false);
 
@@ -96,8 +96,8 @@
 					target="_blank">{m.help()}</a
 				>
 				{#if data.loggedIn}
-					<button class="nav-bar-link" onclick={() => (logOutOpen = true)}
-						>{m.log_out()}</button
+					<button class="nav-bar-link" onclick={() => (signOutOpen = true)}
+						>{m.sign_out()}</button
 					>
 				{:else}
 					<LogIn bind:open={logInOpen} />
@@ -133,14 +133,21 @@
 	{@render children()}
 </main>
 
+<div
+	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
+>
+	© {new Date().getFullYear()} Unlimited Stuff Ltd.
+	<a rel="external" target="_blank" class="nav-bar-link" href={PUBLIC_HELP_URL}>{m.help()}</a>
+</div>
+
 <div style="display:none">
 	{#each locales as locale (locale)}
 		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Path)}>{locale}</a>
 	{/each}
 </div>
 
-<AlertDialog bind:open={logOutOpen}>
-	<p class="mb-8 text-center text-lg">{m.are_you_sure()} {m.confirm_log_out()}</p>
+<AlertDialog bind:open={signOutOpen}>
+	<p class="mb-8 text-center text-lg">{m.are_you_sure()} {m.confirm_sign_out()}</p>
 	{#snippet go()}
 		<form method="POST" action="/?/signOut">
 			<Button.Root type="submit">{m.go()}</Button.Root>
