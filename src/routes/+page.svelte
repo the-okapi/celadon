@@ -11,6 +11,7 @@
 	onMount(() => {
 		goto(resolve('/'));
 	});
+	error to prevnt deployment
 </script>
 
 <svelte:head>

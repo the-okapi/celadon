@@ -136,7 +136,7 @@
 <div
 	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
 >
-	© {new Date().getFullYear()} Unlimited Stuff Ltd.
+	© 2026 Unlimited Stuff Ltd.
 	<a rel="external" target="_blank" class="nav-bar-link" href={PUBLIC_HELP_URL}>{m.help()}</a>
 </div>
 
