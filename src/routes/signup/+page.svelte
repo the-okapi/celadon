@@ -4,6 +4,7 @@
 	import Loader from '#lib/components/Loader.svelte';
 	import { enhance } from '$app/forms';
 	import { m } from '#lib/paraglide/messages.js';
+	import { resolve } from '$app/paths';
 
 	let { form }: PageProps = $props();
 
@@ -19,10 +20,11 @@
 	<title>{m.sign_up()} | {m.celadon()}</title>
 </svelte:head>
 
-<div class="m-auto flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
+<div class="m-auto flex h-[calc(100vh-5rem)] w-screen flex-col items-center justify-center">
 	{#if loading}
 		<Loader />
 	{:else}
+		<a href={resolve('/')} class="mt-10 hover:underline">← {m.back()}</a>
 		<div class="border-o m-auto rounded-2xl bg-(--bg) px-15 py-10">
 			<form
 				method="POST"

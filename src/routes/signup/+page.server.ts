@@ -1,18 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
-import type { PageServerLoad, Actions } from './$types';
+import type { Actions } from './$types';
 import { object, string, safeParse } from 'valibot';
 import { m } from '#lib/paraglide/messages.js';
-
-export const load: PageServerLoad = async ({ parent }) => {
-	const data = await parent();
-	if (data.loggedIn) {
-		return redirect(307, '/student');
-	}
-
-	return {
-		title: m.sign_up()
-	};
-};
 
 const SignupSchema = object({
 	name: string(),

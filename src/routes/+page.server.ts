@@ -1,6 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
-import { error500, unwrap, unwrapNoData } from '#lib/error.js';
+import { error500, handleFormActionError, unwrap, unwrapNoData } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
 import { object, string, safeParse } from 'valibot';
 
@@ -47,7 +47,7 @@ export const actions = {
 			});
 
 			if (error || !user) {
-				return fail(404, { message: m.email_password_incorrect() });
+				return fail(404, { logInMessage: m.email_password_incorrect(), email, password });
 			}
 
 			const check = unwrap(
@@ -61,9 +61,13 @@ export const actions = {
 
 			unwrapNoData(await locals.supabase.auth.signOut(), 86);
 
-			return fail(404, { message: m.email_password_incorrect() });
-		} catch {
-			return fail(500, { message: m.email_password_incorrect() });
+			return fail(404, { logInMessage: m.email_password_incorrect(), email, password });
+		} catch (e) {
+			return handleFormActionError(e, {
+				logInMessage: m.email_password_incorrect(),
+				email,
+				password
+			});
 		}
 	},
 	signUp: async ({ locals, request }) => {
@@ -73,7 +77,11 @@ export const actions = {
 			return error500();
 		}
 
-		const { email, password, name } = formData.output;
+		const { name, email, password, confirmPassword } = formData.output;
+
+		if (password !== confirmPassword) {
+			return fail(400, { signUpMessage: m.password_confirm_dont_match() });
+		}
 
 		const { error: signUpError } = await locals.supabase.auth.signUp({
 			email,
@@ -87,7 +95,7 @@ export const actions = {
 
 		if (signUpError) {
 			console.error(signUpError, 'Error Code 110');
-			return fail(400, { fail: true, message: signUpError.message, name, email });
+			return fail(400, { fail: true, signUpMessage: m.something_happened(), name, email });
 		}
 
 		return redirect(303, '/admin');

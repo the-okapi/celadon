@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from 'bits-ui';
+	import { Button, AlertDialog } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
 	import { fade } from 'svelte/transition';
 
@@ -18,15 +18,45 @@
 		onclose();
 	}
 
-	function onkeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape' && open) {
-			close();
+	function onOpenChange(o: boolean) {
+		if (o === false) {
+			onclose();
 		}
 	}
 </script>
 
-<svelte:window {onkeydown} />
-
+{#if open}
+	<AlertDialog.Root {onOpenChange} bind:open>
+		<AlertDialog.Portal>
+			<AlertDialog.Content interactOutsideBehavior="close" forceMount>
+				{#snippet child({ props, open })}
+					{#if open}
+						<div {...props} transition:fade={{ duration: 100 }}>
+							{@render children()}
+							{#if go}
+								<div class="m-auto flex w-fit gap-4">
+									{#if cancel}
+										<AlertDialog.Cancel data-button-root class="gray-button"
+											>{message}</AlertDialog.Cancel
+										>
+									{/if}
+									{@render go()}
+								</div>
+							{:else if cancelOverride}
+								<Button.Root
+									data-button-root
+									onclick={close}
+									class="gray-button m-auto block">{message}</Button.Root
+								>
+							{/if}
+						</div>
+					{/if}
+				{/snippet}
+			</AlertDialog.Content>
+		</AlertDialog.Portal>
+	</AlertDialog.Root>
+{/if}
+<!--
 <div class="absolute z-50!">
 	{#if open}
 		<button data-alert-dialog-overlay onclick={() => (open = false)} aria-label="Close Dialog"
@@ -46,4 +76,4 @@
 			{/if}
 		</div>
 	{/if}
-</div>
+</div> -->

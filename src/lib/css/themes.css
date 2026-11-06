@@ -7,7 +7,7 @@
 	--o: #bfbfbf;
 	--r: #e7786d;
 	--s: #d9d9d9;
-	--p: #8fba9a;
+	--p: #9fc7b0;
 	--secondary: #877bc9;
 	--darkness: 95%;
 	color: var(--fg);
@@ -30,7 +30,6 @@
 
 main {
 	background-size: cover;
-	background-attachment: fixed;
 }
 
 [data-theme='stripes'] main {

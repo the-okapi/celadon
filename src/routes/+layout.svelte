@@ -14,7 +14,7 @@
 	import LogIn from './LogIn.svelte';
 	import SignUp from './SignUp.svelte';
 	import { m } from '#lib/paraglide/messages.js';
-	import { getLocale } from '#lib/paraglide/runtime.js';
+	import { getLocale, setLocale } from '#lib/paraglide/runtime.js';
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
@@ -82,7 +82,7 @@
 
 <Toaster />
 
-<div class="nav-bar">
+<!-- <div class="nav-bar">
 	{#if !barHidden.value}
 		<div
 			class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
@@ -126,19 +126,35 @@
 			onclick={() => (barHidden.value = false)}><Hide size={20} /></button
 		>
 	{/if}
-</div>
-<div class="fixed top-19.5 z-50 h-0.5 bg-(--p) shadow-xl {loadingBarClass}"></div>
+</div> -->
+<div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
-<main class="min-h-[calc(100vh-5rem)]">
+<main class="min-h-[calc(100vh-4rem)]">
 	{@render children()}
 </main>
 
-<div
+<footer
 	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
 >
-	© 2026 Unlimited Stuff Ltd.
-	<a rel="external" target="_blank" class="nav-bar-link" href={PUBLIC_HELP_URL}>{m.help()}</a>
-</div>
+	<p>© 2026 Unlimited Stuff Ltd.</p>
+
+	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
+
+	<div class="h-8 border-l border-(--o)"></div>
+
+	{#if getLocale() === 'en'}
+		<button class="nav-bar-link" onclick={() => setLocale('fr')}>Français</button>
+	{:else}
+		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
+	{/if}
+
+	<a
+		rel="external"
+		target="_blank"
+		class="nav-bar-link"
+		href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}">{m.help()}</a
+	>
+</footer>
 
 <div style="display:none">
 	{#each locales as locale (locale)}
