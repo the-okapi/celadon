@@ -2,16 +2,25 @@
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
-	import { Button } from 'bits-ui';
+	import { Button, Label } from 'bits-ui';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import favicon from '#lib/assets/favicon.png';
+	import AlertDialog from '#lib/components/AlertDialog.svelte';
+	import Loader from '#lib/components/Loader.svelte';
+	import { enhance } from '$app/forms';
 
 	onMount(() => {
 		goto(resolve('/'));
 	});
-	error to prevnt deployment
+
+	let logInOpen = $state(false);
+	let signUpOpen = $state(false);
+
+	error to prevent deployment
+
+	let { form } = $props();
 </script>
 
 <svelte:head>
@@ -82,3 +91,40 @@
 </p>
 
 <div class="h-10"></div>
+
+<AlertDialog bind:open={logInOpen}>
+	{let loading = $state(false)}
+	{#if loading}
+		<Loader />
+	{:else}
+		<form
+			method="POST"
+			action="?/logIn"
+			use:enhance={() => {
+				loading = true;
+				return ({ update }) => {
+					update();
+					loading = false;
+				};
+			}}
+		>
+			<div class="mb-5 w-60">
+				<Label.Root for="email" class={loading ? 'opacity-50' : ''}>{m.email()}:</Label.Root
+				>
+				<input id="email" class="w-60" type="email" name="email" required />
+			</div>
+			<div class="mb-0.5 w-60">
+				<Label.Root for="password" class={loading ? 'opacity-50' : ''}
+					>{m.password()}:</Label.Root
+				>
+				<input id="password" class="w-60" type="password" name="password" required />
+			</div>
+			<div class="absolute w-60 text-center">
+				<p class="text-xs text-(--r)">
+					{form?.message}
+				</p>
+			</div>
+			<Button.Root type="submit" class="m-auto mt-7 block w-fit">{m.submit()}</Button.Root>
+		</form>
+	{/if}
+</AlertDialog>
