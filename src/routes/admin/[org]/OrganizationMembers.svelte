@@ -84,7 +84,7 @@
 					>{/if}
 			</h2>
 			<h3 class="text-center">{member.user.email}</h3>
-			<form action="?/renameMember" method="POST" class="m-auto my-8 w-fit">
+			<form action="?/renamemember" method="POST" class="m-auto my-8 w-fit">
 				<Label.Root for="name">{m.rename_to()}:</Label.Root>
 				<div class="m-auto flex gap-2">
 					<input name="name" id="name" required />

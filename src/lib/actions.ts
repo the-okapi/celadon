@@ -2,7 +2,7 @@ import { getLocale } from '#lib/paraglide/runtime.js';
 import { unwrapNoData } from '#lib/error.js';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-export async function createOrganization(userId: string, supabase: SupabaseClient) {
+export async function createOrganization(userId: string, name: string, supabase: SupabaseClient) {
 	const id = crypto.randomUUID();
 
 	let orgName = name + "'s Organization";

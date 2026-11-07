@@ -2,4 +2,4 @@
 
 Have trust in your students' work again.
 
-Highest Error Code: `110`
+Highest Error Code: `112`

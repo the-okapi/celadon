@@ -6,7 +6,6 @@
 	"password_confirm_dont_match": "Password and Confirm Password don't match.",
 	"email": "Email",
 	"name": "Name",
-	"your": "Your",
 	"password": "Password",
 	"confirm": "Confirm",
 	"go": "Go",
@@ -191,5 +190,7 @@
 	"select_someone_add": "Please select someone to add",
 	"no_classes": "You are not a part of any classes.",
 	"feedback": "Feedback",
-	"thank_feedback": "Thank you for your feedback!"
+	"thank_feedback": "Thank you for your feedback!",
+	"error": "Error",
+	"email_taken": "That email is taken."
 }

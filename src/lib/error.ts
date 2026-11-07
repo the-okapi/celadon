@@ -6,18 +6,20 @@ import { refreshAll } from '$app/navigation';
 
 export class HttpError extends Error {
 	status: number;
+	code: string | null;
 
-	constructor(status: number, message: string) {
+	constructor(status: number, message: string, code: string | null) {
 		super(message);
 
 		this.status = status;
+		this.code = code;
 	}
 }
 
 export function unwrap(response: { data: any; error: any }, code: number) {
 	if (response.error) {
 		console.error(response.error, 'Error Code ' + code);
-		throw new HttpError(500, response.error.message);
+		throw new HttpError(500, response.error.message, response.error.code ?? '');
 	} else {
 		return response.data;
 	}
@@ -26,7 +28,7 @@ export function unwrap(response: { data: any; error: any }, code: number) {
 export function unwrapNoData(response: { error: any }, code: number) {
 	if (response.error) {
 		console.error(response.error, 'Error Code ' + code);
-		throw new HttpError(500, response.error.message);
+		throw new HttpError(500, response.error.message, response.error.code ?? '');
 	}
 }
 

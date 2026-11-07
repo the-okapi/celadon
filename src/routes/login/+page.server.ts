@@ -29,7 +29,12 @@ export const actions = {
 			});
 
 			if (error || !user) {
-				return fail(404, { logInMessage: m.email_password_incorrect(), email, password });
+				return fail(404, {
+					fail: true,
+					message: m.email_password_incorrect(),
+					email,
+					password
+				});
 			}
 
 			const check = unwrap(
@@ -43,10 +48,16 @@ export const actions = {
 
 			unwrapNoData(await locals.supabase.auth.signOut(), 86);
 
-			return fail(404, { logInMessage: m.email_password_incorrect(), email, password });
+			return fail(404, {
+				fail: true,
+				message: m.email_password_incorrect(),
+				email,
+				password
+			});
 		} catch (e) {
 			return handleFormActionError(e, {
-				logInMessage: m.email_password_incorrect(),
+				fail: true,
+				message: m.email_password_incorrect(),
 				email,
 				password
 			});

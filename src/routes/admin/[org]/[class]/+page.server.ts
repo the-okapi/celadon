@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (!data?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		const classData = unwrap(
@@ -86,7 +86,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				throw new HttpError(403, m.invalid_permissions());
+				throw new HttpError(403, m.invalid_permissions(), null);
 			}
 
 			const check2 = unwrap(
@@ -99,7 +99,7 @@ export const actions = {
 			);
 
 			if (!check2 || check2[0].organization !== params.org) {
-				throw new HttpError(404, m.class_not_found());
+				throw new HttpError(404, m.class_not_found(), null);
 			}
 
 			const check3 = unwrap(
@@ -113,7 +113,7 @@ export const actions = {
 			);
 
 			if (!check3?.[0]) {
-				throw new HttpError(400, m.user_not_found());
+				throw new HttpError(400, m.user_not_found(), null);
 			}
 
 			const check4 = unwrap(
@@ -126,7 +126,7 @@ export const actions = {
 			);
 
 			if (check4?.[0]) {
-				throw new HttpError(409, m.user_already_class());
+				throw new HttpError(409, m.user_already_class(), null);
 			}
 
 			unwrapNoData(
@@ -176,7 +176,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				return new HttpError(403, m.invalid_permissions());
+				return new HttpError(403, m.invalid_permissions(), null);
 			}
 
 			unwrapNoData(

@@ -19,8 +19,6 @@
 	let signUpOpen = $state(false);
 
 	let { form } = $props();
-
-	error to prevent deployment
 </script>
 
 <svelte:head>
@@ -47,7 +45,7 @@
 <div class="h-20"></div>
 
 <div class="flex justify-center gap-7 text-2xl">
-	<div class="border-o h-80 w-110 rounded-xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
 		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -59,7 +57,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o h-80 w-110 rounded-xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
 		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -71,7 +69,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o relative h-80 w-110 rounded-xl bg-(--bg) p-7 pt-8">
+	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8">
 		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class="list-inside list-disc {getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}">
@@ -96,7 +94,7 @@
 		{:else}
 			<form
 				method="POST"
-				action="?/logIn"
+				action="?/login"
 				use:enhance={() => {
 					loading = true;
 					return ({ update, result }) => {

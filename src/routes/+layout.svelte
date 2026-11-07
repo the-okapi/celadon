@@ -4,21 +4,19 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { locales, localizeHref } from '#lib/paraglide/runtime.js';
-	import { ModeWatcher } from 'mode-watcher';
+	import { ModeWatcher, mode, setMode } from 'mode-watcher';
 	import favicon from '#lib/assets/favicon.png';
 	import { barHidden } from '#lib/state.svelte.js';
 	import type { LayoutProps } from './$types';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Button } from 'bits-ui';
 	import Options from './Options.svelte';
-	import LogIn from './LogIn.svelte';
-	import SignUp from './SignUp.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale, setLocale } from '#lib/paraglide/runtime.js';
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
-	import { onDestroy, onMount, type Snippet } from 'svelte';
+	import { onDestroy, type Snippet } from 'svelte';
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
@@ -28,8 +26,6 @@
 	let { data, children }: LayoutProps = $props();
 
 	let signOutOpen = $state(false);
-	let signUpOpen = $state(false);
-	let logInOpen = $state(false);
 
 	let feedbackOpen = $state(false);
 
@@ -62,15 +58,6 @@
 	afterNavigate(() => {
 		loadingBarClass = 'after-nav';
 	});
-
-	onMount(() => {
-		document.getElementById('logIn')?.addEventListener('click', () => {
-			logInOpen = true;
-		});
-		document.getElementById('signUpButton')?.addEventListener('clock', () => {
-			signUpOpen = true;
-		});
-	});
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -86,51 +73,50 @@
 
 <Toaster />
 
-<div class="nav-bar">
-	{#if !barHidden.value}
-		<div
-			class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
-		>
-			<div class="flex w-full gap-4">
-				<Options />
-				<a
-					class="nav-bar-link"
-					rel="external"
-					href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
-					target="_blank">{m.help()}</a
-				>
-				{#if data.loggedIn}
+{#if data.loggedIn}
+	<div class="nav-bar">
+		{#if !barHidden.value}
+			<div
+				class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
+			>
+				<div class="flex w-full gap-4">
+					<Options />
+					<a
+						class="nav-bar-link"
+						rel="external"
+						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
+						target="_blank">{m.help()}</a
+					>
 					<button class="nav-bar-link" onclick={() => (signOutOpen = true)}
 						>{m.sign_out()}</button
 					>
-				{:else}
-					<LogIn bind:open={logInOpen} />
-					<SignUp bind:open={signUpOpen} />
-				{/if}
+				</div>
+				<h1 class="text-4xl font-bold whitespace-nowrap">
+					{page.data.title ?? m.celadon()}
+				</h1>
+				<div class="flex w-full items-center justify-end gap-2 text-right">
+					{#if pageNavBarContent}
+						{@render pageNavBarContent()}
+					{/if}
+					{#if page.route.id === '/student/assignment/[assignment]'}
+						<button
+							class="hover-button size-10"
+							onclick={() => (barHidden.value = true)}><Show size={20} /></button
+						>
+					{/if}
+				</div>
 			</div>
-			<h1 class="text-4xl font-bold whitespace-nowrap">
-				{page.data.title ?? m.celadon()}
-			</h1>
-			<div class="flex w-full items-center justify-end gap-2 text-right">
-				{#if pageNavBarContent}
-					{@render pageNavBarContent()}
-				{/if}
-				{#if page.route.id === '/student/assignment/[assignment]'}
-					<button class="hover-button size-10" onclick={() => (barHidden.value = true)}
-						><Show size={20} /></button
-					>
-				{/if}
-			</div>
-		</div>
 
-		<div class="h-20"></div>
-	{:else if barHidden.value}
-		<button
-			class="hover-button border-o fixed top-5 right-7 size-10"
-			onclick={() => (barHidden.value = false)}><Hide size={20} /></button
-		>
-	{/if}
-</div>
+			<div class="h-20"></div>
+		{:else if barHidden.value}
+			<button
+				class="hover-button border-o fixed top-5 right-7 size-10"
+				onclick={() => (barHidden.value = false)}><Hide size={20} /></button
+			>
+		{/if}
+	</div>
+{/if}
+
 <div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
 <main class="min-h-[calc(100vh-4rem)]">
@@ -151,6 +137,14 @@
 	{:else}
 		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
 	{/if}
+
+	{#if mode.current === 'dark'}
+		<button class="nav-bar-link" onclick={() => setMode('light')}>{m.light()}</button>
+	{:else}
+		<button class="nav-bar-link" onclick={() => setMode('dark')}>{m.dark()}</button>
+	{/if}
+
+	<div class="h-8 border-l border-(--o)"></div>
 
 	{#if data.loggedIn}
 		<button class="nav-bar-link" onclick={() => (feedbackOpen = true)}>{m.feedback()}</button>
@@ -193,7 +187,7 @@
 <AlertDialog bind:open={signOutOpen}>
 	<p class="mb-8 text-center text-lg">{m.are_you_sure()} {m.confirm_sign_out()}</p>
 	{#snippet go()}
-		<form method="POST" action="/?/signOut">
+		<form method="POST" action="/?/signout">
 			<Button.Root type="submit">{m.go()}</Button.Root>
 		</form>
 	{/snippet}

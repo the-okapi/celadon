@@ -150,7 +150,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 			});
 		} catch (error: any) {
 			console.error(error, 'Error Code 46');
-			throw new HttpError(500, m.something_happened());
+			throw new HttpError(500, m.something_happened(), null);
 		}
 	} catch {
 		return fail(500, { createError: true, message: m.something_happened(), email, name });
@@ -178,7 +178,7 @@ export const revoke = async ({ request, locals, params }: ActionData) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		const check = unwrap(
@@ -192,7 +192,7 @@ export const revoke = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		unwrapNoData(
@@ -215,7 +215,7 @@ const RenameMemberSchema = object({
 	name: string()
 });
 
-export const renameMember = async ({ request, locals, params }: ActionData) => {
+export const renamemember = async ({ request, locals, params }: ActionData) => {
 	const formData = safeParse(RenameMemberSchema, Object.fromEntries(await request.formData()));
 
 	if (!formData.success) {
@@ -291,7 +291,7 @@ export const deleteMember = async ({ request, params, locals }: ActionData) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		const check = unwrap(
@@ -305,7 +305,7 @@ export const deleteMember = async ({ request, params, locals }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		unwrapNoData(
@@ -350,7 +350,7 @@ export const restore = async ({ request, locals, params }: ActionData) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		const check = unwrap(
@@ -364,7 +364,7 @@ export const restore = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		unwrapNoData(
@@ -408,7 +408,7 @@ export const promote = async ({ request, locals, params }: ActionData) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		const check = unwrap(
@@ -422,7 +422,7 @@ export const promote = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		unwrapNoData(
@@ -458,7 +458,7 @@ export const demote = async ({ request, params, locals }: ActionData) => {
 		} = await locals.supabase.auth.getUser();
 
 		if (!user) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		if (userId === user.id) {
@@ -476,7 +476,7 @@ export const demote = async ({ request, params, locals }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		unwrapNoData(

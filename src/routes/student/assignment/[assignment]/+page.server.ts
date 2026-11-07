@@ -25,8 +25,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (a === undefined || a === null) {
-			throw new HttpError(303, '/student');
-		}
+			throw new HttpError(303, '/student', null)
 
 		const assignment = {
 			...a.assignment,

@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (data.length === 0) {
-			throw new HttpError(303, '/');
+			throw new HttpError(303, '/', null);
 		}
 
 		return {

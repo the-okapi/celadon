@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Button } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
-	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 </script>
@@ -10,19 +9,12 @@
 	<title>{m.something_happened()} | {m.celadon()}</title>
 </svelte:head>
 
-<div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
-	<div class="h-fit text-center">
-		<AlertDialog open cancel={false}>
-			<p class="mb-5 w-80">
-				{m.something_happened()}
-				<strong>Error {page.status}</strong>
-			</p>
-			{#snippet go()}
-				<Button.Root
-					href={page.data.admin ? resolve('/admin') : resolve('/student')}
-					class="h-fit py-2!">{m.home()}</Button.Root
-				>
-			{/snippet}
-		</AlertDialog>
-	</div>
+<div
+	class="border-o absolute top-[50%] left-[50%] w-fit translate-[-50%] rounded-3xl bg-(--bg) p-7 text-center"
+>
+	<p class="mb-5 w-80">
+		{m.something_happened()}
+		<strong>{m.error()} {page.status}</strong>
+	</p>
+	<Button.Root href={resolve('/')} class="h-fit py-2.5!">{m.home()}</Button.Root>
 </div>

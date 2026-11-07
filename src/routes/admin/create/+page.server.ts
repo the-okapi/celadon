@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	} = await locals.supabase.auth.getUser();
 
 	if (!user) {
-		throw new HttpError(303, '/');
+		throw new HttpError(303, '/', null);
 	}
 
 	const { data: memberships, error: e } = await locals.supabase

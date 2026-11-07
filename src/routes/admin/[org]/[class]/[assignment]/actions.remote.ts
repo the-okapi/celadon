@@ -256,7 +256,7 @@ export const assign = form(
 			);
 
 			if (!check) {
-				throw new HttpError(303, '/admin');
+				throw new HttpError(303, '/admin', null);
 			}
 
 			for (let i = 0; i < students.length; i++) {

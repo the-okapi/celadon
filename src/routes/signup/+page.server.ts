@@ -8,7 +8,8 @@ import { createOrganization } from '#lib/actions.js';
 const SignupSchema = object({
 	name: string(),
 	email: string(),
-	password: string()
+	password: string(),
+	confirmPassword: string()
 });
 
 export const actions = {
@@ -20,11 +21,24 @@ export const actions = {
 				fail: true,
 				message: m.something_happened(),
 				name: '',
-				email: ''
+				email: '',
+				password: '',
+				confirmPassword: ''
 			});
 		}
 
-		const { email, password, name } = formData.output;
+		const { name, email, password, confirmPassword } = formData.output;
+
+		if (password !== confirmPassword) {
+			return fail(400, {
+				fail: true,
+				message: m.password_confirm_dont_match(),
+				name: '',
+				email: '',
+				password: '',
+				confirmPassword: ''
+			});
+		}
 
 		try {
 			unwrapNoData(
@@ -48,9 +62,17 @@ export const actions = {
 				return error500();
 			}
 
-			createOrganization(user.id, locals.supabase);
-		} catch {
-			return error500();
+			createOrganization(user.id, name, locals.supabase);
+		} catch (error: any) {
+			if (error.code === 'user_already_exists') {
+				return fail(409, { fail: true, message: m.email_taken(), ...formData.output });
+			} else {
+				return fail(500, {
+					fail: true,
+					message: m.something_happened(),
+					...formData.output
+				});
+			}
 		}
 
 		return redirect(303, '/admin');

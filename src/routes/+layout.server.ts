@@ -40,9 +40,14 @@ export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 		let admin = false;
 		let organization = null;
 
-		if (orgMemberships.length === 0 || orgMemberships[0].admin) {
-			admin = true;
+		if (orgMemberships.length > 0) {
 			organization = orgMemberships[0].organization;
+
+			if (orgMemberships[0].admin) {
+				admin = true;
+			}
+		} else {
+			admin = true;
 		}
 
 		return {

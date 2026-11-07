@@ -28,7 +28,7 @@ const SignUpSchema = object({
 });
 
 export const actions = {
-	logIn: async ({ locals, request }) => {
+	login: async ({ locals, request }) => {
 		const formData = safeParse(LogInSchema, Object.fromEntries(await request.formData()));
 
 		if (!formData.success) {
@@ -100,7 +100,7 @@ export const actions = {
 
 		return redirect(303, '/admin');
 	},
-	signOut: async ({ locals }) => {
+	signout: async ({ locals }) => {
 		const { error: e } = await locals.supabase.auth.signOut();
 
 		if (e) {

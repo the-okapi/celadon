@@ -1,13 +1,13 @@
 .light {
 	color-scheme: light;
-	--bg: #ffffff;
-	--a: #eeeeee;
+	--bg: #eeeeee;
+	--a: #e4e4e4;
 	--fg: #313131;
 	--p-fg: var(--bg);
 	--o: #bfbfbf;
 	--r: #e7786d;
 	--s: #d9d9d9;
-	--p: #9fc7b0;
+	--p: #8bc0a2;
 	--secondary: #877bc9;
 	--darkness: 95%;
 	color: var(--fg);
@@ -15,8 +15,8 @@
 
 .dark {
 	color-scheme: dark;
-	--bg: #222222;
-	--a: #272727;
+	--bg: #262626;
+	--a: #2c2c2c;
 	--fg: #fafafa;
 	--r: #c64a44;
 	--o: #444444;
@@ -24,7 +24,7 @@
 	--p-fg: var(--bg);
 	--p: #afdbc2;
 	--secondary: #ac9cff;
-	--darkness: 85%;
+	--darkness: 90%;
 	color: var(--fg);
 }
 

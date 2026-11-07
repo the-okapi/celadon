@@ -3,7 +3,9 @@ import { redirect, fail } from '@sveltejs/kit';
 import { error500, unwrap, unwrapNoData } from '#lib/error.js';
 import { m } from '#lib/paraglide/messages.js';
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, parent }) => {
+	await parent();
+
 	const {
 		data: { user }
 	} = await locals.supabase.auth.getUser();

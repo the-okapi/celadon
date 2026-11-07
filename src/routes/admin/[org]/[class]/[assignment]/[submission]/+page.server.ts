@@ -23,7 +23,11 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		const [submission] = data;
 
 		if (!submission) {
-			throw new HttpError(303, `/admin/${params.org}/${params.class}/${params.assignment}/`);
+			throw new HttpError(
+				303,
+				`/admin/${params.org}/${params.class}/${params.assignment}/`,
+				null
+			);
 		}
 
 		return {

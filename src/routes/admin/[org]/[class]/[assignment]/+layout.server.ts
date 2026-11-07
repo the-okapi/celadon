@@ -23,7 +23,7 @@ export const load: LayoutServerLoad = async ({ params, locals }) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin');
+			throw new HttpError(303, '/admin', null);
 		}
 
 		const [assignment] = unwrap(
@@ -36,7 +36,7 @@ export const load: LayoutServerLoad = async ({ params, locals }) => {
 		);
 
 		if (!assignment) {
-			throw new HttpError(303, `/admin/${params.org}/${params.class}`);
+			throw new HttpError(303, `/admin/${params.org}/${params.class}`, null);
 		}
 
 		const submissions = unwrap(

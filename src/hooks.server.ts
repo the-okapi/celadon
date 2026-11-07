@@ -1,13 +1,9 @@
 import { sequence } from '@sveltejs/kit/hooks';
-import type { Handle, HandleServerError } from '@sveltejs/kit/hooks';
+import type { Handle } from '@sveltejs/kit/hooks';
 import { getTextDirection } from '#lib/paraglide/runtime.js';
 import { paraglideMiddleware } from '#lib/paraglide/server.js';
 import { createServerClient } from '@supabase/ssr';
 import { PRIVATE_SUPABASE_PUBLISHABLE_KEY, PRIVATE_SUPABASE_URL } from '$app/env/private';
-
-export const handleError: HandleServerError = async ({ error }) => {
-	console.error(error);
-};
 
 const originalHandle: Handle = async ({ event, resolve }) => {
 	event.locals.supabase = createServerClient(

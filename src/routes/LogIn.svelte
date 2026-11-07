@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { Button, Label } from 'bits-ui';
 	import { fade } from 'svelte/transition';
 	import Loader from '#lib/components/Loader.svelte';
@@ -73,4 +73,4 @@
 			{/snippet}
 		</Popover.Content>
 	</Popover.Portal>
-</Popover.Root>
+</Popover.Root> -->

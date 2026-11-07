@@ -6,7 +6,6 @@
 	"password_confirm_dont_match": "Mot de Passe et Confirmer Mot de Passe ne sont pas les mêmes.",
 	"name": "Nom",
 	"email": "Courriel",
-	"your": "Ton",
 	"password": "Mot de Passe",
 	"confirm": "Confirmer",
 	"go": "Aller",
@@ -182,5 +181,7 @@
 	"select_someone_add": "Selectionnez quelqu'un à ajouter",
 	"no_classes": "Vous ne faites pas partis d'une classe.",
 	"feedback": "Remarques",
-	"thank_feedback": "Merci pour tes remarques!"
+	"thank_feedback": "Merci pour tes remarques!",
+	"error": "Erreur",
+	"email_taken": "Ce courriel est pris."
 }

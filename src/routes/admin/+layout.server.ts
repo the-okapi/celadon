@@ -1,8 +1,9 @@
 import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import { handleHttpError, HttpError, unwrap } from '#lib/error.js';
+import { handleHttpError, unwrap } from '#lib/error.js';
+import { createOrganization } from '#lib/actions.js';
 
-export const load: LayoutServerLoad = async ({ parent, route, locals }) => {
+export const load: LayoutServerLoad = async ({ parent, locals }) => {
 	const parentData = await parent();
 	if (!parentData.loggedIn) {
 		return redirect(303, '/');
@@ -10,10 +11,6 @@ export const load: LayoutServerLoad = async ({ parent, route, locals }) => {
 
 	if (!parentData.admin) {
 		return redirect(303, '/student');
-	}
-
-	if (route.id === '/admin/create') {
-		return;
 	}
 
 	const {
@@ -25,7 +22,7 @@ export const load: LayoutServerLoad = async ({ parent, route, locals }) => {
 	}
 
 	try {
-		const memberships = unwrap(
+		let memberships = unwrap(
 			await locals.supabase
 				.from('organization_memberships')
 				.select('id, organization')
@@ -34,7 +31,20 @@ export const load: LayoutServerLoad = async ({ parent, route, locals }) => {
 		);
 
 		if (memberships.length < 1) {
-			throw new HttpError(303, '/admin/create');
+			const [{ name }] = unwrap(
+				await locals.supabase.from('users').select('name').eq('id', user.id),
+				111
+			);
+
+			createOrganization(user.id, name, locals.supabase);
+
+			memberships = unwrap(
+				await locals.supabase
+					.from('organization_memberships')
+					.select('id, organization')
+					.eq('user', user.id),
+				112
+			);
 		}
 
 		const classes = unwrap(
