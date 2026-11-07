@@ -10,7 +10,6 @@
 	import type { LayoutProps } from './$types';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Button } from 'bits-ui';
-	import Options from './Options.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale, setLocale } from '#lib/paraglide/runtime.js';
 	import { PUBLIC_HELP_URL } from '$app/env/public';
@@ -65,9 +64,7 @@
 <ModeWatcher
 	darkClassNames={['dark']}
 	lightClassNames={['light']}
-	defaultTheme="stripes"
 	defaultMode="system"
-	themeStorageKey="celadon-theme"
 	modeStorageKey="celadon-mode"
 />
 
@@ -79,14 +76,7 @@
 			<div
 				class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
 			>
-				<div class="flex w-full gap-4">
-					<Options />
-					<a
-						class="nav-bar-link"
-						rel="external"
-						href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}"
-						target="_blank">{m.help()}</a
-					>
+				<div class="flex w-full">
 					<button class="nav-bar-link" onclick={() => (signOutOpen = true)}
 						>{m.sign_out()}</button
 					>

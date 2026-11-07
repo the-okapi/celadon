@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { Button, Label } from 'bits-ui';
 	import type { PageProps } from './$types';
-	import Loader from '#lib/components/Loader.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { resolve } from '$app/paths';
 
 	let { form }: PageProps = $props();
-
-	let loading = $state(false);
 </script>
 
 <svelte:head>
@@ -15,65 +12,44 @@
 </svelte:head>
 
 <div class="m-auto flex h-[calc(100vh-5rem)] w-screen flex-col items-center justify-center">
-	{#if loading}
-		<Loader />
-	{:else}
-		<a href={resolve('/')} class="mt-10 hover:underline">← {m.back()}</a>
-		<div class="border-o m-auto rounded-2xl bg-(--bg) px-15 py-10">
-			<form method="POST" class="flex w-fit flex-col items-center">
-				<h1 class="mb-4 text-center text-3xl font-black">{m.sign_up()}</h1>
-				<div class="text-left">
-					<Label.Root for="name">{m.name()}:</Label.Root><br />
-					<input
-						type="text"
-						id="name"
-						value={form?.name}
-						name="name"
-						class="w-70"
-						required
-					/>
-				</div>
-				<div class="text-left">
-					<Label.Root for="email">{m.email()}:</Label.Root><br />
-					<input
-						type="email"
-						id="email"
-						value={form?.email}
-						name="email"
-						class="w-70"
-						required
-					/>
-				</div>
-				<div class="text-left">
-					<Label.Root for="password">{m.password()}:</Label.Root><br />
-					<input
-						type="password"
-						name="password"
-						id="password"
-						value={form?.password}
-						class="w-70"
-						required
-					/>
-				</div>
-				<div class="mb-3 text-left">
-					<Label.Root for="confirmPassword">{m.confirm()} {m.password()}:</Label.Root><br
-					/>
-					<input
-						type="password"
-						id="confirmPassword"
-						name="confirmPassword"
-						value={form?.confirmPassword}
-						class="w-70"
-						required
-					/>
-				</div>
-				{#if form?.fail}
-					<p class="max-w-70 text-center leading-4 text-(--r)">
-						{form?.message}
-					</p>
-				{/if}
-				<Button.Root type="submit" class="mt-3 w-fit">{m.submit()}</Button.Root>
-			</form>
+	<a href={resolve('/')} class="mt-10 hover:underline">← {m.back()}</a>
+	<form method="POST" class="flex w-fit flex-col items-center">
+		<h1 class="mb-4 text-center text-3xl font-black">{m.sign_up()}</h1>
+		<div class="text-left">
+			<Label.Root for="name">{m.name()}:</Label.Root><br />
+			<input type="text" id="name" value={form?.name} name="name" class="w-70" required />
 		</div>
-	{/if}
+		<div class="text-left">
+			<Label.Root for="email">{m.email()}:</Label.Root><br />
+			<input type="email" id="email" value={form?.email} name="email" class="w-70" required />
+		</div>
+		<div class="text-left">
+			<Label.Root for="password">{m.password()}:</Label.Root><br />
+			<input
+				type="password"
+				name="password"
+				id="password"
+				value={form?.password}
+				class="w-70"
+				required
+			/>
+		</div>
+		<div class="mb-3 text-left">
+			<Label.Root for="confirmPassword">{m.confirm()} {m.password()}:</Label.Root><br />
+			<input
+				type="password"
+				id="confirmPassword"
+				name="confirmPassword"
+				value={form?.confirmPassword}
+				class="w-70"
+				required
+			/>
+		</div>
+		{#if form?.fail}
+			<p class="max-w-70 text-center leading-4 text-(--r)">
+				{form?.message}
+			</p>
+		{/if}
+		<Button.Root type="submit" class="mt-3 w-fit">{m.submit()}</Button.Root>
+	</form>
 </div>

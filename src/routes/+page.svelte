@@ -27,9 +27,7 @@
 
 <div class="h-20"></div>
 
-<div class="m-auto w-fit rounded-[6rem] bg-(--a) p-10">
-	<img src={favicon} class="m-auto w-60" alt={m.celadon()} />
-</div>
+<img src={favicon} class="m-auto w-60" alt={m.celadon()} />
 
 <h1 class="relative text-center text-8xl leading-32 font-black text-(--p)">
 	{m.celadon()}
@@ -45,7 +43,7 @@
 <div class="h-20"></div>
 
 <div class="flex justify-center gap-7 text-2xl">
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-2xl">
 		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -57,7 +55,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-2xl">
 		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -69,7 +67,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8">
+	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8 shadow-2xl">
 		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class="list-inside list-disc {getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}">
