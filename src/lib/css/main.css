@@ -9,6 +9,7 @@
 	font-family: Roboto, sans-serif;
 	caret-color: var(--p);
 	overscroll-behavior: none;
+	overflow-x: hidden;
 }
 
 .title {
@@ -214,7 +215,7 @@ textarea {
 	}
 
 	to {
-		width: 100vw;
+		width: 100%;
 	}
 }
 

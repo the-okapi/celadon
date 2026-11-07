@@ -86,14 +86,7 @@
 	</div>
 </div>
 
-<div class="h-10"></div>
-
-<p class="relative text-center text-2xl">
-	{m.contact()} <strong>contact@celadon.work</strong>
-	{m.if_questions()}
-</p>
-
-<div class="h-10"></div>
+<div class="h-15"></div>
 
 <AlertDialog bind:open={logInOpen} onclose={() => (form = null)}>
 	{let loading = $state(false)}

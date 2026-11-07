@@ -142,8 +142,6 @@
 	"help": "Aide",
 	"slogan": "Personnes Vraies, Écriture Vrai",
 	"have_trust": "Faites confiance dans le travail de vos élèves encore.",
-	"contact": "Contactez-nous à",
-	"if_questions": "si vous avez des questions",
 	"word_processing": "Traitement de Texte",
 	"no_copy_paste_ai": "Pas de copier/coller depuis IA",
 	"consistent_font_spacing": "Police et interligne consistents",
@@ -182,5 +180,7 @@
 	"polka_dots": "Pois",
 	"nothing": "Rien",
 	"select_someone_add": "Selectionnez quelqu'un à ajouter",
-	"no_classes": "Vous ne faites pas partis d'une classe."
+	"no_classes": "Vous ne faites pas partis d'une classe.",
+	"feedback": "Remarques",
+	"thank_feedback": "Merci pour tes remarques!"
 }

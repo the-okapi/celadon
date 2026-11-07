@@ -22,12 +22,16 @@
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { feedback } from './remote';
+	import { showToast } from '#lib/toast.js';
 
 	let { data, children }: LayoutProps = $props();
 
 	let signOutOpen = $state(false);
 	let signUpOpen = $state(false);
 	let logInOpen = $state(false);
+
+	let feedbackOpen = $state(false);
 
 	let pageNavBarContent: Snippet | undefined = $state();
 
@@ -82,7 +86,7 @@
 
 <Toaster />
 
-<!-- <div class="nav-bar">
+<div class="nav-bar">
 	{#if !barHidden.value}
 		<div
 			class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
@@ -126,7 +130,7 @@
 			onclick={() => (barHidden.value = false)}><Hide size={20} /></button
 		>
 	{/if}
-</div> -->
+</div>
 <div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
 <main class="min-h-[calc(100vh-4rem)]">
@@ -148,6 +152,10 @@
 		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
 	{/if}
 
+	{#if data.loggedIn}
+		<button class="nav-bar-link" onclick={() => (feedbackOpen = true)}>{m.feedback()}</button>
+	{/if}
+
 	<a
 		rel="external"
 		target="_blank"
@@ -161,6 +169,26 @@
 		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Path)}>{locale}</a>
 	{/each}
 </div>
+
+<AlertDialog bind:open={feedbackOpen}>
+	{let loading = $state(false)}
+	<h2 class="text-center text-2xl font-black">{m.feedback()}</h2>
+	<form
+		{...feedback.enhance(async (form) => {
+			loading = true;
+			await form.submit();
+			if (form.result?.success) {
+				showToast(m.thank_feedback(), 'success');
+			} else {
+				showToast(m.something_happened(), 'error');
+			}
+		})}
+	>
+		<textarea name="content" disabled={loading}></textarea>
+
+		<Button.Root type="submit">{m.submit()}</Button.Root>
+	</form>
+</AlertDialog>
 
 <AlertDialog bind:open={signOutOpen}>
 	<p class="mb-8 text-center text-lg">{m.are_you_sure()} {m.confirm_sign_out()}</p>

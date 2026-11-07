@@ -148,8 +148,6 @@
 	"help": "Help",
 	"slogan": "Real People, Real Writing",
 	"have_trust": "Have trust in your students' work again.",
-	"contact": "Contact us at",
-	"if_questions": "if you have any questions",
 	"word_processing": "Word Processing",
 	"no_copy_paste_ai": "No copy/paste from AI",
 	"consistent_font_spacing": "Consistent fonts and spacing",
@@ -191,5 +189,7 @@
 	"polka_dots": "Polka Dots",
 	"nothing": "Nothing",
 	"select_someone_add": "Please select someone to add",
-	"no_classes": "You are not a part of any classes."
+	"no_classes": "You are not a part of any classes.",
+	"feedback": "Feedback",
+	"thank_feedback": "Thank you for your feedback!"
 }

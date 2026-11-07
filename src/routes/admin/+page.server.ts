@@ -44,7 +44,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 		const classes = data.map((c: { class: { id: string; name: string } }) => c.class);
 
 		return { classes, organization, title: m.home() };
-	} catch {
+	} catch (e) {
+		console.log(e);
 		return error500();
 	}
 };
@@ -86,43 +87,6 @@ export const actions = {
 			);
 		} catch {
 			return fail(500, { createFailure: true, message: m.something_happened() });
-		}
-
-		return { success: true };
-	},
-	organization: async ({ request, locals }) => {
-		const { orgName } = Object.fromEntries(await request.formData());
-		try {
-			const {
-				data: { user }
-			} = await locals.supabase.auth.getUser();
-
-			if (!user) {
-				return redirect(303, '/');
-			}
-
-			const id = crypto.randomUUID();
-
-			unwrapNoData(
-				await locals.supabase.from('organizations').insert({
-					id,
-					name: orgName,
-					creator: user.id
-				}),
-				81
-			);
-
-			unwrapNoData(
-				await locals.supabase
-					.from('users')
-					.update({
-						organization: id
-					})
-					.eq('id', user.id),
-				82
-			);
-		} catch {
-			return fail(500, { orgFailure: true, message: m.something_happened() });
 		}
 
 		return { success: true };
