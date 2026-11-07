@@ -66,7 +66,7 @@
 {/snippet}
 
 <div
-	class="border-o flex h-[80vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
+	class="border-o flex h-[70vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
 >
 	{#if focus === -1}
 		{@render list()}

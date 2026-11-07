@@ -27,7 +27,9 @@
 
 <div class="h-20"></div>
 
-<img src={favicon} class="m-auto w-60" alt={m.celadon()} />
+<div class="m-auto mb-10 w-fit rounded-[3.8rem] shadow-2xl shadow-(color:--p)">
+	<img src={favicon} class="w-60" alt={m.celadon()} />
+</div>
 
 <h1 class="relative text-center text-8xl leading-32 font-black text-(--p)">
 	{m.celadon()}
@@ -35,7 +37,9 @@
 <h2 class="relative text-center text-3xl">{m.slogan()}</h2>
 
 <div class="m-auto mt-10 flex h-10 w-fit items-center justify-center gap-3">
-	<Button.Root class="big-button" rel="external" href={PUBLIC_HELP_URL}>{m.help()}</Button.Root>
+	<Button.Root class="big-button" rel="external" target="_blank" href={PUBLIC_HELP_URL}
+		>{m.help()}</Button.Root
+	>
 	<Button.Root class="big-button" href={resolve('/login')}>{m.log_in()}</Button.Root>
 	<Button.Root class="big-button" href={resolve('/signup')}>{m.sign_up()}</Button.Root>
 </div>
@@ -43,7 +47,7 @@
 <div class="h-20"></div>
 
 <div class="flex justify-center gap-7 text-2xl">
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-2xl">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
 		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -55,7 +59,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-2xl">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
 		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -67,7 +71,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8 shadow-2xl">
+	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8">
 		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class="list-inside list-disc {getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}">

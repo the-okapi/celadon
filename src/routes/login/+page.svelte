@@ -34,6 +34,6 @@
 				{form?.message}
 			</p>
 		{/if}
-		<Button.Root type="submit" class="mt-15 w-fit">{m.submit()}</Button.Root>
+		<Button.Root type="submit" class="mt-10 w-fit">{m.submit()}</Button.Root>
 	</form>
 </div>

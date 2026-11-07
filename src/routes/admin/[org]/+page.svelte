@@ -28,10 +28,12 @@
 </script>
 
 <div class="h-2"></div>
+
 <a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
+
 <div class="flex gap-4 px-10 pt-2">
 	<OrganizationMembers {...data} />
-	<div class="flex h-[80vh] w-full gap-4">
+	<div class="flex h-[70vh] w-full gap-4">
 		<div class="flex h-full w-full flex-col gap-4">
 			<div
 				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
@@ -58,12 +60,15 @@
 					<p class="w-80">{m.no_deletions()}</p>
 				{/if}
 				{#each data.deletions as deletion, i (deletion.id)}
-					<div class="mb-2.5 flex w-80 gap-1">
-						<p class="my-auto w-70 overflow-x-scroll whitespace-nowrap">
-							{let daysUntil = getDaysUntil(deletion.can_delete)}
+					<div class="mb-2.5 flex w-80">
+						{let daysUntil = getDaysUntil(deletion.can_delete)}
+						<p class="my-auto w-70 overflow-hidden text-ellipsis whitespace-nowrap">
+							{deletion.name} -
+							{deletion.email}
+						</p>
+						<p class="my-auto mr-2 ml-1 whitespace-nowrap">
 							{daysUntil}
-							{m.day()}{daysUntil === 1 ? '' : 's'}
-							- {deletion.name}
+							{daysUntil === 1 ? m.day() : m.days()}
 						</p>
 						<Button.Root onclick={() => restoreMember(i)} class="small-button"
 							>{m.restore()}</Button.Root
@@ -109,7 +114,8 @@
 <AlertDialog bind:open={restoreOpen}>
 	<p class="mb-8 w-100 text-center text-lg">
 		{m.are_you_sure()}
-		{m.confirm_restore()} <span class="font-bold">{data.deletions[restore].name}</span>?
+		{m.confirm_restore()}
+		{data.deletions[restore].name} ({data.deletions[restore].email})?
 	</p>
 	{#snippet go()}
 		<form action="?/restore" method="POST">

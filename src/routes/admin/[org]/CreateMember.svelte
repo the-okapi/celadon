@@ -10,7 +10,7 @@
 	let success = $state(false);
 </script>
 
-<div class="border-o relative flex h-210 w-80 items-center justify-center rounded-xl bg-(--bg)">
+<div class="border-o relative flex h-100 w-80 items-center justify-center rounded-xl bg-(--bg)">
 	{#if success || loading}
 		{#if loading || !form?.createSuccess}
 			<Loader />

@@ -21,6 +21,7 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { feedback } from './remote';
 	import { showToast } from '#lib/toast.js';
+	import Loader from '#lib/components/Loader.svelte';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -156,22 +157,35 @@
 
 <AlertDialog bind:open={feedbackOpen}>
 	{let loading = $state(false)}
-	<h2 class="text-center text-2xl font-black">{m.feedback()}</h2>
-	<form
-		{...feedback.enhance(async (form) => {
-			loading = true;
-			await form.submit();
-			if (form.result?.success) {
-				showToast(m.thank_feedback(), 'success');
-			} else {
-				showToast(m.something_happened(), 'error');
-			}
-		})}
-	>
-		<textarea name="content" disabled={loading}></textarea>
-
-		<Button.Root type="submit">{m.submit()}</Button.Root>
-	</form>
+	<div class="flex h-50 w-100 flex-col items-center justify-center">
+		{#if loading}
+			<Loader />
+		{:else}
+			<h2 class="mb-2 text-center text-3xl font-black">{m.feedback()}</h2>
+			<form
+				{...feedback.enhance(async (form) => {
+					console.log('hello');
+					loading = true;
+					await form.submit();
+					if (form.result?.success) {
+						showToast(m.thank_feedback(), 'success');
+						feedbackOpen = false;
+						form.element.reset();
+					} else {
+						showToast(m.something_happened(), 'error');
+					}
+					loading = false;
+				})}
+			>
+				<textarea
+					{...feedback.fields.content.as('text')}
+					class="h-30 w-100"
+					required
+					disabled={loading}></textarea><br />
+				<Button.Root type="submit" class="m-auto block">{m.submit()}</Button.Root>
+			</form>
+		{/if}
+	</div>
 </AlertDialog>
 
 <AlertDialog bind:open={signOutOpen}>

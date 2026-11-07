@@ -8,9 +8,9 @@
 
 <div class="border-o relative flex w-80 items-center gap-2 rounded-xl bg-(--bg) p-5 shadow-2xl">
 	{#if state === 'success'}
-		<CircleCheck size={40} color="var(--green)" />
+		<CircleCheck size={20} color="var(--p)" />
 	{:else if state === 'error'}
-		<CircleX size={40} color="var(--r)" />
+		<CircleX size={20} color="var(--r)" />
 	{/if}
 	<p class="leading-5">
 		{message}

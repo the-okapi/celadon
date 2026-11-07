@@ -13,8 +13,8 @@
 
 <div class="m-auto flex h-[calc(100vh-5rem)] w-screen flex-col items-center justify-center">
 	<a href={resolve('/')} class="mt-10 hover:underline">← {m.back()}</a>
+	<h1 class="mt-5 mb-15 text-center text-3xl font-black">{m.sign_up()}</h1>
 	<form method="POST" class="flex w-fit flex-col items-center">
-		<h1 class="mb-4 text-center text-3xl font-black">{m.sign_up()}</h1>
 		<div class="text-left">
 			<Label.Root for="name">{m.name()}:</Label.Root><br />
 			<input type="text" id="name" value={form?.name} name="name" class="w-70" required />
@@ -50,6 +50,6 @@
 				{form?.message}
 			</p>
 		{/if}
-		<Button.Root type="submit" class="mt-3 w-fit">{m.submit()}</Button.Root>
+		<Button.Root type="submit" class="mt-10 w-fit">{m.submit()}</Button.Root>
 	</form>
 </div>
