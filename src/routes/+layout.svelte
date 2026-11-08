@@ -58,6 +58,8 @@
 	afterNavigate(() => {
 		loadingBarClass = 'after-nav';
 	});
+
+	let feedbackContent = $state('');
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -71,7 +73,7 @@
 
 <Toaster />
 
-{#if data.loggedIn}
+<!-- {#if data.loggedIn}
 	<div class="nav-bar">
 		{#if !barHidden.value}
 			<div
@@ -106,7 +108,7 @@
 			>
 		{/if}
 	</div>
-{/if}
+{/if} -->
 
 <div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
@@ -164,13 +166,12 @@
 			<h2 class="mb-2 text-center text-3xl font-black">{m.feedback()}</h2>
 			<form
 				{...feedback.enhance(async (form) => {
-					console.log('hello');
 					loading = true;
 					await form.submit();
 					if (form.result?.success) {
 						showToast(m.thank_feedback(), 'success');
 						feedbackOpen = false;
-						form.element.reset();
+						feedbackContent = '';
 					} else {
 						showToast(m.something_happened(), 'error');
 					}
@@ -179,6 +180,7 @@
 			>
 				<textarea
 					{...feedback.fields.content.as('text')}
+					bind:value={feedbackContent}
 					class="h-30 w-100"
 					required
 					disabled={loading}></textarea><br />

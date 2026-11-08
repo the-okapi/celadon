@@ -34,7 +34,7 @@
 <div class="flex">
 	<div class="w-110"></div>
 	<div class="flex flex-col">
-		<div class="h-30"></div>
+		<div class="h-30 bg-red-500"></div>
 		<div
 			class="relative flex h-screen w-[calc(100vw-27.5rem)] flex-col items-center justify-center gap-4 pt-33 pb-5"
 		>

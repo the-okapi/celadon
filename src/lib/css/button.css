@@ -35,7 +35,7 @@
 
 	&:disabled {
 		background-color: color-mix(in oklch, var(--r) 40%, var(--s));
-		color: white;
+		color: var(--p-fg);
 	}
 }
 

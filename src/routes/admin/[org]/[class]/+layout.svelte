@@ -25,6 +25,6 @@
 	>
 </div>
 
-<div class="relative top-16 flex h-[calc(100vh-9rem)] overflow-y-scroll">
+<div class="relative top-16 flex h-[calc(100vh-13rem)] overflow-y-scroll">
 	{@render children()}
 </div>
