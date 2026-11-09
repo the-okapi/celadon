@@ -193,5 +193,6 @@
 	"feedback": "Feedback",
 	"thank_feedback": "Thank you for your feedback!",
 	"error": "Error",
-	"email_taken": "That email is taken."
+	"email_taken": "That email is taken.",
+	"back_button": "← Back"
 }

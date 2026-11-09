@@ -180,7 +180,7 @@
 
 <a
 	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
-	class="fixed top-22 left-10 hover:underline">← {m.back()}</a
+	class="fixed top-22 left-10 hover:underline">{m.back_button()}</a
 >
 
 {@render children()}

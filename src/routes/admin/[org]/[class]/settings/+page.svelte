@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { m } from '#lib/paraglide/messages.js';
 	import { Button } from 'bits-ui';
-	import Setting from './Setting.svelte';
+	import Setting, { divider } from '#lib/components/Setting.svelte';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { enhance } from '$app/forms';
 	import { handleFormError } from '#lib/error.js';
@@ -11,10 +11,6 @@
 
 	let confirmDeleteOpen = $state(false);
 </script>
-
-{#snippet divider()}
-	<div class="m-auto my-3 w-[90%] border-b border-(--o)"></div>
-{/snippet}
 
 <div class="flex h-full w-full flex-col items-center justify-center px-80">
 	{@render divider()}

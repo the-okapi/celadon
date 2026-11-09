@@ -29,7 +29,7 @@
 
 <div class="h-2"></div>
 
-<a href={resolve('/admin')} class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/admin')} class="relative ml-10 hover:underline">{m.back_button()}</a>
 
 <div class="flex gap-4 px-10 pt-2">
 	<OrganizationMembers {...data} />

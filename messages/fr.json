@@ -184,5 +184,6 @@
 	"feedback": "Remarques",
 	"thank_feedback": "Merci pour tes remarques!",
 	"error": "Erreur",
-	"email_taken": "Ce courriel est pris."
+	"email_taken": "Ce courriel est pris.",
+	"back_button": "← Retourner"
 }

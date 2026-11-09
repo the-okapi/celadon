@@ -40,15 +40,6 @@
 		}
 	});
 
-	function getLanguage(locale: string) {
-		switch (locale) {
-			case 'fr':
-				return 'francais';
-			default:
-				return 'english';
-		}
-	}
-
 	let loadingBarClass = $state('');
 
 	beforeNavigate(() => {
@@ -112,44 +103,11 @@
 
 <div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
-<main class="min-h-[calc(100vh-4rem)]">
-	{@render children()}
+<main class="flex min-h-[calc(100vh-4rem)] items-center justify-center">
+	<div class="h-fit w-fit">
+		{@render children()}
+	</div>
 </main>
-
-<footer
-	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
->
-	<p>© 2026 Unlimited Stuff Ltd.</p>
-
-	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
-
-	<div class="h-8 border-l border-(--o)"></div>
-
-	{#if getLocale() === 'en'}
-		<button class="nav-bar-link" onclick={() => setLocale('fr')}>Français</button>
-	{:else}
-		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
-	{/if}
-
-	{#if mode.current === 'dark'}
-		<button class="nav-bar-link" onclick={() => setMode('light')}>{m.light()}</button>
-	{:else}
-		<button class="nav-bar-link" onclick={() => setMode('dark')}>{m.dark()}</button>
-	{/if}
-
-	<div class="h-8 border-l border-(--o)"></div>
-
-	{#if data.loggedIn}
-		<button class="nav-bar-link" onclick={() => (feedbackOpen = true)}>{m.feedback()}</button>
-	{/if}
-
-	<a
-		rel="external"
-		target="_blank"
-		class="nav-bar-link"
-		href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}">{m.help()}</a
-	>
-</footer>
 
 <div style="display:none">
 	{#each locales as locale (locale)}

@@ -2,23 +2,26 @@
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
-	import { Button, Label } from 'bits-ui';
+	import { Button } from 'bits-ui';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import favicon from '#lib/assets/favicon.png';
-	import AlertDialog from '#lib/components/AlertDialog.svelte';
-	import Loader from '#lib/components/Loader.svelte';
-	import { enhance } from '$app/forms';
+	import { setLocale } from '#lib/paraglide/runtime.js';
+	import { mode, setMode } from 'mode-watcher';
 
 	onMount(() => {
 		goto(resolve('/'));
 	});
 
-	let logInOpen = $state(false);
-	let signUpOpen = $state(false);
-
-	let { form } = $props();
+	function getLanguage(locale: string) {
+		switch (locale) {
+			case 'fr':
+				return 'francais';
+			default:
+				return 'english';
+		}
+	}
 </script>
 
 <svelte:head>
@@ -47,7 +50,7 @@
 <div class="h-20"></div>
 
 <div class="flex justify-center gap-7 text-2xl">
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -59,7 +62,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10">
+	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -71,7 +74,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8">
+	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class="list-inside list-disc {getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}">
@@ -88,73 +91,33 @@
 
 <div class="h-15"></div>
 
-<AlertDialog bind:open={logInOpen} onclose={() => (form = null)}>
-	{let loading = $state(false)}
-	<div class="flex h-60 w-90 items-center justify-center">
-		{#if loading}
-			<Loader />
-		{:else}
-			<form
-				method="POST"
-				action="?/login"
-				use:enhance={() => {
-					loading = true;
-					return ({ update, result }) => {
-						update();
-						if (result.status !== 303) {
-							loading = false;
-						}
-					};
-				}}
-			>
-				<h2 class="text-center text-3xl font-black">{m.log_in()}</h2>
-				<div class="mb-5">
-					<Label.Root for="email" class={loading ? 'opacity-50' : ''}
-						>{m.email()}:</Label.Root
-					><br />
-					<input
-						id="email"
-						class="w-80"
-						value={form?.email}
-						type="email"
-						name="email"
-						required
-					/>
-				</div>
-				<div class="mb-0.5 w-60">
-					<Label.Root for="password" class={loading ? 'opacity-50' : ''}
-						>{m.password()}:</Label.Root
-					>
-					<input
-						id="password"
-						value={form?.password}
-						class="w-80"
-						type="password"
-						name="password"
-						required
-					/>
-				</div>
-				<div class="absolute w-80 text-center">
-					<p class="text-xs text-(--r)">
-						{form?.logInMessage}
-					</p>
-				</div>
-				<div class="m-auto mt-7 flex w-fit gap-6">
-					<Button.Root
-						class="gray-button"
-						type="button"
-						onclick={() => {
-							logInOpen = false;
-							form = null;
-						}}>{m.cancel()}</Button.Root
-					>
-					<Button.Root type="submit">{m.submit()}</Button.Root>
-				</div>
-			</form>
-		{/if}
-	</div>
-</AlertDialog>
+<footer
+	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
+>
+	<p>© 2026 Unlimited Stuff Ltd.</p>
 
-<AlertDialog bind:open={signUpOpen}>
-	<p>Hello</p>
-</AlertDialog>
+	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
+
+	<div class="h-8 border-l border-(--o)"></div>
+
+	{#if getLocale() === 'en'}
+		<button class="nav-bar-link" onclick={() => setLocale('fr')}>Français</button>
+	{:else}
+		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
+	{/if}
+
+	{#if mode.current === 'dark'}
+		<button class="nav-bar-link" onclick={() => setMode('light')}>{m.light()}</button>
+	{:else}
+		<button class="nav-bar-link" onclick={() => setMode('dark')}>{m.dark()}</button>
+	{/if}
+
+	<div class="h-8 border-l border-(--o)"></div>
+
+	<a
+		rel="external"
+		target="_blank"
+		class="nav-bar-link"
+		href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}">{m.help()}</a
+	>
+</footer>

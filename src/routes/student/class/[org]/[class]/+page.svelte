@@ -8,7 +8,7 @@
 </script>
 
 <div class="h-2"></div>
-<a href={resolve('/student')} class="relative ml-10 hover:underline">← {m.back()}</a>
+<a href={resolve('/student')} class="relative ml-10 hover:underline">{m.back_button()}</a>
 
 <div class="relative">
 	<div>
