@@ -89,7 +89,13 @@
 <footer
 	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
 >
+	{#snippet divider()}
+		<div class="h-8 border-l border-(--o)"></div>
+	{/snippet}
+
 	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
+
+	{@render divider()}
 
 	{#if getLocale() === 'en'}
 		<button class="underline-link" onclick={() => setLocale('fr')}>Français</button>
@@ -102,6 +108,8 @@
 	{:else}
 		<button class="underline-link" onclick={() => setMode('dark')}>{m.dark()}</button>
 	{/if}
+
+	{@render divider()}
 
 	<a
 		rel="external"
