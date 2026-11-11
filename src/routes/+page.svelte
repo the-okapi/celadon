@@ -89,30 +89,24 @@
 <footer
 	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
 >
-	<p>© 2026 Unlimited Stuff Ltd.</p>
-
 	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
 
-	<div class="h-8 border-l border-(--o)"></div>
-
 	{#if getLocale() === 'en'}
-		<button class="nav-bar-link" onclick={() => setLocale('fr')}>Français</button>
+		<button class="underline-link" onclick={() => setLocale('fr')}>Français</button>
 	{:else}
-		<button class="nav-bar-link" onclick={() => setLocale('en')}>English</button>
+		<button class="underline-link" onclick={() => setLocale('en')}>English</button>
 	{/if}
 
 	{#if mode.current === 'dark'}
-		<button class="nav-bar-link" onclick={() => setMode('light')}>{m.light()}</button>
+		<button class="underline-link" onclick={() => setMode('light')}>{m.light()}</button>
 	{:else}
-		<button class="nav-bar-link" onclick={() => setMode('dark')}>{m.dark()}</button>
+		<button class="underline-link" onclick={() => setMode('dark')}>{m.dark()}</button>
 	{/if}
-
-	<div class="h-8 border-l border-(--o)"></div>
 
 	<a
 		rel="external"
 		target="_blank"
-		class="nav-bar-link"
+		class="underline-link"
 		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>{m.help()}</a
 	>
 </footer>

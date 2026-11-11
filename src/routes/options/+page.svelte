@@ -47,7 +47,7 @@
 	<title>{m.options()} | {m.celadon()}</title>
 </svelte:head>
 
-<button class="nav-bar-link m-auto mb-5 block" onclick={() => history.back()}
+<button class="underline-link m-auto mb-5 block" onclick={() => history.back()}
 	>{m.back_button()}</button
 >
 

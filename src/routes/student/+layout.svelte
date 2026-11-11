@@ -13,7 +13,7 @@
 </script>
 
 {#snippet navBarContent()}
-	<a href={resolve('/student')} class="nav-bar-link">{data.name}</a>
+	<a href={resolve('/student')} class="underline-link">{data.name}</a>
 	<div class="w-2"></div>
 {/snippet}
 

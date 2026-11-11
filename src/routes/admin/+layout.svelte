@@ -70,12 +70,12 @@
 			</Dropdown>
 		</div>
 		<p class="mr-1.5">—</p>
-		<a href={resolve('/admin/[org]', { org: data.organization.id })} class="nav-bar-link"
+		<a href={resolve('/admin/[org]', { org: data.organization.id })} class="underline-link"
 			>{data.organization.name}</a
 		>
 		<p class="mx-1.5">—</p>
 	{/if}
-	<a href={resolve('/admin/account')} class="nav-bar-link">{data.name}</a>
+	<a href={resolve('/admin/account')} class="underline-link">{data.name}</a>
 {/snippet}
 
 <svelte:head>

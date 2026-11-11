@@ -76,7 +76,7 @@
 {#if data.loggedIn}
 	<nav class="fixed top-0 left-0 h-screen w-48 border-r border-(--o) bg-(--bg) p-6">
 		<a
-			class="nav-bar-link"
+			class="underline-link"
 			rel="external"
 			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
 			>{m.help()}</a

@@ -110,12 +110,12 @@ textarea {
 	}
 }
 
-.nav-bar-link {
-	white-space: nowrap;
-	height: fit-content;
-	cursor: pointer;
+.underline-link {
 	text-decoration: underline 1.5px transparent;
 	transition: text-decoration-color 100ms;
+	cursor: pointer;
+	white-space: nowrap;
+	height: fit-content;
 
 	&:hover {
 		text-decoration-color: var(--fg);
