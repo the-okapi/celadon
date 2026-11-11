@@ -13,7 +13,7 @@
 	import { Button } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale, setLocale } from '#lib/paraglide/runtime.js';
-	import { PUBLIC_HELP_URL } from '$app/env/public';
+	import { PUBLIC_ENGLISH_HELP_URL, PUBLIC_FRENCH_HELP_URL } from '$app/env/public';
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
 	import { onDestroy, onMount, type Snippet } from 'svelte';
@@ -60,7 +60,9 @@
 	let feedbackContent = $state('');
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
 
 <ModeWatcher
 	darkClassNames={['dark']}
@@ -71,11 +73,27 @@
 
 <Toaster />
 
-<main class="flex min-h-[calc(100vh-4rem)] items-center justify-center">
-	<div class="h-fit w-fit">
-		{@render children()}
-	</div>
-</main>
+{#if data.loggedIn}
+	<nav class="fixed top-0 left-0 h-screen w-48 border-r border-(--o) bg-(--bg) p-6">
+		<a
+			class="nav-bar-link"
+			rel="external"
+			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
+			>{m.help()}</a
+		>
+	</nav>
+	<main class="ml-48 flex min-h-screen w-[calc(100vw-12rem)] items-center justify-center">
+		<div class="h-fit w-fit">
+			{@render children()}
+		</div>
+	</main>
+{:else}
+	<main class="flex min-h-screen w-screen items-center justify-center">
+		<div class="h-fit w-fit">
+			{@render children()}
+		</div>
+	</main>
+{/if}
 
 <div style="display:none">
 	{#each locales as locale (locale)}

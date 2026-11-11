@@ -65,9 +65,6 @@ importers:
       html2pdf.js:
         specifier: ^0.14.0
         version: 0.14.0
-      loadersz:
-        specifier: ^0.5.1
-        version: 0.5.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       mode-watcher:
         specifier: ^1.1.0
         version: 1.1.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
@@ -105,6 +102,9 @@ importers:
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
+      '@types/nprogress':
+        specifier: ^0.2.3
+        version: 0.2.3
       eslint:
         specifier: ^10.14.0
         version: 10.14.0(jiti@2.7.0)
@@ -883,6 +883,9 @@ packages:
   '@types/node@26.6.6':
     resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
+  '@types/nprogress@0.2.3':
+    resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
+
   '@types/pako@2.0.4':
     resolution: {integrity: sha512-VWDCbrLeVXJM9fihYodcLiIv0ku+AlOa/TQ1SvYOaBuyrSKgEcro95LJyIsJ4vSo6BXIxOKxiJAat04CmST9Fw==}
 
@@ -1441,24 +1444,6 @@ packages:
 
   linkifyjs@4.4.0:
     resolution: {integrity: sha512-InTexvtbai+2c+dEVGcc6O6P2DMVIiwD9a/i4zFroazOIYLOS6FSVmAJ7kFeumnCMx6/gQqNAkbUvgMubV4+MA==}
-
-  loadersz@0.5.1:
-    resolution: {integrity: sha512-ylUZ0YhnEttSk7lkE6oY7nwAvKQdTdOP3X49Wmmz8TIQK+1nvhUy+mp5Rfdbkb7sVn+ephgSEaPVV5pGxstC3Q==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@angular/core': '>=21 <23'
-      react: '>=18'
-      svelte: '>=4'
-      vue: '>=3'
-    peerDependenciesMeta:
-      '@angular/core':
-        optional: true
-      react:
-        optional: true
-      svelte:
-        optional: true
-      vue:
-        optional: true
 
   locate-character@3.0.0:
     resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
@@ -2647,6 +2632,8 @@ snapshots:
     dependencies:
       undici-types: 8.9.0
 
+  '@types/nprogress@0.2.3': {}
+
   '@types/pako@2.0.4': {}
 
   '@types/raf@3.4.3':
@@ -3209,10 +3196,6 @@ snapshots:
   lilconfig@2.1.0: {}
 
   linkifyjs@4.4.0: {}
-
-  loadersz@0.5.1(svelte@5.57.3(@typescript-eslint/types@8.72.2)):
-    optionalDependencies:
-      svelte: 5.57.3(@typescript-eslint/types@8.72.2)
 
   locate-character@3.0.0: {}
 

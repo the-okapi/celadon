@@ -7,7 +7,10 @@ export const variables = defineEnvVars({
 	PUBLIC_CELADON_URL: {
 		public: true
 	},
-	PUBLIC_HELP_URL: {
+	PUBLIC_ENGLISH_HELP_URL: {
+		public: true
+	},
+	PUBLIC_FRENCH_HELP_URL: {
 		public: true
 	}
 });

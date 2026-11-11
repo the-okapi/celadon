@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_HELP_URL } from '$app/env/public';
+	import { PUBLIC_ENGLISH_HELP_URL, PUBLIC_FRENCH_HELP_URL } from '$app/env/public';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
 	import { Button } from 'bits-ui';
@@ -13,15 +13,6 @@
 	onMount(() => {
 		goto(resolve('/'));
 	});
-
-	function getLanguage(locale: string) {
-		switch (locale) {
-			case 'fr':
-				return 'francais';
-			default:
-				return 'english';
-		}
-	}
 </script>
 
 <svelte:head>
@@ -40,7 +31,11 @@
 <h2 class="relative text-center text-3xl">{m.slogan()}</h2>
 
 <div class="m-auto mt-10 flex h-10 w-fit items-center justify-center gap-3">
-	<Button.Root class="big-button" rel="external" target="_blank" href={PUBLIC_HELP_URL}
+	<Button.Root
+		class="big-button"
+		rel="external"
+		target="_blank"
+		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
 		>{m.help()}</Button.Root
 	>
 	<Button.Root class="big-button" href={resolve('/login')}>{m.log_in()}</Button.Root>
@@ -118,6 +113,6 @@
 		rel="external"
 		target="_blank"
 		class="nav-bar-link"
-		href="{PUBLIC_HELP_URL}/{getLanguage(getLocale())}">{m.help()}</a
+		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>{m.help()}</a
 	>
 </footer>
