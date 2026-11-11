@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'nprogress/nprogress.css';
 	import '#lib/css/main.css';
 	import type { Path } from '$app/types';
 	import { resolve } from '$app/paths';
@@ -15,13 +16,14 @@
 	import { PUBLIC_HELP_URL } from '$app/env/public';
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
-	import { onDestroy, type Snippet } from 'svelte';
+	import { onDestroy, onMount, type Snippet } from 'svelte';
 	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { feedback } from './remote';
 	import { showToast } from '#lib/toast.js';
 	import Loader from '#lib/components/Loader.svelte';
+	import nprogress from 'nprogress';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -40,14 +42,19 @@
 		}
 	});
 
-	let loadingBarClass = $state('');
+	onMount(() => {
+		nprogress.configure({
+			showSpinner: false,
+			template: '<div class="bar" role="bar"></div>'
+		});
+	});
 
 	beforeNavigate(() => {
-		loadingBarClass = 'before-nav';
+		nprogress.start();
 	});
 
 	afterNavigate(() => {
-		loadingBarClass = 'after-nav';
+		nprogress.done();
 	});
 
 	let feedbackContent = $state('');
@@ -63,45 +70,6 @@
 />
 
 <Toaster />
-
-<!-- {#if data.loggedIn}
-	<div class="nav-bar">
-		{#if !barHidden.value}
-			<div
-				class="fixed top-0 flex w-screen items-center border-b border-(--o) bg-(--bg) px-7 py-5"
-			>
-				<div class="flex w-full">
-					<button class="nav-bar-link" onclick={() => (signOutOpen = true)}
-						>{m.sign_out()}</button
-					>
-				</div>
-				<h1 class="text-4xl font-bold whitespace-nowrap">
-					{page.data.title ?? m.celadon()}
-				</h1>
-				<div class="flex w-full items-center justify-end gap-2 text-right">
-					{#if pageNavBarContent}
-						{@render pageNavBarContent()}
-					{/if}
-					{#if page.route.id === '/student/assignment/[assignment]'}
-						<button
-							class="hover-button size-10"
-							onclick={() => (barHidden.value = true)}><Show size={20} /></button
-						>
-					{/if}
-				</div>
-			</div>
-
-			<div class="h-20"></div>
-		{:else if barHidden.value}
-			<button
-				class="hover-button border-o fixed top-5 right-7 size-10"
-				onclick={() => (barHidden.value = false)}><Hide size={20} /></button
-			>
-		{/if}
-	</div>
-{/if} -->
-
-<div class="fixed top-0 z-50 h-2 rounded-br-full bg-(--p) shadow-xl {loadingBarClass}"></div>
 
 <main class="flex min-h-[calc(100vh-4rem)] items-center justify-center">
 	<div class="h-fit w-fit">

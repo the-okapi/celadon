@@ -222,3 +222,10 @@ textarea {
 .after-nav {
 	animation: after-nav 300ms;
 }
+
+#nprogress .bar {
+	background-color: var(--p);
+	height: 4px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}

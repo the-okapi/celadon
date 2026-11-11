@@ -5,6 +5,7 @@
 
 <svelte:head>
 	<title>{m.sign_out()} | {m.celadon()}</title>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <form method="POST" action="/?/signout" class="m-5">

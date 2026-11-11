@@ -4,7 +4,9 @@
 	padding: 0.5rem 1rem;
 	border-radius: 0.75rem;
 	cursor: pointer;
-	transition: background-color 150ms;
+	transition:
+		background-color 150ms,
+		color 150ms;
 	user-select: none;
 
 	&[href] {
