@@ -17,7 +17,6 @@
 	import Show from '@lucide/svelte/icons/eye';
 	import Hide from '@lucide/svelte/icons/eye-closed';
 	import { onDestroy, onMount, type Snippet } from 'svelte';
-	import { setNavBarContext } from '#lib/context.js';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { feedback } from './remote';
@@ -30,17 +29,6 @@
 	let signOutOpen = $state(false);
 
 	let feedbackOpen = $state(false);
-
-	let pageNavBarContent: Snippet | undefined = $state();
-
-	setNavBarContext({
-		setContent(snippet: Snippet) {
-			pageNavBarContent = snippet;
-			return onDestroy(() => {
-				pageNavBarContent = undefined;
-			});
-		}
-	});
 
 	onMount(() => {
 		nprogress.configure({
@@ -74,7 +62,11 @@
 <Toaster />
 
 {#if data.loggedIn}
-	<nav class="fixed top-0 left-0 h-screen w-48 border-r border-(--o) bg-(--bg) p-6">
+	<nav
+		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start gap-2 border-r border-(--o) bg-(--bg) p-6"
+	>
+		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
+
 		<a
 			class="underline-link"
 			rel="external"
