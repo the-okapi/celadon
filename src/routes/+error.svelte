@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.something_happened()} | {m.celadon()}</title>
+	<title>{m.something_happened_short()} | {m.celadon()}</title>
 </svelte:head>
 
 <div

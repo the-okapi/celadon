@@ -10,6 +10,7 @@
 	"confirm": "Confirm",
 	"go": "Go",
 	"something_happened": "Something unexpected happened on our end. Please try again later.",
+	"something_happened_short": "Something unexpected happened on our end.",
 	"list_members": "List of Members",
 	"admin": "Admin",
 	"member": "Member",
