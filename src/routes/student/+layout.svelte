@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getNavBarContext } from '#lib/context.js';
+	// import { getNavBarContext } from '#lib/context.js';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { m } from '#lib/paraglide/messages.js';
@@ -7,9 +7,9 @@
 
 	let { children, data } = $props();
 
-	const { setContent } = getNavBarContext();
+	// const { setContent } = getNavBarContext();
 
-	setContent(navBarContent);
+	// setContent(navBarContent);
 </script>
 
 {#snippet navBarContent()}

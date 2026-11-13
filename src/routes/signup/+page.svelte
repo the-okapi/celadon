@@ -33,7 +33,7 @@
 		};
 	}}
 >
-	<h1 class="mb-15 text-center text-4xl font-black">{m.sign_up()}</h1>
+	<h1 class="mb-15 text-center text-4xl font-bold">{m.sign_up()}</h1>
 	<div class="text-left">
 		<Label.Root for="name">{m.name()}:</Label.Root><br />
 		<input type="text" id="name" value={form?.name} name="name" class="w-80" required />

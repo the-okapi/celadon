@@ -51,7 +51,7 @@
 	>{m.back_button()}</button
 >
 
-<h1 class="mb-15 text-center text-4xl font-black">{m.options()}</h1>
+<h1 class="mb-15 text-center text-4xl font-bold">{m.options()}</h1>
 
 <div class="flex h-full w-300 flex-col items-center justify-center px-80">
 	<Setting title={m.mode()}>

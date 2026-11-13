@@ -99,7 +99,7 @@
 		{#if loading}
 			<Loader />
 		{:else}
-			<h2 class="mb-2 text-center text-3xl font-black">{m.feedback()}</h2>
+			<h2 class="mb-2 text-center text-3xl font-bold">{m.feedback()}</h2>
 			<form
 				{...feedback.enhance(async (form) => {
 					loading = true;
