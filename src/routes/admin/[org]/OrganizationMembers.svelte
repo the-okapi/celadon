@@ -44,29 +44,29 @@
 			<div class="flex px-5 py-3">
 				<div class="flex w-fit items-center">
 					{#if member.admin}
-						<p class="badge bg-(--secondary)">{m.admin()}</p>
+						<p class="badge bg-secondary">{m.admin()}</p>
 					{:else}
-						<p class="badge bg-(--p)">{m.member()}</p>
+						<p class="badge bg-primary">{m.member()}</p>
 					{/if}
 				</div>
 				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
 					<span class="font-bold">{member.user.name}</span>
 					{#if member.user.id === user}
-						<span class="text-base text-(--fg)/40">({m.you()})</span>
+						<span class="text-base text-foreground/40">({m.you()})</span>
 					{/if} -
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>
 				<Button.Root onclick={() => (focus = i)}>{m.manage()}</Button.Root>
 			</div>
 			{#if i !== members.length - 1}
-				<hr class="m-auto w-[90%] border-(--o)" />
+				<hr class="m-auto w-[90%] border-outline" />
 			{/if}
 		{/each}
 	</div>
 {/snippet}
 
 <div
-	class="border-o flex h-[70vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-(--bg) p-5"
+	class="border-o flex h-[70vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-background p-5"
 >
 	{#if focus === -1}
 		{@render list()}
@@ -75,7 +75,7 @@
 			{#if member.admin}
 				<p class="badge m-auto mb-1 bg-amber-600">{m.admin()}</p>
 			{:else}
-				<p class="badge m-auto mb-1 bg-(--p)">{m.member()}</p>
+				<p class="badge m-auto mb-1 bg-primary">{m.member()}</p>
 			{/if}
 			<h2 class="text-center text-3xl font-bold">
 				{member.user.name}
@@ -158,7 +158,7 @@
 				<Label.Root for="email">{m.email()}:</Label.Root><br />
 				<input type="text" id="email" class="w-80" bind:value={confirmText} />
 			</div>
-			<p class="absolute bottom-12 left-20 text-(--r)">{confirmError}</p>
+			<p class="absolute bottom-12 left-20 text-(--red)">{confirmError}</p>
 		{/if}
 		<div class="absolute bottom-0 m-auto flex w-full items-center justify-center">
 			<div class="flex gap-4">

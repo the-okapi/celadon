@@ -47,7 +47,7 @@
 				<input type="text" name="className" id="className" class="mr-1 h-10" required />
 				<Button.Root type="submit">{m.submit()}</Button.Root>
 				{#if form?.createFailure}
-					<p class="absolute text-(--r)">{form?.message}</p>
+					<p class="absolute text-(--red)">{form?.message}</p>
 				{/if}
 				<input type="hidden" name="organization" value={data.organization.id} />
 			</form>

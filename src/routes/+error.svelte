@@ -10,7 +10,7 @@
 </svelte:head>
 
 <div
-	class="border-o absolute top-[50%] left-[50%] w-fit translate-[-50%] rounded-3xl bg-(--bg) p-7 text-center"
+	class="border-o absolute top-[50%] left-[50%] w-fit translate-[-50%] rounded-3xl bg-background p-7 text-center"
 >
 	<p class="mb-5 w-80">
 		{m.something_happened()}

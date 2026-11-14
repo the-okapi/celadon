@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
-	<form method="POST" class="border-o relative h-fit w-fit rounded-2xl bg-(--bg) p-10">
+	<form method="POST" class="border-o relative h-fit w-fit rounded-2xl bg-background p-10">
 		<div class="m-auto w-fit">
 			<Label.Root for="name">{m.name()}:</Label.Root><br />
 			<input name="name" required class="w-70" type="text" id="name" />
@@ -15,7 +15,7 @@
 		<Button.Root type="submit" class="m-auto mt-5 block">{m.create()}</Button.Root>
 
 		{#if form?.failure}
-			<p class="absolute text-(--r)">{form?.message}</p>
+			<p class="absolute text-(--red)">{form?.message}</p>
 		{/if}
 	</form>
 </div>

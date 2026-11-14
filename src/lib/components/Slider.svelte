@@ -6,7 +6,7 @@
 
 <Slider.Root type="single" class="relative flex w-60 items-center" {...props} bind:value>
 	<span class="h-2 w-full cursor-pointer rounded-full bg-(--s)">
-		<Slider.Range class="absolute h-2 rounded-full bg-(--p)" />
+		<Slider.Range class="absolute h-2 rounded-full bg-primary" />
 	</span>
-	<Slider.Thumb index={0} class="block h-5 w-6 cursor-pointer rounded-xl bg-(--p)" />
+	<Slider.Thumb index={0} class="block h-5 w-6 cursor-pointer rounded-xl bg-primary" />
 </Slider.Root>

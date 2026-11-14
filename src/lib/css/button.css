@@ -32,11 +32,11 @@
 }
 
 .red-button {
-	--p: var(--r) !important;
+	--p: var(--red) !important;
 	--darkness: 90%;
 
 	&:disabled {
-		background-color: color-mix(in oklch, var(--r) 40%, var(--s));
+		background-color: color-mix(in oklch, var(--red) 40%, var(--s));
 		color: var(--p-fg);
 	}
 }
@@ -45,6 +45,10 @@
 	--p: var(--s);
 	--p-fg: var(--fg);
 	--darkness: 95%;
+}
+
+.dark .gray-button {
+	--darkness: 97%;
 }
 
 .ghost-button {

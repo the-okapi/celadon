@@ -163,7 +163,7 @@
 </div>
 
 <button
-	class="fixed top-0 left-0 flex h-screen w-24 flex-col items-center justify-center gap-2 border-r border-(--o) bg-(--bg)"
+	class="fixed top-0 left-0 flex h-screen w-24 flex-col items-center justify-center gap-2 border-r border-outline bg-background"
 	onclick={() => editorState.editor?.chain().focus().run()}
 >
 	{#if editorState.editor}
@@ -179,7 +179,7 @@
 				<Slider bind:value={zoom} min={10} max={200} />
 			</div>
 		</Popover>
-		<div class="my-3 w-10 border-b border-(--o)"></div>
+		<div class="my-3 w-10 border-b border-outline"></div>
 		<Toggle
 			active={editorState.editor?.isActive('bold')}
 			class="toggle-icon"
@@ -224,7 +224,7 @@
 		<Button.Root onclick={() => (addAccentOpen = true)} class="icon-button" title={m.accents()}>
 			É
 		</Button.Root>
-		<div class="my-3 w-10 border-b border-(--o)"></div>
+		<div class="my-3 w-10 border-b border-outline"></div>
 		{@render children()}
 		<Button.Root
 			class="icon-button"
@@ -239,7 +239,7 @@
 			</Button.Root>
 		{:else}
 			<Button.Root class="icon-button cursor-default! outline-none!">
-				<Loader size={20} color="var(--p-fg)" />
+				<Loader size={20} color="varprimary-fg" />
 			</Button.Root>
 		{/if}
 		<div class="h-2"></div>

@@ -36,8 +36,8 @@
 				{/snippet}
 				<DropdownMenu.Item
 					data-select-item
-					class="rounded-t-xl border-x border-t border-(--o) hover:bg-(--a)! {data.classes
-						.length === 0
+					class="rounded-t-xl border-x border-t border-outline hover:bg-(--a)! {data
+						.classes.length === 0
 						? 'rounded-b-xl border-b'
 						: ''}"
 					onSelect={() =>
@@ -54,7 +54,7 @@
 				{#each data.classes as option, i (option.value)}
 					<DropdownMenu.Item
 						data-select-item
-						class="more-padding border-x border-(--o) hover:bg-(--a)!  {i ===
+						class="more-padding border-x border-outline hover:bg-(--a)!  {i ===
 						data.classes.length - 1
 							? 'rounded-b-xl border-b'
 							: ''}"

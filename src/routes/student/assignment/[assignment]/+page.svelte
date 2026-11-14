@@ -45,7 +45,7 @@
 <AlertDialog bind:open={assignmentDetailsOpen} message={m.ok()} cancelOverride>
 	<div class="mb-5">
 		{#if new Date() > new Date(data.assignment.due_date)}
-			<div class="badge m-auto w-fit! bg-(--r) px-5!">{m.late()}</div>
+			<div class="badge m-auto w-fit! bg-(--red) px-5!">{m.late()}</div>
 		{/if}
 		<p class="w-full text-center">
 			{m.due_date()}: <i>{formatDate(data.assignment.due_date)}</i>

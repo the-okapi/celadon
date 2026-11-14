@@ -126,7 +126,7 @@
 						>
 					{/if}
 				</div>
-				<div class="m-auto my-3 w-[85%] border-b border-(--o)"></div>
+				<div class="m-auto my-3 w-[85%] border-b border-outline"></div>
 			{/each}
 			<Button.Root class="m-auto mb-3 block" onclick={assignToAnotherStudent}
 				>{m.assign_to()} {m.more_students()}</Button.Root
@@ -149,11 +149,11 @@
 	<div class="box relative h-140!">
 		<div>
 			{#if new Date() > new Date(data.assignment.due_date)}
-				<p class="badge m-auto w-fit! bg-(--r) px-5!">
+				<p class="badge m-auto w-fit! bg-(--red) px-5!">
 					{m.past()}
 				</p>
 			{:else}
-				<p class="badge m-auto w-fit! bg-(--p) px-5! text-(--p-fg)">
+				<p class="badge m-auto w-fit! bg-primary px-5! text-primary-fg">
 					{m.upcoming()}
 				</p>
 			{/if}

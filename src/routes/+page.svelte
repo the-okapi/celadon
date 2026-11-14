@@ -8,7 +8,6 @@
 	import { resolve } from '$app/paths';
 	import favicon from '#lib/assets/favicon.png';
 	import { setLocale } from '#lib/paraglide/runtime.js';
-	import { mode, setMode } from 'mode-watcher';
 
 	onMount(() => {
 		goto(resolve('/'));
@@ -21,11 +20,11 @@
 
 <div class="h-20"></div>
 
-<div class="m-auto mb-10 w-fit rounded-[3.8rem] shadow-2xl shadow-(color:--p)">
+<div class="m-auto mb-10 w-fit rounded-[3.8rem] shadow-2xl shadow-primary">
 	<img src={favicon} class="w-60" alt={m.celadon()} />
 </div>
 
-<h1 class="relative text-center text-8xl leading-32 font-black text-(--p)">
+<h1 class="relative text-center text-8xl leading-32 font-black text-primary">
 	{m.celadon()}
 </h1>
 <h2 class="relative text-center text-3xl">{m.slogan()}</h2>
@@ -45,7 +44,7 @@
 <div class="h-20"></div>
 
 <div class="flex justify-center gap-7 text-2xl">
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-lg">
+	<div class="border-o h-80 w-110 rounded-3xl bg-background p-7 pt-10 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.word_processing()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -57,7 +56,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-10 shadow-lg">
+	<div class="border-o h-80 w-110 rounded-3xl bg-background p-7 pt-10 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.no_more()}</h2>
 		<br />
 		<ul class="list-inside list-disc">
@@ -69,7 +68,7 @@
 		</ul>
 	</div>
 
-	<div class="border-o relative h-80 w-110 rounded-3xl bg-(--bg) p-7 pt-8 shadow-lg">
+	<div class="border-o relative h-80 w-110 rounded-3xl bg-background p-7 pt-8 shadow-lg">
 		<h2 class="text-center text-4xl font-bold">{m.assignments()}</h2>
 		<br />
 		<ul class="list-inside list-disc {getLocale() === 'fr' ? '*:my-1.5 *:leading-6' : ''}">
@@ -87,29 +86,17 @@
 <div class="h-15"></div>
 
 <footer
-	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-(--o) bg-(--bg) px-6"
+	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-outline bg-background px-6"
 >
-	{#snippet divider()}
-		<div class="h-8 border-l border-(--o)"></div>
-	{/snippet}
-
 	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
 
-	{@render divider()}
+	<div class="h-8 border-l border-outline"></div>
 
 	{#if getLocale() === 'en'}
 		<button class="underline-link" onclick={() => setLocale('fr')}>Français</button>
 	{:else}
 		<button class="underline-link" onclick={() => setLocale('en')}>English</button>
 	{/if}
-
-	{#if mode.current === 'dark'}
-		<button class="underline-link" onclick={() => setMode('light')}>{m.light()}</button>
-	{:else}
-		<button class="underline-link" onclick={() => setMode('dark')}>{m.dark()}</button>
-	{/if}
-
-	{@render divider()}
 
 	<a
 		rel="external"

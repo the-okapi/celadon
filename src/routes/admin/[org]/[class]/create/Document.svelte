@@ -86,7 +86,7 @@
 
 <svelte:window {onbeforeunload} {oncontextmenu} />
 
-<div class="border-o sticky top-2 z-50! m-auto mt-5 flex w-fit gap-2 rounded-xl bg-(--bg) p-2">
+<div class="border-o sticky top-2 z-50! m-auto mt-5 flex w-fit gap-2 rounded-xl bg-background p-2">
 	<Toggle
 		active={editorState.editor?.isActive('bold')}
 		class="toggle-icon"
@@ -111,7 +111,7 @@
 	>
 		<Underline size={20} />
 	</Toggle>
-	<div class="mx-1 border-l border-(--o)"></div>
+	<div class="mx-1 border-l border-outline"></div>
 	<Popover border={false} bind:open={changeTextStyleOpen}>
 		{#snippet trigger()}
 			<Button.Root class="icon-button"><FontSize size={20} /></Button.Root>
@@ -127,7 +127,7 @@
 			class="popover-select py-1.5!"
 		/>
 	</Popover>
-	<div class="mx-1 border-l border-(--o)"></div>
+	<div class="mx-1 border-l border-outline"></div>
 	<Button.Root
 		onclick={() => {
 			addAccentOpen = true;

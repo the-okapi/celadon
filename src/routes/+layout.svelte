@@ -38,7 +38,9 @@
 	});
 
 	beforeNavigate(() => {
-		nprogress.start();
+		if (data.loggedIn) {
+			nprogress.start();
+		}
 	});
 
 	afterNavigate(() => {
@@ -63,13 +65,21 @@
 
 {#if data.loggedIn}
 	<nav
-		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start gap-2 border-r border-(--o) bg-(--bg) p-6"
+		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start gap-2 border-r border-outline bg-background p-6"
 	>
+		<a
+			class="underline-link text-2xl font-bold"
+			href={resolve(data.loggedIn ? '/admin' : '/student')}>{m.celadon()}</a
+		>
+
+		<a class="underline-link" href={resolve('/options')}>{m.options()}</a>
+
 		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
 
 		<a
 			class="underline-link"
 			rel="external"
+			target="_blank"
 			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
 			>{m.help()}</a
 		>

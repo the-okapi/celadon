@@ -89,11 +89,13 @@
 									).class.name}
 								</p>
 								{#if a.submitted}
-									<p class="badge mx-auto w-fit! bg-(--p) px-5! text-(--p-fg)">
+									<p
+										class="badge mx-auto w-fit! bg-primary px-5! text-primary-fg"
+									>
 										{m.submitted()}
 									</p>
 								{:else if new Date() > new Date(assignment.due_date)}
-									<p class="badge mx-auto w-fit! bg-(--r) px-5!">
+									<p class="badge mx-auto w-fit! bg-(--red) px-5!">
 										{m.late()}
 									</p>
 								{/if}

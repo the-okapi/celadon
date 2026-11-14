@@ -36,7 +36,7 @@
 	<div class="flex w-fit gap-4">
 		<div class="flex h-full w-80 flex-col gap-4">
 			<div
-				class="border-o flex h-full w-full grow items-center justify-center rounded-xl bg-(--bg)"
+				class="border-o flex h-full w-full grow items-center justify-center rounded-xl bg-background"
 			>
 				{#await load(params.org)}
 					<div class="flex h-57 items-center justify-center">
@@ -101,7 +101,7 @@
 
 							{#if form?.add}
 								<div class="absolute -bottom-7 left-0 w-full px-7">
-									<p class="text-center text-sm leading-4 text-(--r)">
+									<p class="text-center text-sm leading-4 text-(--red)">
 										{form.add}
 									</p>
 								</div>
@@ -112,23 +112,23 @@
 			</div>
 		</div>
 	</div>
-	<div class="border-o relative z-10 w-full rounded-xl bg-(--bg) p-5">
+	<div class="border-o relative z-10 w-full rounded-xl bg-background p-5">
 		<h2 class="text-center text-3xl font-bold">{m.class_list()}</h2>
 		{#each data.members as member, i (member.user.id)}
 			<div class="flex h-16 px-5 py-3">
 				<div class="flex w-fit items-center">
 					{#if member.admin}
-						<p class="badge bg-(--secondary)">
+						<p class="badge bg-secondary">
 							{m.admin()}
 						</p>
 					{:else}
-						<p class="badge bg-(--p)">{m.student()}</p>
+						<p class="badge bg-primary">{m.student()}</p>
 					{/if}
 				</div>
 				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
 					<span class="font-bold">{member.user.name}</span>
 					{#if member.user.id === data.user}
-						<span class="text-base text-(--fg)/40">({m.you()})</span>
+						<span class="text-base text-foreground/40">({m.you()})</span>
 					{/if} -
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>
@@ -139,7 +139,7 @@
 				{/if}
 			</div>
 			{#if i !== data.members.length - 1}
-				<hr class="m-auto w-[80%] border-(--o)" />
+				<hr class="m-auto w-[80%] border-outline" />
 			{/if}
 		{/each}
 	</div>

@@ -47,11 +47,11 @@
 						data-select-item
 						value={option.value}
 						label={option.label}
-						class="w-48! hover:bg-(--fg)/5! {i === 0
+						class="w-48! hover:bg-foreground/5! {i === 0
 							? 'rounded-t-xl border-t'
 							: ''} {i === filteredOptions.length - 1
 							? 'rounded-b-xl border-b'
-							: ''} border-x border-(--o)"
+							: ''} border-x border-outline"
 					>
 						{#snippet children({ selected })}
 							<div class="z-60! flex w-fit">

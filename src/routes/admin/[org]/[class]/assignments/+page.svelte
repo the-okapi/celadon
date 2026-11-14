@@ -25,15 +25,17 @@
 					assignment: assignment.id,
 					...params
 				})}
-				class="border-o relative m-auto flex h-15 w-250 items-center gap-3 rounded-3xl bg-(--bg) py-3 pr-6 pl-3"
+				class="border-o relative m-auto flex h-15 w-250 items-center gap-3 rounded-3xl bg-background py-3 pr-6 pl-3"
 			>
 				{#snippet child(hover: boolean)}
 					{#if new Date() > new Date(assignment.due_date)}
-						<p class="badge min-w-fit! bg-(--r) px-5!">
+						<p class="badge min-w-fit! bg-(--red) px-5!">
 							{m.past()}
 						</p>
 					{:else}
-						<p class="badge min-w-fit! overflow-x-visible bg-(--p) px-5! text-(--p-fg)">
+						<p
+							class="badge min-w-fit! overflow-x-visible bg-primary px-5! text-primary-fg"
+						>
 							{m.upcoming()}
 						</p>
 					{/if}

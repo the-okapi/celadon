@@ -3,7 +3,7 @@
 	border-radius: 0.85rem;
 	padding: 0.5rem;
 	background-color: var(--bg);
-	border: 1px solid var(--o);
+	border: 1px solid var(--outline);
 }
 
 .tiptap {
@@ -56,7 +56,7 @@
 
 .tiptap img {
 	margin: auto;
-	border: 1px solid var(--o);
+	border: 1px solid var(--outline);
 }
 
 [data-resize-container] {

@@ -127,7 +127,7 @@
 	"date_not_selected": "Please select a date.",
 	"document_empty": "Document is empty.",
 	"mode": "Mode",
-	"system": "System",
+	"device": "Device",
 	"image": "Image",
 	"zoom": "Zoom",
 	"choose_image": "Choose an Image",
@@ -195,5 +195,7 @@
 	"thank_feedback": "Thank you for your feedback!",
 	"error": "Error",
 	"email_taken": "That email is taken.",
-	"back_button": "← Back"
+	"back_button": "← Back",
+	"mode_description": "Device uses the system mode.",
+	"language_description": "Currently only English and French are supported."
 }

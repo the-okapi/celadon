@@ -10,7 +10,7 @@
 	let success = $state(false);
 </script>
 
-<div class="border-o relative flex h-100 w-80 items-center justify-center rounded-xl bg-(--bg)">
+<div class="border-o relative flex h-100 w-80 items-center justify-center rounded-xl bg-background">
 	{#if success || loading}
 		{#if loading || !form?.createSuccess}
 			<Loader />
@@ -64,7 +64,7 @@
 				>{m.submit()}</Button.Root
 			>
 			{#if form?.createError}
-				<p class="absolute bottom-2 left-3 text-sm leading-4 text-(--r)">
+				<p class="absolute bottom-2 left-3 text-sm leading-4 text-(--red)">
 					{form.message}
 				</p>
 			{/if}

@@ -126,7 +126,7 @@
 	"time": "Heure",
 	"date_not_selected": "Selectionnez une date s'il vous plaît.",
 	"document_empty": "Le document est vide.",
-	"system": "Système",
+	"device": "Système",
 	"choose_image": "Choisir une Image",
 	"loading": "Attendez, s'il vous plaît...",
 	"not": "Non",
@@ -186,5 +186,7 @@
 	"thank_feedback": "Merci pour tes remarques!",
 	"error": "Erreur",
 	"email_taken": "Ce courriel est pris.",
-	"back_button": "← Retourner"
+	"back_button": "← Retourner",
+	"mode_description": "Système utilise le mode du système.",
+	"language_description": "À ce moment, seulement l'anglais et le français sont supportés."
 }

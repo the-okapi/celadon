@@ -7,7 +7,7 @@
 </script>
 
 {#snippet divider()}
-	<div class="m-auto my-3 w-[90%] border-b border-(--o)"></div>
+	<div class="m-auto my-3 w-[90%] border-b border-outline"></div>
 {/snippet}
 
 <div class="m-4 flex w-full">

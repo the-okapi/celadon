@@ -36,14 +36,14 @@
 								{#if a.submitted}
 									<div class="absolute -top-8 w-full">
 										<p
-											class="badge mx-auto mb-4 w-fit! bg-(--p) px-5! text-(--p-fg)"
+											class="badge mx-auto mb-4 w-fit! bg-primary px-5! text-primary-fg"
 										>
 											{m.submitted()}
 										</p>
 									</div>
 								{:else if new Date() > new Date(assignment.due_date)}
 									<div class="absolute -top-8 w-full">
-										<p class="badge mx-auto mb-4 w-fit! bg-(--r) px-5!">
+										<p class="badge mx-auto mb-4 w-fit! bg-(--red) px-5!">
 											{m.late()}
 										</p>
 									</div>

@@ -50,7 +50,7 @@
 		/>
 	</div>
 	{#if form?.fail}
-		<p class="mt-3 max-w-80 text-center leading-4 text-(--r)">
+		<p class="mt-3 max-w-80 text-center leading-4 text-(--red)">
 			{form?.message}
 		</p>
 	{/if}

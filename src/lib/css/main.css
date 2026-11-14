@@ -32,12 +32,12 @@ main * {
 }
 
 ::selection {
-	@apply bg-(--p)/40;
+	@apply bg-primary/40;
 }
 
 input,
 textarea {
-	border: 1px var(--o) solid;
+	border: 1px var(--outline) solid;
 	color: var(--fg);
 	border-radius: 0.75rem;
 	background-color: var(--bg);
@@ -126,7 +126,7 @@ textarea {
 	margin: auto;
 	width: 25rem;
 	height: 20rem;
-	border: 1px solid var(--o);
+	border: 1px solid var(--outline);
 	border-radius: 0.75rem;
 	padding: 0.75rem;
 	display: flex;
@@ -168,7 +168,7 @@ textarea {
 }
 
 .border-o {
-	border: 1px solid var(--o);
+	border: 1px solid var(--outline);
 }
 
 @keyframes loading {
@@ -225,6 +225,6 @@ textarea {
 #nprogress .bar {
 	background-color: var(--p);
 	height: 4px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }

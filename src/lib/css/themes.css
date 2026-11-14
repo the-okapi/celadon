@@ -4,10 +4,10 @@
 	--a: #e4e4e4;
 	--fg: #313131;
 	--p-fg: var(--bg);
-	--o: #bfbfbf;
-	--r: #e7786d;
+	--outline: #bfbfbf;
+	--red: #e7786d;
 	--s: #d9d9d9;
-	--p: #8bc0a2;
+	--p: hsl(146, 30%, 65%);
 	--secondary: #877bc9;
 	--darkness: 95%;
 	background-color: var(--bg);
@@ -16,16 +16,26 @@
 
 .dark {
 	color-scheme: dark;
-	--bg: #262626;
-	--a: #2c2c2c;
-	--fg: #fafafa;
-	--r: #e54b4b;
-	--o: #444444;
-	--s: #313131;
+	--bg: hsl(0, 0%, 15%);
+	--a: hsl(0, 0%, 17%);
+	--fg: hsl(0, 0%, 98%);
+	--red: #e54b4b;
+	--outline: hsl(0, 0%, 27%);
+	--s: hsl(0, 0%, 19%);
 	--p-fg: var(--bg);
-	--p: #afdbc2;
+	--p: hsl(146, 38%, 77%);
 	--secondary: #ac9cff;
 	--darkness: 90%;
 	background-color: var(--bg);
 	color: var(--fg);
+}
+
+@theme {
+	--color-background: var(--bg);
+	--color-foreground: var(--fg);
+	--color-outline: var(--outline);
+	--color-primary: var(--p);
+	--color-primary-fg: var(--p-fg);
+	--color-secondary: var(--secondary);
+	--color-red: var(--red);
 }

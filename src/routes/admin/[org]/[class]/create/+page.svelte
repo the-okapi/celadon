@@ -44,7 +44,7 @@
 
 <div class="fixed top-36 h-[calc(100vh-9rem)] w-90 p-3">
 	<div
-		class="border-o flex h-full items-center justify-center overflow-y-scroll rounded-2xl bg-(--bg) px-10"
+		class="border-o flex h-full items-center justify-center overflow-y-scroll rounded-2xl bg-background px-10"
 	>
 		{#if loading}
 			<Loader />
@@ -149,7 +149,7 @@
 					{/if}
 					<Button.Root type="submit" class="m-auto mt-3 block">{m.submit()}</Button.Root>
 					<div class="absolute bottom-1 left-0 w-full">
-						<p class="mb-2 px-2 text-center leading-4 text-(--r)">
+						<p class="mb-2 px-2 text-center leading-4 text-(--red)">
 							{createAssignment.result?.message}{errorText}
 						</p>
 					</div>
