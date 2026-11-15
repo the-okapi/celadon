@@ -188,5 +188,6 @@
 	"email_taken": "Ce courriel est pris.",
 	"back_button": "← Retourner",
 	"mode_description": "Système utilise le mode du système.",
-	"language_description": "À ce moment, seulement l'anglais et le français sont supportés."
+	"language_description": "À ce moment, seulement l'anglais et le français sont supportés.",
+	"something_improve": "Quelque chose que nous pouvons ameliorer..."
 }

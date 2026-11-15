@@ -5,24 +5,22 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { locales, localizeHref } from '#lib/paraglide/runtime.js';
-	import { ModeWatcher, mode, setMode } from 'mode-watcher';
+	import { ModeWatcher } from 'mode-watcher';
 	import favicon from '#lib/assets/favicon.png';
-	import { barHidden } from '#lib/state.svelte.js';
 	import type { LayoutProps } from './$types';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { Button } from 'bits-ui';
 	import { m } from '#lib/paraglide/messages.js';
-	import { getLocale, setLocale } from '#lib/paraglide/runtime.js';
+	import { getLocale } from '#lib/paraglide/runtime.js';
 	import { PUBLIC_ENGLISH_HELP_URL, PUBLIC_FRENCH_HELP_URL } from '$app/env/public';
-	import Show from '@lucide/svelte/icons/eye';
-	import Hide from '@lucide/svelte/icons/eye-closed';
-	import { onDestroy, onMount, type Snippet } from 'svelte';
+	import { onMount } from 'svelte';
 	import { Toaster } from 'svelte-sonner';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { feedback } from './remote';
 	import { showToast } from '#lib/toast.js';
 	import Loader from '#lib/components/Loader.svelte';
 	import nprogress from 'nprogress';
+	import watermark from '#lib/assets/watermark.avif';
 
 	let { data, children }: LayoutProps = $props();
 
@@ -65,16 +63,17 @@
 
 {#if data.loggedIn}
 	<nav
-		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start gap-2 border-r border-outline bg-background p-6"
+		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start border-r border-outline bg-background p-6"
 	>
-		<a
-			class="underline-link text-2xl font-bold"
-			href={resolve(data.loggedIn ? '/admin' : '/student')}>{m.celadon()}</a
+		<a class="underline-link mb-3" href={resolve(data.loggedIn ? '/admin' : '/student')}
+			><h2 class="text-2xl font-bold">{m.celadon()}</h2></a
 		>
+
+		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
 
 		<a class="underline-link" href={resolve('/options')}>{m.options()}</a>
 
-		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
+		<button class="underline-link" onclick={() => (feedbackOpen = true)}>{m.feedback()}</button>
 
 		<a
 			class="underline-link"
@@ -89,6 +88,8 @@
 			{@render children()}
 		</div>
 	</main>
+
+	<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.celadon()} />
 {:else}
 	<main class="flex min-h-screen w-screen items-center justify-center">
 		<div class="h-fit w-fit">
@@ -129,8 +130,16 @@
 					bind:value={feedbackContent}
 					class="h-30 w-100"
 					required
+					placeholder={m.something_improve()}
 					disabled={loading}></textarea><br />
-				<Button.Root type="submit" class="m-auto block">{m.submit()}</Button.Root>
+				<div class="flex justify-center gap-3">
+					<Button.Root
+						type="button"
+						class="gray-button"
+						onclick={() => (feedbackOpen = false)}>{m.cancel()}</Button.Root
+					>
+					<Button.Root type="submit">{m.submit()}</Button.Root>
+				</div>
 			</form>
 		{/if}
 	</div>

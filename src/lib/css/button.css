@@ -47,10 +47,6 @@
 	--darkness: 95%;
 }
 
-.dark .gray-button {
-	--darkness: 97%;
-}
-
 .ghost-button {
 	background-color: var(--bg);
 	color: var(--fg);

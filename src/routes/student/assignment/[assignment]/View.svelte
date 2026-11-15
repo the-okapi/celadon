@@ -2,7 +2,6 @@
 	import Slider from '#lib/components/Slider.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { formatDate } from '#lib/util.js';
-	import { barHidden } from '#lib/state.svelte.js';
 	import { onMount } from 'svelte';
 	import { Editor } from '@tiptap/core';
 	import { extensions, viewerExtensions } from '#lib/tiptap.js';
@@ -33,11 +32,7 @@
 	{@render children()}
 </div>
 
-<div
-	class="absolute top-{barHidden.value ? '20' : '40'} h-[calc(100vh-{barHidden.value
-		? '6 rem'
-		: '11rem'})] w-screen pt-4 text-center"
->
+<div class="absolute top-40 h-[calc(100vh-11rem)] w-screen pt-4 text-center">
 	<div class="tiptap-container">
 		<div spellcheck="false" bind:this={element} style="zoom: {zoom / 100};"></div>
 	</div>

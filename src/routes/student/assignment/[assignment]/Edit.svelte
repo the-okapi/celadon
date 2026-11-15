@@ -16,7 +16,6 @@
 	import FontSize from '@lucide/svelte/icons/a-large-small';
 	import Save from '@lucide/svelte/icons/save';
 	import Submit from '@lucide/svelte/icons/send';
-	import { barHidden } from '#lib/state.svelte.js';
 	import { extensions, editorExtensions } from '#lib/tiptap.js';
 	import { saveDocument, submitDocument } from './remote';
 	import Accents from '#lib/components/Accents.svelte';
@@ -152,11 +151,7 @@
 
 <svelte:window {onbeforeunload} {oncontextmenu} />
 
-<div
-	class="absolute top-{barHidden.value ? '0' : '20'} h-[calc(100vh-{barHidden.value
-		? '6 rem'
-		: '11rem'})] left-24 w-[calc(100vw-6rem)] pt-4 text-center"
->
+<div class="absolute top-20 left-24 h-[calc(100vh-11rem)] w-[calc(100vw-6rem)] pt-4 text-center">
 	<div class="tiptap-container">
 		<div spellcheck="false" bind:this={element} style="zoom: {zoom / 100};"></div>
 	</div>
@@ -167,9 +162,7 @@
 	onclick={() => editorState.editor?.chain().focus().run()}
 >
 	{#if editorState.editor}
-		{#if !barHidden.value}
-			<div class="relative top-0 left-0 h-20 bg-red-500"></div>
-		{/if}
+		<div class="relative top-0 left-0 h-20 bg-red-500"></div>
 		<Popover>
 			{#snippet trigger()}
 				<Button.Root class="icon-button"><Zoom size={20} /></Button.Root>

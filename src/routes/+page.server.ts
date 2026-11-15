@@ -7,7 +7,7 @@ import { object, string, safeParse } from 'valibot';
 export const load: PageServerLoad = async ({ parent }) => {
 	const data = await parent();
 	if (data.loggedIn) {
-		return redirect(307, '/student');
+		return redirect(303, '/home');
 	}
 
 	return {
@@ -56,7 +56,7 @@ export const actions = {
 			);
 
 			if (!check[0].can_delete) {
-				return redirect(303, '/student');
+				return redirect(303, '/home');
 			}
 
 			unwrapNoData(await locals.supabase.auth.signOut(), 86);

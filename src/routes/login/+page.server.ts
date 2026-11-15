@@ -43,7 +43,7 @@ export const actions = {
 			);
 
 			if (!check[0].can_delete) {
-				return redirect(303, '/student');
+				return redirect(303, '/home');
 			}
 
 			unwrapNoData(await locals.supabase.auth.signOut(), 86);

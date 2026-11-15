@@ -10,7 +10,7 @@ export const load: LayoutServerLoad = async ({ parent, locals }) => {
 	}
 
 	if (!parentData.admin) {
-		return redirect(303, '/student');
+		return redirect(303, '/home');
 	}
 
 	const {

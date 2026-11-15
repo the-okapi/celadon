@@ -197,5 +197,6 @@
 	"email_taken": "That email is taken.",
 	"back_button": "← Back",
 	"mode_description": "Device uses the system mode.",
-	"language_description": "Currently only English and French are supported."
+	"language_description": "Currently only English and French are supported.",
+	"something_improve": "Something we can improve on..."
 }

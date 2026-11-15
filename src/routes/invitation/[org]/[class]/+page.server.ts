@@ -90,6 +90,6 @@ export const actions = {
 			return fail(500, { fail: true, message: m.something_happened(), email });
 		}
 
-		return redirect(303, '/student');
+		return redirect(303, '/home');
 	}
 } satisfies Actions;

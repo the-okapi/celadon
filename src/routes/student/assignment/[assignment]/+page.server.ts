@@ -97,7 +97,7 @@ export const actions = {
 			);
 
 			if (!assignmentSubmission) {
-				return redirect(303, '/student');
+				return redirect(303, '/home');
 			} else if (assignmentSubmission.submitted === null) {
 				return fail(409);
 			}
