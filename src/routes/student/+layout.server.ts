@@ -13,7 +13,7 @@ export const load: LayoutServerLoad = async ({ parent, locals }) => {
 	}
 
 	if (parentData.admin) {
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 
 	try {

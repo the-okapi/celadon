@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.create_account()} | {m.celadon()}</title>
+	<title>{m.create_account()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
@@ -21,11 +21,11 @@
 			{m.email_sent_to()}
 		</p>
 		<div class="m-auto mb-2 w-fit">
-			<Label.Root for="password">{m.password()}:</Label.Root><br />
+			<Label.Root for="password">{m.field_password()}:</Label.Root><br />
 			<input type="password" id="password" name="password" class="w-60" required />
 		</div>
 		<div class="m-auto mb-5 w-fit">
-			<Label.Root for="confirmPassword">{m.confirm()} {m.password()}:</Label.Root><br />
+			<Label.Root for="confirmPassword">{m.field_confirmPassword}:</Label.Root><br />
 			<input
 				type="password"
 				id="confirmPassword"
@@ -34,7 +34,7 @@
 				required
 			/>
 		</div>
-		<Button.Root type="submit" class="m-auto block">{m.submit()}</Button.Root>
+		<Button.Root type="submit" class="m-auto block">{m.button_submit()}</Button.Root>
 		{#if form?.fail}
 			<p class="absolute bottom-1 left-2 leading-none text-(--red)">{form.message}</p>
 		{/if}

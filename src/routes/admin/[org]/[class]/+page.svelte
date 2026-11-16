@@ -96,7 +96,7 @@
 								<input type="hidden" name="userId" value={member.user.id} />
 							{/if}
 							<Button.Root type="submit" class="m-auto mt-8 block"
-								>{m.submit()}</Button.Root
+								>{m.button_submit()}</Button.Root
 							>
 
 							{#if form?.add}
@@ -160,7 +160,7 @@
 			method="POST"
 		>
 			<input type="hidden" value={data.members[remove].user.id} name="userId" />
-			<DelayedButton type="submit">{m.go()}</DelayedButton>
+			<DelayedButton type="submit">{m.button_go()}</DelayedButton>
 		</form>
 	{/snippet}
 </AlertDialog>

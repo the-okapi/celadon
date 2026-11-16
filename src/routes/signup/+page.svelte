@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.sign_up()} | {m.celadon()}</title>
+	<title>{m.title_signUp()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <div class="absolute top-10 left-0 w-screen text-center">
@@ -33,9 +33,9 @@
 		};
 	}}
 >
-	<h1 class="mb-15 text-center text-4xl font-bold">{m.sign_up()}</h1>
+	<h1 class="mb-15 text-center text-4xl font-bold">{m.title_signUp()}</h1>
 	<div class="text-left">
-		<Label.Root for="name">{m.name()}:</Label.Root><br />
+		<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 		<input type="text" id="name" value={form?.name} name="name" class="w-80" required />
 	</div>
 	<div class="text-left">
@@ -43,7 +43,7 @@
 		<input type="email" id="email" value={form?.email} name="email" class="w-80" required />
 	</div>
 	<div class="text-left">
-		<Label.Root for="password">{m.password()}:</Label.Root><br />
+		<Label.Root for="password">{m.field_password()}:</Label.Root><br />
 		<input
 			type="password"
 			id="password"
@@ -54,7 +54,7 @@
 		/>
 	</div>
 	<div class="text-left">
-		<Label.Root for="confirmPassword">{m.confirm()} {m.password()}:</Label.Root><br />
+		<Label.Root for="confirmPassword">{m.field_confirmPassword()}:</Label.Root><br />
 		<input
 			type="password"
 			name="confirmPassword"
@@ -70,6 +70,6 @@
 		</p>
 	{/if}
 	<Button.Root disabled={loading} type="submit" class="m-auto mt-10 block"
-		>{m.submit()}</Button.Root
+		>{m.button_submit()}</Button.Root
 	>
 </form>

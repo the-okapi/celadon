@@ -45,7 +45,7 @@ export const load: PageServerLoad = async ({ locals, parent }) => {
 
 		const classes = data.map((c: { class: { id: string; name: string } }) => c.class);
 
-		return { classes, organization, title: m.home() };
+		return { classes, organization, title: m.title_home() };
 	} catch (e) {
 		console.log(e);
 		return error500();
@@ -76,7 +76,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				return redirect(303, '/admin');
+				return redirect(303, '/home');
 			}
 
 			unwrapNoData(
@@ -88,7 +88,7 @@ export const actions = {
 				80
 			);
 		} catch {
-			return fail(500, { createFailure: true, message: m.something_happened() });
+			return fail(500, { createFailure: true, message: m.error_somethingHappened() });
 		}
 
 		return { success: true };

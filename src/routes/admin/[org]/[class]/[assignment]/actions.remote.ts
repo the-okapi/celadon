@@ -20,7 +20,7 @@ export const changeName = form(NameSchema, async ({ name, assignment, class: cla
 	} = await locals.supabase.auth.getUser();
 
 	if (!user) {
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 
 	try {
@@ -35,7 +35,7 @@ export const changeName = form(NameSchema, async ({ name, assignment, class: cla
 		);
 
 		if (!check) {
-			return { nameMessage: m.something_happened(), status: 403 };
+			return { nameMessage: m.error_somethingHappened(), status: 403 };
 		}
 
 		unwrapNoData(
@@ -49,7 +49,7 @@ export const changeName = form(NameSchema, async ({ name, assignment, class: cla
 			20
 		);
 	} catch {
-		return { nameMessage: m.something_happened(), status: 500 };
+		return { nameMessage: m.error_somethingHappened(), status: 500 };
 	}
 
 	return { nameMessage: m.successfully_changed(), status: 200 };
@@ -86,7 +86,7 @@ export const changeDescription = form(
 			);
 
 			if (!check) {
-				return { descriptionMessage: m.something_happened(), status: 403 };
+				return { descriptionMessage: m.error_somethingHappened(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -100,7 +100,7 @@ export const changeDescription = form(
 				22
 			);
 		} catch {
-			return { descriptionMessage: m.something_happened(), status: 500 };
+			return { descriptionMessage: m.error_somethingHappened(), status: 500 };
 		}
 
 		return {
@@ -153,7 +153,7 @@ export const changeDueDate = form(
 			);
 
 			if (!check?.[0]) {
-				return { dueDateMessage: m.something_happened(), status: 403 };
+				return { dueDateMessage: m.error_somethingHappened(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -167,7 +167,7 @@ export const changeDueDate = form(
 				24
 			);
 		} catch {
-			return { dueDateMessage: m.something_happened(), status: 500 };
+			return { dueDateMessage: m.error_somethingHappened(), status: 500 };
 		}
 
 		return { dueDateMessage: m.successfully_changed(), status: 200 };
@@ -204,7 +204,7 @@ export const deleteAssignment = form(
 			);
 
 			if (!check) {
-				return { deleteMessage: m.something_happened(), status: 403 };
+				return { deleteMessage: m.error_somethingHappened(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -216,7 +216,7 @@ export const deleteAssignment = form(
 				26
 			);
 		} catch {
-			return { deleteMessage: m.something_happened(), status: 500 };
+			return { deleteMessage: m.error_somethingHappened(), status: 500 };
 		}
 
 		return { status: 200 };
@@ -256,7 +256,7 @@ export const assign = form(
 			);
 
 			if (!check) {
-				throw new HttpError(303, '/admin', null);
+				throw new HttpError(303, '/home', null);
 			}
 
 			for (let i = 0; i < students.length; i++) {

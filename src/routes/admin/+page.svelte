@@ -45,7 +45,7 @@
 				<h2 class="mb-10 text-center text-3xl font-bold">{m.create_class()}</h2>
 				<Label.Root for="className">{m.class_name()}:</Label.Root><br />
 				<input type="text" name="className" id="className" class="mr-1 h-10" required />
-				<Button.Root type="submit">{m.submit()}</Button.Root>
+				<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				{#if form?.createFailure}
 					<p class="absolute text-(--red)">{form?.message}</p>
 				{/if}

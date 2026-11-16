@@ -29,7 +29,7 @@
 
 <div class="h-2"></div>
 
-<a href={resolve('/admin')} class="underline-link relative ml-10">{m.back_button()}</a>
+<a href={resolve('/home')} class="underline-link relative ml-10">{m.back_button()}</a>
 
 <div class="flex gap-4 px-10 pt-2">
 	<OrganizationMembers {...data} />
@@ -87,7 +87,8 @@
 						<Label.Root for="name">{m.rename_to()}:</Label.Root><br />
 						<input type="text" class="w-60" id="name" name="name" required />
 					</div>
-					<Button.Root type="submit" class="m-auto block">{m.submit()}</Button.Root>
+					<Button.Root type="submit" class="m-auto block">{m.button_submit()}</Button.Root
+					>
 					{#if form?.renameError}
 						<p class="absolute text-(--red)">{form.message}</p>
 					{/if}
@@ -108,7 +109,7 @@
 	{#snippet go()}
 		<form action="?/revoke" method="POST">
 			<input type="hidden" value={data.invitations[invitation].id} name="invitation" />
-			<Button.Root type="submit" class="red-button">{m.submit()}</Button.Root>
+			<Button.Root type="submit" class="red-button">{m.button_submit()}</Button.Root>
 		</form>
 	{/snippet}
 </AlertDialog>
@@ -122,7 +123,7 @@
 	{#snippet go()}
 		<form action="?/restore" method="POST">
 			<input type="hidden" value={data.deletions[restore].id} name="userId" />
-			<Button.Root type="submit">{m.submit()}</Button.Root>
+			<Button.Root type="submit">{m.button_submit()}</Button.Root>
 		</form>
 	{/snippet}
 </AlertDialog>

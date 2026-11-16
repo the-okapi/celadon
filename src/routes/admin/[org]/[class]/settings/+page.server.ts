@@ -23,9 +23,9 @@ export const actions = {
 				108
 			);
 		} catch (e: any) {
-			return handleFormActionError(e, { message: m.something_happened() });
+			return handleFormActionError(e, { message: m.error_somethingHappened() });
 		}
 
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 } satisfies Actions;

@@ -33,7 +33,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (!data?.[0]) {
-			return redirect(303, '/admin');
+			return redirect(303, '/home');
 		}
 
 		const members = unwrap(

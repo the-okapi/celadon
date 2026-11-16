@@ -45,7 +45,7 @@ export const rename = async ({ request, params, locals }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			return redirect(303, '/admin');
+			return redirect(303, '/home');
 		}
 
 		unwrapNoData(
@@ -59,7 +59,7 @@ export const rename = async ({ request, params, locals }: ActionData) => {
 			41
 		);
 	} catch {
-		return fail(500, { renameError: true, message: m.something_happened() });
+		return fail(500, { renameError: true, message: m.error_somethingHappened() });
 	}
 
 	return { success: true };
@@ -74,7 +74,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 	const formData = safeParse(CreateSchema, Object.fromEntries(await request.formData()));
 
 	if (!formData.success) {
-		return fail(400, { createError: true, message: m.something_happened() });
+		return fail(400, { createError: true, message: m.error_somethingHappened() });
 	}
 
 	const { name, email } = formData.output;
@@ -122,7 +122,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			return redirect(303, '/admin');
+			return redirect(303, '/home');
 		}
 
 		const invitation = unwrap(
@@ -150,10 +150,10 @@ export const create = async ({ locals, request, params }: ActionData) => {
 			});
 		} catch (error: any) {
 			console.error(error, 'Error Code 46');
-			throw new HttpError(500, m.something_happened(), null);
+			throw new HttpError(500, m.error_somethingHappened(), null);
 		}
 	} catch {
-		return fail(500, { createError: true, message: m.something_happened(), email, name });
+		return fail(500, { createError: true, message: m.error_somethingHappened(), email, name });
 	}
 
 	return { createSuccess: email, success: true };
@@ -192,7 +192,7 @@ export const revoke = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		unwrapNoData(
@@ -219,7 +219,7 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 	const formData = safeParse(RenameMemberSchema, Object.fromEntries(await request.formData()));
 
 	if (!formData.success) {
-		return fail(400, { renameMemberError: true, message: m.something_happened() });
+		return fail(400, { renameMemberError: true, message: m.error_somethingHappened() });
 	}
 
 	const { user: userId, name } = formData.output;
@@ -244,7 +244,7 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			return redirect(303, '/admin');
+			return redirect(303, '/home');
 		}
 
 		const check2 = unwrap(
@@ -270,7 +270,7 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 			51
 		);
 	} catch {
-		return fail(500, { renameMemberError: true, message: m.something_happened() });
+		return fail(500, { renameMemberError: true, message: m.error_somethingHappened() });
 	}
 
 	return { success: true };
@@ -305,7 +305,7 @@ export const deleteMember = async ({ request, params, locals }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		unwrapNoData(
@@ -364,7 +364,7 @@ export const restore = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		unwrapNoData(
@@ -422,7 +422,7 @@ export const promote = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		unwrapNoData(
@@ -476,7 +476,7 @@ export const demote = async ({ request, params, locals }: ActionData) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		unwrapNoData(

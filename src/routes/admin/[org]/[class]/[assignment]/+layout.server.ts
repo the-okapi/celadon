@@ -23,7 +23,7 @@ export const load: LayoutServerLoad = async ({ params, locals }) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		const [assignment] = unwrap(

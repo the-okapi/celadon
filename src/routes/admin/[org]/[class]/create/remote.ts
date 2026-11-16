@@ -43,7 +43,7 @@ export const createAssignment = form(CreateAssignmentSchema, async (data) => {
 		);
 
 		if (!check?.[0]) {
-			return redirect(303, '/admin');
+			return redirect(303, '/home');
 		}
 
 		const assignment = unwrap(
@@ -103,7 +103,7 @@ export const createAssignment = form(CreateAssignmentSchema, async (data) => {
 			name,
 			description,
 			dueDate,
-			message: m.something_happened()
+			message: m.error_somethingHappened()
 		};
 	}
 });
@@ -130,7 +130,7 @@ export const getStudents = query(string(), async (classId: string) => {
 	);
 
 	if (!check) {
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 
 	const students = unwrap(

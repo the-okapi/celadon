@@ -44,7 +44,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.options()} | {m.celadon()}</title>
+	<title>{m.options()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <h1 class="mb-15 text-center text-4xl font-bold">{m.options()}</h1>

@@ -79,7 +79,7 @@
 					class="w-60"
 				>
 					<div class="mb-3 w-fit">
-						<Label.Root for="name">{m.name()}:</Label.Root><br />
+						<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 						<input
 							bind:value={name}
 							class="w-60"
@@ -147,7 +147,9 @@
 							{/if}
 						</div>
 					{/if}
-					<Button.Root type="submit" class="m-auto mt-3 block">{m.submit()}</Button.Root>
+					<Button.Root type="submit" class="m-auto mt-3 block"
+						>{m.button_submit()}</Button.Root
+					>
 					<div class="absolute bottom-1 left-0 w-full">
 						<p class="mb-2 px-2 text-center leading-4 text-(--red)">
 							{createAssignment.result?.message}{errorText}

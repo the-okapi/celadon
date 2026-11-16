@@ -193,11 +193,11 @@
 			<form {...changeName.enhance(handleLoadingName)}>
 				<h1 class="mb-2 text-center text-3xl font-bold">
 					{m.change()}
-					{m.le()}{m.name()}
+					name
 				</h1>
 
 				<div class="m-auto mb-5 w-fit">
-					<Label.Root for="name">{m.name()}:</Label.Root><br />
+					<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 					<input
 						placeholder={data.assignment.name}
 						bind:value={nameValue}
@@ -213,7 +213,7 @@
 						>{m.cancel()}</Button.Root
 					>
 
-					<Button.Root type="submit">{m.submit()}</Button.Root>
+					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
 
 				<p class="absolute bottom-px px-8 text-sm leading-4">
@@ -254,7 +254,7 @@
 						>{m.cancel()}</Button.Root
 					>
 
-					<Button.Root type="submit">{m.submit()}</Button.Root>
+					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
 
 				<p class="absolute bottom-px px-8 text-sm leading-4">
@@ -298,11 +298,11 @@
 					{#if changeDueDate.fields.dueDate.value() === ''}
 						<Button.Root
 							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}
-							>{m.submit()}</Button.Root
+							>{m.button_submit()}</Button.Root
 						>
 					{:else}
 						<Button.Root type="submit" onclick={() => (dueDateMessage = '')}
-							>{m.submit()}</Button.Root
+							>{m.button_submit()}</Button.Root
 						>
 					{/if}
 				</div>
@@ -329,7 +329,7 @@
 	</p>
 	{#snippet go()}
 		<form {...deleteAssignment}>
-			<Button.Root type="submit" class="red-button">{m.go()}</Button.Root>
+			<Button.Root type="submit" class="red-button">{m.button_go()}</Button.Root>
 
 			<input
 				type="hidden"
@@ -375,7 +375,7 @@
 					assignToMoreStudentsLoading = false;
 				})}
 			>
-				<Button.Root type="submit">{m.submit()}</Button.Root>
+				<Button.Root type="submit">{m.button_submit()}</Button.Root>
 
 				{const selectedStudentsString = $derived(JSON.stringify(selectedStudents))}
 				<input {...assign.fields.students.as('hidden', selectedStudentsString)} />

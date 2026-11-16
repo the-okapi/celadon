@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>{page.data.title} | {m.celadon()}</title>
+	<title>{page.data.title} | {m.name_celadon()}</title>
 </svelte:head>
 
 {@render children()}

@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.log_in()} | {m.celadon()}</title>
+	<title>{m.log_in()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <div class="absolute top-10 left-0 w-screen text-center">
@@ -39,7 +39,7 @@
 		<input type="email" id="email" value={form?.email} name="email" class="w-80" required />
 	</div>
 	<div class="text-left">
-		<Label.Root for="password">{m.password()}:</Label.Root><br />
+		<Label.Root for="password">{m.field_password()}:</Label.Root><br />
 		<input
 			type="password"
 			name="password"
@@ -55,6 +55,6 @@
 		</p>
 	{/if}
 	<Button.Root disabled={loading} type="submit" class="m-auto mt-10 block"
-		>{m.submit()}</Button.Root
+		>{m.button_submit()}</Button.Root
 	>
 </form>

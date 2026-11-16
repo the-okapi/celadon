@@ -8,7 +8,7 @@
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
 	<form method="POST" class="border-o relative h-fit w-fit rounded-2xl bg-background p-10">
 		<div class="m-auto w-fit">
-			<Label.Root for="name">{m.name()}:</Label.Root><br />
+			<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 			<input name="name" required class="w-70" type="text" id="name" />
 		</div>
 

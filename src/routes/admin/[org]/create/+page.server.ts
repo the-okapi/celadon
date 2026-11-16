@@ -28,7 +28,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				return redirect(303, '/admin');
+				return redirect(303, '/home');
 			}
 
 			const id = crypto.randomUUID();
@@ -47,7 +47,7 @@ export const actions = {
 		} catch (error: any) {
 			return handleFormActionError(
 				error,
-				fail(500, { failure: true, message: m.something_happened() })
+				fail(500, { failure: true, message: m.error_somethingHappened() })
 			);
 		}
 	}

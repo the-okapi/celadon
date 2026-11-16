@@ -26,7 +26,7 @@ export const load = query(string(), async (organization: string) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		const data = unwrap(

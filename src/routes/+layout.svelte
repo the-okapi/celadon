@@ -65,8 +65,8 @@
 	<nav
 		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start border-r border-outline bg-background p-6"
 	>
-		<a class="underline-link mb-3" href={resolve(data.loggedIn ? '/admin' : '/student')}
-			><h2 class="text-2xl font-bold">{m.celadon()}</h2></a
+		<a class="underline-link mb-3" href={resolve('/home')}
+			><h2 class="text-2xl font-bold">{m.name_celadon()}</h2></a
 		>
 
 		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
@@ -89,7 +89,11 @@
 		</div>
 	</main>
 
-	<img class="fixed right-3 bottom-3 z-50! w-10 opacity-50" src={watermark} alt={m.celadon()} />
+	<img
+		class="fixed right-3 bottom-3 z-50! w-10 opacity-50"
+		src={watermark}
+		alt={m.name_celadon()}
+	/>
 {:else}
 	<main class="flex min-h-screen w-screen items-center justify-center">
 		<div class="h-fit w-fit">
@@ -120,7 +124,7 @@
 						feedbackOpen = false;
 						feedbackContent = '';
 					} else {
-						showToast(m.something_happened(), 'error');
+						showToast(m.error_somethingHappened(), 'error');
 					}
 					loading = false;
 				})}
@@ -138,7 +142,7 @@
 						class="gray-button"
 						onclick={() => (feedbackOpen = false)}>{m.cancel()}</Button.Root
 					>
-					<Button.Root type="submit">{m.submit()}</Button.Root>
+					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
 			</form>
 		{/if}
@@ -149,7 +153,7 @@
 	<p class="mb-8 text-center text-lg">{m.are_you_sure()} {m.confirm_sign_out()}</p>
 	{#snippet go()}
 		<form method="POST" action="/?/signout">
-			<Button.Root type="submit">{m.go()}</Button.Root>
+			<Button.Root type="submit">{m.button_go()}</Button.Root>
 		</form>
 	{/snippet}
 </AlertDialog>

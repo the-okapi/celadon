@@ -10,6 +10,6 @@ export const load: PageLoad = async ({ parent }) => {
 	}
 
 	return {
-		title: m.sign_up()
+		title: m.title_signUp()
 	};
 };

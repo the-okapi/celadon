@@ -46,11 +46,11 @@
 				{m.create_member()}
 			</h2>
 			<div class="m-auto mt-3 w-fit">
-				<Label.Root for="name">{m.name()}:</Label.Root><br />
+				<Label.Root for="name">{m.field_name()}</Label.Root><br />
 				<input name="name" id="name" class="w-60" type="text" value={form?.name} required />
 			</div>
 			<div class="m-auto mt-3 w-fit">
-				<Label.Root for="email">{m.email()}:</Label.Root><br />
+				<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 				<input
 					name="email"
 					id="email"
@@ -61,7 +61,7 @@
 				/>
 			</div>
 			<Button.Root type="submit" class="m-auto mt-3 mb-10 block w-fit"
-				>{m.submit()}</Button.Root
+				>{m.button_submit()}</Button.Root
 			>
 			{#if form?.createError}
 				<p class="absolute bottom-2 left-3 text-sm leading-4 text-(--red)">

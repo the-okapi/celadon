@@ -19,7 +19,7 @@ export const actions = {
 		if (!formData.success) {
 			return fail(400, {
 				fail: true,
-				message: m.something_happened(),
+				message: m.error_somethingHappened(),
 				name: '',
 				email: '',
 				password: '',
@@ -32,7 +32,7 @@ export const actions = {
 		if (password !== confirmPassword) {
 			return fail(400, {
 				fail: true,
-				message: m.password_confirm_dont_match(),
+				message: m.error_passwordConfirmDontMatch(),
 				name: '',
 				email: '',
 				password: '',
@@ -69,12 +69,12 @@ export const actions = {
 			} else {
 				return fail(500, {
 					fail: true,
-					message: m.something_happened(),
+					message: m.error_somethingHappened(),
 					...formData.output
 				});
 			}
 		}
 
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 } satisfies Actions;

@@ -15,17 +15,17 @@
 </script>
 
 <svelte:head>
-	<title>{m.celadon()}</title>
+	<title>{m.name_celadon()}</title>
 </svelte:head>
 
 <div class="h-20"></div>
 
 <div class="m-auto mb-10 w-fit rounded-[3.8rem] shadow-2xl shadow-primary">
-	<img src={favicon} class="w-60" alt={m.celadon()} />
+	<img src={favicon} class="w-60" alt={m.name_celadon()} />
 </div>
 
 <h1 class="relative text-center text-8xl leading-32 font-black text-primary">
-	{m.celadon()}
+	{m.name_celadon()}
 </h1>
 <h2 class="relative text-center text-3xl">{m.slogan()}</h2>
 
@@ -38,7 +38,7 @@
 		>{m.help()}</Button.Root
 	>
 	<Button.Root class="big-button" href={resolve('/login')}>{m.log_in()}</Button.Root>
-	<Button.Root class="big-button" href={resolve('/signup')}>{m.sign_up()}</Button.Root>
+	<Button.Root class="big-button" href={resolve('/signup')}>{m.button_signUp()}</Button.Root>
 </div>
 
 <div class="h-20"></div>

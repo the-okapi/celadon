@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 	}
 
 	return {
-		title: m.celadon()
+		title: m.name_celadon()
 	};
 };
 
@@ -80,7 +80,7 @@ export const actions = {
 		const { name, email, password, confirmPassword } = formData.output;
 
 		if (password !== confirmPassword) {
-			return fail(400, { signUpMessage: m.password_confirm_dont_match() });
+			return fail(400, { signUpMessage: m.error_passwordConfirmDontMatch() });
 		}
 
 		const { error: signUpError } = await locals.supabase.auth.signUp({
@@ -95,10 +95,15 @@ export const actions = {
 
 		if (signUpError) {
 			console.error(signUpError, 'Error Code 110');
-			return fail(400, { fail: true, signUpMessage: m.something_happened(), name, email });
+			return fail(400, {
+				fail: true,
+				signUpMessage: m.error_somethingHappened(),
+				name,
+				email
+			});
 		}
 
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	},
 	signout: async ({ locals }) => {
 		const { error: e } = await locals.supabase.auth.signOut();

@@ -1,16 +1,25 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"celadon": "Céladon",
-	"home": "Accueil",
-	"sign_up": "S'incrire",
-	"password_confirm_dont_match": "Mot de Passe et Confirmer Mot de Passe ne sont pas les mêmes.",
-	"name": "Nom",
-	"email": "Courriel",
-	"password": "Mot de Passe",
-	"confirm": "Confirmer",
-	"go": "Aller",
-	"something_happened": "Quelque chose inattendu s'est passé de notre côté. Essayez encore plus tard s'il vout plaît.",
-	"something_happened_short": "Quelque chose inattendu s'est passé de notre côté.",
+
+	"name_celadon": "Céladon",
+
+	"title_home": "Accueil",
+	"title_signUp": "S'inscrire",
+	"title_somethingHappened": "Quelque chose inattendu s'est passé de notre côté.",
+
+	"button_home": "Accueil",
+	"button_signUp": "S'inscrire",
+	"button_go": "Aller",
+	"button_submit": "Soumettre",
+
+	"error_passwordConfirmDontMatch": "Mot de Passe et Confirmer Mot de Passe ne sont pas les mêmes.",
+	"error_somethingHappenedTryAgain": "Quelque chose inattendu s'est passé de notre côté. Essayez encore plus tard s'il vout plaît.",
+
+	"field_name": "Nom",
+	"field_email": "Courriel",
+	"field_password": "Mot de Passe",
+	"field_confirmPassword": "Confirmer Mot de Passe",
+
 	"admin": "Administrateur",
 	"member": "Membre",
 	"you": "Toi",
@@ -104,7 +113,6 @@
 	"save": "Enregistrer",
 	"failed_to_save": "Échoué à enregister. Essayez encore plus tard s'il vout plaît.",
 	"ok": "D'Accord",
-	"submit": "Soumettre",
 	"unsubmit": "Annuler Soumission",
 	"submission": "soumettre ce document?",
 	"undo_submission": "annuler la soumission de ce document?",

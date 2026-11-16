@@ -23,7 +23,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 		return {
 			classes,
-			title: m.home()
+			title: m.title_home()
 		};
 	} catch {
 		return error500();

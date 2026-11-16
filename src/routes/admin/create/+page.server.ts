@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	}
 
 	if (memberships.length > 0) {
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 
 	return {
@@ -69,6 +69,6 @@ export const actions = {
 			return error500();
 		}
 
-		return redirect(303, '/admin');
+		return redirect(303, '/home');
 	}
 } satisfies Actions;

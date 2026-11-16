@@ -39,7 +39,7 @@ export const actions = {
 		if (!formData.success) {
 			return fail(400, {
 				fail: true,
-				message: m.something_happened(),
+				message: m.error_somethingHappened(),
 				email: ''
 			});
 		}
@@ -49,7 +49,7 @@ export const actions = {
 		if (password !== confirmPassword) {
 			return fail(400, {
 				fail: true,
-				message: m.password_confirm_dont_match(),
+				message: m.error_passwordConfirmDontMatch(),
 				email
 			});
 		}
@@ -87,7 +87,7 @@ export const actions = {
 				75
 			);
 		} catch {
-			return fail(500, { fail: true, message: m.something_happened(), email });
+			return fail(500, { fail: true, message: m.error_somethingHappened(), email });
 		}
 
 		return redirect(303, '/home');

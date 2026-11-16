@@ -6,15 +6,15 @@
 </script>
 
 <svelte:head>
-	<title>{m.something_happened_short()} | {m.celadon()}</title>
+	<title>{m.title_somethingHappened()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <div
 	class="border-o absolute top-[50%] left-[50%] w-fit translate-[-50%] rounded-3xl bg-background p-7 text-center"
 >
 	<p class="mb-5 w-80">
-		{m.something_happened()}
+		{m.error_somethingHappened()}
 		<strong>{m.error()} {page.status}</strong>
 	</p>
-	<Button.Root href={resolve('/')} class="h-fit py-2.5!">{m.home()}</Button.Root>
+	<Button.Root href={resolve('/')} class="h-fit py-2.5!">{m.button_home()}</Button.Root>
 </div>

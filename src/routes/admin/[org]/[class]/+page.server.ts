@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (!data?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		const classData = unwrap(
@@ -141,7 +141,7 @@ export const actions = {
 			if (error.status !== 500) {
 				return fail(error.status, { add: error.message, user: userId });
 			} else {
-				return fail(500, { add: m.something_happened(), user: userId });
+				return fail(500, { add: m.error_somethingHappened(), user: userId });
 			}
 		}
 
@@ -151,7 +151,7 @@ export const actions = {
 		const formData = safeParse(UserIdSchema, Object.fromEntries(await request.formData()));
 
 		if (!formData.success) {
-			return fail(400, { remove: m.something_happened() });
+			return fail(400, { remove: m.error_somethingHappened() });
 		}
 
 		const { userId } = formData.output;
@@ -191,7 +191,7 @@ export const actions = {
 			if (error.status !== 500) {
 				return fail(error.status, { remove: error.message, userId });
 			} else {
-				return fail(500, { remove: m.something_happened(), userId });
+				return fail(500, { remove: m.error_somethingHappened(), userId });
 			}
 		}
 

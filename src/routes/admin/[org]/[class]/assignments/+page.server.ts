@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		);
 
 		if (!check?.[0]) {
-			throw new HttpError(303, '/admin', null);
+			throw new HttpError(303, '/home', null);
 		}
 
 		const assignments: any[] = unwrap(

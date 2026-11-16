@@ -1,16 +1,26 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"celadon": "Celadon",
-	"home": "Home",
-	"sign_up": "Sign Up",
-	"password_confirm_dont_match": "Password and Confirm Password don't match.",
-	"email": "Email",
-	"name": "Name",
-	"password": "Password",
-	"confirm": "Confirm",
-	"go": "Go",
-	"something_happened": "Something unexpected happened on our end. Please try again later.",
-	"something_happened_short": "Something unexpected happened on our end.",
+
+	"name_celadon": "Celadon",
+
+	"title_home": "Home",
+	"title_signUp": "Sign Up",
+	"title_somethingHappened": "Something unexpected happened on our end.",
+	"title_listMembers": "List of Members",
+
+	"button_home": "Home",
+	"button_signUp": "Sign Up",
+	"button_go": "Go",
+	"button_submit": "Submit",
+
+	"error_passwordConfirmDontMatch": "Password and Confirm Password don't match.",
+	"error_somethingHappened": "Something unexpected happened on our end. Please try again later.",
+
+	"field_name": "Name",
+	"field_email": "Email",
+	"field_password": "Password",
+	"field_confirmPassword": "Confirm Password",
+
 	"list_members": "List of Members",
 	"admin": "Admin",
 	"member": "Member",
@@ -104,7 +114,6 @@
 	"save": "Save",
 	"failed_to_save": "Failed to Save. Please try again later.",
 	"ok": "OK",
-	"submit": "Submit",
 	"unsubmit": "Undo Submission",
 	"submission": "submit this document?",
 	"undo_submission": "undo the submission of this document?",

@@ -8,10 +8,10 @@
 		<h1 class="mb-6 text-3xl font-bold">{m.create_organization()}</h1>
 
 		<div class="m-auto w-fit">
-			<Label.Root for="name">{m.name()}:</Label.Root><br />
+			<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 			<input name="name" class="w-70" type="text" id="name" />
 		</div>
 
-		<Button.Root type="submit" class="m-auto mt-5 block">{m.submit()}</Button.Root>
+		<Button.Root type="submit" class="m-auto mt-5 block">{m.button_submit()}</Button.Root>
 	</form>
 </div>

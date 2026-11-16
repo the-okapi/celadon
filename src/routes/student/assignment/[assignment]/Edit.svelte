@@ -221,7 +221,7 @@
 		{@render children()}
 		<Button.Root
 			class="icon-button"
-			title={m.submit()}
+			title={m.button_submit()}
 			onclick={() => (confirmSubmitOpen = true)}
 		>
 			<Submit size={20} />
@@ -264,7 +264,9 @@
 		<AlertDialog bind:open={confirmSubmitOpen}>
 			<p class="mb-4 w-100 text-center">{m.are_you_sure()} {m.submission()}</p>
 			{#snippet go()}
-				<Button.Root type="submit" onclick={submitAssignment}>{m.submit()}</Button.Root>
+				<Button.Root type="submit" onclick={submitAssignment}
+					>{m.button_submit()}</Button.Root
+				>
 			{/snippet}
 		</AlertDialog>
 	{:else}
