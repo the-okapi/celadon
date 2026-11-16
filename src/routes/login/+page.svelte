@@ -35,7 +35,7 @@
 >
 	<h1 class="mb-15 text-center text-4xl font-bold">{m.log_in()}</h1>
 	<div class="text-left">
-		<Label.Root for="email">{m.email()}:</Label.Root><br />
+		<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 		<input type="email" id="email" value={form?.email} name="email" class="w-80" required />
 	</div>
 	<div class="text-left">

@@ -157,7 +157,7 @@
 				{m.below_confirm()}
 			</p>
 			<div class="m-auto mt-4 w-fit">
-				<Label.Root for="email">{m.email()}:</Label.Root><br />
+				<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 				<input type="text" id="email" class="w-80" bind:value={confirmText} />
 			</div>
 			<p class="absolute bottom-12 left-20 text-(--red)">{confirmError}</p>

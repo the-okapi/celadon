@@ -14,7 +14,7 @@
 	<form class="border-o relative rounded-xl bg-background p-10" method="POST">
 		<h2 class="mb-5 text-center text-3xl font-bold">{m.create_account()}</h2>
 		<div class="m-auto w-fit">
-			<Label.Root for="email">{m.email()}:</Label.Root><br />
+			<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 			<input type="email" id="email" name="email" class="w-60" value={form?.email} required />
 		</div>
 		<p class="m-auto mb-5 w-60 text-center text-xs">

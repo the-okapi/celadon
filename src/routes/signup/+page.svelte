@@ -39,7 +39,7 @@
 		<input type="text" id="name" value={form?.name} name="name" class="w-80" required />
 	</div>
 	<div class="text-left">
-		<Label.Root for="email">{m.email()}:</Label.Root><br />
+		<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 		<input type="email" id="email" value={form?.email} name="email" class="w-80" required />
 	</div>
 	<div class="text-left">
