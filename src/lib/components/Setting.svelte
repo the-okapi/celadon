@@ -1,14 +1,6 @@
-<script module>
-	export { divider };
-</script>
-
 <script lang="ts">
 	let { title, description = null, children } = $props();
 </script>
-
-{#snippet divider()}
-	<div class="m-auto my-3 w-[90%] border-b border-outline"></div>
-{/snippet}
 
 <div class="m-4 flex w-full">
 	<div class="w-full">

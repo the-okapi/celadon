@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { m } from '#lib/paraglide/messages.js';
 	import { Button } from 'bits-ui';
-	import Setting, { divider } from '#lib/components/Setting.svelte';
+	import Setting from '#lib/components/Setting.svelte';
+	import Divider from '#lib/components/Divider.svelte';
 	import AlertDialog from '#lib/components/AlertDialog.svelte';
 	import { enhance } from '$app/forms';
 	import { handleFormError } from '#lib/error.js';
@@ -13,7 +14,7 @@
 </script>
 
 <div class="flex h-full w-full flex-col items-center justify-center px-80">
-	{@render divider()}
+	<Divider />
 	<Setting title={m.delete_class()} description={m.delete_class_description()}>
 		<Button.Root class="red-button" onclick={() => (confirmDeleteOpen = true)}
 			>{m.delete()}</Button.Root

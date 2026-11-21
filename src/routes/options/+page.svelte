@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Select from '#lib/components/Select.svelte';
 	import { userPrefersMode, setMode } from 'mode-watcher';
-	import Setting, { divider } from '#lib/components/Setting.svelte';
+	import Setting from '#lib/components/Setting.svelte';
+	import Divider from '#lib/components/Divider.svelte';
 	import { m } from '#lib/paraglide/messages.js';
 	import { getLocale } from '#lib/paraglide/runtime.js';
 	import { setLocale } from '#lib/paraglide/runtime.js';
@@ -54,7 +55,7 @@
 		<Select options={modes} value={userPrefersMode.current} onChange={onModeChange} />
 	</Setting>
 
-	{@render divider()}
+	<Divider />
 
 	<Setting title={m.language()} description={m.language_description()}>
 		<Select options={languages} value={getLocale()} onChange={onLangChange} />
