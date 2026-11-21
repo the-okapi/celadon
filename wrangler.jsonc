@@ -1,0 +1,18 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "celadon",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2026-11-20",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"PUBLIC_CELADON_URL": "https://celadon.work",
+		"PUBLIC_ENGLISH_HELP_URL": "https://help.celadon.work/english",
+		"PUBLIC_FRENCH_HELP_URL": "https://help.celadon.work/francais"
+	}
+}
