@@ -8,7 +8,9 @@
 </script>
 
 <div class="h-2"></div>
-<a href={resolve('/home')} class="underline-link relative ml-10">{m.back_button()}</a>
+<a href={resolve('/home')} class="underline-link relative ml-10">
+	{m.button_back({ arrow: 'true' })}
+</a>
 
 <div class="relative">
 	<div>

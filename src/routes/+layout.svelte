@@ -143,7 +143,7 @@
 						class="gray-button"
 						onclick={() => (feedbackOpen = false)}
 					>
-						{m.cancel()}
+						{m.button_cancel()}
 					</Button.Root>
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>

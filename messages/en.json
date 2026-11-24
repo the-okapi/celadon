@@ -1,6 +1,8 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 
+	"are_you_sure": "REMOVE are_you_sure: Are you sure you would like to",
+
 	"name_celadon": "Celadon",
 
 	"title_home": "Home",
@@ -17,6 +19,13 @@
 	"button_promoteToAdmin": "Promote to Admin",
 	"button_demoteToMember": "Demote to Member",
 	"button_deleteUser": "Delete User",
+	"button_back": {
+		"match": {
+			"arrow=true": "← Back",
+			"arrow=false": "Back"
+		}
+	},
+	"button_cancel": "Cancel",
 
 	"error_passwordConfirmDontMatch": "Password and Confirm Password don't match.",
 	"error_somethingHappened": "Something unexpected happened on our end. Please try again later.",
@@ -31,12 +40,10 @@
 	"badge_member": "Member",
 	"badge_you": "You",
 
-	"back": "Back",
-	"are_you_sure": "Are you sure you would like to",
-	"confirm_promote": "promote {name} to admin?",
-	"confirm_demote": "Ademote {name} to member?",
-	"cancel": "Cancel",
-	"confirm_delete": "delete {name} from this organization? All data associated with {name} will be deleted.",
+	"confirm_promote": "Are you sure you would like to promote {name} to admin?",
+	"confirm_demote": "Are you sure you would like to demote {name} to member?",
+	"confirm_delete": "Are you sure you would like to delete {name} from this organization? All data associated with {name} will be deleted.",
+
 	"please_type": "Please type",
 	"below_confirm": "below to confirm.",
 	"after_delete": "This account has been marked for deletion, and will be deleted in 30 days if no attempt to recover the account has been made.",
@@ -205,7 +212,6 @@
 	"thank_feedback": "Thank you for your feedback!",
 	"error": "Error",
 	"email_taken": "That email is taken.",
-	"back_button": "← Back",
 	"mode_description": "Device uses the system mode.",
 	"language_description": "Currently only English and French are supported.",
 	"something_improve": "Something we can improve on..."

@@ -186,7 +186,7 @@
 	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
 	class="underline-link fixed top-22 left-10"
 >
-	{m.back_button()}
+	{m.button_back({ arrow: 'true' })}
 </a>
 
 {@render children()}
@@ -216,7 +216,7 @@
 
 				<div class="flex items-center justify-center gap-4">
 					<Button.Root class="gray-button" onclick={() => (changeNameOpen = false)}>
-						{m.cancel()}
+						{m.button_cancel()}
 					</Button.Root>
 
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
@@ -260,7 +260,7 @@
 						class="gray-button"
 						onclick={() => (changeDescriptionOpen = false)}
 					>
-						{m.cancel()}
+						{m.button_cancel()}
 					</Button.Root>
 
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
@@ -301,7 +301,7 @@
 
 				<div class="flex items-center justify-center gap-4">
 					<Button.Root onclick={() => (changeDueDateOpen = false)} class="gray-button">
-						{m.cancel()}
+						{m.button_cancel()}
 					</Button.Root>
 
 					{#if changeDueDate.fields.dueDate.value() === ''}

@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div class="absolute top-10 left-0 w-screen text-center">
-	<a href={resolve('/')} class="underline-link">{m.back_button()}</a>
+	<a href={resolve('/')} class="underline-link">{m.button_back({ arrow: 'true' })}</a>
 </div>
 
 <form

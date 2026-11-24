@@ -15,7 +15,7 @@
 			</p>
 			{#snippet go()}
 				<Button.Root href={resolve('/admin/[org]', { ...params })} class="h-fit py-2!">
-					{m.back()}
+					{m.button_back({ arrow: 'false' })}
 				</Button.Root>
 			{/snippet}
 		</AlertDialog>

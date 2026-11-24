@@ -116,7 +116,7 @@
 			{/if}
 			<div class="absolute bottom-5 w-full">
 				<Button.Root onclick={() => (focus = -1)} class="gray-button m-auto block">
-					{m.back()}
+					{m.button_back({ arrow: 'false' })}
 				</Button.Root>
 			</div>
 		</div>
@@ -125,7 +125,6 @@
 
 <AlertDialog bind:open={promoteOpen}>
 	<p class="mb-8 w-100 text-center text-lg">
-		{m.are_you_sure()}
 		{m.confirm_promote({ name: member.user.name })}
 	</p>
 	{#snippet go()}
@@ -138,7 +137,6 @@
 
 <AlertDialog bind:open={demoteOpen}>
 	<p class="mb-8 w-100 text-center text-lg">
-		{m.are_you_sure()}
 		{m.confirm_demote({ name: member.user.name })}
 	</p>
 	{#snippet go()}
@@ -171,10 +169,12 @@
 		<div class="absolute bottom-0 m-auto flex w-full items-center justify-center">
 			<div class="flex gap-4">
 				{#if confirmPage === 0}
-					<Button.Root onclick={cancel} class="gray-button">{m.cancel()}</Button.Root>
+					<Button.Root onclick={cancel} class="gray-button">
+						{m.button_cancel()}
+					</Button.Root>
 				{:else if confirmPage === 1}
 					<Button.Root onclick={() => (confirmPage = 0)} class="gray-button">
-						{m.back()}
+						{m.button_back({ arrow: 'false' })}
 					</Button.Root>
 				{/if}
 				{#if confirmPage === 0}

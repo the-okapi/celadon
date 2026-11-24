@@ -8,7 +8,7 @@
 		children,
 		go = null,
 		cancel = true,
-		message = m.cancel(),
+		message = m.button_cancel(),
 		onclose = () => {},
 		cancelOverride = false
 	} = $props();
