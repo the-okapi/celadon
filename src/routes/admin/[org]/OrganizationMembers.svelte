@@ -44,19 +44,19 @@
 			<div class="flex px-5 py-3">
 				<div class="flex w-fit items-center">
 					{#if member.admin}
-						<p class="badge bg-secondary">{m.admin()}</p>
+						<p class="badge bg-secondary">{m.badge_admin()}</p>
 					{:else}
-						<p class="badge bg-primary">{m.member()}</p>
+						<p class="badge bg-primary">{m.badge_member()}</p>
 					{/if}
 				</div>
 				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
 					<span class="font-bold">{member.user.name}</span>
 					{#if member.user.id === user}
-						<span class="text-base text-foreground/40">({m.you()})</span>
+						<span class="text-base text-foreground/40">({m.badge_you()})</span>
 					{/if} -
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>
-				<Button.Root onclick={() => (focus = i)}>{m.manage()}</Button.Root>
+				<Button.Root onclick={() => (focus = i)}>{m.button_manage()}</Button.Root>
 			</div>
 			{#if i !== members.length - 1}
 				<hr class="m-auto w-[90%] border-outline" />
@@ -73,19 +73,19 @@
 	{:else}
 		<div class="relative h-full w-full">
 			{#if member.admin}
-				<p class="badge m-auto mb-1 bg-amber-600">{m.admin()}</p>
+				<p class="badge m-auto mb-1 bg-amber-600">{m.badge_admin()}</p>
 			{:else}
-				<p class="badge m-auto mb-1 bg-primary">{m.member()}</p>
+				<p class="badge m-auto mb-1 bg-primary">{m.badge_member()}</p>
 			{/if}
 			<h2 class="text-center text-3xl font-bold">
 				{member.user.name}
 				{#if member.user.id === user}<span class="text-2xl font-normal opacity-50">
-						({m.you()})
+						({m.badge_you()})
 					</span>{/if}
 			</h2>
 			<h3 class="text-center">{member.user.email}</h3>
 			<form action="?/renamemember" method="POST" class="m-auto my-8 w-fit">
-				<Label.Root for="name">{m.rename_to()}:</Label.Root>
+				<Label.Root for="name">{m.field_renameTo()}:</Label.Root>
 				<div class="m-auto flex gap-2">
 					<input name="name" id="name" required />
 					<Button.Root type="submit" class="my-auto h-fit">
@@ -95,10 +95,14 @@
 				<input type="hidden" name="user" value={member.user.id} />
 			</form>
 			{#if !member.admin && member.user.id !== user}
-				<Button.Root class="m-auto mb-8 block" onclick={promote}>{m.promote()}</Button.Root>
+				<Button.Root class="m-auto mb-8 block" onclick={promote}>
+					{m.button_promoteToAdmin()}
+				</Button.Root>
 			{/if}
 			{#if members.filter((member: OrganizationMember) => member.admin).length > 1 && member.admin && member.user.id !== user}
-				<Button.Root class="m-auto mb-8 block" onclick={demote}>{m.demote()}</Button.Root>
+				<Button.Root class="m-auto mb-8 block" onclick={demote}>
+					{m.button_demoteToMember()}
+				</Button.Root>
 			{/if}
 			{#if members.length > 0 && member.user.id !== user}
 				{#if (member.admin && members.filter((member: OrganizationMember) => member.admin).length > 1) || !member.admin}
@@ -106,7 +110,7 @@
 						class="red-button m-auto block"
 						onclick={() => (confirmDeleteOpen = true)}
 					>
-						{m.delete_user()}
+						{m.button_deleteUser()}
 					</Button.Root>
 				{/if}
 			{/if}

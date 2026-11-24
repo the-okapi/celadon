@@ -119,7 +119,7 @@
 				<div class="flex w-fit items-center">
 					{#if member.admin}
 						<p class="badge bg-secondary">
-							{m.admin()}
+							{m.badge_admin()}
 						</p>
 					{:else}
 						<p class="badge bg-primary">{m.student()}</p>
@@ -128,7 +128,7 @@
 				<p class="m-auto mx-4 w-full overflow-x-scroll text-xl whitespace-nowrap">
 					<span class="font-bold">{member.user.name}</span>
 					{#if member.user.id === data.user}
-						<span class="text-base text-foreground/40">({m.you()})</span>
+						<span class="text-base text-foreground/40">({m.badge_you()})</span>
 					{/if} -
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>

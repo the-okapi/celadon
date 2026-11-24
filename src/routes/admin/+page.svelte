@@ -36,7 +36,7 @@
 					</h2>
 				</div>
 				<div class="absolute bottom-2 left-0 w-full">
-					<p>{m.manage()} {m.organization()}</p>
+					<p>{m.title_manageOrganization()}</p>
 				</div>
 			</button>
 		</div>
