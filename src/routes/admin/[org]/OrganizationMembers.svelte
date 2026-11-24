@@ -39,7 +39,7 @@
 
 {#snippet list()}
 	<div class="h-full w-full">
-		<h2 class="mb-5 text-center text-3xl font-bold">{m.list_members()}</h2>
+		<h2 class="mb-5 text-center text-3xl font-bold">{m.title_listMembers()}</h2>
 		{#each members as member, i (member.user.id)}
 			<div class="flex px-5 py-3">
 				<div class="flex w-fit items-center">
@@ -79,18 +79,18 @@
 			{/if}
 			<h2 class="text-center text-3xl font-bold">
 				{member.user.name}
-				{#if member.user.id === user}<span class="text-2xl font-normal opacity-50"
-						>({m.you()})</span
-					>{/if}
+				{#if member.user.id === user}<span class="text-2xl font-normal opacity-50">
+						({m.you()})
+					</span>{/if}
 			</h2>
 			<h3 class="text-center">{member.user.email}</h3>
 			<form action="?/renamemember" method="POST" class="m-auto my-8 w-fit">
 				<Label.Root for="name">{m.rename_to()}:</Label.Root>
 				<div class="m-auto flex gap-2">
 					<input name="name" id="name" required />
-					<Button.Root type="submit" class="my-auto h-fit"
-						>{m.button_submit()}</Button.Root
-					>
+					<Button.Root type="submit" class="my-auto h-fit">
+						{m.button_submit()}
+					</Button.Root>
 				</div>
 				<input type="hidden" name="user" value={member.user.id} />
 			</form>
@@ -104,14 +104,16 @@
 				{#if (member.admin && members.filter((member: OrganizationMember) => member.admin).length > 1) || !member.admin}
 					<Button.Root
 						class="red-button m-auto block"
-						onclick={() => (confirmDeleteOpen = true)}>{m.delete_user()}</Button.Root
+						onclick={() => (confirmDeleteOpen = true)}
 					>
+						{m.delete_user()}
+					</Button.Root>
 				{/if}
 			{/if}
 			<div class="absolute bottom-5 w-full">
-				<Button.Root onclick={() => (focus = -1)} class="gray-button m-auto block"
-					>{m.back()}</Button.Root
-				>
+				<Button.Root onclick={() => (focus = -1)} class="gray-button m-auto block">
+					{m.back()}
+				</Button.Root>
 			</div>
 		</div>
 	{/if}
@@ -167,14 +169,14 @@
 				{#if confirmPage === 0}
 					<Button.Root onclick={cancel} class="gray-button">{m.cancel()}</Button.Root>
 				{:else if confirmPage === 1}
-					<Button.Root onclick={() => (confirmPage = 0)} class="gray-button"
-						>{m.back()}</Button.Root
-					>
+					<Button.Root onclick={() => (confirmPage = 0)} class="gray-button">
+						{m.back()}
+					</Button.Root>
 				{/if}
 				{#if confirmPage === 0}
-					<Button.Root class="red-button" onclick={() => (confirmPage = 1)}
-						>{m.next()}</Button.Root
-					>
+					<Button.Root class="red-button" onclick={() => (confirmPage = 1)}>
+						{m.next()}
+					</Button.Root>
 				{:else if confirmPage === 1}
 					<form
 						action="?/delete"
@@ -187,9 +189,9 @@
 							}
 						}}
 					>
-						<Button.Root class="red-button" type="submit"
-							>{m.button_submit()}</Button.Root
-						>
+						<Button.Root class="red-button" type="submit">
+							{m.button_submit()}
+						</Button.Root>
 						<input type="hidden" name="userId" value={member.user.id} />
 					</form>
 				{:else}

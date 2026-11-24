@@ -46,14 +46,15 @@
 						{m.submitted()} {formatDate(data.submission.submitted)}
 					{:else}{m.not()} {m.submitted()}
 					{/if}
-					<Button.Root onclick={download} class="small-button mx-3"
-						>{m.download_pdf()}</Button.Root
-					>
+					<Button.Root onclick={download} class="small-button mx-3">
+						{m.download_pdf()}
+					</Button.Root>
 					<Button.Root
 						class="small-button px-4! py-2!"
 						href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}
-						>{m.close()}</Button.Root
 					>
+						{m.close()}
+					</Button.Root>
 				</p>
 			</div>
 

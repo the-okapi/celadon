@@ -264,9 +264,9 @@
 		<AlertDialog bind:open={confirmSubmitOpen}>
 			<p class="mb-4 w-100 text-center">{m.are_you_sure()} {m.submission()}</p>
 			{#snippet go()}
-				<Button.Root type="submit" onclick={submitAssignment}
-					>{m.button_submit()}</Button.Root
-				>
+				<Button.Root type="submit" onclick={submitAssignment}>
+					{m.button_submit()}
+				</Button.Root>
 			{/snippet}
 		</AlertDialog>
 	{:else}

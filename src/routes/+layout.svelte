@@ -65,9 +65,9 @@
 	<nav
 		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start border-r border-outline bg-background p-6"
 	>
-		<a class="underline-link mb-3" href={resolve('/home')}
-			><h2 class="text-2xl font-bold">{m.name_celadon()}</h2></a
-		>
+		<a class="underline-link mb-3" href={resolve('/home')}>
+			<h2 class="text-2xl font-bold">{m.name_celadon()}</h2>
+		</a>
 
 		<button class="underline-link" onclick={() => (signOutOpen = true)}>{m.sign_out()}</button>
 
@@ -80,8 +80,9 @@
 			rel="external"
 			target="_blank"
 			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
-			>{m.help()}</a
 		>
+			{m.help()}
+		</a>
 	</nav>
 	<main class="ml-48 flex min-h-screen w-[calc(100vw-12rem)] items-center justify-center">
 		<div class="h-fit w-fit">
@@ -140,8 +141,10 @@
 					<Button.Root
 						type="button"
 						class="gray-button"
-						onclick={() => (feedbackOpen = false)}>{m.cancel()}</Button.Root
+						onclick={() => (feedbackOpen = false)}
 					>
+						{m.cancel()}
+					</Button.Root>
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
 			</form>

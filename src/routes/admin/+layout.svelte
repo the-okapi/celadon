@@ -64,15 +64,17 @@
 									org: data.organization.id,
 									class: option.value
 								})
-							)}>{@html option.label}</DropdownMenu.Item
+							)}
 					>
+						{@html option.label}
+					</DropdownMenu.Item>
 				{/each}
 			</Dropdown>
 		</div>
 		<p class="mr-1.5">—</p>
-		<a href={resolve('/admin/[org]', { org: data.organization.id })} class="underline-link"
-			>{data.organization.name}</a
-		>
+		<a href={resolve('/admin/[org]', { org: data.organization.id })} class="underline-link">
+			{data.organization.name}
+		</a>
 		<p class="mx-1.5">—</p>
 	{/if}
 	<a href={resolve('/admin/account')} class="underline-link">{data.name}</a>

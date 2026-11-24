@@ -14,9 +14,9 @@
 				{m.after_delete()}
 			</p>
 			{#snippet go()}
-				<Button.Root href={resolve('/admin/[org]', { ...params })} class="h-fit py-2!"
-					>{m.back()}</Button.Root
-				>
+				<Button.Root href={resolve('/admin/[org]', { ...params })} class="h-fit py-2!">
+					{m.back()}
+				</Button.Root>
 			{/snippet}
 		</AlertDialog>
 	</div>

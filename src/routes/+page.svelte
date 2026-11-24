@@ -35,8 +35,9 @@
 		rel="external"
 		target="_blank"
 		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
-		>{m.help()}</Button.Root
 	>
+		{m.help()}
+	</Button.Root>
 	<Button.Root class="big-button" href={resolve('/login')}>{m.log_in()}</Button.Root>
 	<Button.Root class="big-button" href={resolve('/signup')}>{m.button_signUp()}</Button.Root>
 </div>
@@ -102,6 +103,8 @@
 		rel="external"
 		target="_blank"
 		class="underline-link"
-		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>{m.help()}</a
+		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
 	>
+		{m.help()}
+	</a>
 </footer>

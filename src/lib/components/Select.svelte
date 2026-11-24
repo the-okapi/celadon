@@ -30,8 +30,8 @@
 	{#if trigger}
 		{@render trigger(selectedOptionLabel?.label ?? placeholder)}
 	{:else}
-		<Select.Trigger class={c}
-			><div class="flex items-center text-left">
+		<Select.Trigger class={c}>
+			<div class="flex items-center text-left">
 				<div class="flex gap-2">
 					{@html selectedOptionLabel?.label ?? placeholder}
 				</div>
@@ -40,8 +40,8 @@
 				<div class="inline-flex h-full items-center">
 					<Expand size={20} />
 				</div>
-			</div></Select.Trigger
-		>
+			</div>
+		</Select.Trigger>
 	{/if}
 	<Select.Portal>
 		<Select.Content sideOffset={5} class="z-50" forceMount>

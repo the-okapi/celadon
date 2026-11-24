@@ -19,9 +19,9 @@
 				<p>
 					{m.email_sent({ email: form.createSuccess })}
 				</p>
-				<Button.Root onclick={() => (success = false)} class="mt-7"
-					>{m.create_another()}</Button.Root
-				>
+				<Button.Root onclick={() => (success = false)} class="mt-7">
+					{m.create_another()}
+				</Button.Root>
 			</div>
 		{/if}
 	{:else if !loading && !success}
@@ -60,9 +60,9 @@
 					required
 				/>
 			</div>
-			<Button.Root type="submit" class="m-auto mt-3 mb-10 block w-fit"
-				>{m.button_submit()}</Button.Root
-			>
+			<Button.Root type="submit" class="m-auto mt-3 mb-10 block w-fit">
+				{m.button_submit()}
+			</Button.Root>
 			{#if form?.createError}
 				<p class="absolute bottom-2 left-3 text-sm leading-4 text-(--red)">
 					{form.message}

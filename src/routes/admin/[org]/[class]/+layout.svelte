@@ -10,20 +10,22 @@
 >
 	<a
 		class="underline-link text-lg font-bold"
-		href={resolve('/admin/[org]/[class]', { ...params })}>{data.class.name}</a
+		href={resolve('/admin/[org]/[class]', { ...params })}
 	>
+		{data.class.name}
+	</a>
 
-	<a class="underline-link" href={resolve('/admin/[org]/[class]/assignments', { ...params })}
-		>{m.assignments()}</a
-	>
+	<a class="underline-link" href={resolve('/admin/[org]/[class]/assignments', { ...params })}>
+		{m.assignments()}
+	</a>
 
-	<a class="underline-link" href={resolve('/admin/[org]/[class]/create', { ...params })}
-		>{m.create_assignment()}</a
-	>
+	<a class="underline-link" href={resolve('/admin/[org]/[class]/create', { ...params })}>
+		{m.create_assignment()}
+	</a>
 
-	<a class="underline-link" href={resolve('/admin/[org]/[class]/settings', { ...params })}
-		>{m.settings()}</a
-	>
+	<a class="underline-link" href={resolve('/admin/[org]/[class]/settings', { ...params })}>
+		{m.settings()}
+	</a>
 </div>
 
 <div class="relative top-16 flex h-[calc(100vh-13rem)] overflow-y-scroll">

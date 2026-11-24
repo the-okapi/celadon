@@ -74,10 +74,10 @@
 									: ''
 							)}
 							<div class="m-auto mt-5 mb-1 w-fit">
-								<Label.Root class="text-sm"
-									>{m.choose_add()}:
-									<Combobox {options} bind:value={memberToAdd} /></Label.Root
-								>
+								<Label.Root class="text-sm">
+									{m.choose_add()}:
+									<Combobox {options} bind:value={memberToAdd} />
+								</Label.Root>
 							</div>
 							{#if memberToAdd !== ''}
 								{const member = $derived(
@@ -95,9 +95,9 @@
 								</div>
 								<input type="hidden" name="userId" value={member.user.id} />
 							{/if}
-							<Button.Root type="submit" class="m-auto mt-8 block"
-								>{m.button_submit()}</Button.Root
-							>
+							<Button.Root type="submit" class="m-auto mt-8 block">
+								{m.button_submit()}
+							</Button.Root>
 
 							{#if form?.add}
 								<div class="absolute -bottom-7 left-0 w-full px-7">
@@ -133,9 +133,9 @@
 					<span class="overflow-hidden text-base">{member.user.email}</span>
 				</p>
 				{#if member.user.id !== data.user && data.members.length > 1}
-					<Button.Root onclick={() => confirmRemove(i)} class="red-button"
-						>{m.remove()}</Button.Root
-					>
+					<Button.Root onclick={() => confirmRemove(i)} class="red-button">
+						{m.remove()}
+					</Button.Root>
 				{/if}
 			</div>
 			{#if i !== data.members.length - 1}

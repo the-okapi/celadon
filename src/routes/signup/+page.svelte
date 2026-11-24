@@ -69,7 +69,7 @@
 			{form?.message}
 		</p>
 	{/if}
-	<Button.Root disabled={loading} type="submit" class="m-auto mt-10 block"
-		>{m.button_submit()}</Button.Root
-	>
+	<Button.Root disabled={loading} type="submit" class="m-auto mt-10 block">
+		{m.button_submit()}
+	</Button.Root>
 </form>

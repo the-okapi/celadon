@@ -8,8 +8,10 @@
 {#snippet button(accent: string)}
 	<Button.Root
 		class="icon-button ghost-button rounded-xl! font-[Georgia]"
-		onclick={() => addAccent(accent)}>{accent}</Button.Root
+		onclick={() => addAccent(accent)}
 	>
+		{accent}
+	</Button.Root>
 {/snippet}
 
 <h1 class="mb-4 text-center text-3xl font-bold">{m.accents()}</h1>

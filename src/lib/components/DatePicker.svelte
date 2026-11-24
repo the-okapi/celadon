@@ -136,8 +136,10 @@
 								<Button.Root
 									class="ghost-button"
 									disabled={!canGoBack}
-									onclick={previousMonth}>←</Button.Root
+									onclick={previousMonth}
 								>
+									←
+								</Button.Root>
 								<h2 class="w-full text-center text-xl font-bold">
 									{monthName}
 									{year}
@@ -145,8 +147,10 @@
 								<Button.Root
 									class="ghost-button"
 									onclick={nextMonth}
-									disabled={!canGoForward}>→</Button.Root
+									disabled={!canGoForward}
 								>
+									→
+								</Button.Root>
 							</div>
 							<div class="grid grid-cols-7">
 								<div class="calendar-day" data-disabled>{m.sun()}</div>

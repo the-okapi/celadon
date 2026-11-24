@@ -49,8 +49,10 @@
 						</p>
 						<Button.Root
 							onclick={() => revokeInvitation(i)}
-							class="red-button small-button">{m.revoke()}</Button.Root
+							class="red-button small-button"
 						>
+							{m.revoke()}
+						</Button.Root>
 					</div>
 				{/each}
 			</div>
@@ -72,9 +74,9 @@
 							{daysUntil}
 							{daysUntil === 1 ? m.day() : m.days()}
 						</p>
-						<Button.Root onclick={() => restoreMember(i)} class="small-button"
-							>{m.restore()}</Button.Root
-						>
+						<Button.Root onclick={() => restoreMember(i)} class="small-button">
+							{m.restore()}
+						</Button.Root>
 					</div>
 				{/each}
 			</div>
@@ -87,8 +89,9 @@
 						<Label.Root for="name">{m.rename_to()}:</Label.Root><br />
 						<input type="text" class="w-60" id="name" name="name" required />
 					</div>
-					<Button.Root type="submit" class="m-auto block">{m.button_submit()}</Button.Root
-					>
+					<Button.Root type="submit" class="m-auto block">
+						{m.button_submit()}
+					</Button.Root>
 					{#if form?.renameError}
 						<p class="absolute text-(--red)">{form.message}</p>
 					{/if}

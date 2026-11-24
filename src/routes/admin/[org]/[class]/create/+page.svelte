@@ -51,9 +51,9 @@
 		{:else if createAssignment.result?.success && showSuccess}
 			<div>
 				<p class="text-center">{m.created_assignment()}</p>
-				<Button.Root class="m-auto mt-10 block" onclick={createAnother}
-					>{m.create_another()}</Button.Root
-				>
+				<Button.Root class="m-auto mt-10 block" onclick={createAnother}>
+					{m.create_another()}
+				</Button.Root>
 			</div>
 		{:else}
 			<div class="flex h-full w-full flex-col items-center pt-5">
@@ -97,10 +97,10 @@
 							{...createAssignment.fields.description.as('text')}></textarea>
 					</div>
 					<div class="mb-5">
-						<Label.Root
-							>{m.due_date()}:
-							<DatePicker name="dueDate" bind:day bind:value={dateTime} /></Label.Root
-						>
+						<Label.Root>
+							{m.due_date()}:
+							<DatePicker name="dueDate" bind:day bind:value={dateTime} />
+						</Label.Root>
 					</div>
 					<div class="m-auto flex w-fit justify-center gap-4">
 						<Switch
@@ -109,9 +109,9 @@
 							bind:checked={everyone}
 							onCheckedChange={loadStudents}
 						/>
-						<Label.Root for="everyone" class="my-auto whitespace-nowrap"
-							>{m.assign_to_everyone()}</Label.Root
-						>
+						<Label.Root for="everyone" class="my-auto whitespace-nowrap">
+							{m.assign_to_everyone()}
+						</Label.Root>
 						<input
 							{...createAssignment.fields.everyone.as('hidden', String(everyone))}
 						/>
@@ -147,9 +147,9 @@
 							{/if}
 						</div>
 					{/if}
-					<Button.Root type="submit" class="m-auto mt-3 block"
-						>{m.button_submit()}</Button.Root
-					>
+					<Button.Root type="submit" class="m-auto mt-3 block">
+						{m.button_submit()}
+					</Button.Root>
 					<div class="absolute bottom-1 left-0 w-full">
 						<p class="mb-2 px-2 text-center leading-4 text-(--red)">
 							{createAssignment.result?.message}{errorText}

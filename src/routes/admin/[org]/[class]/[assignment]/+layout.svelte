@@ -115,22 +115,25 @@
 					{#if submission.document === null}
 						<Button.Root class="small-button" disabled={true}>{m.view()}</Button.Root>
 					{:else if url === page.url.pathname}
-						<Button.Root class="small-button" disabled={true}>{m.viewing()}</Button.Root
-						>
+						<Button.Root class="small-button" disabled={true}>
+							{m.viewing()}
+						</Button.Root>
 					{:else}
 						<Button.Root
 							class="small-button"
 							onclick={() => goto(url, { replaceState: true })}
 							disabled={url === page.url.pathname || submission.document === null}
-							>{m.view()}</Button.Root
 						>
+							{m.view()}
+						</Button.Root>
 					{/if}
 				</div>
 				<div class="m-auto my-3 w-[85%] border-b border-outline"></div>
 			{/each}
-			<Button.Root class="m-auto mb-3 block" onclick={assignToAnotherStudent}
-				>{m.assign_to()} {m.more_students()}</Button.Root
-			>
+			<Button.Root class="m-auto mb-3 block" onclick={assignToAnotherStudent}>
+				{m.assign_to()}
+				{m.more_students()}
+			</Button.Root>
 		</div>
 	</div>
 
@@ -171,17 +174,20 @@
 				{@render editButton(() => (changeDescriptionOpen = true))}
 			</p>
 
-			<Button.Root class="red-button m-auto block" onclick={() => (confirmDeleteOpen = true)}
-				>{m.delete()} {m.assignment()}</Button.Root
-			>
+			<Button.Root class="red-button m-auto block" onclick={() => (confirmDeleteOpen = true)}>
+				{m.delete()}
+				{m.assignment()}
+			</Button.Root>
 		</div>
 	</div>
 </div>
 
 <a
 	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
-	class="underline-link fixed top-22 left-10">{m.back_button()}</a
+	class="underline-link fixed top-22 left-10"
 >
+	{m.back_button()}
+</a>
 
 {@render children()}
 
@@ -209,9 +215,9 @@
 				</div>
 
 				<div class="flex items-center justify-center gap-4">
-					<Button.Root class="gray-button" onclick={() => (changeNameOpen = false)}
-						>{m.cancel()}</Button.Root
-					>
+					<Button.Root class="gray-button" onclick={() => (changeNameOpen = false)}>
+						{m.cancel()}
+					</Button.Root>
 
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
@@ -250,9 +256,12 @@
 				</div>
 
 				<div class="flex items-center justify-center gap-4">
-					<Button.Root class="gray-button" onclick={() => (changeDescriptionOpen = false)}
-						>{m.cancel()}</Button.Root
+					<Button.Root
+						class="gray-button"
+						onclick={() => (changeDescriptionOpen = false)}
 					>
+						{m.cancel()}
+					</Button.Root>
 
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>
 				</div>
@@ -281,29 +290,30 @@
 				</h1>
 
 				<div class="mb-5 px-12">
-					<Label.Root
-						>{m.due_date()}:
+					<Label.Root>
+						{m.due_date()}:
 						<DatePicker
 							defaultValue={changeDueDate.fields.dueDate.value()}
 							{...changeDueDate.fields.dueDate.as('text')}
-						/></Label.Root
-					>
+						/>
+					</Label.Root>
 				</div>
 
 				<div class="flex items-center justify-center gap-4">
-					<Button.Root onclick={() => (changeDueDateOpen = false)} class="gray-button"
-						>{m.cancel()}</Button.Root
-					>
+					<Button.Root onclick={() => (changeDueDateOpen = false)} class="gray-button">
+						{m.cancel()}
+					</Button.Root>
 
 					{#if changeDueDate.fields.dueDate.value() === ''}
 						<Button.Root
 							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}
-							>{m.button_submit()}</Button.Root
 						>
+							{m.button_submit()}
+						</Button.Root>
 					{:else}
-						<Button.Root type="submit" onclick={() => (dueDateMessage = '')}
-							>{m.button_submit()}</Button.Root
-						>
+						<Button.Root type="submit" onclick={() => (dueDateMessage = '')}>
+							{m.button_submit()}
+						</Button.Root>
 					{/if}
 				</div>
 

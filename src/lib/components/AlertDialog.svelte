@@ -35,9 +35,9 @@
 						{#if go}
 							<div class="m-auto flex w-fit gap-4">
 								{#if cancel}
-									<AlertDialog.Cancel data-button-root class="gray-button"
-										>{message}</AlertDialog.Cancel
-									>
+									<AlertDialog.Cancel data-button-root class="gray-button">
+										{message}
+									</AlertDialog.Cancel>
 								{/if}
 								{@render go()}
 							</div>
@@ -45,8 +45,10 @@
 							<Button.Root
 								data-button-root
 								onclick={close}
-								class="gray-button m-auto block">{message}</Button.Root
+								class="gray-button m-auto block"
 							>
+								{message}
+							</Button.Root>
 						{/if}
 					</div>
 				{/if}
