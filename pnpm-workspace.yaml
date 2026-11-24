@@ -1,3 +1,6 @@
+peerDependencyRules:
+    allowedVersions:
+        'runed>@sveltejs/kit': '3'
 allowBuilds:
     '@tailwindcss/oxide': true
     core-js: true

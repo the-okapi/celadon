@@ -24,5 +24,10 @@ export default defineConfig({
 			outdir: './src/lib/paraglide',
 			emitTsDeclarations: true
 		})
-	]
+	],
+	ssr: {
+		optimizeDeps: {
+			exclude: ['@sveltejs/kit']
+		}
+	}
 });
