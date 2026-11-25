@@ -31,8 +31,7 @@
 				id="confirmPassword"
 				name="confirmPassword"
 				class="w-60"
-				required
-			/>
+				required />
 		</div>
 		<Button.Root type="submit" class="m-auto block">{m.button_submit()}</Button.Root>
 		{#if form?.fail}

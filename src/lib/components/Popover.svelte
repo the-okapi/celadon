@@ -13,8 +13,7 @@
 				class={border ? '' : 'border-none! bg-transparent! p-0! shadow-none!'}
 				forceMount
 				side="right"
-				sideOffset={10}
-			>
+				sideOffset={10}>
 				{#snippet child({ wrapperProps, props, open })}
 					{#if open}
 						<div {...wrapperProps}>

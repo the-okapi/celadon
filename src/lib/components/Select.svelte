@@ -57,8 +57,7 @@
 										class="z-50 {i === 0 ? 'rounded-t-xl border-t' : ''} {i ===
 										options.length - 1
 											? 'rounded-b-xl border-b'
-											: ''} border-x border-outline bg-background hover:bg-foreground/5!"
-									>
+											: ''} border-x border-outline bg-background hover:bg-foreground/5!">
 										{#snippet children({ selected })}
 											<div class="relative flex">
 												{#if check}

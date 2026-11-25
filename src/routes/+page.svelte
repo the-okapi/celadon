@@ -34,8 +34,7 @@
 		class="big-button"
 		rel="external"
 		target="_blank"
-		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
-	>
+		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>
 		{m.help()}
 	</Button.Root>
 	<Button.Root class="big-button" href={resolve('/login')}>{m.log_in()}</Button.Root>
@@ -87,8 +86,7 @@
 <div class="h-15"></div>
 
 <footer
-	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-outline bg-background px-6"
->
+	class="z-50! flex h-16 w-screen items-center justify-center gap-6 border-t border-outline bg-background px-6">
 	<a href="mailto:contact@celadon.work">contact@celadon.work</a>
 
 	<div class="h-8 border-l border-outline"></div>
@@ -103,8 +101,7 @@
 		rel="external"
 		target="_blank"
 		class="underline-link"
-		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
-	>
+		href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>
 		{m.help()}
 	</a>
 </footer>

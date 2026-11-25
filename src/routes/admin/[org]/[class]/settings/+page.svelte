@@ -33,8 +33,7 @@
 			use:enhance={() => {
 				return handleFormError(form?.message);
 			}}
-			method="POST"
-		>
+			method="POST">
 			<DelayedButton type="submit">{m.delete()}</DelayedButton>
 		</form>
 	{/snippet}

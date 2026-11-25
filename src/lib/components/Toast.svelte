@@ -17,8 +17,7 @@
 	</p>
 	<button
 		onclick={closeToast}
-		class="border-o absolute -top-2 -right-2 cursor-pointer rounded-full bg-background p-1 text-right hover:bg-(--a)"
-	>
+		class="border-o absolute -top-2 -right-2 cursor-pointer rounded-full bg-background p-1 text-right hover:bg-(--a)">
 		<X size={15} />
 	</button>
 </div>

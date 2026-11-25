@@ -19,12 +19,14 @@
 	"button_promoteToAdmin": "Promote to Admin",
 	"button_demoteToMember": "Demote to Member",
 	"button_deleteUser": "Delete User",
-	"button_back": {
-		"match": {
-			"arrow=true": "← Back",
-			"arrow=false": "Back"
+	"button_back": [
+		{
+			"match": {
+				"arrow=true": "← Back",
+				"arrow=false": "Back"
+			}
 		}
-	},
+	],
 	"button_cancel": "Cancel",
 
 	"error_passwordConfirmDontMatch": "Password and Confirm Password don't match.",

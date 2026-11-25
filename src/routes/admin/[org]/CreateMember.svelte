@@ -40,8 +40,7 @@
 					}
 					loading = false;
 				};
-			}}
-		>
+			}}>
 			<h2 class="mt-5 text-center text-2xl font-bold whitespace-nowrap">
 				{m.create_member()}
 			</h2>
@@ -57,8 +56,7 @@
 					class="w-60"
 					type="email"
 					value={form?.email}
-					required
-				/>
+					required />
 			</div>
 			<Button.Root type="submit" class="m-auto mt-3 mb-10 block w-fit">
 				{m.button_submit()}

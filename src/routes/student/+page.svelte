@@ -29,8 +29,7 @@
 						href={resolve('/student/class/[org]/[class]', {
 							org: classMembership.class.organization,
 							class: classMembership.class.id
-						})}
-					>
+						})}>
 						<div class="w-fit text-center">
 							<h3 class="text-3xl font-bold">{classMembership.class.name}</h3>
 							{#if assignments === null}
@@ -72,8 +71,7 @@
 							class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
 							href={resolve('/student/assignment/[assignment]', {
 								assignment: assignment.subId
-							})}
-						>
+							})}>
 							<div class="relative w-fit text-center">
 								<p class="font-bold">
 									{data.classes.find(
@@ -90,8 +88,7 @@
 								</p>
 								{#if a.submitted}
 									<p
-										class="badge mx-auto w-fit! bg-primary px-5! text-primary-fg"
-									>
+										class="badge mx-auto w-fit! bg-primary px-5! text-primary-fg">
 										{m.submitted()}
 									</p>
 								{:else if new Date() > new Date(assignment.due_date)}
@@ -132,8 +129,7 @@
 							<div class="relative w-fit text-center">
 								<div class="absolute -top-8 w-full">
 									<p
-										class="badge skeleton mx-auto mb-4 w-20 overflow-hidden rounded-2xl!"
-									>
+										class="badge skeleton mx-auto mb-4 w-20 overflow-hidden rounded-2xl!">
 										{m.loading()}
 									</p>
 								</div>

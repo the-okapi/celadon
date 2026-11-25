@@ -6,12 +6,10 @@
 </script>
 
 <div
-	class="fixed top-20 z-20! flex h-16 w-screen items-center gap-7 border-t border-b border-outline bg-background px-7"
->
+	class="fixed top-20 z-20! flex h-16 w-screen items-center gap-7 border-t border-b border-outline bg-background px-7">
 	<a
 		class="underline-link text-lg font-bold"
-		href={resolve('/admin/[org]/[class]', { ...params })}
-	>
+		href={resolve('/admin/[org]/[class]', { ...params })}>
 		{data.class.name}
 	</a>
 

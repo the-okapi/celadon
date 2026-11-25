@@ -66,8 +66,7 @@
 {/snippet}
 
 <div
-	class="border-o flex h-[70vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-background p-5"
->
+	class="border-o flex h-[70vh] w-full items-center justify-center overflow-y-scroll overscroll-none rounded-xl bg-background p-5">
 	{#if focus === -1}
 		{@render list()}
 	{:else}
@@ -108,8 +107,7 @@
 				{#if (member.admin && members.filter((member: OrganizationMember) => member.admin).length > 1) || !member.admin}
 					<Button.Root
 						class="red-button m-auto block"
-						onclick={() => (confirmDeleteOpen = true)}
-					>
+						onclick={() => (confirmDeleteOpen = true)}>
 						{m.button_deleteUser()}
 					</Button.Root>
 				{/if}
@@ -191,8 +189,7 @@
 								confirmError = m.email_incorrect();
 								return;
 							}
-						}}
-					>
+						}}>
 						<Button.Root class="red-button" type="submit">
 							{m.button_submit()}
 						</Button.Root>

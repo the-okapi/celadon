@@ -113,8 +113,7 @@
 			<Popover.Trigger
 				data-button-root
 				class="flex size-10 items-center justify-center p-0!"
-				type="button"
-			>
+				type="button">
 				<Calendar size={20} />
 			</Popover.Trigger>
 		</div>
@@ -136,8 +135,7 @@
 								<Button.Root
 									class="ghost-button"
 									disabled={!canGoBack}
-									onclick={previousMonth}
-								>
+									onclick={previousMonth}>
 									←
 								</Button.Root>
 								<h2 class="w-full text-center text-xl font-bold">
@@ -147,8 +145,7 @@
 								<Button.Root
 									class="ghost-button"
 									onclick={nextMonth}
-									disabled={!canGoForward}
-								>
+									disabled={!canGoForward}>
 									→
 								</Button.Root>
 							</div>
@@ -177,8 +174,7 @@
 												day?.day === num
 													? 'true'
 													: 'false'}
-												onclick={() => click(num)}
-											>
+												onclick={() => click(num)}>
 												{num}
 											</Button.Root>
 										{/if}

@@ -45,8 +45,7 @@
 							<Button.Root
 								data-button-root
 								onclick={close}
-								class="gray-button m-auto block"
-							>
+								class="gray-button m-auto block">
 								{message}
 							</Button.Root>
 						{/if}

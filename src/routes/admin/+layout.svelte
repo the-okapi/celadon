@@ -41,8 +41,7 @@
 						? 'rounded-b-xl border-b'
 						: ''}"
 					onSelect={() =>
-						goto(resolve('/admin/[org]/create', { org: data.organization.id }))}
-				>
+						goto(resolve('/admin/[org]/create', { org: data.organization.id }))}>
 					<div class="flex items-center">
 						<Plus size={17} />
 						<div class="w-1.5"></div>
@@ -64,8 +63,7 @@
 									org: data.organization.id,
 									class: option.value
 								})
-							)}
-					>
+							)}>
 						{@html option.label}
 					</DropdownMenu.Item>
 				{/each}

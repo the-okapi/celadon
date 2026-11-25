@@ -19,8 +19,7 @@
 	<Button.Root
 		class="flex size-10 items-center justify-center p-0!"
 		onclick={() => (assignmentDetailsOpen = true)}
-		title={m.assignment_details()}
-	>
+		title={m.assignment_details()}>
 		<Info size={20} />
 	</Button.Root>
 {/snippet}
@@ -35,8 +34,7 @@
 		<Button.Root
 			class="flex size-10 items-center justify-center p-0!"
 			title={m.unsubmit()}
-			onclick={() => (confirmUnsubmitOpen = true)}
-		>
+			onclick={() => (confirmUnsubmitOpen = true)}>
 			<Undo size={20} />
 		</Button.Root>
 	</View>

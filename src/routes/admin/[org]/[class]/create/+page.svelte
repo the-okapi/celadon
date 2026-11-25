@@ -44,8 +44,7 @@
 
 <div class="fixed top-36 h-[calc(100vh-9rem)] w-90 p-3">
 	<div
-		class="border-o flex h-full items-center justify-center overflow-y-scroll rounded-2xl bg-background px-10"
-	>
+		class="border-o flex h-full items-center justify-center overflow-y-scroll rounded-2xl bg-background px-10">
 		{#if loading}
 			<Loader />
 		{:else if createAssignment.result?.success && showSuccess}
@@ -76,8 +75,7 @@
 						}
 						loading = false;
 					})}
-					class="w-60"
-				>
+					class="w-60">
 					<div class="mb-3 w-fit">
 						<Label.Root for="name">{m.field_name()}:</Label.Root><br />
 						<input
@@ -85,8 +83,7 @@
 							class="w-60"
 							id="name"
 							{...createAssignment.fields.name.as('text')}
-							required
-						/>
+							required />
 					</div>
 					<div class="mb-5">
 						<Label.Root for="description">Description:</Label.Root>
@@ -107,14 +104,12 @@
 							class="my-auto"
 							id="everyone"
 							bind:checked={everyone}
-							onCheckedChange={loadStudents}
-						/>
+							onCheckedChange={loadStudents} />
 						<Label.Root for="everyone" class="my-auto whitespace-nowrap">
 							{m.assign_to_everyone()}
 						</Label.Root>
 						<input
-							{...createAssignment.fields.everyone.as('hidden', String(everyone))}
-						/>
+							{...createAssignment.fields.everyone.as('hidden', String(everyone))} />
 					</div>
 					{#if !everyone}
 						<div class="mt-3 flex h-18 w-full items-center justify-center">
@@ -130,8 +125,7 @@
 									<Combobox
 										options={students}
 										multiple
-										bind:value={selectedStudents}
-									/>
+										bind:value={selectedStudents} />
 									{const selectedStudentsString = $derived(
 										JSON.stringify(selectedStudents)
 									)}
@@ -139,8 +133,7 @@
 										{...createAssignment.fields.students.as(
 											'hidden',
 											selectedStudentsString
-										)}
-									/>
+										)} />
 								</div>
 							{:else}
 								<Loader />
@@ -172,5 +165,4 @@
 <Tabs
 	snippets={[document, form]}
 	labels={[m.document(), m.form()]}
-	class="relative right-5 left-95 w-[calc(100vw-25rem)] pt-5"
-/>
+	class="relative right-5 left-95 w-[calc(100vw-25rem)] pt-5" />

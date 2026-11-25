@@ -36,8 +36,7 @@
 	<div class="flex w-fit gap-4">
 		<div class="flex h-full w-80 flex-col gap-4">
 			<div
-				class="border-o flex h-full w-full grow items-center justify-center rounded-xl bg-background"
-			>
+				class="border-o flex h-full w-full grow items-center justify-center rounded-xl bg-background">
 				{#await load(params.org)}
 					<div class="flex h-57 items-center justify-center">
 						<Loader />
@@ -46,8 +45,7 @@
 					<form class="relative h-fit w-full p-5" method="POST" action="?/add">
 						<h2
 							class="text-center text-2xl
-							font-bold"
-						>
+							font-bold">
 							{m.add_member()}
 						</h2>
 						{let options = $derived(
@@ -88,8 +86,7 @@
 								<input type="hidden" name="email" value={member.user.email} />
 								<div class="absolute left-0 w-full">
 									<p
-										class="m-auto block w-70 overflow-hidden text-center text-sm text-ellipsis whitespace-nowrap"
-									>
+										class="m-auto block w-70 overflow-hidden text-center text-sm text-ellipsis whitespace-nowrap">
 										{member.user.name} - {member.user.email}
 									</p>
 								</div>
@@ -157,8 +154,7 @@
 				showConfirm = false;
 				return handleFormError(form?.message);
 			}}
-			method="POST"
-		>
+			method="POST">
 			<input type="hidden" value={data.members[remove].user.id} name="userId" />
 			<DelayedButton type="submit">{m.button_go()}</DelayedButton>
 		</form>

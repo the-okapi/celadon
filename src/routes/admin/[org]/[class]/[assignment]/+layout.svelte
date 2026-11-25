@@ -122,8 +122,7 @@
 						<Button.Root
 							class="small-button"
 							onclick={() => goto(url, { replaceState: true })}
-							disabled={url === page.url.pathname || submission.document === null}
-						>
+							disabled={url === page.url.pathname || submission.document === null}>
 							{m.view()}
 						</Button.Root>
 					{/if}
@@ -143,8 +142,7 @@
 		<Button.Root
 			class="ghost-button m-0! inline-flex items-center justify-center rounded-lg! p-1.5!"
 			style="max-height: {iconSize}rem !important; max-width: {iconSize}rem !important;"
-			{onclick}
-		>
+			{onclick}>
 			<Edit style="max-width: {imgSize}rem !important; max-height: {imgSize}rem !important" />
 		</Button.Root>
 	{/snippet}
@@ -184,8 +182,7 @@
 
 <a
 	href={resolve('/admin/[org]/[class]/assignments', { ...params })}
-	class="underline-link fixed top-22 left-10"
->
+	class="underline-link fixed top-22 left-10">
 	{m.button_back({ arrow: 'true' })}
 </a>
 
@@ -210,8 +207,7 @@
 						{...changeName.fields.name.as('text')}
 						id="name"
 						class="w-70"
-						required
-					/>
+						required />
 				</div>
 
 				<div class="flex items-center justify-center gap-4">
@@ -258,8 +254,7 @@
 				<div class="flex items-center justify-center gap-4">
 					<Button.Root
 						class="gray-button"
-						onclick={() => (changeDescriptionOpen = false)}
-					>
+						onclick={() => (changeDescriptionOpen = false)}>
 						{m.button_cancel()}
 					</Button.Root>
 
@@ -294,8 +289,7 @@
 						{m.due_date()}:
 						<DatePicker
 							defaultValue={changeDueDate.fields.dueDate.value()}
-							{...changeDueDate.fields.dueDate.as('text')}
-						/>
+							{...changeDueDate.fields.dueDate.as('text')} />
 					</Label.Root>
 				</div>
 
@@ -306,8 +300,7 @@
 
 					{#if changeDueDate.fields.dueDate.value() === ''}
 						<Button.Root
-							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}
-						>
+							onclick={() => (dueDateMessage = m.due_date() + m.is_required())}>
 							{m.button_submit()}
 						</Button.Root>
 					{:else}
@@ -344,13 +337,11 @@
 			<input
 				type="hidden"
 				{...deleteAssignment.fields.assignment.as('text')}
-				value={params.assignment}
-			/>
+				value={params.assignment} />
 			<input
 				type="hidden"
 				{...deleteAssignment.fields.class.as('text')}
-				value={params.class}
-			/>
+				value={params.class} />
 		</form>
 	{/snippet}
 </AlertDialog>
@@ -383,8 +374,7 @@
 					await form.submit();
 					assignToMoreStudentsOpen = false;
 					assignToMoreStudentsLoading = false;
-				})}
-			>
+				})}>
 				<Button.Root type="submit">{m.button_submit()}</Button.Root>
 
 				{const selectedStudentsString = $derived(JSON.stringify(selectedStudents))}

@@ -31,8 +31,7 @@
 			}
 			update();
 		};
-	}}
->
+	}}>
 	<h1 class="mb-15 text-center text-4xl font-bold">{m.title_signUp()}</h1>
 	<div class="text-left">
 		<Label.Root for="name">{m.field_name()}:</Label.Root><br />
@@ -50,8 +49,7 @@
 			value={form?.password}
 			name="password"
 			class="w-80"
-			required
-		/>
+			required />
 	</div>
 	<div class="text-left">
 		<Label.Root for="confirmPassword">{m.field_confirmPassword()}:</Label.Root><br />
@@ -61,8 +59,7 @@
 			id="password"
 			value={form?.confirmPassword}
 			class="w-80"
-			required
-		/>
+			required />
 	</div>
 	{#if form?.fail}
 		<p class="mt-3 max-w-80 text-center leading-4 text-(--red)">

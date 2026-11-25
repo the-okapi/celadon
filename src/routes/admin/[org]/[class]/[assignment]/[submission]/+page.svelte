@@ -36,8 +36,7 @@
 	<div class="flex flex-col">
 		<div class="h-30 bg-red-500"></div>
 		<div
-			class="relative flex h-screen w-[calc(100vw-27.5rem)] flex-col items-center justify-center gap-4 pt-33 pb-5"
-		>
+			class="relative flex h-screen w-[calc(100vw-27.5rem)] flex-col items-center justify-center gap-4 pt-33 pb-5">
 			<div class="flex items-center justify-center gap-6">
 				<p>
 					{data.submission.user.name}
@@ -51,8 +50,7 @@
 					</Button.Root>
 					<Button.Root
 						class="small-button px-4! py-2!"
-						href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}
-					>
+						href={resolve('/admin/[org]/[class]/[assignment]', { ...params })}>
 						{m.close()}
 					</Button.Root>
 				</p>

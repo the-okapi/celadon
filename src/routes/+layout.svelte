@@ -56,15 +56,13 @@
 	darkClassNames={['dark']}
 	lightClassNames={['light']}
 	defaultMode="system"
-	modeStorageKey="celadon-mode"
-/>
+	modeStorageKey="celadon-mode" />
 
 <Toaster />
 
 {#if data.loggedIn}
 	<nav
-		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start border-r border-outline bg-background p-6"
-	>
+		class="fixed top-0 left-0 flex h-screen w-48 flex-col items-start border-r border-outline bg-background p-6">
 		<a class="underline-link mb-3" href={resolve('/home')}>
 			<h2 class="text-2xl font-bold">{m.name_celadon()}</h2>
 		</a>
@@ -79,8 +77,7 @@
 			class="underline-link"
 			rel="external"
 			target="_blank"
-			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}
-		>
+			href={getLocale() === 'en' ? PUBLIC_ENGLISH_HELP_URL : PUBLIC_FRENCH_HELP_URL}>
 			{m.help()}
 		</a>
 	</nav>
@@ -93,8 +90,7 @@
 	<img
 		class="fixed right-3 bottom-3 z-50! w-10 opacity-50"
 		src={watermark}
-		alt={m.name_celadon()}
-	/>
+		alt={m.name_celadon()} />
 {:else}
 	<main class="flex min-h-screen w-screen items-center justify-center">
 		<div class="h-fit w-fit">
@@ -128,21 +124,20 @@
 						showToast(m.error_somethingHappened(), 'error');
 					}
 					loading = false;
-				})}
-			>
+				})}>
 				<textarea
 					{...feedback.fields.content.as('text')}
 					bind:value={feedbackContent}
 					class="h-30 w-100"
 					required
 					placeholder={m.something_improve()}
-					disabled={loading}></textarea><br />
+					disabled={loading}></textarea
+				><br />
 				<div class="flex justify-center gap-3">
 					<Button.Root
 						type="button"
 						class="gray-button"
-						onclick={() => (feedbackOpen = false)}
-					>
+						onclick={() => (feedbackOpen = false)}>
 						{m.button_cancel()}
 					</Button.Root>
 					<Button.Root type="submit">{m.button_submit()}</Button.Root>

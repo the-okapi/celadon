@@ -31,8 +31,7 @@
 			}
 			update();
 		};
-	}}
->
+	}}>
 	<h1 class="mb-15 text-center text-4xl font-bold">{m.log_in()}</h1>
 	<div class="text-left">
 		<Label.Root for="email">{m.field_email()}:</Label.Root><br />
@@ -46,8 +45,7 @@
 			id="password"
 			value={form?.password}
 			class="w-80"
-			required
-		/>
+			required />
 	</div>
 	{#if form?.fail}
 		<p class="mt-3 max-w-80 text-center leading-4 text-(--red)">

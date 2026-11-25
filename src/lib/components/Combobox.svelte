@@ -26,14 +26,12 @@
 	bind:value
 	onOpenChangeComplete={(o) => {
 		if (!o) searchValue = '';
-	}}
->
+	}}>
 	<div class="relative">
 		<label>
 			<Combobox.Input
 				defaultValue={value}
-				oninput={(e) => (searchValue = e.currentTarget.value)}
-			/>
+				oninput={(e) => (searchValue = e.currentTarget.value)} />
 			<Combobox.Trigger>
 				<Expand size={20} />
 			</Combobox.Trigger>
@@ -51,13 +49,12 @@
 							? 'rounded-t-xl border-t'
 							: ''} {i === filteredOptions.length - 1
 							? 'rounded-b-xl border-b'
-							: ''} border-x border-outline"
-					>
+							: ''} border-x border-outline">
 						{#snippet children({ selected })}
 							<div class="z-60! flex w-fit">
 								{#if selected}<Check size={20} class="m-auto mr-2" />{:else}<div
-										class="mr-2 size-5"
-									></div>{/if}
+										class="mr-2 size-5">
+									</div>{/if}
 								{option.label}
 							</div>
 						{/snippet}

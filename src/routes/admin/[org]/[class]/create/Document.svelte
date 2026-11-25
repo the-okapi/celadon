@@ -91,24 +91,21 @@
 		active={editorState.editor?.isActive('bold')}
 		class="toggle-icon"
 		onclick={() => editorState.editor?.chain().focus().toggleBold().run()}
-		title={m.bold()}
-	>
+		title={m.bold()}>
 		<Bold size={20} />
 	</Toggle>
 	<Toggle
 		active={editorState.editor?.isActive('italic')}
 		class="toggle-icon"
 		onclick={() => editorState.editor?.chain().focus().toggleItalic().run()}
-		title={m.italic()}
-	>
+		title={m.italic()}>
 		<Italic size={20} />
 	</Toggle>
 	<Toggle
 		active={editorState.editor?.isActive('underline')}
 		class="toggle-icon"
 		onclick={() => editorState.editor?.chain().focus().toggleUnderline().run()}
-		title={m.underline()}
-	>
+		title={m.underline()}>
 		<Underline size={20} />
 	</Toggle>
 	<div class="mx-1 border-l border-outline"></div>
@@ -124,8 +121,7 @@
 			]}
 			bind:value={textStyle}
 			onChange={changeTextStyle}
-			class="popover-select py-1.5!"
-		/>
+			class="popover-select py-1.5!" />
 	</Popover>
 	<div class="mx-1 border-l border-outline"></div>
 	<Button.Root
@@ -133,8 +129,7 @@
 			addAccentOpen = true;
 		}}
 		class="icon-button"
-		title={m.accents()}
-	>
+		title={m.accents()}>
 		É
 	</Button.Root>
 </div>

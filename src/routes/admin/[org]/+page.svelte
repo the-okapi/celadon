@@ -38,8 +38,7 @@
 	<div class="flex h-[70vh] w-full gap-4">
 		<div class="flex h-full w-full flex-col gap-4">
 			<div
-				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5"
-			>
+				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5">
 				<h2 class="mb-5 text-center text-3xl font-bold">{m.invitations()}</h2>
 				{#if data.invitations.length === 0}
 					<p class="w-80">{m.no_invitations()}</p>
@@ -51,16 +50,14 @@
 						</p>
 						<Button.Root
 							onclick={() => revokeInvitation(i)}
-							class="red-button small-button"
-						>
+							class="red-button small-button">
 							{m.revoke()}
 						</Button.Root>
 					</div>
 				{/each}
 			</div>
 			<div
-				class="border-o h-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5"
-			>
+				class="border-o h-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5">
 				<h2 class="mb-5 text-center text-3xl font-bold">{m.deletions()}</h2>
 				{#if data.deletions.length === 0}
 					<p class="w-80">{m.no_deletions()}</p>

@@ -159,8 +159,7 @@
 
 <button
 	class="fixed top-0 left-0 flex h-screen w-24 flex-col items-center justify-center gap-2 border-r border-outline bg-background"
-	onclick={() => editorState.editor?.chain().focus().run()}
->
+	onclick={() => editorState.editor?.chain().focus().run()}>
 	{#if editorState.editor}
 		<div class="relative top-0 left-0 h-20 bg-red-500"></div>
 		<Popover>
@@ -177,24 +176,21 @@
 			active={editorState.editor?.isActive('bold')}
 			class="toggle-icon"
 			onclick={() => editorState.editor?.chain().focus().toggleBold().run()}
-			title={m.bold()}
-		>
+			title={m.bold()}>
 			<Bold size={20} />
 		</Toggle>
 		<Toggle
 			active={editorState.editor?.isActive('italic')}
 			class="toggle-icon"
 			onclick={() => editorState.editor?.chain().focus().toggleItalic().run()}
-			title={m.italic()}
-		>
+			title={m.italic()}>
 			<Italic size={20} />
 		</Toggle>
 		<Toggle
 			active={editorState.editor?.isActive('underline')}
 			class="toggle-icon"
 			onclick={() => editorState.editor?.chain().focus().toggleUnderline().run()}
-			title={m.underline()}
-		>
+			title={m.underline()}>
 			<Underline size={20} />
 		</Toggle>
 		<div class="h-2"></div>
@@ -210,8 +206,7 @@
 				]}
 				bind:value={textStyle}
 				onChange={changeTextStyle}
-				class="popover-select"
-			/>
+				class="popover-select" />
 		</Popover>
 		<div class="h-2"></div>
 		<Button.Root onclick={() => (addAccentOpen = true)} class="icon-button" title={m.accents()}>
@@ -222,8 +217,7 @@
 		<Button.Root
 			class="icon-button"
 			title={m.button_submit()}
-			onclick={() => (confirmSubmitOpen = true)}
-		>
+			onclick={() => (confirmSubmitOpen = true)}>
 			<Submit size={20} />
 		</Button.Root>
 		{#if !saving}

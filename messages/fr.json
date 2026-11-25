@@ -19,12 +19,14 @@
 	"button_promoteToAdmin": "Promouvoir à un Administrateur",
 	"button_demoteToMember": "Rétrogarder à un Member",
 	"button_deleteUser": "Supprimer Utilisateur",
-	"button_back": {
-		"match": {
-			"arrow=true": "← Retourner",
-			"arrow=false": "Retourner"
+	"button_back": [
+		{
+			"match": {
+				"arrow=true": "← Retourner",
+				"arrow=false": "Retourner"
+			}
 		}
-	},
+	],
 	"button_cancel": "Annuler",
 
 	"error_passwordConfirmDontMatch": "Mot de Passe et Confirmer Mot de Passe ne sont pas les mêmes.",

@@ -32,14 +32,12 @@
 							class="flex h-full w-full cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-(--a)"
 							href={resolve('/student/assignment/[assignment]', {
 								assignment: assignment.subId
-							})}
-						>
+							})}>
 							<div class="relative w-fit text-center">
 								{#if a.submitted}
 									<div class="absolute -top-8 w-full">
 										<p
-											class="badge mx-auto mb-4 w-fit! bg-primary px-5! text-primary-fg"
-										>
+											class="badge mx-auto mb-4 w-fit! bg-primary px-5! text-primary-fg">
 											{m.submitted()}
 										</p>
 									</div>

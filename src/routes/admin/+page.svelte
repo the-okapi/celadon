@@ -28,8 +28,7 @@
 				onclick={() =>
 					goto(resolve('/admin/[org]', { org: data.organization.id }), {
 						refreshAll: true
-					})}
-			>
+					})}>
 				<div>
 					<h2 class="text-center text-4xl font-bold">
 						{data.organization.name}
@@ -59,8 +58,7 @@
 			<div class="box">
 				<button
 					class="box hover-box"
-					onclick={() => goToClass(data.organization.id, classData.id)}
-				>
+					onclick={() => goToClass(data.organization.id, classData.id)}>
 					<div>
 						<h2 class="text-center text-4xl font-bold">{classData.name}</h2>
 					</div>
