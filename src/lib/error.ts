@@ -36,7 +36,7 @@ export function handleHttpError(e: HttpError) {
 	if (e.status === 303) {
 		return redirect(303, e.message);
 	} else {
-		return error(e.status, m.error_somethingHappened());
+		return error(e.status, m.message_somethingHappenedTryAgain());
 	}
 }
 
@@ -49,7 +49,7 @@ export function handleFormActionError(e: any, info: any) {
 }
 
 export function error500() {
-	return error(500, m.error_somethingHappened());
+	return error(500, m.message_somethingHappenedTryAgain());
 }
 
 export function handleFormError(message: string | undefined = undefined, reload: boolean = true) {
@@ -64,7 +64,7 @@ export function handleFormError(message: string | undefined = undefined, reload:
 		update: () => void;
 	}) => {
 		if (result.type === 'failure') {
-			showToast(message ?? m.error_somethingHappened(), 'error');
+			showToast(message ?? m.message_somethingHappenedTryAgain(), 'error');
 		} else {
 			await applyAction(result);
 		}

@@ -47,7 +47,7 @@ export const actions = {
 		} catch (error: any) {
 			return handleFormActionError(
 				error,
-				fail(500, { failure: true, message: m.error_somethingHappened() })
+				fail(500, { failure: true, message: m.message_somethingHappenedTryAgain() })
 			);
 		}
 	}

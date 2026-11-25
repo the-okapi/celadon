@@ -11,7 +11,7 @@
 	<div class="h-fit text-center">
 		<AlertDialog open cancel={false}>
 			<p class="mb-5 w-80">
-				{m.after_delete()}
+				{m.message_afterDelete()}
 			</p>
 			{#snippet go()}
 				<Button.Root href={resolve('/admin/[org]', { ...params })} class="h-fit py-2!">

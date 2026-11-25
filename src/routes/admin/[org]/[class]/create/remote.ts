@@ -103,7 +103,7 @@ export const createAssignment = form(CreateAssignmentSchema, async (data) => {
 			name,
 			description,
 			dueDate,
-			message: m.error_somethingHappened()
+			message: m.message_somethingHappenedTryAgain()
 		};
 	}
 });

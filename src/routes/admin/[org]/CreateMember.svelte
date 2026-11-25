@@ -17,7 +17,7 @@
 		{:else}
 			<div class="absolute w-60 text-center">
 				<p>
-					{m.email_sent({ email: form.createSuccess })}
+					{m.message_emailSent({ email: form.createSuccess })}
 				</p>
 				<Button.Root onclick={() => (success = false)} class="mt-7">
 					{m.create_another()}
@@ -42,7 +42,7 @@
 				};
 			}}>
 			<h2 class="mt-5 text-center text-2xl font-bold whitespace-nowrap">
-				{m.create_member()}
+				{m.title_createMember()}
 			</h2>
 			<div class="m-auto mt-3 w-fit">
 				<Label.Root for="name">{m.field_name()}</Label.Root><br />

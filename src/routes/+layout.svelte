@@ -121,7 +121,7 @@
 						feedbackOpen = false;
 						feedbackContent = '';
 					} else {
-						showToast(m.error_somethingHappened(), 'error');
+						showToast(m.message_somethingHappenedTryAgain(), 'error');
 					}
 					loading = false;
 				})}>

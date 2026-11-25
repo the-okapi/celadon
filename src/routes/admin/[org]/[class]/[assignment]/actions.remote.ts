@@ -35,7 +35,7 @@ export const changeName = form(NameSchema, async ({ name, assignment, class: cla
 		);
 
 		if (!check) {
-			return { nameMessage: m.error_somethingHappened(), status: 403 };
+			return { nameMessage: m.message_somethingHappenedTryAgain(), status: 403 };
 		}
 
 		unwrapNoData(
@@ -49,7 +49,7 @@ export const changeName = form(NameSchema, async ({ name, assignment, class: cla
 			20
 		);
 	} catch {
-		return { nameMessage: m.error_somethingHappened(), status: 500 };
+		return { nameMessage: m.message_somethingHappenedTryAgain(), status: 500 };
 	}
 
 	return { nameMessage: m.successfully_changed(), status: 200 };
@@ -86,7 +86,7 @@ export const changeDescription = form(
 			);
 
 			if (!check) {
-				return { descriptionMessage: m.error_somethingHappened(), status: 403 };
+				return { descriptionMessage: m.message_somethingHappenedTryAgain(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -100,7 +100,7 @@ export const changeDescription = form(
 				22
 			);
 		} catch {
-			return { descriptionMessage: m.error_somethingHappened(), status: 500 };
+			return { descriptionMessage: m.message_somethingHappenedTryAgain(), status: 500 };
 		}
 
 		return {
@@ -153,7 +153,7 @@ export const changeDueDate = form(
 			);
 
 			if (!check?.[0]) {
-				return { dueDateMessage: m.error_somethingHappened(), status: 403 };
+				return { dueDateMessage: m.message_somethingHappenedTryAgain(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -167,7 +167,7 @@ export const changeDueDate = form(
 				24
 			);
 		} catch {
-			return { dueDateMessage: m.error_somethingHappened(), status: 500 };
+			return { dueDateMessage: m.message_somethingHappenedTryAgain(), status: 500 };
 		}
 
 		return { dueDateMessage: m.successfully_changed(), status: 200 };
@@ -204,7 +204,7 @@ export const deleteAssignment = form(
 			);
 
 			if (!check) {
-				return { deleteMessage: m.error_somethingHappened(), status: 403 };
+				return { deleteMessage: m.message_somethingHappenedTryAgain(), status: 403 };
 			}
 
 			unwrapNoData(
@@ -216,7 +216,7 @@ export const deleteAssignment = form(
 				26
 			);
 		} catch {
-			return { deleteMessage: m.error_somethingHappened(), status: 500 };
+			return { deleteMessage: m.message_somethingHappenedTryAgain(), status: 500 };
 		}
 
 		return { status: 200 };

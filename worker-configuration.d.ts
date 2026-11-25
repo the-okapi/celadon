@@ -18,39 +18,29 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<
-		Pick<
-			Cloudflare.Env,
-			| 'PRIVATE_RESEND_API_KEY'
-			| 'PRIVATE_SUPABASE_PUBLISHABLE_KEY'
-			| 'PRIVATE_SUPABASE_URL'
-			| 'PUBLIC_CELADON_URL'
-			| 'PUBLIC_ENGLISH_HELP_URL'
-			| 'PUBLIC_FRENCH_HELP_URL'
-		>
-	> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "PRIVATE_RESEND_API_KEY" | "PRIVATE_SUPABASE_PUBLISHABLE_KEY" | "PRIVATE_SUPABASE_URL" | "PUBLIC_CELADON_URL" | "PUBLIC_ENGLISH_HELP_URL" | "PUBLIC_FRENCH_HELP_URL">> {}
 }
-declare module '*.txt' {
+declare module "*.txt" {
 	const value: string;
 	export default value;
 }
-declare module '*.html' {
+declare module "*.html" {
 	const value: string;
 	export default value;
 }
-declare module '*.sql' {
+declare module "*.sql" {
 	const value: string;
 	export default value;
 }
-declare module '*.bin' {
+declare module "*.bin" {
 	const value: ArrayBuffer;
 	export default value;
 }
-declare module '*.wasm' {
+declare module "*.wasm" {
 	const value: WebAssembly.Module;
 	export default value;
 }
-declare module '*.wasm?module' {
+declare module "*.wasm?module" {
 	const value: WebAssembly.Module;
 	export default value;
 }

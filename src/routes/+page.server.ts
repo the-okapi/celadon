@@ -80,7 +80,7 @@ export const actions = {
 		const { name, email, password, confirmPassword } = formData.output;
 
 		if (password !== confirmPassword) {
-			return fail(400, { signUpMessage: m.error_passwordConfirmDontMatch() });
+			return fail(400, { signUpMessage: m.message_passwordConfirmDontMatch() });
 		}
 
 		const { error: signUpError } = await locals.supabase.auth.signUp({
@@ -97,7 +97,7 @@ export const actions = {
 			console.error(signUpError, 'Error Code 110');
 			return fail(400, {
 				fail: true,
-				signUpMessage: m.error_somethingHappened(),
+				signUpMessage: m.message_somethingHappenedTryAgain(),
 				name,
 				email
 			});

@@ -23,7 +23,7 @@ export const actions = {
 				108
 			);
 		} catch (e: any) {
-			return handleFormActionError(e, { message: m.error_somethingHappened() });
+			return handleFormActionError(e, { message: m.message_somethingHappenedTryAgain() });
 		}
 
 		return redirect(303, '/home');

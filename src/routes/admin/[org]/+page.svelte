@@ -41,7 +41,7 @@
 				class="border-o h-full w-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5">
 				<h2 class="mb-5 text-center text-3xl font-bold">{m.invitations()}</h2>
 				{#if data.invitations.length === 0}
-					<p class="w-80">{m.no_invitations()}</p>
+					<p class="w-80">{m.message_noInvitations()}</p>
 				{/if}
 				{#each data.invitations as invitation, i (invitation.id)}
 					<div class="mb-2.5 flex w-80">
@@ -51,16 +51,16 @@
 						<Button.Root
 							onclick={() => revokeInvitation(i)}
 							class="red-button small-button">
-							{m.revoke()}
+							{m.button_revoke()}
 						</Button.Root>
 					</div>
 				{/each}
 			</div>
 			<div
 				class="border-o h-full overflow-y-scroll overscroll-none rounded-xl bg-background p-5">
-				<h2 class="mb-5 text-center text-3xl font-bold">{m.deletions()}</h2>
+				<h2 class="mb-5 text-center text-3xl font-bold">{m.title_deletions()}</h2>
 				{#if data.deletions.length === 0}
-					<p class="w-80">{m.no_deletions()}</p>
+					<p class="w-80">{m.message_noDeletions()}</p>
 				{/if}
 				{#each data.deletions as deletion, i (deletion.id)}
 					<div class="mb-2.5 flex w-80">
@@ -74,7 +74,7 @@
 							{daysUntil === 1 ? m.day() : m.days()}
 						</p>
 						<Button.Root onclick={() => restoreMember(i)} class="small-button">
-							{m.restore()}
+							{m.button_restore()}
 						</Button.Root>
 					</div>
 				{/each}

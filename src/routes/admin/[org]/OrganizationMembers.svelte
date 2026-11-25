@@ -154,9 +154,7 @@
 			</p>
 		{:else if confirmPage === 1}
 			<p class="text-center">
-				{m.please_type()}
-				{member.user.email}
-				{m.below_confirm()}
+				{m.confirm_typeEmail({ email: member.user.email })}
 			</p>
 			<div class="m-auto mt-4 w-fit">
 				<Label.Root for="email">{m.field_email()}:</Label.Root><br />
@@ -177,7 +175,7 @@
 				{/if}
 				{#if confirmPage === 0}
 					<Button.Root class="red-button" onclick={() => (confirmPage = 1)}>
-						{m.next()}
+						{m.button_next()}
 					</Button.Root>
 				{:else if confirmPage === 1}
 					<form
@@ -186,7 +184,7 @@
 						use:enhance={({ cancel }) => {
 							if (confirmText !== member.user.email) {
 								cancel();
-								confirmError = m.email_incorrect();
+								confirmError = m.message_emailIncorrect();
 								return;
 							}
 						}}>

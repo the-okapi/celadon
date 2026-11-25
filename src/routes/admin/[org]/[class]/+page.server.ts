@@ -141,7 +141,7 @@ export const actions = {
 			if (error.status !== 500) {
 				return fail(error.status, { add: error.message, user: userId });
 			} else {
-				return fail(500, { add: m.error_somethingHappened(), user: userId });
+				return fail(500, { add: m.message_somethingHappenedTryAgain(), user: userId });
 			}
 		}
 
@@ -151,7 +151,7 @@ export const actions = {
 		const formData = safeParse(UserIdSchema, Object.fromEntries(await request.formData()));
 
 		if (!formData.success) {
-			return fail(400, { remove: m.error_somethingHappened() });
+			return fail(400, { remove: m.message_somethingHappenedTryAgain() });
 		}
 
 		const { userId } = formData.output;
@@ -191,7 +191,7 @@ export const actions = {
 			if (error.status !== 500) {
 				return fail(error.status, { remove: error.message, userId });
 			} else {
-				return fail(500, { remove: m.error_somethingHappened(), userId });
+				return fail(500, { remove: m.message_somethingHappenedTryAgain(), userId });
 			}
 		}
 

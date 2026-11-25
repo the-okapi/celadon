@@ -39,7 +39,7 @@ export const actions = {
 		if (!formData.success) {
 			return fail(400, {
 				fail: true,
-				message: m.error_somethingHappened(),
+				message: m.message_somethingHappenedTryAgain(),
 				email: ''
 			});
 		}
@@ -49,7 +49,7 @@ export const actions = {
 		if (password !== confirmPassword) {
 			return fail(400, {
 				fail: true,
-				message: m.error_passwordConfirmDontMatch(),
+				message: m.message_passwordConfirmDontMatch(),
 				email
 			});
 		}
@@ -65,7 +65,7 @@ export const actions = {
 			);
 
 			if (data === '') {
-				return fail(500, { fail: true, message: m.email_incorrect(), email });
+				return fail(500, { fail: true, message: m.message_emailIncorrect(), email });
 			}
 
 			unwrapNoData(
@@ -87,7 +87,7 @@ export const actions = {
 				75
 			);
 		} catch {
-			return fail(500, { fail: true, message: m.error_somethingHappened(), email });
+			return fail(500, { fail: true, message: m.message_somethingHappenedTryAgain(), email });
 		}
 
 		return redirect(303, '/home');

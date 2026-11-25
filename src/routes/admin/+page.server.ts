@@ -88,7 +88,10 @@ export const actions = {
 				80
 			);
 		} catch {
-			return fail(500, { createFailure: true, message: m.error_somethingHappened() });
+			return fail(500, {
+				createFailure: true,
+				message: m.message_somethingHappenedTryAgain()
+			});
 		}
 
 		return { success: true };

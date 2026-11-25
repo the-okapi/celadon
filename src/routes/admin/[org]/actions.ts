@@ -59,7 +59,7 @@ export const rename = async ({ request, params, locals }: ActionData) => {
 			41
 		);
 	} catch {
-		return fail(500, { renameError: true, message: m.error_somethingHappened() });
+		return fail(500, { renameError: true, message: m.message_somethingHappenedTryAgain() });
 	}
 
 	return { success: true };
@@ -74,7 +74,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 	const formData = safeParse(CreateSchema, Object.fromEntries(await request.formData()));
 
 	if (!formData.success) {
-		return fail(400, { createError: true, message: m.error_somethingHappened() });
+		return fail(400, { createError: true, message: m.message_somethingHappenedTryAgain() });
 	}
 
 	const { name, email } = formData.output;
@@ -105,7 +105,7 @@ export const create = async ({ locals, request, params }: ActionData) => {
 		if (foundData.length > 0) {
 			return fail(409, {
 				createError: true,
-				message: m.user_exists(),
+				message: m.message_userExists(),
 				email,
 				name
 			});
@@ -150,10 +150,15 @@ export const create = async ({ locals, request, params }: ActionData) => {
 			});
 		} catch (error: any) {
 			console.error(error, 'Error Code 46');
-			throw new HttpError(500, m.error_somethingHappened(), null);
+			throw new HttpError(500, m.message_somethingHappenedTryAgain(), null);
 		}
 	} catch {
-		return fail(500, { createError: true, message: m.error_somethingHappened(), email, name });
+		return fail(500, {
+			createError: true,
+			message: m.message_somethingHappenedTryAgain(),
+			email,
+			name
+		});
 	}
 
 	return { createSuccess: email, success: true };
@@ -219,7 +224,10 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 	const formData = safeParse(RenameMemberSchema, Object.fromEntries(await request.formData()));
 
 	if (!formData.success) {
-		return fail(400, { renameMemberError: true, message: m.error_somethingHappened() });
+		return fail(400, {
+			renameMemberError: true,
+			message: m.message_somethingHappenedTryAgain()
+		});
 	}
 
 	const { user: userId, name } = formData.output;
@@ -257,7 +265,7 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 		);
 
 		if (!check2?.[0]) {
-			return fail(400, { renameMemberError: true, message: m.nonexistant_user() });
+			return fail(400, { renameMemberError: true, message: m.message_nonexistantUser() });
 		}
 
 		unwrapNoData(
@@ -270,7 +278,10 @@ export const renamemember = async ({ request, locals, params }: ActionData) => {
 			51
 		);
 	} catch {
-		return fail(500, { renameMemberError: true, message: m.error_somethingHappened() });
+		return fail(500, {
+			renameMemberError: true,
+			message: m.message_somethingHappenedTryAgain()
+		});
 	}
 
 	return { success: true };
@@ -462,7 +473,7 @@ export const demote = async ({ request, params, locals }: ActionData) => {
 		}
 
 		if (userId === user.id) {
-			return fail(400, { demoteFailure: true, message: m.demote_yourself() });
+			return fail(400, { demoteFailure: true, message: m.message_cannotDemoteYourself() });
 		}
 
 		const check = unwrap(
