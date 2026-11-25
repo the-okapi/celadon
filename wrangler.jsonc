@@ -16,5 +16,6 @@
 		"PUBLIC_FRENCH_HELP_URL": "https://help.celadon.work/francais"
 	},
 	"route": "celadon.work/*",
-	"workers_dev": false
+	"workers_dev": true,
+	"preview_urls": true
 }
