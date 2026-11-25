@@ -46,7 +46,7 @@
 						<h2
 							class="text-center text-2xl
 							font-bold">
-							{m.add_member()}
+							{m.title_addMember()}
 						</h2>
 						{let options = $derived(
 							members
@@ -73,7 +73,7 @@
 							)}
 							<div class="m-auto mt-5 mb-1 w-fit">
 								<Label.Root class="text-sm">
-									{m.choose_add()}:
+									{m.field_chooseSomeoneAdd()}:
 									<Combobox {options} bind:value={memberToAdd} />
 								</Label.Root>
 							</div>
@@ -110,7 +110,7 @@
 		</div>
 	</div>
 	<div class="border-o relative z-10 w-full rounded-xl bg-background p-5">
-		<h2 class="text-center text-3xl font-bold">{m.class_list()}</h2>
+		<h2 class="text-center text-3xl font-bold">{m.title_classList()}</h2>
 		{#each data.members as member, i (member.user.id)}
 			<div class="flex h-16 px-5 py-3">
 				<div class="flex w-fit items-center">
@@ -131,7 +131,7 @@
 				</p>
 				{#if member.user.id !== data.user && data.members.length > 1}
 					<Button.Root onclick={() => confirmRemove(i)} class="red-button">
-						{m.remove()}
+						{m.button_remove()}
 					</Button.Root>
 				{/if}
 			</div>
@@ -144,8 +144,7 @@
 
 <AlertDialog bind:open={showConfirm}>
 	<p class="mb-8 w-100 text-center text-lg">
-		{m.are_you_sure()}
-		{m.remove_from_class({ name: data.members[remove].user.name })}
+		{m.confirm_removeFromClass({ name: data.members[remove].user.name })}
 	</p>
 	{#snippet go()}
 		<form

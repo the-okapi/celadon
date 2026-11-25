@@ -86,7 +86,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				throw new HttpError(403, m.invalid_permissions(), null);
+				throw new HttpError(403, m.message_invalidPermissions(), null);
 			}
 
 			const check2 = unwrap(
@@ -99,7 +99,7 @@ export const actions = {
 			);
 
 			if (!check2 || check2[0].organization !== params.org) {
-				throw new HttpError(404, m.class_not_found(), null);
+				throw new HttpError(404, m.message_classNotFound(), null);
 			}
 
 			const check3 = unwrap(
@@ -113,7 +113,7 @@ export const actions = {
 			);
 
 			if (!check3?.[0]) {
-				throw new HttpError(400, m.user_not_found(), null);
+				throw new HttpError(400, m.message_userNotFound(), null);
 			}
 
 			const check4 = unwrap(
@@ -126,7 +126,7 @@ export const actions = {
 			);
 
 			if (check4?.[0]) {
-				throw new HttpError(409, m.user_already_class(), null);
+				throw new HttpError(409, m.message_userAlreadyInClass(), null);
 			}
 
 			unwrapNoData(
@@ -176,7 +176,7 @@ export const actions = {
 			);
 
 			if (!check?.[0]) {
-				return new HttpError(403, m.invalid_permissions(), null);
+				return new HttpError(403, m.message_invalidPermissions(), null);
 			}
 
 			unwrapNoData(

@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		}
 
 		return {
-			title: m.create_account()
+			title: m.title_createAccount()
 		};
 	} catch (e: any) {
 		return handleHttpError(e);

@@ -7,12 +7,12 @@
 </script>
 
 <svelte:head>
-	<title>{m.create_account()} | {m.name_celadon()}</title>
+	<title>{m.title_createAccount()} | {m.name_celadon()}</title>
 </svelte:head>
 
 <div class="flex h-[calc(100vh-5rem)] w-screen items-center justify-center">
 	<form class="border-o relative rounded-xl bg-background p-10" method="POST">
-		<h2 class="mb-5 text-center text-3xl font-bold">{m.create_account()}</h2>
+		<h2 class="mb-5 text-center text-3xl font-bold">{m.title_createAccount()}</h2>
 		<div class="m-auto w-fit">
 			<Label.Root for="email">{m.field_email()}:</Label.Root><br />
 			<input type="email" id="email" name="email" class="w-60" value={form?.email} required />

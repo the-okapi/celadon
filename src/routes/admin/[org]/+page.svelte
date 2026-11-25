@@ -83,7 +83,7 @@
 		<div class="flex h-full flex-col gap-4">
 			<div class="border-o flex h-full w-full items-center rounded-xl bg-background p-5">
 				<form action="?/rename" method="POST" class="m-auto">
-					<h2 class="text-center text-2xl font-bold">{m.rename_organization()}</h2>
+					<h2 class="text-center text-2xl font-bold">{m.title_renameOrganization()}</h2>
 					<div class="mx-auto my-5 w-fit">
 						<Label.Root for="name">{m.field_renameTo()}:</Label.Root><br />
 						<input type="text" class="w-60" id="name" name="name" required />
@@ -103,10 +103,7 @@
 
 <AlertDialog bind:open={confirmRevoke}>
 	<p class="mb-8 w-100 text-center text-lg">
-		{m.are_you_sure()}
-		{m.confirm_revoke()}
-		{data.invitations[invitation].name},
-		{data.invitations[invitation].email}?
+		{m.confirm_revoke({ ...data.invitations[invitation] })}
 	</p>
 	{#snippet go()}
 		<form action="?/revoke" method="POST">
@@ -118,9 +115,7 @@
 
 <AlertDialog bind:open={restoreOpen}>
 	<p class="mb-8 w-100 text-center text-lg">
-		{m.are_you_sure()}
-		{m.confirm_restore()}
-		{data.deletions[restore].name} ({data.deletions[restore].email})?
+		{m.confirm_restore({ ...data.deletions[restore] })}
 	</p>
 	{#snippet go()}
 		<form action="?/restore" method="POST">
